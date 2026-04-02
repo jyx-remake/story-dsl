@@ -25,6 +25,8 @@
 
 ## Quick Start
 
+根目录的 `npm` 命令是工作区代理脚本，会转发到 `packages/vscode-extension/`。
+
 ```powershell
 npm run install:vscode
 npm run build
@@ -191,6 +193,7 @@ TODO.md
 
 - 插件代码在 `packages/vscode-extension/`
 - C# 执行器在 `packages/runtime-csharp/`
+- 根目录 `npm run build / test / package:vsix` 会转发到插件包
 - `TODO.md` 只记录后续设计方向，不表示功能已实现
 - `packages/vscode-extension/README.vscode.md` 专用于插件打包，不承担仓库总说明职责
 - 修改解析或 IR 后，请同步更新测试与示例 JSON

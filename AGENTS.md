@@ -4,12 +4,13 @@
 
 ## Project Goal
 
-这是一个 VSCode 插件项目，用来支持剧情脚本 DSL：
+这是一个剧情脚本 DSL 工具链仓库，当前包含 VSCode 插件与 C# 运行时：
 
 - 编辑 `.story` 文件
 - 解析 DSL 为 AST
 - 编译为引擎友好的 JSON IR
 - 在 VSCode 中提供高亮、诊断、编译命令
+- 提供独立的 C# JSON IR 执行器原型
 
 仓库包含独立的 C# 执行器目录 `packages/runtime-csharp/`，用于消费 JSON IR。
 后续语法与架构演进计划记录在 `TODO.md`。
@@ -25,6 +26,7 @@
 - 根目录 `README.md` 是仓库总说明
 - `packages/vscode-extension/README.vscode.md` 是插件打包页说明
 
+根目录的 `npm run build / test / package:vsix` 是工作区代理脚本，会转发到 `packages/vscode-extension/`。
 如果改了插件源码，请重新构建生成 `packages/vscode-extension/dist/`。
 
 ## Architecture
