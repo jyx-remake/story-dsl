@@ -1,0 +1,11 @@
+dist/test/**
+src/**
+tsconfig.json
+node_modules/typescript/**
+node_modules/@types/**
+.vscode/**
+AGENTS.md
+TODO.md
+README.md
+runtime-csharp/**
+examples/**

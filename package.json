@@ -1,0 +1,10 @@
+{
+  "name": "story-dsl-workspace",
+  "private": true,
+  "scripts": {
+    "install:vscode": "npm install --prefix packages/vscode-extension",
+    "build": "npm --prefix packages/vscode-extension run build",
+    "test": "npm --prefix packages/vscode-extension run test",
+    "package:vsix": "npm --prefix packages/vscode-extension run package:vsix"
+  }
+}

@@ -1,0 +1,19 @@
+# OS / editor
+Thumbs.db
+.DS_Store
+
+# VSCode local state
+.vscode/*.log
+
+# VSCode extension package
+packages/vscode-extension/node_modules/
+packages/vscode-extension/dist/
+packages/vscode-extension/*.vsix
+
+# C# build outputs
+packages/runtime-csharp/**/bin/
+packages/runtime-csharp/**/obj/
+
+# Test and coverage artifacts
+packages/runtime-csharp/**/TestResults/
+packages/runtime-csharp/**/coverage/

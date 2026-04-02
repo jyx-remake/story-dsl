@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="StoryDsl.Runtime.Cli/StoryDsl.Runtime.Cli.csproj" />
+  <Project Path="StoryDsl.Runtime.Tests/StoryDsl.Runtime.Tests.csproj" />
+  <Project Path="StoryDsl.Runtime/StoryDsl.Runtime.csproj" />
+</Solution>

@@ -1,0 +1,74 @@
+{
+  "name": "storydsl-vscode",
+  "displayName": "Story DSL",
+  "description": "VSCode support for a screenplay DSL with AST parsing and JSON IR compilation.",
+  "version": "0.1.1",
+  "publisher": "local",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+file:///c:/home/game_developer/dsl"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:storydsl",
+    "onCommand:storydsl.compileCurrent",
+    "onCommand:storydsl.compileAll",
+    "onCommand:storydsl.validateCurrent"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "storydsl",
+        "aliases": [
+          "Story DSL",
+          "storydsl"
+        ],
+        "extensions": [
+          ".story"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "storydsl",
+        "scopeName": "source.storydsl",
+        "path": "./syntaxes/story.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "storydsl.compileCurrent",
+        "title": "Story DSL: Compile Current Story"
+      },
+      {
+        "command": "storydsl.compileAll",
+        "title": "Story DSL: Compile All Stories"
+      },
+      {
+        "command": "storydsl.validateCurrent",
+        "title": "Story DSL: Validate Current Story"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "test": "npm run build && node --test dist/test/**/*.test.js",
+    "package:vsix": "npx @vscode/vsce package --allow-missing-repository --no-rewrite-relative-links --readme-path README.vscode.md"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.8.2"
+  }
+}

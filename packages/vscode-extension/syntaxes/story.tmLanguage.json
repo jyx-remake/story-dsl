@@ -1,0 +1,91 @@
+{
+  "scopeName": "source.storydsl",
+  "name": "Story DSL",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#segment"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#branch"
+    },
+    {
+      "include": "#dialogue"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#number"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.double-slash.storydsl",
+      "match": "//.*$"
+    },
+    "segment": {
+      "patterns": [
+        {
+          "name": "entity.name.section.storydsl",
+          "match": "^#\\s*.+$"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.storydsl",
+          "match": "\\b(if|elif|else|battle|jump|and|or|not|win|lose|timeout)\\b|&&|\\|\\||!"
+        }
+      ]
+    },
+    "branch": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.list.storydsl",
+          "match": "^\\s*-\\s+"
+        }
+      ]
+    },
+    "dialogue": {
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "entity.name.function.storydsl"
+            },
+            "2": {
+              "name": "punctuation.separator.key-value.storydsl"
+            },
+            "3": {
+              "name": "string.unquoted.storydsl"
+            }
+          },
+          "match": "^\\s*([^:/：\\n]*?)\\s*([:：])\\s*(.*)$"
+        }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        {
+          "name": "variable.other.readwrite.storydsl",
+          "match": "\\$[^\\s()!<>=&|/:：]+"
+        }
+      ]
+    },
+    "number": {
+      "patterns": [
+        {
+          "name": "constant.numeric.storydsl",
+          "match": "\\b\\d+(?:\\.\\d+)?\\b"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+namespace StoryDsl.Runtime;
+
+public interface IRuntimeHost
+{
+    ValueTask<ExprValue> GetVariableAsync(string name, CancellationToken cancellationToken);
+
+    ValueTask<bool> EvaluatePredicateAsync(string name, IReadOnlyList<ExprValue> args, CancellationToken cancellationToken);
+
+    ValueTask ExecuteCommandAsync(string name, IReadOnlyList<ExprValue> args, CancellationToken cancellationToken);
+
+    ValueTask<int> ChooseOptionAsync(ChoiceContext choice, CancellationToken cancellationToken);
+
+    ValueTask<BattleOutcome> ResolveBattleAsync(BattleContext battle, CancellationToken cancellationToken);
+}

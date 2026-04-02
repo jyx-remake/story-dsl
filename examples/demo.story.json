@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "segments": [
+    {
+      "name": "游戏开始",
+      "steps": [
+        {
+          "kind": "dialogue",
+          "speaker": "南贤",
+          "text": "游戏开始"
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "胡斐",
+            "text": "少侠来此所谓何事？"
+          },
+          "options": [
+            {
+              "text": "无事",
+              "steps": [
+                {
+                  "kind": "jump",
+                  "target": "nothing"
+                }
+              ]
+            },
+            {
+              "text": "乞讨",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "get_money",
+                  "args": [
+                    100
+                  ]
+                },
+                {
+                  "kind": "dialogue",
+                  "speaker": "胡斐",
+                  "text": "给你钱"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "battle",
+          "battleId": "新手战",
+          "outcomes": {
+            "win": [
+              {
+                "kind": "dialogue",
+                "speaker": "南贤",
+                "text": "少侠好身手"
+              }
+            ],
+            "lose": [],
+            "timeout": [
+              {
+                "kind": "dialogue",
+                "speaker": "南贤",
+                "text": "太墨迹了"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "branch",
+          "cases": [
+            {
+              "when": [
+                "and",
+                [
+                  "pred",
+                  "has_item",
+                  "小刀"
+                ],
+                [
+                  ">",
+                  [
+                    "var",
+                    "money"
+                  ],
+                  100
+                ]
+              ],
+              "steps": [
+                {
+                  "kind": "dialogue",
+                  "speaker": "南贤",
+                  "text": "不错"
+                }
+              ]
+            },
+            {
+              "when": [
+                "or",
+                [
+                  "not",
+                  [
+                    "pred",
+                    "has_item",
+                    "小刀"
+                  ]
+                ],
+                [
+                  ">",
+                  [
+                    "var",
+                    "money"
+                  ],
+                  10
+                ]
+              ],
+              "steps": [
+                {
+                  "kind": "dialogue",
+                  "speaker": "南贤",
+                  "text": "也行"
+                }
+              ]
+            }
+          ],
+          "fallback": [
+            {
+              "kind": "dialogue",
+              "speaker": "南贤",
+              "text": "穷鬼"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nothing",
+      "steps": [
+        {
+          "kind": "dialogue",
+          "speaker": "南贤",
+          "text": "后会有期"
+        }
+      ]
+    }
+  ]
+}
