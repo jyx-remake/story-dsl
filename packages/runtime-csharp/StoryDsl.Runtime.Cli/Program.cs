@@ -51,8 +51,8 @@ static void Print(RuntimeEvent runtimeEvent)
 {
     switch (runtimeEvent)
     {
-        case DialogueEvent dialogue:
-            Console.WriteLine($"DIALOGUE {dialogue.Speaker}: {dialogue.Text}");
+        case DialogueReadyEvent dialogue:
+            Console.WriteLine($"DIALOGUE {dialogue.Dialogue.Speaker}: {dialogue.Dialogue.Text}");
             break;
         case CommandExecutedEvent command:
             Console.WriteLine($"COMMAND {command.Name} [{string.Join(", ", command.Args.Select(arg => arg.ToString()))}]");

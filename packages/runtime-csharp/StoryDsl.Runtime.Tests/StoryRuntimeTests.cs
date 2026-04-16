@@ -41,8 +41,8 @@ public sealed class StoryRuntimeTests
 
         var events = await CollectAsync(runtime.RunAsync(script, host));
 
-        var dialogue = Assert.IsType<DialogueEvent>(Assert.Single(events));
-        Assert.Equal("fallback", dialogue.Text);
+        var dialogue = Assert.IsType<DialogueReadyEvent>(Assert.Single(events));
+        Assert.Equal("fallback", dialogue.Dialogue.Text);
     }
 
     [Fact]
@@ -79,9 +79,40 @@ public sealed class StoryRuntimeTests
             item => Assert.IsType<JumpEvent>(item),
             item =>
             {
-                var dialogue = Assert.IsType<DialogueEvent>(item);
-                Assert.Equal("done", dialogue.Text);
+                var dialogue = Assert.IsType<DialogueReadyEvent>(item);
+                Assert.Equal("done", dialogue.Dialogue.Text);
             });
+    }
+
+    [Fact]
+    public async Task RunAsync_WaitsOnHostForEachDialogue()
+    {
+        const string json = """
+        {
+          "version": 1,
+          "segments": [
+            {
+              "name": "Start",
+              "steps": [
+                { "kind": "dialogue", "speaker": "npc", "text": "first" },
+                { "kind": "dialogue", "speaker": "npc", "text": "second" }
+              ]
+            }
+          ]
+        }
+        """;
+
+        var script = StoryScriptJson.Parse(json);
+        var runtime = new StoryRuntime();
+        var host = new TestRuntimeHost();
+
+        var events = await CollectAsync(runtime.RunAsync(script, host));
+
+        Assert.Equal(2, host.DialogueCalls);
+        Assert.Collection(
+            events,
+            item => Assert.Equal("first", Assert.IsType<DialogueReadyEvent>(item).Dialogue.Text),
+            item => Assert.Equal("second", Assert.IsType<DialogueReadyEvent>(item).Dialogue.Text));
     }
 
     [Fact]
@@ -102,9 +133,9 @@ public sealed class StoryRuntimeTests
         Assert.Contains(events, item => item is ChoiceResolvedEvent resolved && resolved.SelectedIndex == 1);
         Assert.Contains(events, item => item is BattleStartedEvent);
         Assert.Contains(events, item => item is BattleResolvedEvent resolved && resolved.Outcome == BattleOutcome.Timeout);
-        Assert.Contains(events, item => item is DialogueEvent dialogue && dialogue.Text == "给你钱");
-        Assert.Contains(events, item => item is DialogueEvent dialogue && dialogue.Text == "不错");
-        Assert.DoesNotContain(events, item => item is DialogueEvent dialogue && dialogue.Text == "穷鬼");
+        Assert.Contains(events, item => item is DialogueReadyEvent dialogue && dialogue.Dialogue.Text == "给你钱");
+        Assert.Contains(events, item => item is DialogueReadyEvent dialogue && dialogue.Dialogue.Text == "不错");
+        Assert.DoesNotContain(events, item => item is DialogueReadyEvent dialogue && dialogue.Dialogue.Text == "穷鬼");
         Assert.Contains("get_money:100", host.Commands);
     }
 

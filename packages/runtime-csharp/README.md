@@ -1,6 +1,6 @@
 # StoryDsl Runtime (C#)
 
-This directory contains a `net8.0` C# runtime that consumes the JSON IR produced by the VSCode plugin.
+This directory contains a `net10.0` C# runtime that consumes the JSON IR produced by the VSCode plugin.
 
 Projects:
 

@@ -2,6 +2,8 @@ namespace StoryDsl.Runtime;
 
 public interface IRuntimeHost
 {
+    ValueTask DialogueAsync(DialogueContext dialogue, CancellationToken cancellationToken);
+
     ValueTask<ExprValue> GetVariableAsync(string name, CancellationToken cancellationToken);
 
     ValueTask<bool> EvaluatePredicateAsync(string name, IReadOnlyList<ExprValue> args, CancellationToken cancellationToken);
