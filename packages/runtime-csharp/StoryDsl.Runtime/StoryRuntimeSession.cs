@@ -89,7 +89,9 @@ internal sealed class StoryRuntimeSession(
         switch (step)
         {
             case DialogueStep dialogue:
-                yield return StepResult.FromEvent(new DialogueEvent(dialogue.Speaker, dialogue.Text));
+                var context = new DialogueContext(dialogue.Speaker, dialogue.Text);
+                yield return StepResult.FromEvent(new DialogueReadyEvent(context));
+                await host.DialogueAsync(context, ct);
                 yield break;
             case CommandStep command:
             {

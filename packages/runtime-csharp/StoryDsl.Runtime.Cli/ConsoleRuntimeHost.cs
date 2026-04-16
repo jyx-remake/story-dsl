@@ -7,6 +7,14 @@ internal sealed class ConsoleRuntimeHost : IRuntimeHost
 {
     private readonly Dictionary<string, ExprValue> _variables = new(StringComparer.Ordinal);
 
+    public ValueTask DialogueAsync(DialogueContext dialogue, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        Console.Write("Press Enter to continue...");
+        _ = Console.ReadLine();
+        return ValueTask.CompletedTask;
+    }
+
     public ValueTask<ExprValue> GetVariableAsync(string name, CancellationToken cancellationToken)
     {
         if (_variables.TryGetValue(name, out var value))

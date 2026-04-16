@@ -2,9 +2,8 @@ namespace StoryDsl.Runtime;
 
 public abstract record RuntimeEvent;
 
-public sealed record DialogueEvent(
-    string Speaker,
-    string Text) : RuntimeEvent;
+public sealed record DialogueReadyEvent(
+    DialogueContext Dialogue) : RuntimeEvent;
 
 public sealed record CommandExecutedEvent(
     string Name,
@@ -26,6 +25,10 @@ public sealed record BattleResolvedEvent(
 
 public sealed record JumpEvent(
     string Target) : RuntimeEvent;
+
+public sealed record DialogueContext(
+    string Speaker,
+    string Text);
 
 public sealed record ChoiceContext(
     string PromptSpeaker,

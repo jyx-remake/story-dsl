@@ -16,6 +16,15 @@ internal sealed class TestRuntimeHost : IRuntimeHost
 
     public int PredicateCalls { get; private set; }
 
+    public int DialogueCalls { get; private set; }
+
+    public ValueTask DialogueAsync(DialogueContext dialogue, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        DialogueCalls += 1;
+        return ValueTask.CompletedTask;
+    }
+
     public ValueTask<ExprValue> GetVariableAsync(string name, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
