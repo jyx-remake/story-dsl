@@ -2,6 +2,7 @@ import * as path from "path";
 import * as vscode from "vscode";
 import { DiagnosticItem } from "./ast";
 import { compileScript } from "./compiler/compiler";
+import { convertXmlToStory } from "./converter/xml-to-story";
 import { parseStory } from "./parser/parser";
 
 const LANGUAGE_ID = "storydsl";
@@ -124,6 +125,31 @@ export function activate(context: vscode.ExtensionContext): void {
     }),
   );
 
+  context.subscriptions.push(
+    vscode.commands.registerCommand("storydsl.convertXmlToStory", async (sourceUri?: vscode.Uri) => {
+      const inputUri = sourceUri ?? getActiveXmlUri() ?? await pickXmlUri();
+      if (!inputUri) {
+        return;
+      }
+
+      try {
+        const xmlBytes = await vscode.workspace.fs.readFile(inputUri);
+        const storyText = convertXmlToStory(Buffer.from(xmlBytes).toString("utf8"));
+        const targetUri = getStoryOutputUri(inputUri);
+        await vscode.workspace.fs.writeFile(targetUri, Buffer.from(storyText, "utf8"));
+        output.appendLine(`[ok] ${inputUri.fsPath} -> ${targetUri.fsPath}`);
+
+        const document = await vscode.workspace.openTextDocument(targetUri);
+        await vscode.window.showTextDocument(document);
+        void vscode.window.showInformationMessage(`Story XML 转换完成：${path.basename(targetUri.fsPath)}`);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        output.appendLine(`[error] ${inputUri.fsPath} XML 转换失败：${message}`);
+        void vscode.window.showErrorMessage(`Story XML 转换失败：${message}`);
+      }
+    }),
+  );
+
   vscode.workspace.textDocuments.forEach((document) => {
     void refreshDocumentDiagnostics(document);
   });
@@ -164,4 +190,33 @@ function getOutputUri(source: vscode.Uri): vscode.Uri {
   const directory = path.dirname(source.fsPath);
   const baseName = path.basename(source.fsPath);
   return vscode.Uri.file(path.join(directory, `${baseName}.json`));
+}
+
+function getStoryOutputUri(source: vscode.Uri): vscode.Uri {
+  const directory = path.dirname(source.fsPath);
+  const parsedPath = path.parse(source.fsPath);
+  return vscode.Uri.file(path.join(directory, `${parsedPath.name}.story`));
+}
+
+function getActiveXmlUri(): vscode.Uri | null {
+  const document = vscode.window.activeTextEditor?.document;
+  if (!document || document.uri.scheme !== "file" || path.extname(document.uri.fsPath).toLowerCase() !== ".xml") {
+    return null;
+  }
+
+  return document.uri;
+}
+
+async function pickXmlUri(): Promise<vscode.Uri | null> {
+  const files = await vscode.window.showOpenDialog({
+    canSelectFiles: true,
+    canSelectFolders: false,
+    canSelectMany: false,
+    filters: {
+      "Story XML": ["xml"],
+    },
+    title: "选择要转换的 Story XML 文件",
+  });
+
+  return files?.[0] ?? null;
 }
