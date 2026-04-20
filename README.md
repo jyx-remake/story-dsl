@@ -18,6 +18,7 @@
 - VSCode 问题面板诊断
 - 保存时自动输出同名 `.story.json`
 - 段级大纲展示
+- 从旧版 Story XML 转换为 `.story` 草稿
 
 仓库仍以 VSCode 插件与 JSON IR 编译为主，`packages/runtime-csharp/` 是独立的消费端原型。
 
@@ -51,6 +52,12 @@ npm run package:vsix
 - `Story DSL: Validate Current Story`
 - `Story DSL: Compile Current Story`
 - `Story DSL: Compile All Stories`
+- `Story DSL: Convert XML To Story`
+
+`Convert XML To Story` 会读取当前打开的 `.xml` 文件，或提示选择 XML 文件，并在同目录输出同名 `.story`。
+转换会保留段名和取值中的原始 `_` / `.`，只把 XML 的 action/result 类型映射为小写 DSL 命令名。
+旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
+当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 
 ## DSL Snapshot
 
@@ -207,6 +214,18 @@ TODO.md
 - 不支持引号字符串、转义、`%temp`、`@player.name`
 - `choice` 只能出现在对白之后
 - 当前只做静态高亮，不做语义 token 和 LSP
+
+## Rich Text Notes
+
+- 当前仅在 XML 转 `.story` 时把旧颜色标记转换为 BBCode
+- parser / validator / IR 仍把对白与选项文本视为普通字符串，不做富文本结构化解析
+- 以下能力暂记为后续设计项，当前未实现：
+  - 颜色的正式文本模型
+  - 粗体
+  - 下划线
+  - 点击
+  - 图标
+  - 变量插值
 
 ## Roadmap Snapshot
 

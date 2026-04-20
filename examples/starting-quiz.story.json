@@ -1,0 +1,1081 @@
+{
+  "version": 1,
+  "segments": [
+    {
+      "name": "开局答题",
+      "steps": [
+        {
+          "kind": "command",
+          "name": "item",
+          "args": [
+            "小还丹",
+            3
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "get_money",
+          "args": [
+            100
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "在来到这个世界之前，请允许询问您几个问题"
+          },
+          "options": [
+            {
+              "text": "继续..",
+              "steps": []
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "你希望你在武侠小说中的出身是"
+          },
+          "options": [
+            {
+              "text": "商人的儿子",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    "-5"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "黑玉断续膏"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "九转熊蛇丸"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "金丝道袍"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "金头箍"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "zydx"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "大草原上长大的孩子",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "身法",
+                    15
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    "-2"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "拳掌",
+                    15
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "learn",
+                  "args": [
+                    "主角",
+                    "talent",
+                    "猎人"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "caoyuan"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "名门世家",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    3
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    "-3"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    2
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    20
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "剑法",
+                    2
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    2
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "银手镯"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "get_money",
+                  "args": [
+                    100
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "huodu"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "市井流浪的汉子",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    "-5"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    12
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "刀法",
+                    15
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "奇门",
+                    12
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "草帽"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "shijing"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "get_money",
+                  "args": [
+                    "-100"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "疯子",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    35
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    10
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    10
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "learn",
+                  "args": [
+                    "主角",
+                    "talent",
+                    "神经病"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "fengzi"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "书香门第",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    20
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    1
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "身法",
+                    "-10"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    "-5"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "animation",
+                  "args": [
+                    "主角",
+                    "xiake"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "以下你觉得最宝贵的是"
+          },
+          "options": [
+            {
+              "text": "无尽的财宝",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "get_money",
+                  "args": [
+                    1000
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "永恒的爱情",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    15
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "坚强的意志",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    15
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "自由",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "身法",
+                    15
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "至高无上的权力",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "learn",
+                  "args": [
+                    "主角",
+                    "talent",
+                    "自我主义"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "以下你觉得最可恶的行为是"
+          },
+          "options": [
+            {
+              "text": "调戏妇女",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    9
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "欺软怕硬",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    6
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    6
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "偷奸耍滑",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "切JJ练神功",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "有美女不泡",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "learn",
+                  "args": [
+                    "主角",
+                    "talent",
+                    "好色"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "你最喜欢的兵刃是"
+          },
+          "options": [
+            {
+              "text": "拳",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "拳掌",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "剑",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "剑法",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "刀",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "刀法",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "暗器",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "奇门",
+                    10
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "以下女性角色你最喜欢的是"
+          },
+          "options": [
+            {
+              "text": "黄蓉",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "小龙女",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "郭襄",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "梅超风",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "拳掌",
+                    6
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    6
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "周芷若",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    10
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "以下男性角色你最喜欢的是"
+          },
+          "options": [
+            {
+              "text": "张无忌",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "郭靖",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    "-10"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    15
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "杨过",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "令狐冲",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "林平之",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "剑法",
+                    10
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "定力",
+                    10
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "以下你觉得最牛的人是"
+          },
+          "options": [
+            {
+              "text": "乔峰",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "臂力",
+                    10
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "拳掌",
+                    9
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "韦小宝",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "福缘",
+                    20
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "金庸先生",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "悟性",
+                    13
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "剑法",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "刀法",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "拳掌",
+                    5
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "奇门",
+                    5
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "东方不败",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    20
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "汉家松鼠",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "upgrade",
+                  "args": [
+                    "主角",
+                    "根骨",
+                    10
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "learn",
+                  "args": [
+                    "主角",
+                    "internalskill",
+                    "基本内功",
+                    20
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "松果",
+                    3
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "半瓶神仙醋",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "天王保命丹",
+                    6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "选择你的游戏难度"
+          },
+          "options": [
+            {
+              "text": "简单",
+              "steps": []
+            },
+            {
+              "text": "[color=yellow]进阶[/color]",
+              "steps": []
+            },
+            {
+              "text": "[color=red]炼狱[/color]",
+              "steps": []
+            },
+            {
+              "text": "[color=magenta]无悔[/color]",
+              "steps": []
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "请输入你的名字"
+          },
+          "options": [
+            {
+              "text": "继续..",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "input_name",
+                  "args": [
+                    "主角",
+                    "小虾米"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "请选择人物头像"
+          },
+          "options": [
+            {
+              "text": "继续..",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "select_head",
+                  "args": [
+                    "主角"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "",
+            "text": "欢迎来到金庸群侠传的世界"
+          },
+          "options": [
+            {
+              "text": "继续..",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "roll_stats",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

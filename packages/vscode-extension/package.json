@@ -2,7 +2,7 @@
   "name": "storydsl-vscode",
   "displayName": "Story DSL",
   "description": "VSCode support for a screenplay DSL with AST parsing and JSON IR compilation.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "local",
   "private": true,
   "license": "MIT",
@@ -21,6 +21,7 @@
     "onLanguage:storydsl",
     "onCommand:storydsl.compileCurrent",
     "onCommand:storydsl.compileAll",
+    "onCommand:storydsl.convertXmlToStory",
     "onCommand:storydsl.validateCurrent"
   ],
   "main": "./dist/extension.js",
@@ -53,6 +54,10 @@
       {
         "command": "storydsl.compileAll",
         "title": "Story DSL: Compile All Stories"
+      },
+      {
+        "command": "storydsl.convertXmlToStory",
+        "title": "Story DSL: Convert XML To Story"
       },
       {
         "command": "storydsl.validateCurrent",
