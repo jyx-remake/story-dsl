@@ -83,7 +83,7 @@
       "patterns": [
         {
           "name": "constant.numeric.storydsl",
-          "match": "\\b\\d+(?:\\.\\d+)?\\b"
+          "match": "(?<![\\w.])-?\\d+(?:\\.\\d+)?\\b"
         }
       ]
     }

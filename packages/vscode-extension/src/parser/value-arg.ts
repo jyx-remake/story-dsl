@@ -1,6 +1,6 @@
 import { SourceSpan, ValueArgAst } from "../ast";
 
-const NUMBER_PATTERN = /^\d+(?:\.\d+)?$/u;
+const NUMBER_PATTERN = /^-?\d+(?:\.\d+)?$/u;
 
 export function parseValueArgAst(raw: string, span: SourceSpan): ValueArgAst {
   if (raw.startsWith("$") && raw.length > 1) {

@@ -62,7 +62,7 @@ else
 
 test("normalizes command arguments into value args", () => {
   const source = `# Start
-set_reward $moneyCnt 小刀 2
+set_reward $moneyCnt 小刀 2 -5
 `;
 
   const parsed = parseStory(source);
@@ -73,7 +73,35 @@ set_reward $moneyCnt 小刀 2
   assert.deepEqual(compiled.ir.segments[0].steps[0], {
     kind: "command",
     name: "set_reward",
-    args: [["var", "moneyCnt"], "小刀", 2],
+    args: [["var", "moneyCnt"], "小刀", 2, -5],
+  });
+});
+
+test("parses negative numeric literals in commands and expressions", () => {
+  const source = `# Start
+upgrade 主角 臂力 -5
+if $money > -100
+  get_money -10
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.diagnostics.length, 0);
+  assert.deepEqual(compiled.ir.segments[0].steps[0], {
+    kind: "command",
+    name: "upgrade",
+    args: ["主角", "臂力", -5],
+  });
+
+  const branchStep = compiled.ir.segments[0].steps[1];
+  assert.equal(branchStep.kind, "branch");
+  assert.deepEqual(branchStep.cases[0].when, [">", ["var", "money"], -100]);
+  assert.deepEqual(branchStep.cases[0].steps[0], {
+    kind: "command",
+    name: "get_money",
+    args: [-10],
   });
 });
 
@@ -170,7 +198,7 @@ test("converts story XML battles, dotted action types and conditioned outcomes",
     <result type="gameOver" ret="1" value="gameOver" />
     <action type="DIALOG" value="梅超风#找死 &amp; 接招！" />
     <action type="LEARN.SKILL" value="主角#伏虎掌#5" />
-    <action type="UPGRADE..SKILL" value="小龙女#玉女素心剑#5" />
+    <action type="UPGRADE..SKILL" value="小龙女#玉女素心剑#-5" />
     <action type="BATTLE" value="新手村梅超风_战斗" />
   </story>
 </root>`;
@@ -179,7 +207,7 @@ test("converts story XML battles, dotted action types and conditioned outcomes",
   assert.equal(story, `# 破庙_梅超风_迎战
 梅超风：找死 & 接招！
 learn 主角 skill 伏虎掌 5
-upgrade 小龙女 skill 玉女素心剑 5
+upgrade 小龙女 skill 玉女素心剑 -5
 battle 新手村梅超风_战斗
 - win
   if have_item 小刀
@@ -189,6 +217,12 @@ battle 新手村梅超风_战斗
 `);
 
   assert.equal(parseStory(story).diagnostics.length, 0);
+  const compiled = compileScript(parseStory(story).ast);
+  assert.deepEqual(compiled.ir.segments[0].steps[2], {
+    kind: "command",
+    name: "upgrade",
+    args: ["小龙女", "skill", "玉女素心剑", -5],
+  });
 });
 
 test("converts legacy inline color markup in XML dialogue and select text to BBCode", () => {
