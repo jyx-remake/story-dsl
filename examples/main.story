@@ -52,7 +52,7 @@ map 小村
 # 新手村_南贤
 南贤：有什么事吗？
 - [color=yellow]【结束新手村】放我出村吧！[/color]
-  jump 新手村_南贤_出村
+  jump 出新手村
 - 【离开】没事了
   map 南贤屋内
 - 【询问】这个世界有善恶之分吗？
@@ -760,7 +760,7 @@ learn 主角 talent 黑衣
 menpai 黑衣
 nick 黑衣墨道
 set_time_key 加入黑衣 45 黑衣_对战魔君
-set_flag NO_GLOBAL_EVENT
+world_trigger off
 jump mainStory_黑衣新一天
 
 # mainStory_黑衣新一天
@@ -1018,7 +1018,7 @@ jump 黑衣_南贤
 主角：华山论剑？
 南贤：正是！来吧，和被你抛弃的小伙伴们来一场相爱相杀吧！我先去华山等你了。
 主角：...
-clear_flag NO_GLOBAL_EVENT
+world_trigger on
 map 大地图
 
 # 黑衣_华山论剑
@@ -2672,7 +2672,7 @@ daode 2
 主角：恩，我留下一段时间，也防止坏人再回来。
 仙丽雅：嘻嘻，那真是太好了。欢迎你，$MALE$!
 set_time_key 长安一梦 15 original_长安一梦.半个月
-set_flag NO_GLOBAL_EVENT
+world_trigger off
 map 长安一梦
 
 # original_长安一梦.民女7
@@ -2759,7 +2759,7 @@ music 音乐.宿命
 主角：...这到底，是真还是幻...竟然会，如此的美好...
 log 长安西市上，做了一个牧马塞外的绮丽的梦。
 nick 长安一梦
-clear_flag NO_GLOBAL_EVENT
+world_trigger on
 map 长安西市
 
 # original_长安酒楼.奇闻1
@@ -15878,7 +15878,7 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 主角：师兄，好功夫！
 达尔巴：师弟，过奖了！壮哉我大轮寺，真是横行江湖啊！
-upgrade 达尔巴 skilll 火焰刀法 5
+upgrade 达尔巴 skill 火焰刀法 5
 upgrade 达尔巴 internalskill 龙象般若功 5
 maxlevel 龙象般若功 2
 maxlevel 火焰刀法 2

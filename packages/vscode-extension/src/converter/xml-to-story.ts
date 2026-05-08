@@ -142,6 +142,11 @@ function emitAction(action: ActionEntry): string[] {
     return [`${speaker}：${convertLegacyInlineColorToBbCode(text)}`];
   }
 
+  const worldTriggerMode = tryGetWorldTriggerMode(action);
+  if (worldTriggerMode !== null) {
+    return [joinCommand("world_trigger", [worldTriggerMode])];
+  }
+
   const command = actionTypeToCommandName(action.type);
   const args = actionValueToArgs(action.type, action.value);
   return [joinCommand(command, args)];
@@ -311,6 +316,23 @@ function actionTypeToCommand(type: string): string {
 
 function actionTypeToCommandName(type: string): string {
   return actionTypeToCommand(type.split(".").find((part) => part.length > 0) ?? type);
+}
+
+function tryGetWorldTriggerMode(action: ActionEntry): "on" | "off" | null {
+  const normalizedType = action.type.trim().toUpperCase();
+  const normalizedValue = action.value.trim();
+  if (normalizedValue !== "NO_GLOBAL_EVENT") {
+    return null;
+  }
+
+  switch (normalizedType) {
+    case "SET_FLAG":
+      return "off";
+    case "CLEAR_FLAG":
+      return "on";
+    default:
+      return null;
+  }
 }
 
 function splitHashArgs(value: string): string[] {

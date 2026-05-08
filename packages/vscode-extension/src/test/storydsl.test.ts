@@ -225,6 +225,23 @@ battle 新手村梅超风_战斗
   });
 });
 
+test("renames legacy NO_GLOBAL_EVENT flag writes to world_trigger on/off", () => {
+  const xml = `<root>
+  <story name="黑衣开关">
+    <action type="SET_FLAG" value="NO_GLOBAL_EVENT" />
+    <action type="CLEAR_FLAG" value="NO_GLOBAL_EVENT" />
+  </story>
+</root>`;
+
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 黑衣开关
+world_trigger off
+world_trigger on
+`);
+
+  assert.equal(parseStory(story).diagnostics.length, 0);
+});
+
 test("converts legacy inline color markup in XML dialogue and select text to BBCode", () => {
   const xml = `<root>
   <story name="新手提示">

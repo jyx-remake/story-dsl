@@ -1,4 +1,6 @@
 # 开局答题
+toast off
+background 地图.竹林
 item 小还丹 3
 get_money 100
 ：在来到这个世界之前，请允许询问您几个问题
@@ -131,9 +133,12 @@ get_money 100
   item 天王保命丹 6
 ：选择你的游戏难度
 - 简单
+  set_game_mode normal
 - [color=yellow]进阶[/color]
+  set_game_mode hard
 - [color=red]炼狱[/color]
-- [color=magenta]无悔[/color]
+  set_game_mode crazy
+// - [color=magenta]无悔[/color]
 ：请输入你的名字
 - 继续..
   input_name 主角 小虾米
@@ -143,3 +148,5 @@ get_money 100
 ：欢迎来到金庸群侠传的世界
 - 继续..
   roll_stats
+toast on
+jump 新手村_出生

@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "segments": [
+    {
+      "name": "出新手村",
+      "steps": [
+        {
+          "kind": "dialogue",
+          "speaker": "南贤",
+          "text": "好了，看来你也学的差不多了。那么现在就送你出村！"
+        },
+        {
+          "kind": "dialogue",
+          "speaker": "南贤",
+          "text": "新手任务暂时做不了，直接送你一本武功秘籍！你要什么类型的？"
+        },
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "主角",
+            "text": "要什么类型的秘籍呢？"
+          },
+          "options": [
+            {
+              "text": "拳掌",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "罗汉拳谱"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "剑法",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "青蟒剑法秘籍"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "刀法",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "万劫刀法谱"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "奇门",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "疯魔杖法秘诀"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "dialogue",
+          "speaker": "南贤",
+          "text": "我再送你五颗小还丹、一个大蟠桃！"
+        },
+        {
+          "kind": "command",
+          "name": "item",
+          "args": [
+            "小还丹",
+            5
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "item",
+          "args": [
+            "王母蟠桃"
+          ]
+        },
+        {
+          "kind": "dialogue",
+          "speaker": "主角",
+          "text": "哇！慷慨啊！"
+        },
+        {
+          "kind": "jump",
+          "target": "original_门派选择"
+        }
+      ]
+    }
+  ]
+}

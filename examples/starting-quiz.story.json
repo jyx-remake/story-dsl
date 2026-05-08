@@ -6,6 +6,20 @@
       "steps": [
         {
           "kind": "command",
+          "name": "toast",
+          "args": [
+            "off"
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "background",
+          "args": [
+            "地图.竹林"
+          ]
+        },
+        {
+          "kind": "command",
           "name": "item",
           "args": [
             "小还丹",
@@ -48,7 +62,7 @@
                   "args": [
                     "主角",
                     "臂力",
-                    "-5"
+                    -5
                   ]
                 },
                 {
@@ -107,7 +121,7 @@
                   "args": [
                     "主角",
                     "定力",
-                    "-2"
+                    -2
                   ]
                 },
                 {
@@ -156,7 +170,7 @@
                   "args": [
                     "主角",
                     "臂力",
-                    "-3"
+                    -3
                   ]
                 },
                 {
@@ -228,7 +242,7 @@
                   "args": [
                     "主角",
                     "福缘",
-                    "-5"
+                    -5
                   ]
                 },
                 {
@@ -277,7 +291,7 @@
                   "kind": "command",
                   "name": "get_money",
                   "args": [
-                    "-100"
+                    -100
                   ]
                 }
               ]
@@ -358,7 +372,7 @@
                   "args": [
                     "主角",
                     "身法",
-                    "-10"
+                    -10
                   ]
                 },
                 {
@@ -367,7 +381,7 @@
                   "args": [
                     "主角",
                     "根骨",
-                    "-5"
+                    -5
                   ]
                 },
                 {
@@ -748,7 +762,7 @@
                   "args": [
                     "主角",
                     "悟性",
-                    "-10"
+                    -10
                   ]
                 },
                 {
@@ -997,19 +1011,39 @@
           "options": [
             {
               "text": "简单",
-              "steps": []
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "set_game_mode",
+                  "args": [
+                    "normal"
+                  ]
+                }
+              ]
             },
             {
               "text": "[color=yellow]进阶[/color]",
-              "steps": []
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "set_game_mode",
+                  "args": [
+                    "hard"
+                  ]
+                }
+              ]
             },
             {
               "text": "[color=red]炼狱[/color]",
-              "steps": []
-            },
-            {
-              "text": "[color=magenta]无悔[/color]",
-              "steps": []
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "set_game_mode",
+                  "args": [
+                    "crazy"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -1074,6 +1108,17 @@
               ]
             }
           ]
+        },
+        {
+          "kind": "command",
+          "name": "toast",
+          "args": [
+            "on"
+          ]
+        },
+        {
+          "kind": "jump",
+          "target": "新手村_出生"
         }
       ]
     }
