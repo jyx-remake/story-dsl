@@ -2,7 +2,7 @@
 background 地图.星宿派
 nick 星宿门人
 menpai 星宿派
-learn 主角 talent 阴毒
+learn talent 主角 阴毒
 主角：啊，这里就是江湖人士闻风丧胆的星宿派了！
 丁春秋：嘿嘿，小子说话我很喜欢。入我门下，只要艺成入世，江湖上保证没有任何人敢惹你。
 摘星子：星宿老仙~
@@ -29,7 +29,7 @@ map 星宿派
 
 # 门派星宿_入门口号对
 丁春秋：哈哈哈，好！好！小子悟性不错，好好修炼吧！
-upgrade 主角 悟性 1
+upgrade 悟性 主角 1
 map 星宿派
 
 # 星宿派_天狼子介绍
@@ -61,14 +61,14 @@ jump 星宿派_天狼子索要
 
 # 星宿派_天狼子学习武功
 item 毒物 -1
-upgrade 主角 skill 抽髓掌 2
-upgrade 主角 拳掌 2
+upgrade skill 主角 抽髓掌 2
+upgrade 拳掌 主角 2
 cost_day 2
 
 # 星宿派_天狼子学习内功
 item 毒物 -1
-upgrade 主角 根骨 5
-upgrade 主角 internalskill 星宿心法 2
+upgrade 根骨 主角 5
+upgrade internal 主角 星宿心法 2
 cost_day 3
 
 # 星宿派_天狼子兑换钱
@@ -87,7 +87,7 @@ jump 星宿派_毒物林1
 
 # 星宿派_毒物林1
 主角：呼，今天运气好，采到一刻毒草。
-upgrade 主角 福缘 2
+upgrade 福缘 主角 2
 item 毒物 1
 
 # 星宿派_毒物林2
@@ -100,7 +100,7 @@ battle 星宿派毒物1
 
 # 星宿派_毒物林2胜利
 item 毒物 2
-upgrade 主角 定力 1
+upgrade 定力 主角 1
 
 # 星宿派_毒物林失败
 background 地图.星宿派
@@ -139,7 +139,7 @@ jump 星宿派_狮吼子索要
 # 星宿派_狮吼子教
 狮吼子：嘿，看好了！今天就来教你做大力士~
 item 毒物 -1
-upgrade 主角 臂力 3
+upgrade 臂力 主角 3
 cost_day 2
 主角：呼呼~师兄你好威猛啊！
 
@@ -164,7 +164,7 @@ shake
 background BLACK
 主角：（难道中毒了……）
 shake
-upgrade 主角 maxhp -10
+upgrade maxhp 主角 -10
 主角：（居然给我下毒……好狠的姑娘），赶紧修养两天吧。
 cost_day 2
 
@@ -187,14 +187,14 @@ battle 星宿派阿紫
 shake
 丁春秋：这是给你的教训，下不为例！
 阿紫：（鬼脸）看你以后还欺不欺负我！
-upgrade 主角 maxmp -20
+upgrade maxmp 主角 -20
 主角：……看来以后要小心点这个妮子。
 
 # 星宿派_阿紫失败
 阿紫：水平也不过如此嘛，给你点小惩罚，看你以后还敢不敢怠慢我！
 shake
 主角：可恶。。。居然给我使毒，啊……
-upgrade 主角 根骨 -1
+upgrade 根骨 主角 -1
 主角：……看来以后要小心点这个妮子。
 
 # 星宿派_阿紫偷鼎
@@ -249,7 +249,7 @@ background 地图.星宿派
 丁春秋：你身上的毒已经解了，起来吧。
 主角：啊，感谢师傅救命之恩！
 丁春秋：嗯，这小妮子下的毒太狠了，经过这一次，你也算有点收货，以后中毒也不会这么严重了。
-learn 主角 talent 毒素抗性
+learn talent 主角 毒素抗性
 cost_day 1
 
 # 星宿派_星宿老仙废话
@@ -277,7 +277,7 @@ battle 星宿派门比2
 # 星宿派_星宿老仙考校3
 background 地图.星宿派
 丁春秋：不错，这个赏给你了！
-learn 主角 specialskill 腐尸毒
+learn special 主角 腐尸毒
 log 获得星宿派门比胜利
 
 # 星宿派_星宿老仙考校负
@@ -328,7 +328,7 @@ battle 星宿派擂鼓山之战
 段延庆：丁老怪，算你狠，我们走。
 慕容复：技不如人，走了走了。
 丁春秋：这次铲平擂鼓山，大家都立功了，这是奖励！
-learn 主角 specialskill 飞星术
+learn special 主角 飞星术
 摘星子：星宿老仙~
 天狼子：法驾中原~
 出尘子：神通广大~

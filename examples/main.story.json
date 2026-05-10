@@ -695,8 +695,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -749,8 +749,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             1
           ]
         },
@@ -897,8 +897,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "伏虎掌",
             5
           ]
@@ -1360,8 +1360,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             10
           ]
         }
@@ -1379,8 +1379,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             10
           ]
         }
@@ -3576,8 +3576,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "黑衣"
           ]
         },
@@ -3725,8 +3725,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -3755,8 +3755,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             600
           ]
         },
@@ -3985,8 +3985,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "至空至明"
           ]
         },
@@ -4002,8 +4002,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4011,8 +4011,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4108,8 +4108,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "易经伐髓"
           ]
         },
@@ -4125,8 +4125,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4134,8 +4134,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4226,8 +4226,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "孤独求败"
           ]
         },
@@ -4243,8 +4243,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4252,8 +4252,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4428,8 +4428,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "碎裂的怒吼"
           ]
         },
@@ -4445,8 +4445,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4454,8 +4454,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4511,8 +4511,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "诸般封印"
           ]
         },
@@ -4528,8 +4528,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4537,8 +4537,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4594,8 +4594,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "我就是神"
           ]
         },
@@ -4611,8 +4611,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4620,8 +4620,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4729,8 +4729,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "百变千幻"
           ]
         },
@@ -4746,8 +4746,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             300
           ]
         },
@@ -4755,8 +4755,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             300
           ]
         },
@@ -4858,8 +4858,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "鬼魅"
           ]
         },
@@ -4867,8 +4867,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "倚天屠龙"
           ]
         },
@@ -7366,8 +7366,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "拳掌",
+            "女主",
             10
           ]
         },
@@ -7599,8 +7599,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "奇门",
+            "女主",
             10
           ]
         }
@@ -7876,8 +7876,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "剑法",
+            "女主",
             20
           ]
         },
@@ -7987,8 +7987,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "剑法",
+            "女主",
             20
           ]
         },
@@ -8449,8 +8449,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "奇门",
+            "女主",
             20
           ]
         },
@@ -8523,8 +8523,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "拳掌",
+            "女主",
             20
           ]
         },
@@ -8629,8 +8629,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "女主",
-            "specialskill",
             "凌波微步"
           ]
         },
@@ -8958,8 +8958,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "拳掌",
+            "女主",
             20
           ]
         },
@@ -8967,8 +8967,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "奇门",
+            "女主",
             20
           ]
         }
@@ -9926,8 +9926,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "maxhp",
+            "女主",
             1500
           ]
         },
@@ -9935,8 +9935,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "maxmp",
+            "女主",
             1500
           ]
         },
@@ -11435,8 +11435,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "草头百姓"
           ]
         },
@@ -15586,8 +15586,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             3
           ]
         },
@@ -15595,8 +15595,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             3
           ]
         },
@@ -15604,8 +15604,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             3
           ]
         },
@@ -15613,8 +15613,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             3
           ]
         },
@@ -15821,8 +15821,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             5
           ]
         },
@@ -15830,8 +15830,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             5
           ]
         },
@@ -15839,8 +15839,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             5
           ]
         },
@@ -15848,8 +15848,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             5
           ]
         },
@@ -16156,8 +16156,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             2
           ]
         },
@@ -16165,8 +16165,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             2
           ]
         },
@@ -16174,8 +16174,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             2
           ]
         },
@@ -16183,8 +16183,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             2
           ]
         },
@@ -16410,8 +16410,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             5
           ]
         },
@@ -16419,8 +16419,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             5
           ]
         },
@@ -16428,8 +16428,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             5
           ]
         },
@@ -16437,8 +16437,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             5
           ]
         },
@@ -16632,8 +16632,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             5
           ]
         },
@@ -16641,8 +16641,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             5
           ]
         },
@@ -16650,8 +16650,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             5
           ]
         },
@@ -16659,8 +16659,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             5
           ]
         },
@@ -16840,8 +16840,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             500
           ]
         },
@@ -16849,8 +16849,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             500
           ]
         },
@@ -16866,8 +16866,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             10
           ]
         },
@@ -16875,8 +16875,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxhp",
+            "陈家洛",
             500
           ]
         },
@@ -16884,8 +16884,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxmp",
+            "陈家洛",
             500
           ]
         },
@@ -16901,8 +16901,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "拳掌",
+            "陈家洛",
             10
           ]
         },
@@ -16977,8 +16977,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -16986,8 +16986,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -17003,8 +17003,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             40
           ]
         },
@@ -17012,8 +17012,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxhp",
+            "陈家洛",
             1000
           ]
         },
@@ -17021,8 +17021,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxmp",
+            "陈家洛",
             1000
           ]
         },
@@ -17038,8 +17038,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "拳掌",
+            "陈家洛",
             40
           ]
         },
@@ -17256,8 +17256,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxhp",
+            "令狐冲",
             500
           ]
         },
@@ -17265,8 +17265,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             500
           ]
         },
@@ -17282,8 +17282,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "剑法",
+            "令狐冲",
             10
           ]
         },
@@ -17291,8 +17291,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxhp",
+            "杨过",
             500
           ]
         },
@@ -17300,8 +17300,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxmp",
+            "杨过",
             500
           ]
         },
@@ -17317,8 +17317,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "拳掌",
+            "杨过",
             10
           ]
         },
@@ -17326,8 +17326,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "剑法",
+            "杨过",
             10
           ]
         },
@@ -17335,8 +17335,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "令狐冲",
             "skill",
+            "令狐冲",
             "独孤九剑",
             15
           ]
@@ -17345,8 +17345,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "杨过",
             "skill",
+            "杨过",
             "玄铁剑法",
             16
           ]
@@ -17432,8 +17432,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxhp",
+            "令狐冲",
             1000
           ]
         },
@@ -17441,8 +17441,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             1000
           ]
         },
@@ -17458,8 +17458,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "剑法",
+            "令狐冲",
             25
           ]
         },
@@ -17467,8 +17467,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxhp",
+            "杨过",
             1000
           ]
         },
@@ -17476,8 +17476,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxmp",
+            "杨过",
             1000
           ]
         },
@@ -17493,8 +17493,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "拳掌",
+            "杨过",
             10
           ]
         },
@@ -17502,8 +17502,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "剑法",
+            "杨过",
             25
           ]
         },
@@ -17511,8 +17511,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "令狐冲",
             "skill",
+            "令狐冲",
             "独孤九剑",
             20
           ]
@@ -17521,8 +17521,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "杨过",
             "skill",
+            "杨过",
             "玄铁剑法",
             20
           ]
@@ -17755,8 +17755,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxhp",
+            "张无忌",
             500
           ]
         },
@@ -17764,8 +17764,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxmp",
+            "张无忌",
             500
           ]
         },
@@ -17781,8 +17781,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "拳掌",
+            "张无忌",
             10
           ]
         },
@@ -17790,8 +17790,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "张无忌",
-            "internalskill",
             "九阳神功",
             10
           ]
@@ -17865,8 +17865,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxhp",
+            "张无忌",
             1000
           ]
         },
@@ -17874,8 +17874,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxmp",
+            "张无忌",
             1000
           ]
         },
@@ -17891,8 +17891,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "拳掌",
+            "张无忌",
             40
           ]
         },
@@ -17900,8 +17900,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "张无忌",
-            "internalskill",
             "九阳神功",
             10
           ]
@@ -18158,8 +18158,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxhp",
+            "杨过",
             500
           ]
         },
@@ -18167,8 +18167,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxmp",
+            "杨过",
             500
           ]
         },
@@ -18184,8 +18184,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "拳掌",
+            "杨过",
             10
           ]
         },
@@ -18193,8 +18193,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "剑法",
+            "杨过",
             10
           ]
         },
@@ -18202,8 +18202,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "杨过",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -18212,8 +18212,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "maxhp",
+            "小龙女",
             500
           ]
         },
@@ -18221,8 +18221,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "maxmp",
+            "小龙女",
             500
           ]
         },
@@ -18238,8 +18238,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "拳掌",
+            "小龙女",
             10
           ]
         },
@@ -18247,8 +18247,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "剑法",
+            "小龙女",
             20
           ]
         },
@@ -18256,8 +18256,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "奇门",
+            "小龙女",
             10
           ]
         },
@@ -18265,8 +18265,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "小龙女",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -18275,8 +18275,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "小龙女",
             "talent",
+            "小龙女",
             "素心神剑"
           ]
         },
@@ -18370,8 +18370,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxhp",
+            "杨过",
             1000
           ]
         },
@@ -18379,8 +18379,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "maxmp",
+            "杨过",
             1000
           ]
         },
@@ -18396,8 +18396,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "拳掌",
+            "杨过",
             10
           ]
         },
@@ -18405,8 +18405,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "剑法",
+            "杨过",
             10
           ]
         },
@@ -18414,8 +18414,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "杨过",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -18424,8 +18424,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "maxhp",
+            "小龙女",
             1000
           ]
         },
@@ -18433,8 +18433,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "maxmp",
+            "小龙女",
             1000
           ]
         },
@@ -18450,8 +18450,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "拳掌",
+            "小龙女",
             10
           ]
         },
@@ -18459,8 +18459,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "剑法",
+            "小龙女",
             10
           ]
         },
@@ -18468,8 +18468,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "奇门",
+            "小龙女",
             10
           ]
         },
@@ -18477,8 +18477,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "小龙女",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -18487,8 +18487,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "小龙女",
             "talent",
+            "小龙女",
             "素心神剑"
           ]
         },
@@ -23314,8 +23314,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "郭襄",
-            "specialskill",
             "襄儿的心愿"
           ]
         }
@@ -23580,8 +23580,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "女主",
             "剑法",
+            "女主",
             20
           ]
         },
@@ -23689,8 +23689,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "maxhp",
+            "郭襄",
             1000
           ]
         },
@@ -23698,8 +23698,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "maxmp",
+            "郭襄",
             1000
           ]
         },
@@ -23715,8 +23715,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "拳掌",
+            "郭襄",
             20
           ]
         },
@@ -23724,8 +23724,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "剑法",
+            "郭襄",
             20
           ]
         },
@@ -23733,8 +23733,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "刀法",
+            "郭襄",
             10
           ]
         },
@@ -23742,8 +23742,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "奇门",
+            "郭襄",
             10
           ]
         },
@@ -23751,8 +23751,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "郭襄",
-            "internalskill",
             "九阳神功",
             10
           ]
@@ -23761,8 +23761,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭襄",
             "talent",
+            "郭襄",
             "峨眉宗师"
           ]
         },
@@ -23838,8 +23838,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "maxhp",
+            "郭襄",
             1500
           ]
         },
@@ -23847,8 +23847,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "maxmp",
+            "郭襄",
             1500
           ]
         },
@@ -23864,8 +23864,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "拳掌",
+            "郭襄",
             40
           ]
         },
@@ -23873,8 +23873,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "剑法",
+            "郭襄",
             40
           ]
         },
@@ -23882,8 +23882,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "刀法",
+            "郭襄",
             10
           ]
         },
@@ -23891,8 +23891,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "奇门",
+            "郭襄",
             10
           ]
         },
@@ -23900,8 +23900,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "郭襄",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -23910,8 +23910,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "郭襄",
-            "internalskill",
             "九阳神功",
             10
           ]
@@ -23928,8 +23928,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭襄",
             "talent",
+            "郭襄",
             "峨眉宗师"
           ]
         },
@@ -25372,8 +25372,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxhp",
+            "木婉清",
             400
           ]
         },
@@ -25381,8 +25381,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxmp",
+            "木婉清",
             400
           ]
         },
@@ -25398,8 +25398,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "拳掌",
+            "木婉清",
             40
           ]
         },
@@ -25407,8 +25407,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "skill",
+            "木婉清",
             "袖箭",
             10
           ]
@@ -25417,8 +25417,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "skill",
+            "木婉清",
             "一阳指",
             9
           ]
@@ -25692,8 +25692,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "talent",
+            "段誉",
             "夫妻同心"
           ]
         },
@@ -25701,8 +25701,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "talent",
+            "木婉清",
             "夫妻同心"
           ]
         },
@@ -26079,8 +26079,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxhp",
+            "木婉清",
             500
           ]
         },
@@ -26088,8 +26088,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxmp",
+            "木婉清",
             500
           ]
         },
@@ -26105,8 +26105,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "拳掌",
+            "木婉清",
             10
           ]
         },
@@ -26114,8 +26114,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "剑法",
+            "木婉清",
             10
           ]
         },
@@ -26123,8 +26123,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "刀法",
+            "木婉清",
             10
           ]
         },
@@ -26132,8 +26132,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "奇门",
+            "木婉清",
             10
           ]
         },
@@ -26141,8 +26141,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "skill",
+            "木婉清",
             "六脉神剑",
             8
           ]
@@ -26151,8 +26151,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             500
           ]
         },
@@ -26160,8 +26160,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             500
           ]
         },
@@ -26177,8 +26177,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             10
           ]
         },
@@ -26186,8 +26186,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "剑法",
+            "段誉",
             10
           ]
         },
@@ -26195,8 +26195,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "刀法",
+            "段誉",
             10
           ]
         },
@@ -26204,8 +26204,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "奇门",
+            "段誉",
             10
           ]
         },
@@ -26213,8 +26213,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "六脉神剑",
             8
           ]
@@ -26388,8 +26388,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxhp",
+            "木婉清",
             1000
           ]
         },
@@ -26397,8 +26397,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "maxmp",
+            "木婉清",
             1000
           ]
         },
@@ -26414,8 +26414,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "拳掌",
+            "木婉清",
             20
           ]
         },
@@ -26423,8 +26423,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "剑法",
+            "木婉清",
             10
           ]
         },
@@ -26432,8 +26432,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "刀法",
+            "木婉清",
             10
           ]
         },
@@ -26441,8 +26441,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "奇门",
+            "木婉清",
             10
           ]
         },
@@ -26450,8 +26450,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "skill",
+            "木婉清",
             "六脉神剑",
             10
           ]
@@ -26460,8 +26460,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -26469,8 +26469,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -26486,8 +26486,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             20
           ]
         },
@@ -26495,8 +26495,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "剑法",
+            "段誉",
             10
           ]
         },
@@ -26504,8 +26504,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "刀法",
+            "段誉",
             10
           ]
         },
@@ -26513,8 +26513,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "奇门",
+            "段誉",
             10
           ]
         },
@@ -26522,8 +26522,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "六脉神剑",
             10
           ]
@@ -27373,8 +27373,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -27382,8 +27382,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -27399,8 +27399,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             20
           ]
         },
@@ -27408,8 +27408,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "擒龙功",
             10
           ]
@@ -27462,8 +27462,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -27471,8 +27471,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -27488,8 +27488,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             20
           ]
         },
@@ -27497,8 +27497,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "擒龙功",
             10
           ]
@@ -28802,8 +28802,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             10
           ]
         },
@@ -28811,8 +28811,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "剑法",
+            "段誉",
             10
           ]
         },
@@ -28820,8 +28820,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "刀法",
+            "段誉",
             10
           ]
         },
@@ -28829,8 +28829,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "奇门",
+            "段誉",
             10
           ]
         },
@@ -29306,8 +29306,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "乔峰",
             "talent",
+            "乔峰",
             "天龙.盖世英雄"
           ]
         },
@@ -29315,8 +29315,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "乔峰",
             "talent",
+            "乔峰",
             "清心"
           ]
         },
@@ -29332,8 +29332,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "maxhp",
+            "乔峰",
             2000
           ]
         },
@@ -29341,8 +29341,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "maxmp",
+            "乔峰",
             2000
           ]
         },
@@ -29350,8 +29350,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "臂力",
+            "乔峰",
             20
           ]
         },
@@ -29359,8 +29359,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "定力",
+            "乔峰",
             20
           ]
         },
@@ -29368,8 +29368,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "拳掌",
+            "乔峰",
             40
           ]
         },
@@ -29812,8 +29812,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -29821,8 +29821,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -31020,8 +31020,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "maxhp",
+            "慕容复",
             1000
           ]
         },
@@ -31029,8 +31029,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "maxmp",
+            "慕容复",
             1000
           ]
         },
@@ -31046,8 +31046,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "拳掌",
+            "慕容复",
             20
           ]
         },
@@ -31055,8 +31055,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "剑法",
+            "慕容复",
             20
           ]
         },
@@ -31064,17 +31064,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "刀法",
-            20
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "upgrade",
-          "args": [
             "慕容复",
-            "奇门",
             20
           ]
         },
@@ -31082,8 +31073,17 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
+            "奇门",
+            "慕容复",
+            20
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "upgrade",
+          "args": [
             "maxhp",
+            "段誉",
             1000
           ]
         },
@@ -31091,8 +31091,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             1000
           ]
         },
@@ -31108,8 +31108,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             20
           ]
         },
@@ -31117,8 +31117,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "skill",
+            "慕容复",
             "天山折梅手",
             10
           ]
@@ -31127,8 +31127,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "skill",
+            "慕容复",
             "斗转星移",
             10
           ]
@@ -31137,8 +31137,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "天山折梅手",
             10
           ]
@@ -31147,8 +31147,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "斗转星移",
             10
           ]
@@ -31198,8 +31198,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "maxhp",
+            "慕容复",
             500
           ]
         },
@@ -31207,8 +31207,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "maxmp",
+            "慕容复",
             500
           ]
         },
@@ -31224,8 +31224,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "拳掌",
+            "慕容复",
             10
           ]
         },
@@ -31233,8 +31233,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "剑法",
+            "慕容复",
             10
           ]
         },
@@ -31242,17 +31242,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "慕容复",
             "刀法",
-            10
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "upgrade",
-          "args": [
             "慕容复",
-            "奇门",
             10
           ]
         },
@@ -31260,8 +31251,17 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
+            "奇门",
+            "慕容复",
+            10
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "upgrade",
+          "args": [
             "maxhp",
+            "段誉",
             500
           ]
         },
@@ -31269,8 +31269,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxmp",
+            "段誉",
             500
           ]
         },
@@ -31286,8 +31286,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "拳掌",
+            "段誉",
             10
           ]
         },
@@ -31295,8 +31295,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "skill",
+            "慕容复",
             "天山折梅手",
             10
           ]
@@ -31305,8 +31305,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "skill",
+            "慕容复",
             "斗转星移",
             10
           ]
@@ -31315,8 +31315,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "天山折梅手",
             10
           ]
@@ -31325,8 +31325,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "斗转星移",
             10
           ]
@@ -32789,8 +32789,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "段正淳",
-            "specialskill",
             "凌波微步"
           ]
         },
@@ -32992,8 +32992,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "阿碧",
-            "specialskill",
             "阿碧的歌声"
           ]
         },
@@ -33001,8 +33001,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿碧",
             "maxhp",
+            "阿碧",
             500
           ]
         },
@@ -33010,8 +33010,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿碧",
             "maxmp",
+            "阿碧",
             500
           ]
         },
@@ -33129,8 +33129,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "talent",
+            "段誉",
             "木婉清的眷恋"
           ]
         }
@@ -33245,8 +33245,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "定力",
+            "木婉清",
             20
           ]
         },
@@ -33254,8 +33254,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "悟性",
+            "木婉清",
             20
           ]
         },
@@ -33263,8 +33263,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "木婉清",
             "福缘",
+            "木婉清",
             20
           ]
         },
@@ -33282,8 +33282,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "阿碧",
-            "specialskill",
             "吴侬软语"
           ]
         },
@@ -33291,8 +33291,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿碧",
             "maxhp",
+            "阿碧",
             500
           ]
         },
@@ -33300,8 +33300,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿碧",
             "maxmp",
+            "阿碧",
             500
           ]
         },
@@ -34500,8 +34500,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "钟灵",
-            "specialskill",
             "闪电貂"
           ]
         },
@@ -35035,8 +35035,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             1000
           ]
         },
@@ -35044,8 +35044,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             2000
           ]
         },
@@ -35053,8 +35053,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             10
           ]
         },
@@ -35062,8 +35062,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             10
           ]
         },
@@ -35071,8 +35071,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             10
           ]
         },
@@ -35080,8 +35080,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             10
           ]
         },
@@ -35089,8 +35089,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             10
           ]
         },
@@ -35098,8 +35098,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             10
           ]
         },
@@ -35107,8 +35107,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             10
           ]
         },
@@ -35116,8 +35116,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             10
           ]
         },
@@ -35125,8 +35125,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             10
           ]
         },
@@ -35134,8 +35134,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             10
           ]
         },
@@ -37709,8 +37709,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             30
           ]
         },
@@ -37718,8 +37718,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             30
           ]
         },
@@ -39379,8 +39379,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "maxhp",
+            "曲非烟",
             500
           ]
         },
@@ -39388,8 +39388,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "maxmp",
+            "曲非烟",
             500
           ]
         },
@@ -39405,8 +39405,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "奇门",
+            "曲非烟",
             10
           ]
         },
@@ -39535,8 +39535,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "maxhp",
+            "曲非烟",
             1000
           ]
         },
@@ -39544,8 +39544,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "maxmp",
+            "曲非烟",
             1000
           ]
         },
@@ -39561,8 +39561,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "拳掌",
+            "曲非烟",
             10
           ]
         },
@@ -39570,8 +39570,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "剑法",
+            "曲非烟",
             10
           ]
         },
@@ -39579,8 +39579,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "刀法",
+            "曲非烟",
             10
           ]
         },
@@ -39588,8 +39588,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "奇门",
+            "曲非烟",
             30
           ]
         },
@@ -39597,8 +39597,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "曲非烟",
             "talent",
+            "曲非烟",
             "琴胆剑心"
           ]
         },
@@ -39993,8 +39993,8 @@
           "kind": "command",
           "name": "remove",
           "args": [
-            "令狐冲",
             "talent",
+            "令狐冲",
             "令狐冲的怪病"
           ]
         },
@@ -40010,8 +40010,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "剑法",
+            "令狐冲",
             30
           ]
         },
@@ -40019,8 +40019,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxhp",
+            "令狐冲",
             1000
           ]
         },
@@ -40028,8 +40028,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             1000
           ]
         },
@@ -40929,8 +40929,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "skill",
+            "令狐冲",
             "独孤九剑",
             2
           ]
@@ -41446,8 +41446,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             10
           ]
         },
@@ -41455,8 +41455,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             100
           ]
         },
@@ -41464,8 +41464,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             1000
           ]
         },
@@ -41473,8 +41473,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxmp",
+            "令狐冲",
             1500
           ]
         },
@@ -41609,8 +41609,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "maxhp",
+            "令狐冲",
             1000
           ]
         },
@@ -41626,8 +41626,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "令狐冲",
             "talent",
+            "令狐冲",
             "吸星大法"
           ]
         },
@@ -41643,8 +41643,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "maxhp",
+            "任盈盈",
             1000
           ]
         },
@@ -41652,8 +41652,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "maxmp",
+            "任盈盈",
             1000
           ]
         },
@@ -41669,8 +41669,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "任盈盈",
             "skill",
+            "任盈盈",
             "日月鞭法",
             10
           ]
@@ -41679,8 +41679,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "任盈盈",
             "skill",
+            "任盈盈",
             "嵩山剑法",
             10
           ]
@@ -41689,8 +41689,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "任盈盈",
             "skill",
+            "任盈盈",
             "华山剑法",
             10
           ]
@@ -44779,8 +44779,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             1200
           ]
         },
@@ -44788,8 +44788,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             1200
           ]
         },
@@ -44805,8 +44805,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             20
           ]
         },
@@ -44814,8 +44814,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             20
           ]
         },
@@ -44823,8 +44823,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -44833,8 +44833,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             9
           ]
@@ -44843,8 +44843,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "阴谋家"
           ]
         },
@@ -44852,8 +44852,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "maxhp",
+            "阎基",
             1200
           ]
         },
@@ -44861,8 +44861,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "maxmp",
+            "阎基",
             1200
           ]
         },
@@ -44878,8 +44878,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "剑法",
+            "阎基",
             30
           ]
         },
@@ -44887,8 +44887,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "刀法",
+            "阎基",
             30
           ]
         },
@@ -44896,8 +44896,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "skill",
+            "阎基",
             "苗家剑法",
             10
           ]
@@ -44906,8 +44906,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "skill",
+            "阎基",
             "胡家刀法",
             9
           ]
@@ -44916,8 +44916,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "talent",
+            "阎基",
             "阴谋家"
           ]
         },
@@ -45005,8 +45005,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             500
           ]
         },
@@ -45014,8 +45014,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             500
           ]
         },
@@ -45031,8 +45031,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             5
           ]
         },
@@ -45040,8 +45040,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             5
           ]
         },
@@ -45049,8 +45049,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -45059,8 +45059,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             9
           ]
@@ -45069,8 +45069,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "阴谋家"
           ]
         },
@@ -45078,8 +45078,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "maxhp",
+            "阎基",
             500
           ]
         },
@@ -45087,8 +45087,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "maxmp",
+            "阎基",
             500
           ]
         },
@@ -45104,8 +45104,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "剑法",
+            "阎基",
             5
           ]
         },
@@ -45113,8 +45113,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阎基",
             "刀法",
+            "阎基",
             5
           ]
         },
@@ -45122,8 +45122,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "skill",
+            "阎基",
             "苗家剑法",
             10
           ]
@@ -45132,8 +45132,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "skill",
+            "阎基",
             "胡家刀法",
             9
           ]
@@ -45142,8 +45142,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阎基",
             "talent",
+            "阎基",
             "阴谋家"
           ]
         },
@@ -45741,8 +45741,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             1200
           ]
         },
@@ -45750,8 +45750,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             1200
           ]
         },
@@ -45767,8 +45767,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             25
           ]
         },
@@ -45776,8 +45776,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             25
           ]
         },
@@ -45785,8 +45785,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -45795,8 +45795,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             9
           ]
@@ -45805,8 +45805,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "阴谋家"
           ]
         },
@@ -45814,8 +45814,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "maxhp",
+            "田归农",
             1200
           ]
         },
@@ -45823,8 +45823,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "maxmp",
+            "田归农",
             1200
           ]
         },
@@ -45840,8 +45840,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "剑法",
+            "田归农",
             30
           ]
         },
@@ -45849,8 +45849,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "刀法",
+            "田归农",
             30
           ]
         },
@@ -45858,8 +45858,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "skill",
+            "田归农",
             "天龙剑法",
             15
           ]
@@ -45868,8 +45868,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "skill",
+            "田归农",
             "苗家剑法",
             10
           ]
@@ -45878,8 +45878,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "talent",
+            "田归农",
             "阴谋家"
           ]
         },
@@ -45964,8 +45964,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             500
           ]
         },
@@ -45973,8 +45973,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             500
           ]
         },
@@ -45990,8 +45990,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             5
           ]
         },
@@ -45999,8 +45999,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             5
           ]
         },
@@ -46008,8 +46008,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -46018,8 +46018,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             9
           ]
@@ -46028,8 +46028,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "阴谋家"
           ]
         },
@@ -46037,8 +46037,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "maxhp",
+            "田归农",
             500
           ]
         },
@@ -46046,8 +46046,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "maxmp",
+            "田归农",
             500
           ]
         },
@@ -46063,8 +46063,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "剑法",
+            "田归农",
             5
           ]
         },
@@ -46072,8 +46072,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田归农",
             "刀法",
+            "田归农",
             5
           ]
         },
@@ -46081,8 +46081,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "skill",
+            "田归农",
             "天龙剑法",
             15
           ]
@@ -46091,8 +46091,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "skill",
+            "田归农",
             "苗家剑法",
             10
           ]
@@ -46101,8 +46101,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田归农",
             "talent",
+            "田归农",
             "阴谋家"
           ]
         },
@@ -46303,8 +46303,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             1500
           ]
         },
@@ -46312,8 +46312,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             1500
           ]
         },
@@ -46329,8 +46329,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             30
           ]
         },
@@ -46338,8 +46338,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             30
           ]
         },
@@ -46347,8 +46347,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -46357,8 +46357,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             10
           ]
@@ -46367,8 +46367,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "雪山飞狐"
           ]
         },
@@ -46376,8 +46376,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "轻功大师"
           ]
         },
@@ -46462,8 +46462,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxhp",
+            "胡斐",
             500
           ]
         },
@@ -46471,8 +46471,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "maxmp",
+            "胡斐",
             500
           ]
         },
@@ -46488,8 +46488,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "剑法",
+            "胡斐",
             10
           ]
         },
@@ -46497,8 +46497,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "刀法",
+            "胡斐",
             10
           ]
         },
@@ -46506,8 +46506,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "苗家剑法",
             10
           ]
@@ -46516,8 +46516,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             10
           ]
@@ -46526,8 +46526,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "雪山飞狐"
           ]
         },
@@ -46535,8 +46535,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "轻功大师"
           ]
         },
@@ -46718,8 +46718,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxhp",
+            "程灵素",
             1000
           ]
         },
@@ -46727,8 +46727,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxmp",
+            "程灵素",
             1000
           ]
         },
@@ -46744,8 +46744,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "拳掌",
+            "程灵素",
             10
           ]
         },
@@ -46949,8 +46949,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxhp",
+            "程灵素",
             500
           ]
         },
@@ -46958,8 +46958,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxmp",
+            "程灵素",
             500
           ]
         },
@@ -46967,8 +46967,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "拳掌",
+            "程灵素",
             10
           ]
         },
@@ -46976,8 +46976,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "定力",
+            "程灵素",
             10
           ]
         },
@@ -46985,8 +46985,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程灵素",
             "skill",
+            "程灵素",
             "药王神掌",
             10
           ]
@@ -47063,8 +47063,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxhp",
+            "程灵素",
             400
           ]
         },
@@ -47072,8 +47072,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxmp",
+            "程灵素",
             400
           ]
         },
@@ -47081,8 +47081,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "身法",
+            "程灵素",
             10
           ]
         },
@@ -47090,8 +47090,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "臂力",
+            "程灵素",
             10
           ]
         },
@@ -47099,8 +47099,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程灵素",
             "skill",
+            "程灵素",
             "黑血神针",
             10
           ]
@@ -47812,8 +47812,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "拳掌",
+            "郭靖",
             5
           ]
         },
@@ -47956,8 +47956,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxhp",
+            "郭靖",
             300
           ]
         },
@@ -47965,8 +47965,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxmp",
+            "郭靖",
             300
           ]
         },
@@ -47974,8 +47974,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "悟性",
+            "郭靖",
             15
           ]
         },
@@ -47983,8 +47983,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "身法",
+            "郭靖",
             25
           ]
         },
@@ -47992,8 +47992,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "臂力",
+            "郭靖",
             10
           ]
         },
@@ -48226,8 +48226,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxhp",
+            "郭靖",
             300
           ]
         },
@@ -48235,8 +48235,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxmp",
+            "郭靖",
             300
           ]
         },
@@ -48244,8 +48244,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "臂力",
+            "郭靖",
             10
           ]
         },
@@ -48253,8 +48253,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "拳掌",
+            "郭靖",
             5
           ]
         },
@@ -48534,8 +48534,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxhp",
+            "郭靖",
             500
           ]
         },
@@ -48543,8 +48543,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxmp",
+            "郭靖",
             500
           ]
         },
@@ -48560,8 +48560,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "拳掌",
+            "郭靖",
             10
           ]
         },
@@ -48569,8 +48569,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "剑法",
+            "郭靖",
             10
           ]
         },
@@ -48578,8 +48578,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "刀法",
+            "郭靖",
             10
           ]
         },
@@ -48587,8 +48587,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "奇门",
+            "郭靖",
             10
           ]
         },
@@ -48596,8 +48596,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭靖",
             "skill",
+            "郭靖",
             "降龙十八掌",
             8
           ]
@@ -48840,8 +48840,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxhp",
+            "郭靖",
             1000
           ]
         },
@@ -48849,8 +48849,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "maxmp",
+            "郭靖",
             1000
           ]
         },
@@ -48866,8 +48866,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "拳掌",
+            "郭靖",
             5
           ]
         },
@@ -48875,8 +48875,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭靖",
             "skill",
+            "郭靖",
             "降龙十八掌",
             10
           ]
@@ -48885,8 +48885,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "郭靖",
-            "internalskill",
             "九阴神功",
             10
           ]
@@ -48895,8 +48895,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭靖",
             "talent",
+            "郭靖",
             "射雕英雄"
           ]
         },
@@ -49030,8 +49030,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "拳掌",
+            "郭靖",
             10
           ]
         },
@@ -49039,8 +49039,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "黄蓉",
             "奇门",
+            "黄蓉",
             15
           ]
         },
@@ -49048,8 +49048,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "黄蓉",
             "maxhp",
+            "黄蓉",
             1000
           ]
         },
@@ -49057,8 +49057,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "黄蓉",
             "maxmp",
+            "黄蓉",
             1000
           ]
         },
@@ -49709,8 +49709,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             500
           ]
         },
@@ -49718,8 +49718,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             500
           ]
         },
@@ -49735,8 +49735,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "拳掌",
+            "袁承志",
             30
           ]
         },
@@ -49744,8 +49744,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             5
           ]
         },
@@ -49753,8 +49753,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "混元一气"
           ]
         },
@@ -49775,8 +49775,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "漫天花雨",
             10
           ]
@@ -49801,8 +49801,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             30
           ]
         },
@@ -49864,8 +49864,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             300
           ]
         },
@@ -49873,8 +49873,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             300
           ]
         },
@@ -49890,8 +49890,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "拳掌",
+            "袁承志",
             15
           ]
         },
@@ -49899,8 +49899,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             5
           ]
         },
@@ -49908,8 +49908,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "混元一气"
           ]
         },
@@ -49922,8 +49922,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "漫天花雨",
             10
           ]
@@ -49932,8 +49932,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             15
           ]
         },
@@ -50005,8 +50005,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             500
           ]
         },
@@ -50014,8 +50014,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             500
           ]
         },
@@ -50031,8 +50031,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             50
           ]
         },
@@ -50040,8 +50040,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             5
           ]
         },
@@ -50049,8 +50049,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "漫天花雨",
             10
           ]
@@ -50113,8 +50113,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             200
           ]
         },
@@ -50122,8 +50122,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             200
           ]
         },
@@ -50139,8 +50139,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             5
           ]
         },
@@ -50148,8 +50148,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             5
           ]
         },
@@ -50157,8 +50157,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "漫天花雨",
             10
           ]
@@ -51123,8 +51123,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             -5
           ]
         },
@@ -51132,8 +51132,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             -5
           ]
         },
@@ -51141,8 +51141,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             -5
           ]
         },
@@ -51150,8 +51150,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             -5
           ]
         },
@@ -51445,8 +51445,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "狄云",
             "maxhp",
+            "狄云",
             1000
           ]
         },
@@ -51454,8 +51454,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "狄云",
             "maxmp",
+            "狄云",
             1000
           ]
         },
@@ -51471,8 +51471,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "狄云",
             "拳掌",
+            "狄云",
             10
           ]
         },
@@ -51480,8 +51480,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "狄云",
             "剑法",
+            "狄云",
             25
           ]
         },
@@ -51489,8 +51489,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "maxhp",
+            "水笙",
             1000
           ]
         },
@@ -51498,8 +51498,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "maxmp",
+            "水笙",
             1000
           ]
         },
@@ -51515,8 +51515,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "拳掌",
+            "水笙",
             10
           ]
         },
@@ -51524,8 +51524,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "剑法",
+            "水笙",
             25
           ]
         },
@@ -51533,8 +51533,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "狄云",
-            "internalskill",
             "神照功",
             12
           ]
@@ -51543,8 +51543,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "水笙",
-            "internalskill",
             "神照功",
             12
           ]
@@ -51553,8 +51553,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "狄云",
             "skill",
+            "狄云",
             "连城剑法",
             10
           ]
@@ -51563,8 +51563,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "狄云",
             "talent",
+            "狄云",
             "铁骨墨萼"
           ]
         },
@@ -51572,8 +51572,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "水笙",
             "talent",
+            "水笙",
             "铁骨墨萼"
           ]
         },
@@ -52434,8 +52434,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "身法",
+            "韦小宝",
             15
           ]
         },
@@ -52443,8 +52443,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "定力",
+            "韦小宝",
             15
           ]
         },
@@ -52881,8 +52881,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "韦小宝",
-            "specialskill",
             "撒石灰"
           ]
         },
@@ -53236,8 +53236,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "韦小宝",
             "talent",
+            "韦小宝",
             "神行百变"
           ]
         },
@@ -53245,8 +53245,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "身法",
+            "韦小宝",
             15
           ]
         },
@@ -53331,8 +53331,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "长平公主的眷恋"
           ]
         }
@@ -53713,8 +53713,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "maxhp",
+            "韦小宝",
             500
           ]
         },
@@ -53722,8 +53722,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "maxmp",
+            "韦小宝",
             500
           ]
         },
@@ -54118,8 +54118,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "韦小宝",
             "talent",
+            "韦小宝",
             "鹿鼎.一品鹿鼎公"
           ]
         },
@@ -54134,8 +54134,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "maxhp",
+            "韦小宝",
             1000
           ]
         },
@@ -54143,8 +54143,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "韦小宝",
             "maxmp",
+            "韦小宝",
             1000
           ]
         },
@@ -54285,8 +54285,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "幽居"
           ]
         },
@@ -54506,8 +54506,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             1
           ]
         },
@@ -54515,8 +54515,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             1
           ]
         },
@@ -54524,8 +54524,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "天罗地网掌",
             1
           ]
@@ -54670,8 +54670,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -54679,8 +54679,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             15
           ]
         },
@@ -54688,8 +54688,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             15
           ]
         },
@@ -54697,8 +54697,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "玉女心经",
             1
           ]
@@ -54843,8 +54843,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             1
           ]
         },
@@ -54852,8 +54852,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -54861,8 +54861,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "玉女剑法",
             1
           ]
@@ -55007,8 +55007,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -55016,8 +55016,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             1
           ]
         },
@@ -55025,8 +55025,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             15
           ]
         },
@@ -55170,8 +55170,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -55179,8 +55179,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             1
           ]
         },
@@ -55188,8 +55188,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "玉蜂针",
             1
           ]
@@ -56734,8 +56734,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "玄铁剑法",
             3
           ]
@@ -56772,8 +56772,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "玄铁剑法",
             4
           ]
@@ -56818,8 +56818,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "玄铁剑法",
             3
           ]
@@ -57211,8 +57211,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "左右互搏"
           ]
         },
@@ -57247,8 +57247,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             -500
           ]
         },
@@ -57256,8 +57256,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             -500
           ]
         },
@@ -57265,8 +57265,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             -10
           ]
         },
@@ -57274,8 +57274,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             -10
           ]
         },
@@ -57283,8 +57283,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             -10
           ]
         },
@@ -57292,8 +57292,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             -10
           ]
         },
@@ -57306,8 +57306,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "左右互搏"
           ]
         },
@@ -57440,8 +57440,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "金刚"
           ]
         },
@@ -57579,8 +57579,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -57588,8 +57588,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             15
           ]
         },
@@ -57597,8 +57597,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             15
           ]
         },
@@ -57688,8 +57688,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -57697,8 +57697,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -57706,8 +57706,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "密宗大手印",
             1
           ]
@@ -57798,8 +57798,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -57807,8 +57807,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -57816,8 +57816,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "无上大力杵",
             1
           ]
@@ -57908,8 +57908,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             2
           ]
         },
@@ -57917,8 +57917,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "漫天花雨",
             1
           ]
@@ -57995,8 +57995,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             1
           ]
         },
@@ -58004,8 +58004,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -58013,8 +58013,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -58833,8 +58833,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "郭襄",
-            "internalskill",
             "龙象般若功",
             5
           ]
@@ -58853,8 +58853,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "龙象般若功",
             5
           ]
@@ -59006,8 +59006,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "龙象般若功",
             5
           ]
@@ -59016,8 +59016,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "达尔巴",
-            "internalskill",
             "龙象般若功",
             5
           ]
@@ -59193,8 +59193,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "嗜血狂魔"
           ]
         },
@@ -59318,8 +59318,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "血刀大法",
             3
           ]
@@ -59328,8 +59328,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "刀法",
+            "主角",
             3
           ]
         }
@@ -59352,8 +59352,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             2
           ]
         },
@@ -59361,8 +59361,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             40
           ]
         },
@@ -59370,8 +59370,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             40
           ]
         }
@@ -59766,8 +59766,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             1
           ]
         },
@@ -59775,8 +59775,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             1
           ]
         },
@@ -59913,8 +59913,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "雪遁步行"
           ]
         },
@@ -60232,8 +60232,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             50
           ]
         },
@@ -60241,8 +60241,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             50
           ]
         },
@@ -60250,8 +60250,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             2
           ]
         },
@@ -61155,8 +61155,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "清风"
           ]
         },
@@ -61202,8 +61202,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             2
           ]
         },
@@ -61211,8 +61211,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             30
           ]
         },
@@ -61251,8 +61251,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -61260,8 +61260,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -61269,8 +61269,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             30
           ]
         },
@@ -61512,8 +61512,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "全真心法",
             1
           ]
@@ -61522,8 +61522,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -61548,8 +61548,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "全真心法",
             5
           ]
@@ -61558,8 +61558,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             5
           ]
         },
@@ -61701,8 +61701,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "全真剑法",
             1
           ]
@@ -61711,8 +61711,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -61720,8 +61720,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -61746,8 +61746,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "全真剑法",
             5
           ]
@@ -61756,8 +61756,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             5
           ]
         },
@@ -61765,8 +61765,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             5
           ]
         },
@@ -61791,8 +61791,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "昊天掌",
             1
           ]
@@ -61801,8 +61801,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             1
           ]
         },
@@ -61810,8 +61810,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -61819,8 +61819,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -61845,8 +61845,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "昊天掌",
             5
           ]
@@ -61855,8 +61855,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             5
           ]
         },
@@ -61864,8 +61864,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             5
           ]
         },
@@ -61873,8 +61873,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             5
           ]
         },
@@ -61899,8 +61899,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             2
           ]
         },
@@ -61925,8 +61925,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             10
           ]
         },
@@ -62106,8 +62106,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "一剑化三清",
             1
           ]
@@ -62116,8 +62116,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -62152,8 +62152,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             2
           ]
         },
@@ -62658,8 +62658,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "九阴神功",
             6
           ]
@@ -62708,8 +62708,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "九阴神功",
             9
           ]
@@ -62918,8 +62918,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             -1000
           ]
         },
@@ -62927,8 +62927,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             -1000
           ]
         },
@@ -62936,8 +62936,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "逆运九阴神功",
             12
           ]
@@ -62980,8 +62980,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "九阴神功",
             12
           ]
@@ -62990,8 +62990,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "玄门罡气"
           ]
         },
@@ -63313,8 +63313,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "同归剑法"
           ]
         },
@@ -63573,8 +63573,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "御风"
           ]
         },
@@ -63637,8 +63637,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             2
           ]
         },
@@ -63646,8 +63646,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             1
           ]
         },
@@ -63655,8 +63655,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "天山掌法",
             2
           ]
@@ -63718,8 +63718,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             3
           ]
         },
@@ -63727,8 +63727,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             6
           ]
         },
@@ -63736,8 +63736,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "天山掌法",
             2
           ]
@@ -63789,8 +63789,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             10
           ]
         },
@@ -63846,8 +63846,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             3
           ]
         },
@@ -63855,8 +63855,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -63864,8 +63864,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "天山心法",
             3
           ]
@@ -63980,8 +63980,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             2
           ]
@@ -64033,8 +64033,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64086,8 +64086,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64144,8 +64144,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64154,8 +64154,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             2
           ]
         },
@@ -64206,8 +64206,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64259,8 +64259,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64269,8 +64269,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -64321,8 +64321,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64374,8 +64374,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "归藏剑",
             1
           ]
@@ -64384,8 +64384,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -64436,8 +64436,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "剑法",
+            "主角",
             1
           ]
         },
@@ -64488,8 +64488,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             2
           ]
         },
@@ -64540,8 +64540,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             1
           ]
         },
@@ -64958,8 +64958,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "天山六阳掌",
             4
           ]
@@ -65454,8 +65454,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "天山折梅手",
             10
           ]
@@ -65817,8 +65817,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "八荒六合唯我独尊功",
             12
           ]
@@ -66227,8 +66227,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             -500
           ]
         },
@@ -66236,8 +66236,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             -500
           ]
         },
@@ -66275,8 +66275,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             -10
           ]
         },
@@ -66382,8 +66382,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             20
           ]
         },
@@ -66391,8 +66391,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "北冥真气"
           ]
         },
@@ -66563,8 +66563,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "无相"
           ]
         },
@@ -66623,8 +66623,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "俗家弟子"
           ]
         },
@@ -66668,8 +66668,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -66677,8 +66677,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             1
           ]
         },
@@ -66686,8 +66686,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "罗汉拳",
             1
           ]
@@ -66732,8 +66732,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -66741,8 +66741,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             1
           ]
         },
@@ -66750,8 +66750,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "罗汉拳",
             1
           ]
@@ -66820,8 +66820,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -66829,8 +66829,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             2
           ]
         },
@@ -66838,8 +66838,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "韦陀棍",
             1
           ]
@@ -66884,8 +66884,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -66893,8 +66893,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "奇门",
+            "主角",
             1
           ]
         },
@@ -66902,8 +66902,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "韦陀棍",
             1
           ]
@@ -66972,8 +66972,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "少林心法",
             2
           ]
@@ -66982,8 +66982,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -66991,8 +66991,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             2
           ]
         },
@@ -67000,8 +67000,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             20
           ]
         },
@@ -67009,8 +67009,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             20
           ]
         },
@@ -67054,8 +67054,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             5
           ]
         },
@@ -67063,8 +67063,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             5
           ]
         },
@@ -67072,8 +67072,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             5
           ]
         },
@@ -67122,8 +67122,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             3
           ]
         },
@@ -67131,8 +67131,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             30
           ]
         },
@@ -67140,8 +67140,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             30
           ]
         },
@@ -67325,8 +67325,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             10
           ]
         },
@@ -67365,8 +67365,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             1
           ]
         },
@@ -67669,8 +67669,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             1
           ]
         },
@@ -67678,8 +67678,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             2
           ]
         },
@@ -67687,8 +67687,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             3
           ]
         },
@@ -67696,8 +67696,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "小洪拳",
             1
           ]
@@ -67730,8 +67730,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             2
           ]
         },
@@ -67739,8 +67739,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             2
           ]
         },
@@ -67748,8 +67748,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "小洪拳",
             1
           ]
@@ -67835,8 +67835,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             2
           ]
         },
@@ -67844,8 +67844,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             2
           ]
         },
@@ -67853,8 +67853,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "大洪拳",
             1
           ]
@@ -68101,8 +68101,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "易筋经",
             5
           ]
@@ -68398,8 +68398,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "易经伐髓"
           ]
         },
@@ -69321,8 +69321,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "阴阳"
           ]
         },
@@ -69367,8 +69367,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "武当心法",
             2
           ]
@@ -69377,8 +69377,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -69386,8 +69386,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -69618,8 +69618,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "绵掌",
             2
           ]
@@ -69628,8 +69628,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             2
           ]
         },
@@ -69659,8 +69659,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "绕指柔剑",
             2
           ]
@@ -69669,8 +69669,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             2
           ]
         },
@@ -69700,8 +69700,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             3
           ]
         },
@@ -69746,8 +69746,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "梯云纵"
           ]
         },
@@ -70162,8 +70162,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             1
           ]
         },
@@ -70171,8 +70171,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -70180,8 +70180,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             1
           ]
         },
@@ -70220,8 +70220,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         },
@@ -70229,8 +70229,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             1
           ]
         },
@@ -70284,8 +70284,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             2
           ]
         },
@@ -70334,8 +70334,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             60
           ]
         },
@@ -70343,8 +70343,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             60
           ]
         },
@@ -71084,8 +71084,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "绝户虎爪手",
             10
           ]
@@ -71117,8 +71117,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "六合劲"
           ]
         },
@@ -71268,8 +71268,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "神门十三剑",
             12
           ]
@@ -71872,8 +71872,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "纯阳无极功",
             10
           ]
@@ -72043,8 +72043,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "maxhp",
             "主角",
-            "maxhp",
             300
           ]
         },
@@ -72052,8 +72052,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "maxmp",
             "主角",
-            "maxmp",
             300
           ]
         },
@@ -72061,17 +72061,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "maxhp",
-            300
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "upgrade",
-          "args": [
             "段誉",
-            "maxmp",
             300
           ]
         },
@@ -72079,8 +72070,17 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田伯光",
+            "maxmp",
+            "段誉",
+            300
+          ]
+        },
+        {
+          "kind": "command",
+          "name": "upgrade",
+          "args": [
             "maxhp",
+            "田伯光",
             300
           ]
         },
@@ -72088,8 +72088,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田伯光",
             "maxmp",
+            "田伯光",
             300
           ]
         },
@@ -72391,8 +72391,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "刚柔并济"
           ]
         },
@@ -73001,8 +73001,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             400
           ]
         },
@@ -73311,8 +73311,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             2000
           ]
         },
@@ -73328,8 +73328,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             20
           ]
         },
@@ -73337,8 +73337,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "太玄神功",
             10
           ]
@@ -74586,8 +74586,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "skill",
+            "张无忌",
             "太极拳",
             10
           ]
@@ -74596,8 +74596,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "skill",
+            "张无忌",
             "太极剑",
             10
           ]
@@ -75121,8 +75121,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "剑法",
+            "张无忌",
             30
           ]
         },
@@ -75347,8 +75347,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "臂力",
+            "张无忌",
             5
           ]
         },
@@ -75380,8 +75380,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "定力",
+            "张无忌",
             5
           ]
         },
@@ -75527,8 +75527,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "talent",
+            "张无忌",
             "赵敏的眷念"
           ]
         },
@@ -75550,8 +75550,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "talent",
+            "张无忌",
             "芷若的眷念"
           ]
         },
@@ -76065,8 +76065,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "张无忌",
-            "internalskill",
             "太极神功",
             10
           ]
@@ -76075,8 +76075,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "talent",
+            "张无忌",
             "至空至明"
           ]
         },
@@ -76084,8 +76084,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxhp",
+            "张无忌",
             1000
           ]
         },
@@ -76093,8 +76093,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "张无忌",
             "maxmp",
+            "张无忌",
             1000
           ]
         },
@@ -78618,8 +78618,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨过",
             "skill",
+            "杨过",
             "黯然销魂掌",
             5
           ]
@@ -78628,8 +78628,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "杨过",
             "talent",
+            "杨过",
             "铁拳无双"
           ]
         },
@@ -78673,8 +78673,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "段誉",
             "skill",
+            "段誉",
             "六脉神剑",
             5
           ]
@@ -78683,8 +78683,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "段誉",
             "talent",
+            "段誉",
             "灵心慧质"
           ]
         },
@@ -78723,8 +78723,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇剑法",
             5
           ]
@@ -78774,8 +78774,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "狄云",
             "skill",
+            "狄云",
             "血刀大法",
             5
           ]
@@ -78784,8 +78784,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "狄云",
             "talent",
+            "狄云",
             "血海魔功"
           ]
         },
@@ -78793,8 +78793,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "狄云",
             "talent",
+            "狄云",
             "哀歌"
           ]
         },
@@ -78851,8 +78851,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "胡斐",
             "skill",
+            "胡斐",
             "胡家刀法",
             5
           ]
@@ -78861,8 +78861,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "胡斐",
             "talent",
+            "胡斐",
             "灵心慧质"
           ]
         },
@@ -78919,8 +78919,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "张无忌",
-            "internalskill",
             "九阳神功",
             5
           ]
@@ -78929,8 +78929,8 @@
           "kind": "command",
           "name": "remove",
           "args": [
-            "张无忌",
             "talent",
+            "张无忌",
             "乾坤大挪移"
           ]
         },
@@ -78938,8 +78938,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "张无忌",
             "talent",
+            "张无忌",
             "乾坤大挪移奥义"
           ]
         },
@@ -78978,8 +78978,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.初级",
             "skill",
+            "程英.初级",
             "落英神剑掌",
             20
           ]
@@ -78988,8 +78988,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.初级",
             "skill",
+            "程英.初级",
             "玉箫剑法",
             20
           ]
@@ -78998,8 +78998,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程英.初级",
             "skill",
+            "程英.初级",
             "弹指神通",
             10
           ]
@@ -79008,8 +79008,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "程英.初级",
-            "internalskill",
             "九阴神功",
             5
           ]
@@ -79018,8 +79018,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.初级",
             "talent",
+            "程英.初级",
             "追魂"
           ]
         },
@@ -79082,8 +79082,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.初级",
             "skill",
+            "程英.初级",
             "落英神剑掌",
             20
           ]
@@ -79092,8 +79092,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.初级",
             "skill",
+            "程英.初级",
             "玉箫剑法",
             20
           ]
@@ -79102,8 +79102,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程英.高级",
             "skill",
+            "程英.高级",
             "弹指神通",
             10
           ]
@@ -79112,8 +79112,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "程英.高级",
-            "internalskill",
             "九阴神功",
             5
           ]
@@ -79122,8 +79122,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程英.高级",
             "talent",
+            "程英.高级",
             "追魂"
           ]
         },
@@ -79191,8 +79191,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭襄",
             "skill",
+            "郭襄",
             "弹指神通",
             10
           ]
@@ -79201,8 +79201,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "郭襄",
-            "internalskill",
             "九阴神功",
             5
           ]
@@ -79299,8 +79299,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "田伯光",
             "skill",
+            "田伯光",
             "狂风刀法",
             20
           ]
@@ -79317,8 +79317,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "田伯光",
             "刀法",
+            "田伯光",
             30
           ]
         },
@@ -79370,8 +79370,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "小龙女",
             "skill",
+            "小龙女",
             "玉女素心剑",
             5
           ]
@@ -79380,8 +79380,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "小龙女",
             "talent",
+            "小龙女",
             "左右互搏"
           ]
         },
@@ -79428,8 +79428,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "skill",
+            "木婉清",
             "六脉神剑",
             12
           ]
@@ -79438,8 +79438,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "木婉清",
             "talent",
+            "木婉清",
             "灵心慧质"
           ]
         },
@@ -79447,8 +79447,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "木婉清",
-            "specialskill",
             "凌波微步"
           ]
         },
@@ -79570,8 +79570,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "段王爷的电眼"
           ]
         },
@@ -79717,8 +79717,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程灵素",
             "talent",
+            "程灵素",
             "医仙"
           ]
         },
@@ -79726,8 +79726,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "程灵素",
             "talent",
+            "程灵素",
             "隔空取物"
           ]
         },
@@ -79735,8 +79735,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "程灵素",
             "maxhp",
+            "程灵素",
             1000
           ]
         },
@@ -79793,8 +79793,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "skill",
+            "郭靖",
             "降龙十八掌",
             3
           ]
@@ -79803,8 +79803,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "郭靖",
             "skill",
+            "郭靖",
             "打狗棒法",
             2
           ]
@@ -79813,8 +79813,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "郭靖",
             "talent",
+            "郭靖",
             "铁拳无双"
           ]
         },
@@ -79853,8 +79853,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "黄蓉",
             "skill",
+            "黄蓉",
             "打狗棒法",
             4
           ]
@@ -79902,8 +79902,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阿朱",
             "talent",
+            "阿朱",
             "百变千幻"
           ]
         },
@@ -79916,8 +79916,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "易容术"
           ]
         },
@@ -80029,8 +80029,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "阿碧",
-            "specialskill",
             "吴侬软语"
           ]
         },
@@ -80038,8 +80038,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阿碧",
             "talent",
+            "阿碧",
             "吴侬软语"
           ]
         },
@@ -80098,8 +80098,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "钟灵",
-            "specialskill",
             "闪电貂"
           ]
         },
@@ -80107,8 +80107,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "闪电貂"
           ]
         },
@@ -80165,8 +80165,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "talent",
+            "慕容复",
             "博览群书"
           ]
         },
@@ -80174,8 +80174,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "talent",
+            "慕容复",
             "阴谋家"
           ]
         },
@@ -80183,8 +80183,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "慕容复",
             "skill",
+            "慕容复",
             "斗转星移",
             15
           ]
@@ -80253,8 +80253,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "乔峰",
             "skill",
+            "乔峰",
             "降龙十八掌",
             3
           ]
@@ -80263,8 +80263,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "乔峰",
             "talent",
+            "乔峰",
             "碎裂的怒吼"
           ]
         },
@@ -80388,8 +80388,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阿紫",
             "skill",
+            "阿紫",
             "三阴蜈蚣爪",
             20
           ]
@@ -80398,8 +80398,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "阿紫",
-            "internalskill",
             "化功大法",
             20
           ]
@@ -80481,8 +80481,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "令狐冲",
             "skill",
+            "令狐冲",
             "独孤九剑",
             4
           ]
@@ -80527,8 +80527,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "蓝凤凰",
             "skill",
+            "蓝凤凰",
             "毒龙鞭法",
             5
           ]
@@ -80537,8 +80537,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "蓝凤凰",
             "talent",
+            "蓝凤凰",
             "毒圣"
           ]
         },
@@ -80606,8 +80606,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "曲非烟",
             "skill",
+            "曲非烟",
             "日月鞭法",
             5
           ]
@@ -80745,8 +80745,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "skill",
+            "任盈盈",
             "日月鞭法",
             5
           ]
@@ -80755,8 +80755,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "skill",
+            "任盈盈",
             "独孤九剑",
             3
           ]
@@ -80765,8 +80765,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "maxhp",
+            "任盈盈",
             1000
           ]
         },
@@ -80774,8 +80774,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "任盈盈",
             "maxmp",
+            "任盈盈",
             1000
           ]
         },
@@ -80835,8 +80835,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "血刀老祖",
             "skill",
+            "血刀老祖",
             "血刀大法",
             5
           ]
@@ -80845,8 +80845,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "血刀老祖",
             "maxhp",
+            "血刀老祖",
             1000
           ]
         },
@@ -80854,8 +80854,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "血刀老祖",
             "maxmp",
+            "血刀老祖",
             1000
           ]
         },
@@ -80912,8 +80912,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "skill",
+            "水笙",
             "连城剑法",
             4
           ]
@@ -80922,8 +80922,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "maxhp",
+            "水笙",
             1000
           ]
         },
@@ -80931,8 +80931,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "水笙",
             "maxmp",
+            "水笙",
             1000
           ]
         },
@@ -81005,8 +81005,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "李文秀",
             "skill",
+            "李文秀",
             "流星锤",
             10
           ]
@@ -81015,8 +81015,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "李文秀",
             "maxhp",
+            "李文秀",
             1000
           ]
         },
@@ -81024,8 +81024,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "李文秀",
             "maxmp",
+            "李文秀",
             1000
           ]
         },
@@ -81033,8 +81033,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "李文秀",
             "奇门",
+            "李文秀",
             20
           ]
         },
@@ -81094,8 +81094,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "霍青桐",
             "skill",
+            "霍青桐",
             "三分剑法",
             10
           ]
@@ -81104,8 +81104,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "霍青桐",
             "maxhp",
+            "霍青桐",
             1000
           ]
         },
@@ -81113,8 +81113,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "霍青桐",
             "maxmp",
+            "霍青桐",
             1000
           ]
         },
@@ -81122,8 +81122,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "霍青桐",
             "剑法",
+            "霍青桐",
             20
           ]
         },
@@ -81183,8 +81183,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "skill",
+            "陈家洛",
             "百花错拳",
             5
           ]
@@ -81193,8 +81193,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "skill",
+            "陈家洛",
             "庖丁解牛",
             5
           ]
@@ -81203,8 +81203,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxhp",
+            "陈家洛",
             1000
           ]
         },
@@ -81212,8 +81212,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "maxmp",
+            "陈家洛",
             1000
           ]
         },
@@ -81221,8 +81221,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "陈家洛",
             "拳掌",
+            "陈家洛",
             20
           ]
         },
@@ -81302,8 +81302,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "撒石灰"
           ]
         },
@@ -81311,8 +81311,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "溜须拍马"
           ]
         },
@@ -81320,8 +81320,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "神行百变"
           ]
         },
@@ -81473,8 +81473,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "skill",
+            "九难",
             "金蛇剑法",
             5
           ]
@@ -81483,8 +81483,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "skill",
+            "九难",
             "漫天花雨",
             5
           ]
@@ -81493,8 +81493,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "skill",
+            "九难",
             "混元掌",
             5
           ]
@@ -81503,8 +81503,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "九难",
-            "internalskill",
             "混元功",
             5
           ]
@@ -81513,8 +81513,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "maxhp",
+            "九难",
             1000
           ]
         },
@@ -81522,8 +81522,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "maxmp",
+            "九难",
             1000
           ]
         },
@@ -81531,8 +81531,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "拳掌",
+            "九难",
             15
           ]
         },
@@ -81540,8 +81540,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "剑法",
+            "九难",
             15
           ]
         },
@@ -81549,8 +81549,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "奇门",
+            "九难",
             15
           ]
         },
@@ -81615,8 +81615,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "杨冰儿",
             "skill",
+            "杨冰儿",
             "玉女素心剑",
             5
           ]
@@ -81625,8 +81625,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "杨冰儿",
-            "internalskill",
             "九阴神功",
             5
           ]
@@ -81695,8 +81695,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "达尔巴",
             "skill",
+            "达尔巴",
             "火焰刀法",
             5
           ]
@@ -81705,8 +81705,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "达尔巴",
-            "internalskill",
             "龙象般若功",
             5
           ]
@@ -81775,8 +81775,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "崔秋山",
             "skill",
+            "崔秋山",
             "混元掌",
             5
           ]
@@ -81785,8 +81785,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "崔秋山",
             "skill",
+            "崔秋山",
             "破玉拳",
             5
           ]
@@ -81847,8 +81847,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "儿时袁承志",
             "skill",
+            "儿时袁承志",
             "金蛇剑法",
             10
           ]
@@ -81857,8 +81857,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "儿时袁承志",
             "skill",
+            "儿时袁承志",
             "破玉拳",
             10
           ]
@@ -81911,8 +81911,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "金蛇郎君",
             "skill",
+            "金蛇郎君",
             "金蛇剑法",
             10
           ]
@@ -81965,8 +81965,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "skill",
+            "温青青",
             "金蛇剑法",
             5
           ]
@@ -81975,8 +81975,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "talent",
+            "温青青",
             "无尽斗志"
           ]
         },
@@ -82028,8 +82028,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿九",
             "skill",
+            "阿九",
             "金蛇剑法",
             5
           ]
@@ -82038,8 +82038,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿九",
             "skill",
+            "阿九",
             "混元掌",
             5
           ]
@@ -82048,8 +82048,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "阿九",
             "talent",
+            "阿九",
             "混元一气"
           ]
         },
@@ -82109,8 +82109,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "儿时袁承志",
             "skill",
+            "儿时袁承志",
             "伏虎掌",
             8
           ]
@@ -82825,8 +82825,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             -10
           ]
         }
@@ -83907,8 +83907,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             -200
           ]
         },
@@ -83916,8 +83916,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             -200
           ]
         },
@@ -83925,8 +83925,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             -5
           ]
         },
@@ -83934,8 +83934,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             -5
           ]
         },
@@ -84496,8 +84496,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             50
           ]
         },
@@ -84505,8 +84505,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             1500
           ]
         },
@@ -84514,8 +84514,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             1500
           ]
         },
@@ -84523,8 +84523,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "internal",
             "袁承志",
-            "internalskill",
             "混元功",
             12
           ]
@@ -84533,8 +84533,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "天外飞龙",
             12
           ]
@@ -85400,8 +85400,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "神行百变"
           ]
         },
@@ -85409,8 +85409,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "身法",
+            "袁承志",
             20
           ]
         },
@@ -85418,8 +85418,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "神行百变"
           ]
         },
@@ -85427,8 +85427,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "身法",
+            "主角",
             10
           ]
         },
@@ -85607,8 +85607,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "拳掌",
+            "袁承志",
             40
           ]
         },
@@ -85616,8 +85616,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             1500
           ]
         },
@@ -85625,8 +85625,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             1500
           ]
         },
@@ -85634,8 +85634,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "混元掌",
             12
           ]
@@ -85644,8 +85644,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "破玉拳",
             12
           ]
@@ -85654,8 +85654,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "混元一气"
           ]
         },
@@ -85663,8 +85663,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "铁拳无双"
           ]
         },
@@ -85771,8 +85771,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "拳掌",
+            "袁承志",
             20
           ]
         },
@@ -85780,8 +85780,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             1000
           ]
         },
@@ -85789,8 +85789,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             1000
           ]
         },
@@ -85798,8 +85798,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "混元掌",
             12
           ]
@@ -85808,8 +85808,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "破玉拳",
             12
           ]
@@ -85950,8 +85950,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             40
           ]
         },
@@ -85959,8 +85959,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             40
           ]
         },
@@ -85968,8 +85968,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             1500
           ]
         },
@@ -85977,8 +85977,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             1500
           ]
         },
@@ -85986,8 +85986,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇剑法",
             12
           ]
@@ -85996,8 +85996,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇锥",
             10
           ]
@@ -86006,8 +86006,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "金蛇郎君"
           ]
         },
@@ -86015,8 +86015,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "金蛇狂舞"
           ]
         },
@@ -86032,8 +86032,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "剑法",
+            "温青青",
             20
           ]
         },
@@ -86041,8 +86041,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "拳掌",
+            "温青青",
             20
           ]
         },
@@ -86050,8 +86050,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "maxhp",
+            "温青青",
             500
           ]
         },
@@ -86059,8 +86059,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "maxmp",
+            "温青青",
             500
           ]
         },
@@ -86068,8 +86068,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "skill",
+            "温青青",
             "金蛇剑法",
             10
           ]
@@ -86078,8 +86078,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "skill",
+            "温青青",
             "金蛇游身掌",
             10
           ]
@@ -86088,8 +86088,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "talent",
+            "温青青",
             "金蛇郎君"
           ]
         },
@@ -86213,8 +86213,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             20
           ]
         },
@@ -86222,8 +86222,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "奇门",
+            "袁承志",
             20
           ]
         },
@@ -86231,8 +86231,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             800
           ]
         },
@@ -86240,8 +86240,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             800
           ]
         },
@@ -86249,8 +86249,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇剑法",
             10
           ]
@@ -86259,8 +86259,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇锥",
             10
           ]
@@ -86277,8 +86277,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "剑法",
+            "温青青",
             20
           ]
         },
@@ -86286,8 +86286,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "拳掌",
+            "温青青",
             20
           ]
         },
@@ -86295,8 +86295,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "maxhp",
+            "温青青",
             1500
           ]
         },
@@ -86304,8 +86304,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "温青青",
             "maxmp",
+            "温青青",
             1500
           ]
         },
@@ -86313,8 +86313,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "skill",
+            "温青青",
             "金蛇剑法",
             12
           ]
@@ -86323,8 +86323,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "skill",
+            "温青青",
             "金蛇游身掌",
             10
           ]
@@ -86333,8 +86333,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "温青青",
             "talent",
+            "温青青",
             "金蛇郎君"
           ]
         },
@@ -86857,8 +86857,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿九",
             "臂力",
+            "阿九",
             -30
           ]
         },
@@ -86866,8 +86866,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "阿九",
             "定力",
+            "阿九",
             30
           ]
         },
@@ -87323,8 +87323,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxhp",
+            "袁承志",
             1200
           ]
         },
@@ -87332,8 +87332,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "maxmp",
+            "袁承志",
             1200
           ]
         },
@@ -87349,8 +87349,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "剑法",
+            "袁承志",
             40
           ]
         },
@@ -87358,8 +87358,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "袁承志",
             "拳掌",
+            "袁承志",
             20
           ]
         },
@@ -87367,8 +87367,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇剑法",
             12
           ]
@@ -87377,8 +87377,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "skill",
+            "袁承志",
             "金蛇游身掌",
             10
           ]
@@ -87387,8 +87387,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "袁承志",
             "talent",
+            "袁承志",
             "金蛇郎君"
           ]
         },
@@ -87396,8 +87396,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "maxhp",
+            "九难",
             1200
           ]
         },
@@ -87405,8 +87405,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "maxmp",
+            "九难",
             1200
           ]
         },
@@ -87422,8 +87422,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "剑法",
+            "九难",
             20
           ]
         },
@@ -87431,8 +87431,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "九难",
             "奇门",
+            "九难",
             20
           ]
         },
@@ -87440,8 +87440,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "九难",
             "skill",
+            "九难",
             "金蛇剑法",
             12
           ]
@@ -87450,8 +87450,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "九难",
             "skill",
+            "九难",
             "金蛇锥",
             10
           ]
@@ -87468,8 +87468,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "九难",
             "talent",
+            "九难",
             "金蛇郎君"
           ]
         }

@@ -79,7 +79,7 @@ set_reward $moneyCnt 小刀 2 -5
 
 test("parses negative numeric literals in commands and expressions", () => {
   const source = `# Start
-upgrade 主角 臂力 -5
+upgrade 臂力 主角 -5
 if $money > -100
   get_money -10
 `;
@@ -92,7 +92,7 @@ if $money > -100
   assert.deepEqual(compiled.ir.segments[0].steps[0], {
     kind: "command",
     name: "upgrade",
-    args: ["主角", "臂力", -5],
+    args: ["臂力", "主角", -5],
   });
 
   const branchStep = compiled.ir.segments[0].steps[1];
@@ -206,8 +206,8 @@ test("converts story XML battles, dotted action types and conditioned outcomes",
   const story = convertXmlToStory(xml);
   assert.equal(story, `# 破庙_梅超风_迎战
 梅超风：找死 & 接招！
-learn 主角 skill 伏虎掌 5
-upgrade 小龙女 skill 玉女素心剑 -5
+learn skill 主角 伏虎掌 5
+upgrade skill 小龙女 玉女素心剑 -5
 battle 新手村梅超风_战斗
 - win
   if have_item 小刀
@@ -221,7 +221,7 @@ battle 新手村梅超风_战斗
   assert.deepEqual(compiled.ir.segments[0].steps[2], {
     kind: "command",
     name: "upgrade",
-    args: ["小龙女", "skill", "玉女素心剑", -5],
+    args: ["skill", "小龙女", "玉女素心剑", -5],
   });
 });
 

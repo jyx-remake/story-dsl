@@ -147,7 +147,7 @@ jump 破庙_梅超风_战斗结束_失败2
 主角：谢道长关心。
 丘处机：我看小兄弟心气正直，是一个成材之料。若有志成才，日后可以拜入我全真教门下学艺！
 主角：！！多谢道长赏识！
-upgrade 主角 定力 1
+upgrade 定力 主角 1
 丘处机：好了，贫道先走了，多保重！
 
 # 破庙_梅超风_求饶
@@ -158,7 +158,7 @@ upgrade 主角 定力 1
 主角：大姐，你就可怜可怜我吧，在下真的不是故意的，呜呜呜……
 梅超风：哎，罢了，算你走运。今天我就不开杀戒了，赶紧滚吧。
 主角：赶紧跑吧，差点小命都要丢在这……
-upgrade 主角 福缘 1
+upgrade 福缘 主角 1
 map 小村
 
 # 破庙_梅超风_UFO
@@ -189,7 +189,7 @@ suggest 干江湖人士不齿的事情，可能会降低道德值喔。请慎重
 
 # 破庙_少年袁承志_偷看
 主角：赶紧偷偷学几招，不看白不看，得来全不费功夫。
-learn 主角 skill 伏虎掌 5
+learn skill 主角 伏虎掌 5
 daode -2
 主角：好嘞，原来这套拳法是这样。。看来哥的悟性不低，看一遍即会。赶紧闪人，免得被发现了。
 map 小村
@@ -290,11 +290,11 @@ map 小村
 
 # 破庙_佛像_打扫
 主角：佛呀佛呀，你这么多灰尘，自己都保佑不了，怎么能保佑人们呢，我就来给你打扫一下吧。
-upgrade 主角 maxhp 10
+upgrade maxhp 主角 10
 
 # 破庙_佛像_拜佛
 主角：上帝保佑，如来佛保佑，玉皇大帝保佑，观音菩萨保佑……
-upgrade 主角 maxmp 10
+upgrade maxmp 主角 10
 
 # 新手村_武师
 武师：哈喽，小兄弟，你是新来的吧？
@@ -756,7 +756,7 @@ music 音乐.紧张感
 魔君：目的？你来这里不是觉得好玩才来吗？我找你来也只是觉得好玩而已啊。
 主角：......
 魔君：下去吧，等我随时召唤你，哈哈哈哈。
-learn 主角 talent 黑衣
+learn talent 主角 黑衣
 menpai 黑衣
 nick 黑衣墨道
 set_time_key 加入黑衣 45 黑衣_对战魔君
@@ -777,13 +777,13 @@ map 黑衣总坛
 
 # 黑衣_加血
 主角：一阵不可思议的光辉笼罩全身…
-upgrade 主角 maxhp 300
+upgrade maxhp 主角 300
 cost_day 1
 jump mainStory_黑衣新一天
 
 # 黑衣_加蓝
 主角：一阵不可思议的光辉笼罩全身…
-upgrade 主角 maxmp 600
+upgrade maxmp 主角 600
 cost_day 1
 jump mainStory_黑衣新一天
 
@@ -832,10 +832,10 @@ battle 黑衣_灭门武当
 # 黑衣_灭门武当奖励
 魔君：很好，你不愧是江湖之中出类拔萃的人才。这样吧，武当的好东西我教你一个！
 主角：哈哈哈哈，好，好。
-learn 主角 talent 至空至明
+learn talent 主角 至空至明
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -856,10 +856,10 @@ battle 黑衣_灭门少林
 魔君：这样吧！少林寺的武功，我教你几个做奖励！
 主角：少林寺武功不过如此，没什么好学的。
 魔君：还是可以的！来，这个你将就学学吧！
-learn 主角 talent 易经伐髓
+learn talent 主角 易经伐髓
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -879,10 +879,10 @@ battle 黑衣_灭门日月
 魔君：...你牛。
 主角：给奖励吧。
 魔君：...好，我就教你几手日月教的看家本领。
-learn 主角 talent 孤独求败
+learn talent 主角 孤独求败
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -921,10 +921,10 @@ battle 黑衣_暗杀黄裳
 
 # 黑衣_暗杀黄裳奖励
 魔君：好，赏！
-learn 主角 talent 碎裂的怒吼
+learn talent 主角 碎裂的怒吼
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -937,10 +937,10 @@ battle 黑衣_暗杀独孤求败
 
 # 黑衣_暗杀独孤求败奖励
 魔君：好，赏！
-learn 主角 talent 诸般封印
+learn talent 主角 诸般封印
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -953,10 +953,10 @@ battle 黑衣_暗杀王重阳
 
 # 黑衣_暗杀王重阳奖励
 魔君：好，赏！
-learn 主角 talent 我就是神
+learn talent 主角 我就是神
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -980,10 +980,10 @@ battle 黑衣_对战黑衣使者
 魔君：哈哈哈哈，哈哈哈哈，好，好。你真是厉害，下次换我来陪你玩。
 主角：期待那一天啦，有什么奖励没？
 魔君：奖励拿去！
-learn 主角 talent 百变千幻
+learn talent 主角 百变千幻
 get_point 主角 10
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
 cost_day 5
 jump mainStory_黑衣新一天
 
@@ -1006,8 +1006,8 @@ battle 黑衣_对战魔君
 主角：？
 魔君：好玩，好玩！就让你在江湖中多混一阵子吧！（一瞬间不见了踪影）
 主角：...此人武功确实是深不见底，好险…此处无事了，离开这个黑衣教吧。
-learn 主角 talent 鬼魅
-learn 主角 talent 倚天屠龙
+learn talent 主角 鬼魅
+learn talent 主角 倚天屠龙
 nick 唯我独黑
 jump 黑衣_南贤
 
@@ -1517,7 +1517,7 @@ jump original_女主.射雕英雄传.结束
 主角：不错，这一路走来，相信你对武学体会更深了。虽然你是女孩子，但是武学天赋其实相当好的。
 女主：那个“虽然你是女孩子”可以省略的啦。
 get_point 女主 10
-upgrade 女主 拳掌 10
+upgrade 拳掌 女主 10
 map 大地图
 
 # original_女主.白马啸西风
@@ -1562,7 +1562,7 @@ get_point 女主 20
 主角：（忽然感到有点不好意思）呜，嗯...
 haogan 5
 get_point 女主 10
-upgrade 女主 奇门 10
+upgrade 奇门 女主 10
 
 # original_女主.神雕侠侣.绝情谷小龙女
 music 音乐.琵琶语
@@ -1617,7 +1617,7 @@ jump original_女主.神雕侠侣.绝情谷小龙女结束
 主角：呜...被占便宜了。
 女主：今天见识到了双剑合璧，真的很厉害呀！
 get_point 女主 15
-upgrade 女主 剑法 20
+upgrade 剑法 女主 20
 map 大地图
 
 # original_女主.神雕侠侣.峨眉山郭襄
@@ -1638,7 +1638,7 @@ music 音乐.琵琶语
 女主：嘻嘻，将来的事情，谁知道哩。
 女主：看着郭小姐参悟，我好像也学了不少东西。
 get_point 女主 15
-upgrade 女主 剑法 20
+upgrade 剑法 女主 20
 女主：走吧，我们下，山，喽~
 map 大地图
 
@@ -1733,7 +1733,7 @@ jump tlbb.dy_万劫谷地牢.上2
 女主：嗯。
 木婉清：我这套袖箭的口诀，是我的师父...也是我的娘传给我的。我从这门功夫里悟出了一些奇门暗器的法门，和你分享一二。路上咱们再多切磋交流。
 女主：嗯。谢谢你，木姐姐。
-upgrade 女主 奇门 20
+upgrade 奇门 女主 20
 map 大地图
 
 # original_女主.天龙八部.天龙寺六脉神剑
@@ -1747,7 +1747,7 @@ map 大地图
 木婉清：不过从这套武功里，我明白了一些指法、拳法的运功精要，我跟你分享一二。
 女主：嗯。谢谢你，木姐姐。
 maxlevel 六脉神剑 1
-upgrade 女主 拳掌 20
+upgrade 拳掌 女主 20
 map 大地图
 
 # original_女主.天龙八部.秦红棉居
@@ -1768,7 +1768,7 @@ map 大地图
 段誉：这套凌波微步的要诀，演自周易的八八六十四卦。你对周易熟悉吗？
 女主：恩...学过一点。
 段誉：好，如此如此，这般这般...
-learn 女主 specialskill 凌波微步
+learn special 女主 凌波微步
 get_point 女主 30
 段誉：原来你的悟性如此之好...
 女主：嘻嘻，段公子过奖了。
@@ -1833,8 +1833,8 @@ map 大地图
 女主：希望乔帮主能恢复往日的风采，这段时间我也学会了不少东西呢。
 haogan 5
 get_point 女主 20
-upgrade 女主 拳掌 20
-upgrade 女主 奇门 20
+upgrade 拳掌 女主 20
+upgrade 奇门 女主 20
 
 # original_女主.襄阳大战后
 background 地图.沙漠
@@ -2030,8 +2030,8 @@ jump original_女主.重伤.完全恢复
 主角：他老人家可是当世高人，如今已经远遁山林去了。
 女主：...那可真是遗憾。
 女主：...一灯大师的功力，好像都传给我了。
-upgrade 女主 maxhp 1500
-upgrade 女主 maxmp 1500
+upgrade maxhp 女主 1500
+upgrade maxmp 女主 1500
 get_point 女主 50
 maxlevel 一阳指 1
 if should_finish original_女主.神雕侠侣.绝情谷小龙女结束 and should_finish original_女主.重伤.表白
@@ -2322,7 +2322,7 @@ select_menpai
 南贤：哦？要自己闯荡？不错。
 南贤：为了表彰你的勇敢行为，我赠予你一个天赋吧！
 主角：哇！太好了！
-learn 主角 talent 草头百姓
+learn talent 主角 草头百姓
 growtemplate 主角 无门派主角
 主角：这...是虾米...
 南贤：总有一天，你会发现它的价值...
@@ -3202,10 +3202,10 @@ log 挑战少林木人巷成功。
 # original_少林.木人巷胜
 主角：过一次木人巷，收益良多。
 get_point 主角 5
-upgrade 主角 拳掌 3
-upgrade 主角 剑法 3
-upgrade 主角 刀法 3
-upgrade 主角 奇门 3
+upgrade 拳掌 主角 3
+upgrade 剑法 主角 3
+upgrade 刀法 主角 3
+upgrade 奇门 主角 3
 方证大师：施主武功高强，老衲佩服。一点小礼，不成敬意。
 item 如来千手法 1
 item 生生造化丹 5
@@ -3245,10 +3245,10 @@ log 挑战少林铜人巷成功。
 # original_少林.铜人巷胜
 主角：过一次铜人巷，收益良多。
 get_point 主角 10
-upgrade 主角 拳掌 5
-upgrade 主角 剑法 5
-upgrade 主角 刀法 5
-upgrade 主角 奇门 5
+upgrade 拳掌 主角 5
+upgrade 剑法 主角 5
+upgrade 刀法 主角 5
+upgrade 奇门 主角 5
 方证大师：施主武功高强，老衲佩服。一点小礼，不成敬意。
 item 燃木刀法 1
 item 天王保命丹 10
@@ -3313,10 +3313,10 @@ log 挑战武当七截阵成功。
 # original_武当.七截阵胜
 主角：过一次七截阵，收益良多。
 get_point 主角 5
-upgrade 主角 拳掌 2
-upgrade 主角 剑法 2
-upgrade 主角 刀法 2
-upgrade 主角 奇门 2
+upgrade 拳掌 主角 2
+upgrade 剑法 主角 2
+upgrade 刀法 主角 2
+upgrade 奇门 主角 2
 冲虚道长：小兄弟武功不错，武当山上没别的，只能教你几手武功了。
 item 太极拳谱 1
 item 太极剑法谱 1
@@ -3361,10 +3361,10 @@ log 挑战张三丰成功。
 # original_武当.张三丰胜
 主角：与张三丰过招，收益良多。
 get_point 主角 10
-upgrade 主角 拳掌 5
-upgrade 主角 剑法 5
-upgrade 主角 刀法 5
-upgrade 主角 奇门 5
+upgrade 拳掌 主角 5
+upgrade 剑法 主角 5
+upgrade 刀法 主角 5
+upgrade 奇门 主角 5
 张三丰：小兄弟武功不错，这里是我平生研习太极拳所得到的一点体会，小兄弟拿去看看也许有益处。
 item 太极心得手抄本 1
 log 挑战张三丰成功。
@@ -3405,10 +3405,10 @@ log 挑战真武七截阵成功。
 # original_武当.真武七截阵胜
 主角：七截阵果然不凡，今天收益良多。
 get_point 主角 10
-upgrade 主角 拳掌 5
-upgrade 主角 剑法 5
-upgrade 主角 刀法 5
-upgrade 主角 奇门 5
+upgrade 拳掌 主角 5
+upgrade 剑法 主角 5
+upgrade 刀法 主角 5
+upgrade 奇门 主角 5
 张三丰：不错不错！能破这真武七截阵，小兄弟，你这一行人已经是天下罕有的武功了。
 item 真武剑 1
 log 挑战真武七截阵成功。
@@ -3447,14 +3447,14 @@ battle 无量山洞庄子_战斗
 # original_无量山洞庄子胜简单模式
 段誉：是了！天地有大美而不言，四时有成法而不议。我心中忽然觉得豁然开朗。
 陈家洛：哈哈，我也是。汪洋恣肆、随心所欲，天地仿佛亦在我手！
-upgrade 段誉 maxhp 500
-upgrade 段誉 maxmp 500
+upgrade maxhp 段誉 500
+upgrade maxmp 段誉 500
 get_point 段誉 15
-upgrade 段誉 拳掌 10
-upgrade 陈家洛 maxhp 500
-upgrade 陈家洛 maxmp 500
+upgrade 拳掌 段誉 10
+upgrade maxhp 陈家洛 500
+upgrade maxmp 陈家洛 500
 get_point 陈家洛 15
-upgrade 陈家洛 拳掌 10
+upgrade 拳掌 陈家洛 10
 item 庖丁解牛 1
 item 道家仙丹 1
 nick 极北沧冥
@@ -3467,14 +3467,14 @@ cost_day 10
 # original_无量山洞庄子胜
 段誉：是了！天地有大美而不言，四时有成法而不议。我心中忽然觉得豁然开朗。
 陈家洛：哈哈，我也是。汪洋恣肆、随心所欲，天地仿佛亦在我手！
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 25
-upgrade 段誉 拳掌 40
-upgrade 陈家洛 maxhp 1000
-upgrade 陈家洛 maxmp 1000
+upgrade 拳掌 段誉 40
+upgrade maxhp 陈家洛 1000
+upgrade maxmp 陈家洛 1000
 get_point 陈家洛 25
-upgrade 陈家洛 拳掌 40
+upgrade 拳掌 陈家洛 40
 item 凌波微步图谱 1
 item 天下轻功总决 1
 item 庖丁解牛 1
@@ -3516,17 +3516,17 @@ battle 剑魔荒冢独孤求败_战斗
 # original_剑魔荒冢独孤求败胜简单模式
 令狐冲：原来如此！这就是无招胜有招的真正境界！
 杨过：不错！草木竹石均可为剑，心中无碍，心剑合一！
-upgrade 令狐冲 maxhp 500
-upgrade 令狐冲 maxmp 500
+upgrade maxhp 令狐冲 500
+upgrade maxmp 令狐冲 500
 get_point 令狐冲 10
-upgrade 令狐冲 剑法 10
-upgrade 杨过 maxhp 500
-upgrade 杨过 maxmp 500
+upgrade 剑法 令狐冲 10
+upgrade maxhp 杨过 500
+upgrade maxmp 杨过 500
 get_point 杨过 10
-upgrade 杨过 拳掌 10
-upgrade 杨过 剑法 10
-learn 令狐冲 skill 独孤九剑 15
-learn 杨过 skill 玄铁剑法 16
+upgrade 拳掌 杨过 10
+upgrade 剑法 杨过 10
+learn skill 令狐冲 独孤九剑 15
+learn skill 杨过 玄铁剑法 16
 item 紫薇软剑 1
 item 王母蟠桃 1
 nick 独孤求败
@@ -3541,17 +3541,17 @@ cost_day 10
 # original_剑魔荒冢独孤求败胜
 令狐冲：原来如此！这就是无招胜有招的真正境界！
 杨过：不错！草木竹石均可为剑，心中无碍，心剑合一！
-upgrade 令狐冲 maxhp 1000
-upgrade 令狐冲 maxmp 1000
+upgrade maxhp 令狐冲 1000
+upgrade maxmp 令狐冲 1000
 get_point 令狐冲 20
-upgrade 令狐冲 剑法 25
-upgrade 杨过 maxhp 1000
-upgrade 杨过 maxmp 1000
+upgrade 剑法 令狐冲 25
+upgrade maxhp 杨过 1000
+upgrade maxmp 杨过 1000
 get_point 杨过 20
-upgrade 杨过 拳掌 10
-upgrade 杨过 剑法 25
-learn 令狐冲 skill 独孤九剑 20
-learn 杨过 skill 玄铁剑法 20
+upgrade 拳掌 杨过 10
+upgrade 剑法 杨过 25
+learn skill 令狐冲 独孤九剑 20
+learn skill 杨过 玄铁剑法 20
 item 紫薇软剑 1
 item 独孤九剑剑谱 1
 item 王母蟠桃 1
@@ -3595,11 +3595,11 @@ music 音乐.宿命
 background 地图.大殿
 music 音乐.宿命
 张无忌：不错！当日我在光明顶上，力抗六大派，心情何等豪迈！
-upgrade 张无忌 maxhp 500
-upgrade 张无忌 maxmp 500
+upgrade maxhp 张无忌 500
+upgrade maxmp 张无忌 500
 get_point 张无忌 20
-upgrade 张无忌 拳掌 10
-learn 张无忌 internalskill 九阳神功 10
+upgrade 拳掌 张无忌 10
+learn internal 张无忌 九阳神功 10
 item 乾坤大挪移心法 1
 item 王母蟠桃 1
 nick 明教教主
@@ -3611,11 +3611,11 @@ jump 倚天屠龙_光明顶胜利
 background 地图.大殿
 music 音乐.宿命
 张无忌：不错！当日我在光明顶上，力抗六大派，心情何等豪迈！
-upgrade 张无忌 maxhp 1000
-upgrade 张无忌 maxmp 1000
+upgrade maxhp 张无忌 1000
+upgrade maxmp 张无忌 1000
 get_point 张无忌 30
-upgrade 张无忌 拳掌 40
-learn 张无忌 internalskill 九阳神功 10
+upgrade 拳掌 张无忌 40
+learn internal 张无忌 九阳神功 10
 item 乾坤大挪移心法 1
 item 王母蟠桃 1
 item 九阳真经 1
@@ -3664,20 +3664,20 @@ music 音乐.神雕.舒缓
 小龙女：也许是师祖留下的神奇机关吧，大家都平安就好。
 杨过：刚刚幻象里的武学招式，都出自古墓全真两派，但境界为之豁然开朗。
 小龙女：是啊，过儿。照幻象习之，你我的武功也许还可以再上一层楼。
-upgrade 杨过 maxhp 500
-upgrade 杨过 maxmp 500
+upgrade maxhp 杨过 500
+upgrade maxmp 杨过 500
 get_point 杨过 10
-upgrade 杨过 拳掌 10
-upgrade 杨过 剑法 10
-learn 杨过 internalskill 九阴神功 10
-upgrade 小龙女 maxhp 500
-upgrade 小龙女 maxmp 500
+upgrade 拳掌 杨过 10
+upgrade 剑法 杨过 10
+learn internal 杨过 九阴神功 10
+upgrade maxhp 小龙女 500
+upgrade maxmp 小龙女 500
 get_point 小龙女 10
-upgrade 小龙女 拳掌 10
-upgrade 小龙女 剑法 20
-upgrade 小龙女 奇门 10
-learn 小龙女 internalskill 九阴神功 10
-learn 小龙女 talent 素心神剑
+upgrade 拳掌 小龙女 10
+upgrade 剑法 小龙女 20
+upgrade 奇门 小龙女 10
+learn internal 小龙女 九阴神功 10
+learn talent 小龙女 素心神剑
 item 素心神剑心得 1
 item 王母蟠桃 1
 nick 神雕侠侣
@@ -3693,20 +3693,20 @@ music 音乐.神雕.舒缓
 小龙女：也许是师祖留下的神奇机关吧，大家都平安就好。
 杨过：刚刚幻象里的武学招式，都出自古墓全真两派，但境界为之豁然开朗。
 小龙女：是啊，过儿。照幻象习之，你我的武功也许还可以再上一层楼。
-upgrade 杨过 maxhp 1000
-upgrade 杨过 maxmp 1000
+upgrade maxhp 杨过 1000
+upgrade maxmp 杨过 1000
 get_point 杨过 20
-upgrade 杨过 拳掌 10
-upgrade 杨过 剑法 10
-learn 杨过 internalskill 九阴神功 10
-upgrade 小龙女 maxhp 1000
-upgrade 小龙女 maxmp 1000
+upgrade 拳掌 杨过 10
+upgrade 剑法 杨过 10
+learn internal 杨过 九阴神功 10
+upgrade maxhp 小龙女 1000
+upgrade maxmp 小龙女 1000
 get_point 小龙女 20
-upgrade 小龙女 拳掌 10
-upgrade 小龙女 剑法 10
-upgrade 小龙女 奇门 10
-learn 小龙女 internalskill 九阴神功 10
-learn 小龙女 talent 素心神剑
+upgrade 拳掌 小龙女 10
+upgrade 剑法 小龙女 10
+upgrade 奇门 小龙女 10
+learn internal 小龙女 九阴神功 10
+learn talent 小龙女 素心神剑
 item 素心神剑心得 1
 item 王母蟠桃 1
 nick 神雕侠侣
@@ -4699,7 +4699,7 @@ log 襄阳城南，找回一枚神雕大侠的金针。
 郭襄：嗯，谢谢你！金针呀金针，我一定会好好保管你！看到你就像看到了大哥哥！你也会保佑我的对不对？
 nick 三枚金针
 maxlevel 九阴神功 1
-learn 郭襄 specialskill 襄儿的心愿
+learn special 郭襄 襄儿的心愿
 
 # sdxl_绝情谷底.郭襄
 background 地图.绝情谷底
@@ -4748,7 +4748,7 @@ jump original_女主.神雕侠侣.绝情谷结束郭襄
 女主：今天在武学上也有所收获呢。
 haogan 10
 get_point 女主 15
-upgrade 女主 剑法 20
+upgrade 剑法 女主 20
 map 大地图
 
 # sdxl_峨眉金顶
@@ -4769,15 +4769,15 @@ if game_mode normal
 jump sdxl_峨眉金顶2
 
 # sdxl_峨眉金顶2简单模式
-upgrade 郭襄 maxhp 1000
-upgrade 郭襄 maxmp 1000
+upgrade maxhp 郭襄 1000
+upgrade maxmp 郭襄 1000
 get_point 郭襄 15
-upgrade 郭襄 拳掌 20
-upgrade 郭襄 剑法 20
-upgrade 郭襄 刀法 10
-upgrade 郭襄 奇门 10
-learn 郭襄 internalskill 九阳神功 10
-learn 郭襄 talent 峨眉宗师
+upgrade 拳掌 郭襄 20
+upgrade 剑法 郭襄 20
+upgrade 刀法 郭襄 10
+upgrade 奇门 郭襄 10
+learn internal 郭襄 九阳神功 10
+learn talent 郭襄 峨眉宗师
 nick 峨眉宗师
 log 峨眉金顶，郭襄若有所思。
 if should_finish original_长安.家中 and key_in_team 女主
@@ -4786,17 +4786,17 @@ if key_not_in_team 女主
   map 大地图
 
 # sdxl_峨眉金顶2
-upgrade 郭襄 maxhp 1500
-upgrade 郭襄 maxmp 1500
+upgrade maxhp 郭襄 1500
+upgrade maxmp 郭襄 1500
 get_point 郭襄 30
-upgrade 郭襄 拳掌 40
-upgrade 郭襄 剑法 40
-upgrade 郭襄 刀法 10
-upgrade 郭襄 奇门 10
-learn 郭襄 internalskill 九阴神功 10
-learn 郭襄 internalskill 九阳神功 10
+upgrade 拳掌 郭襄 40
+upgrade 剑法 郭襄 40
+upgrade 刀法 郭襄 10
+upgrade 奇门 郭襄 10
+learn internal 郭襄 九阴神功 10
+learn internal 郭襄 九阳神功 10
 maxlevel 九阳神功 1
-learn 郭襄 talent 峨眉宗师
+learn talent 郭襄 峨眉宗师
 nick 峨眉宗师
 log 峨眉金顶，郭襄若有所思。
 if should_finish original_长安.家中 and key_in_team 女主
@@ -5075,12 +5075,12 @@ music 音乐.天龙八部.逍遥派抒情版
 主角：（汗）冷静，冷静…我带你逃出去找段誉吧？
 木婉清：好！
 join 木婉清
-upgrade 木婉清 maxhp 400
-upgrade 木婉清 maxmp 400
+upgrade maxhp 木婉清 400
+upgrade maxmp 木婉清 400
 get_point 木婉清 25
-upgrade 木婉清 拳掌 40
-learn 木婉清 skill 袖箭 10
-learn 木婉清 skill 一阳指 9
+upgrade 拳掌 木婉清 40
+learn skill 木婉清 袖箭 10
+learn skill 木婉清 一阳指 9
 nick 婉而清扬
 jump tlbb.dy_镇南王府.救木婉清2
 
@@ -5133,8 +5133,8 @@ music 音乐.天龙八部.佛音4
 join 段誉
 item 北冥神功精义 1
 maxlevel 北冥神功 1
-learn 段誉 talent 夫妻同心
-learn 木婉清 talent 夫妻同心
+learn talent 段誉 夫妻同心
+learn talent 木婉清 夫妻同心
 if key_not_in_team 女主
   map 大地图
 if should_finish original_长安.家中 and key_in_team 女主
@@ -5203,22 +5203,22 @@ item 六脉神剑谱 1
 段誉：谢谢大师！
 木婉清：挽回了段郎的颜面，你这个和尚不错！
 枯荣大师：阿弥陀佛...贫僧今日见证誉儿和木姑娘良缘，无以相赠，唯有传授些许微薄武艺，以表祝贺。
-upgrade 木婉清 maxhp 500
-upgrade 木婉清 maxmp 500
+upgrade maxhp 木婉清 500
+upgrade maxmp 木婉清 500
 get_point 木婉清 10
-upgrade 木婉清 拳掌 10
-upgrade 木婉清 剑法 10
-upgrade 木婉清 刀法 10
-upgrade 木婉清 奇门 10
-learn 木婉清 skill 六脉神剑 8
-upgrade 段誉 maxhp 500
-upgrade 段誉 maxmp 500
+upgrade 拳掌 木婉清 10
+upgrade 剑法 木婉清 10
+upgrade 刀法 木婉清 10
+upgrade 奇门 木婉清 10
+learn skill 木婉清 六脉神剑 8
+upgrade maxhp 段誉 500
+upgrade maxmp 段誉 500
 get_point 段誉 10
-upgrade 段誉 拳掌 10
-upgrade 段誉 剑法 10
-upgrade 段誉 刀法 10
-upgrade 段誉 奇门 10
-learn 段誉 skill 六脉神剑 8
+upgrade 拳掌 段誉 10
+upgrade 剑法 段誉 10
+upgrade 刀法 段誉 10
+upgrade 奇门 段誉 10
+learn skill 段誉 六脉神剑 8
 木婉清：谢谢你！段郎...(眼中含泪）他们终于肯让我们在一起了。
 段誉：（含笑）婉妹，这一路历险，我们不是都在一起么。
 木婉清：嗯！从此，我们也再不会分开了...
@@ -5245,22 +5245,22 @@ item 六脉神剑谱 1
 段誉：谢谢大师！
 木婉清：挽回了段郎的颜面，你这个和尚不错！
 枯荣大师：阿弥陀佛...贫僧今日见证誉儿和木姑娘良缘，无以相赠，唯有传授些许微薄武艺，以表祝贺。
-upgrade 木婉清 maxhp 1000
-upgrade 木婉清 maxmp 1000
+upgrade maxhp 木婉清 1000
+upgrade maxmp 木婉清 1000
 get_point 木婉清 30
-upgrade 木婉清 拳掌 20
-upgrade 木婉清 剑法 10
-upgrade 木婉清 刀法 10
-upgrade 木婉清 奇门 10
-learn 木婉清 skill 六脉神剑 10
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade 拳掌 木婉清 20
+upgrade 剑法 木婉清 10
+upgrade 刀法 木婉清 10
+upgrade 奇门 木婉清 10
+learn skill 木婉清 六脉神剑 10
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 30
-upgrade 段誉 拳掌 20
-upgrade 段誉 剑法 10
-upgrade 段誉 刀法 10
-upgrade 段誉 奇门 10
-learn 段誉 skill 六脉神剑 10
+upgrade 拳掌 段誉 20
+upgrade 剑法 段誉 10
+upgrade 刀法 段誉 10
+upgrade 奇门 段誉 10
+learn skill 段誉 六脉神剑 10
 maxlevel 北冥神功 1
 木婉清：谢谢你！段郎...(眼中含泪）他们终于肯让我们在一起了。
 段誉：（含笑）婉妹，这一路历险，我们不是都在一起么。
@@ -5426,11 +5426,11 @@ background 地图.郊野
 music 音乐.天龙八部2
 item 擒龙功 1
 段誉：与大哥过招，果然收益良多！
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 20
-upgrade 段誉 拳掌 20
-learn 段誉 skill 擒龙功 10
+upgrade 拳掌 段誉 20
+learn skill 段誉 擒龙功 10
 maxlevel 擒龙功 2
 nick 结义金兰
 乔峰：二弟，可惜我今日帮中还有要事，先行一步了。欢迎随时来丐帮找我，我们后会有期！
@@ -5439,11 +5439,11 @@ nick 结义金兰
 background 地图.郊野
 music 音乐.天龙八部2
 段誉：与大哥过招，果然收益良多！
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 20
-upgrade 段誉 拳掌 20
-learn 段誉 skill 擒龙功 10
+upgrade 拳掌 段誉 20
+learn skill 段誉 擒龙功 10
 乔峰：二弟，可惜我今日帮中还有要事，先行一步了。欢迎随时来丐帮找我，我们后会有期！
 
 # tlbb.dy_丐帮总舵
@@ -5701,10 +5701,10 @@ background 地图.主角之家
 music 音乐.天龙八部.逍遥派
 王语嫣：段公子，听我指挥，那人这里这里或许还有破绽，你再试试！
 段誉：啊！听王姑娘一席话，段誉茅塞顿开！
-upgrade 段誉 拳掌 10
-upgrade 段誉 剑法 10
-upgrade 段誉 刀法 10
-upgrade 段誉 奇门 10
+upgrade 拳掌 段誉 10
+upgrade 剑法 段誉 10
+upgrade 刀法 段誉 10
+upgrade 奇门 段誉 10
 李延宗：无聊，我先走了。
 jump tlbb.dy_丐帮大变.王语嫣结束
 
@@ -5802,14 +5802,14 @@ music 音乐.天龙八部.燕子坞
 乔峰：哈哈，差点又干了件糊涂事，多谢小兄弟阻拦！
 主角：小意思，小意思。
 乔峰：此番由怒转惊，由惊转悲，由悲转喜，人生百味，俱在其中！一路体会，于武功也有所裨益。
-learn 乔峰 talent 天龙.盖世英雄
-learn 乔峰 talent 清心
+learn talent 乔峰 天龙.盖世英雄
+learn talent 乔峰 清心
 get_point 乔峰 30
-upgrade 乔峰 maxhp 2000
-upgrade 乔峰 maxmp 2000
-upgrade 乔峰 臂力 20
-upgrade 乔峰 定力 20
-upgrade 乔峰 拳掌 40
+upgrade maxhp 乔峰 2000
+upgrade maxmp 乔峰 2000
+upgrade 臂力 乔峰 20
+upgrade 定力 乔峰 20
+upgrade 拳掌 乔峰 40
 nick 盖世英雄
 乔峰：阿朱，你和父母好不容易相聚，就留在这里小住几天吧。
 阿朱：不！我要跟你一起！
@@ -5901,8 +5901,8 @@ background 地图.枯井底
 music 音乐.天龙八部.逍遥派
 鸠摩智：这是什么邪门武功，居然将我的内力吸得干干净净...
 段誉：嫣妹，这恶僧经脉大乱，却被我的北冥神功化解了全身内力。如今虽然经脉恢复，但一身武功恐怕也废了。反而倒是增强了我的功力。
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 20
 maxlevel 北冥神功 1
 nick 鸠摩国师
@@ -6142,21 +6142,21 @@ battle 无量山洞斗转星移_战斗
 
 # tlbb.dy_无量山洞段誉慕容复胜
 慕容复：原来如此，原来如此！天下武功尽在这折梅六式！
-upgrade 慕容复 maxhp 1000
-upgrade 慕容复 maxmp 1000
+upgrade maxhp 慕容复 1000
+upgrade maxmp 慕容复 1000
 get_point 慕容复 30
-upgrade 慕容复 拳掌 20
-upgrade 慕容复 剑法 20
-upgrade 慕容复 刀法 20
-upgrade 慕容复 奇门 20
-upgrade 段誉 maxhp 1000
-upgrade 段誉 maxmp 1000
+upgrade 拳掌 慕容复 20
+upgrade 剑法 慕容复 20
+upgrade 刀法 慕容复 20
+upgrade 奇门 慕容复 20
+upgrade maxhp 段誉 1000
+upgrade maxmp 段誉 1000
 get_point 段誉 30
-upgrade 段誉 拳掌 20
-learn 慕容复 skill 天山折梅手 10
-learn 慕容复 skill 斗转星移 10
-learn 段誉 skill 天山折梅手 10
-learn 段誉 skill 斗转星移 10
+upgrade 拳掌 段誉 20
+learn skill 慕容复 天山折梅手 10
+learn skill 慕容复 斗转星移 10
+learn skill 段誉 天山折梅手 10
+learn skill 段誉 斗转星移 10
 maxlevel 斗转星移 1
 maxlevel 天山折梅手 1
 item 斗转星移决 1
@@ -6164,21 +6164,21 @@ nick 无量逍遥
 
 # tlbb.dy_无量山洞段誉慕容复胜简单模式
 慕容复：原来如此，原来如此！天下武功尽在这折梅六式！
-upgrade 慕容复 maxhp 500
-upgrade 慕容复 maxmp 500
+upgrade maxhp 慕容复 500
+upgrade maxmp 慕容复 500
 get_point 慕容复 15
-upgrade 慕容复 拳掌 10
-upgrade 慕容复 剑法 10
-upgrade 慕容复 刀法 10
-upgrade 慕容复 奇门 10
-upgrade 段誉 maxhp 500
-upgrade 段誉 maxmp 500
+upgrade 拳掌 慕容复 10
+upgrade 剑法 慕容复 10
+upgrade 刀法 慕容复 10
+upgrade 奇门 慕容复 10
+upgrade maxhp 段誉 500
+upgrade maxmp 段誉 500
 get_point 段誉 15
-upgrade 段誉 拳掌 10
-learn 慕容复 skill 天山折梅手 10
-learn 慕容复 skill 斗转星移 10
-learn 段誉 skill 天山折梅手 10
-learn 段誉 skill 斗转星移 10
+upgrade 拳掌 段誉 10
+learn skill 慕容复 天山折梅手 10
+learn skill 慕容复 斗转星移 10
+learn skill 段誉 天山折梅手 10
+learn skill 段誉 斗转星移 10
 慕容复：好像，还不够过瘾！
 段誉：可能因为是简单模式吧...
 
@@ -6473,7 +6473,7 @@ music 音乐.天龙八部.逍遥派
 段正淳：唉，罢了，先这样吧。
 段誉：多谢爹成全！
 段誉：对了，昔日在无量山洞中，我从神仙姐姐玉像中习得凌波微步，此法不伤人性命，施展开来亦可于刀剑之中保得平安。爹请习之，可保平安。
-learn 段正淳 specialskill 凌波微步
+learn special 段正淳 凌波微步
 item 凌波微步图谱 1
 段誉：爹，珍重！
 段正淳：誉儿，你也要保重！
@@ -6505,9 +6505,9 @@ music 音乐.天龙八部.燕子坞
 阿碧：更脱红裙裹鸭儿~
 段誉：阿碧，你唱的真好。
 阿碧：嘻嘻。
-learn 阿碧 specialskill 阿碧的歌声
-upgrade 阿碧 maxhp 500
-upgrade 阿碧 maxmp 500
+learn special 阿碧 阿碧的歌声
+upgrade maxhp 阿碧 500
+upgrade maxmp 阿碧 500
 木婉清：呜呜，就你们在玩，我郁闷。
 段誉：婉妹，要不你也表演一个？
 木婉清：我就知道舞枪弄剑，没意思。
@@ -6530,7 +6530,7 @@ upgrade 阿碧 maxmp 500
 木婉清：嘻嘻，你们两个小贼，就知道讨好我。
 阿碧：嘻嘻。
 木婉清：（段郎，我要一辈子守护你。这美好的时光，会常存在我们心底）
-learn 段誉 talent 木婉清的眷恋
+learn talent 段誉 木婉清的眷恋
 
 # tlbb.dy_琴韵小筑阿碧1
 background 地图.院内
@@ -6553,14 +6553,14 @@ music 音乐.天龙八部.燕子坞
 段誉：婉妹，要不你也弹个曲子吧~
 木婉清：我才不会呢。
 段誉：婉妹，来，我教你。
-upgrade 木婉清 定力 20
-upgrade 木婉清 悟性 20
-upgrade 木婉清 福缘 20
+upgrade 定力 木婉清 20
+upgrade 悟性 木婉清 20
+upgrade 福缘 木婉清 20
 木婉清：嘻嘻，今天真是开心。
 段誉：我也是，嘻嘻。
-learn 阿碧 specialskill 吴侬软语
-upgrade 阿碧 maxhp 500
-upgrade 阿碧 maxmp 500
+learn special 阿碧 吴侬软语
+upgrade maxhp 阿碧 500
+upgrade maxmp 阿碧 500
 if should_finish tlbb.dy_曼陀山庄初见王语嫣 and not_in_team 王语嫣
   jump tlbb.dy_阿碧线王语嫣touch
 map 大地图
@@ -6813,7 +6813,7 @@ jump tlbb.dy_闪电貂不死2
 主角：那个啥，我也有打退四大恶人的功劳嘛...
 钟灵：嗯，也谢谢你。你们都太好了。
 主角：哈哈，没啥...
-learn 钟灵 specialskill 闪电貂
+learn special 钟灵 闪电貂
 log 寻回闪电貂。
 nick 闪电毒貂
 
@@ -6922,18 +6922,18 @@ music 音乐.天龙八部.逍遥派抒情版
 主角：等等，我还没做好准备啊！
 无崖子：我管你！
 无崖子：（两柱香后）
-upgrade 主角 maxhp 1000
-upgrade 主角 maxmp 2000
-upgrade 主角 臂力 10
-upgrade 主角 根骨 10
-upgrade 主角 福缘 10
-upgrade 主角 身法 10
-upgrade 主角 定力 10
-upgrade 主角 悟性 10
-upgrade 主角 拳掌 10
-upgrade 主角 剑法 10
-upgrade 主角 刀法 10
-upgrade 主角 奇门 10
+upgrade maxhp 主角 1000
+upgrade maxmp 主角 2000
+upgrade 臂力 主角 10
+upgrade 根骨 主角 10
+upgrade 福缘 主角 10
+upgrade 身法 主角 10
+upgrade 定力 主角 10
+upgrade 悟性 主角 10
+upgrade 拳掌 主角 10
+upgrade 剑法 主角 10
+upgrade 刀法 主角 10
+upgrade 奇门 主角 10
 maxlevel 野球拳 1
 无崖子：好了，我一身功力都传给了你。你如今是逍遥派掌门，戴上这个扳指，替我杀了丁春秋。
 主角：老前辈，你好蛮横啊，我什么都没答应啊…
@@ -7458,8 +7458,8 @@ music 音乐.天龙八部.逍遥派抒情版
 令狐冲：...（接过剑谱，暗运内力，辟邪剑谱化为漫天飞舞的纸屑）
 主角：唉，可惜了。
 令狐冲：小兄弟能经得起这绝顶武学的诱惑，我衷心佩服。走，我们下山吧。
-upgrade 主角 定力 30
-upgrade 主角 福缘 30
+upgrade 定力 主角 30
+upgrade 福缘 主角 30
 daode 5
 主角：算了，天下的好武功多着呢。我才不要那啥，自宫呢。
 
@@ -7790,10 +7790,10 @@ music 音乐.紧张感
 令狐冲：好！
 费彬：啊！！（武功被废，昏死过去）
 曲非烟：千山万水，从此逍遥！令狐大哥，我看着这嵩山云海，忽然觉得精神无比爽朗！
-upgrade 曲非烟 maxhp 500
-upgrade 曲非烟 maxmp 500
+upgrade maxhp 曲非烟 500
+upgrade maxmp 曲非烟 500
 get_point 曲非烟 15
-upgrade 曲非烟 奇门 10
+upgrade 奇门 曲非烟 10
 令狐冲：最难便是回头！曲妹妹，我真替你高兴！
 log 嵩山派，曲非烟顿悟。云海之上，领悟一番大智慧。
 
@@ -7818,14 +7818,14 @@ music 音乐.紧张感
 令狐冲：好！
 费彬：啊！！（武功被废，昏死过去）
 曲非烟：千山万水，从此逍遥！令狐大哥，我看着这嵩山云海，忽然觉得精神无比爽朗！
-upgrade 曲非烟 maxhp 1000
-upgrade 曲非烟 maxmp 1000
+upgrade maxhp 曲非烟 1000
+upgrade maxmp 曲非烟 1000
 get_point 曲非烟 30
-upgrade 曲非烟 拳掌 10
-upgrade 曲非烟 剑法 10
-upgrade 曲非烟 刀法 10
-upgrade 曲非烟 奇门 30
-learn 曲非烟 talent 琴胆剑心
+upgrade 拳掌 曲非烟 10
+upgrade 剑法 曲非烟 10
+upgrade 刀法 曲非烟 10
+upgrade 奇门 曲非烟 30
+learn talent 曲非烟 琴胆剑心
 maxlevel 日月鞭法 5
 令狐冲：最难便是回头！曲妹妹，我真替你高兴！
 log 嵩山派，曲非烟顿悟。云海之上，领悟一番大智慧。
@@ -7902,11 +7902,11 @@ jump 笑傲江湖_平一指治好
 join 任盈盈
 主角：半月之后...
 cost_day 15
-remove 令狐冲 talent 令狐冲的怪病
+remove talent 令狐冲 令狐冲的怪病
 get_point 令狐冲 40
-upgrade 令狐冲 剑法 30
-upgrade 令狐冲 maxhp 1000
-upgrade 令狐冲 maxmp 1000
+upgrade 剑法 令狐冲 30
+upgrade maxhp 令狐冲 1000
+upgrade maxmp 令狐冲 1000
 maxlevel 独孤九剑 1
 令狐冲：哈哈，无病一身轻啊！盈盈，我们走吧！
 log 令狐冲的怪病治好了！
@@ -8098,7 +8098,7 @@ music 音乐.纵横江湖
 令狐冲：太师叔常说独孤九剑是无招胜有招，因为剑是死的，人是活的。。。
 令狐冲：是啊。。。。有招用的是剑法，无招用的是剑心。。。
 令狐冲：无牵无挂，快慢随心，此时无招胜有招。
-upgrade 令狐冲 skill 独孤九剑 2
+upgrade skill 令狐冲 独孤九剑 2
 令狐冲：走，我们一起去化解这场江湖纷争
 主角：（无论如何是独孤大侠的武功赶紧做个副本）
 item 独孤九剑秘籍 1
@@ -8208,10 +8208,10 @@ effect 音效.男2
 东方不败：（东方不败开始还进退有余，到了最后竟被剑光压制的只剩下招架的份。最后东方不败长啸一声，用胸腔接下了令狐冲的剑，一掌印向令狐冲的心脏）
 effect 音效.男3
 令狐冲：（令狐冲无奈只能与其对掌，奈何东方不败内力连绵不绝，无法抵挡。最终只能运起多年不用的吸星大法，吸走东方不败的内力）
-upgrade 令狐冲 maxmp 10
-upgrade 令狐冲 maxmp 100
-upgrade 令狐冲 maxmp 1000
-upgrade 令狐冲 maxmp 1500
+upgrade maxmp 令狐冲 10
+upgrade maxmp 令狐冲 100
+upgrade maxmp 令狐冲 1000
+upgrade maxmp 令狐冲 1500
 effect 音效.男惨叫
 东方不败：吸星大法……吸星大法……任教主……
 主角：这东方不败终于死了！
@@ -8237,16 +8237,16 @@ jump 笑傲江湖_吸星大法1
 background 地图.黑木崖下
 music 音乐.纵横江湖
 主角：（接下来的一些日子里，$MALE$与令狐冲在日月神教上帮助刚刚执掌日月神教的任盈盈处理事务。令狐冲化解了东方不败的内力，功力更胜往昔）
-upgrade 令狐冲 maxhp 1000
+upgrade maxhp 令狐冲 1000
 get_point 令狐冲 30
-learn 令狐冲 talent 吸星大法
+learn talent 令狐冲 吸星大法
 item 吸星大法精义 1
-upgrade 任盈盈 maxhp 1000
-upgrade 任盈盈 maxmp 1000
+upgrade maxhp 任盈盈 1000
+upgrade maxmp 任盈盈 1000
 get_point 任盈盈 30
-learn 任盈盈 skill 日月鞭法 10
-learn 任盈盈 skill 嵩山剑法 10
-learn 任盈盈 skill 华山剑法 10
+learn skill 任盈盈 日月鞭法 10
+learn skill 任盈盈 嵩山剑法 10
+learn skill 任盈盈 华山剑法 10
 maxlevel 易筋经 1
 maxlevel 嵩山剑法 3
 maxlevel 华山剑法 3
@@ -8871,22 +8871,22 @@ music 音乐.天龙八部.紧张感5
 胡斐：终于为父亲报仇了！
 阎基：嘿嘿……是啊，恭喜胡兄弟
 主角：你这家伙终于发挥了点作用
-upgrade 胡斐 maxhp 1200
-upgrade 胡斐 maxmp 1200
+upgrade maxhp 胡斐 1200
+upgrade maxmp 胡斐 1200
 get_point 胡斐 30
-upgrade 胡斐 剑法 20
-upgrade 胡斐 刀法 20
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 9
-learn 胡斐 talent 阴谋家
-upgrade 阎基 maxhp 1200
-upgrade 阎基 maxmp 1200
+upgrade 剑法 胡斐 20
+upgrade 刀法 胡斐 20
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 9
+learn talent 胡斐 阴谋家
+upgrade maxhp 阎基 1200
+upgrade maxmp 阎基 1200
 get_point 阎基 30
-upgrade 阎基 剑法 30
-upgrade 阎基 刀法 30
-learn 阎基 skill 苗家剑法 10
-learn 阎基 skill 胡家刀法 9
-learn 阎基 talent 阴谋家
+upgrade 剑法 阎基 30
+upgrade 刀法 阎基 30
+learn skill 阎基 苗家剑法 10
+learn skill 阎基 胡家刀法 9
+learn talent 阎基 阴谋家
 maxlevel 胡家刀法 1
 maxlevel 苗家剑法 1
 item 胡家刀法手抄本 1
@@ -8900,22 +8900,22 @@ music 音乐.天龙八部.紧张感5
 胡斐：终于为父亲报仇了！
 阎基：嘿嘿……是啊，恭喜胡兄弟
 主角：你这家伙终于发挥了点作用
-upgrade 胡斐 maxhp 500
-upgrade 胡斐 maxmp 500
+upgrade maxhp 胡斐 500
+upgrade maxmp 胡斐 500
 get_point 胡斐 15
-upgrade 胡斐 剑法 5
-upgrade 胡斐 刀法 5
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 9
-learn 胡斐 talent 阴谋家
-upgrade 阎基 maxhp 500
-upgrade 阎基 maxmp 500
+upgrade 剑法 胡斐 5
+upgrade 刀法 胡斐 5
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 9
+learn talent 胡斐 阴谋家
+upgrade maxhp 阎基 500
+upgrade maxmp 阎基 500
 get_point 阎基 15
-upgrade 阎基 剑法 5
-upgrade 阎基 刀法 5
-learn 阎基 skill 苗家剑法 10
-learn 阎基 skill 胡家刀法 9
-learn 阎基 talent 阴谋家
+upgrade 剑法 阎基 5
+upgrade 刀法 阎基 5
+learn skill 阎基 苗家剑法 10
+learn skill 阎基 胡家刀法 9
+learn talent 阎基 阴谋家
 阎基：该死的编剧，就这么点奖励啊。。
 主角：知足吧，要知道这只是简单模式...
 item 胡家刀法手抄本 1
@@ -9034,22 +9034,22 @@ music 音乐.天龙八部.紧张感5
 田归农：啊哈哈哈哈！！！
 daode -3
 胡斐：终于得报父仇。
-upgrade 胡斐 maxhp 1200
-upgrade 胡斐 maxmp 1200
+upgrade maxhp 胡斐 1200
+upgrade maxmp 胡斐 1200
 get_point 胡斐 30
-upgrade 胡斐 剑法 25
-upgrade 胡斐 刀法 25
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 9
-learn 胡斐 talent 阴谋家
-upgrade 田归农 maxhp 1200
-upgrade 田归农 maxmp 1200
+upgrade 剑法 胡斐 25
+upgrade 刀法 胡斐 25
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 9
+learn talent 胡斐 阴谋家
+upgrade maxhp 田归农 1200
+upgrade maxmp 田归农 1200
 get_point 田归农 30
-upgrade 田归农 剑法 30
-upgrade 田归农 刀法 30
-learn 田归农 skill 天龙剑法 15
-learn 田归农 skill 苗家剑法 10
-learn 田归农 talent 阴谋家
+upgrade 剑法 田归农 30
+upgrade 刀法 田归农 30
+learn skill 田归农 天龙剑法 15
+learn skill 田归农 苗家剑法 10
+learn talent 田归农 阴谋家
 item 胡家刀法手抄本 1
 item 苗家剑法秘籍 1
 maxlevel 苗家剑法 1
@@ -9063,22 +9063,22 @@ music 音乐.天龙八部.紧张感5
 田归农：死吧。（杀死了苗人凤）
 田归农：啊哈哈哈哈！！！
 胡斐：终于得报父仇。
-upgrade 胡斐 maxhp 500
-upgrade 胡斐 maxmp 500
+upgrade maxhp 胡斐 500
+upgrade maxmp 胡斐 500
 get_point 胡斐 15
-upgrade 胡斐 剑法 5
-upgrade 胡斐 刀法 5
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 9
-learn 胡斐 talent 阴谋家
-upgrade 田归农 maxhp 500
-upgrade 田归农 maxmp 500
+upgrade 剑法 胡斐 5
+upgrade 刀法 胡斐 5
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 9
+learn talent 胡斐 阴谋家
+upgrade maxhp 田归农 500
+upgrade maxmp 田归农 500
 get_point 田归农 15
-upgrade 田归农 剑法 5
-upgrade 田归农 刀法 5
-learn 田归农 skill 天龙剑法 15
-learn 田归农 skill 苗家剑法 10
-learn 田归农 talent 阴谋家
+upgrade 剑法 田归农 5
+upgrade 刀法 田归农 5
+learn skill 田归农 天龙剑法 15
+learn skill 田归农 苗家剑法 10
+learn talent 田归农 阴谋家
 田归农：该死的编剧，就这么点奖励啊。。
 主角：知足吧，要知道这只是简单模式...
 item 胡家刀法手抄本 1
@@ -9122,15 +9122,15 @@ battle 苗人凤居.回忆战.战斗
 background 地图.小村口
 music 音乐.天龙八部.紧张感5
 胡斐：原来这才是胡家刀法和苗家剑法的精髓所在！
-upgrade 胡斐 maxhp 1500
-upgrade 胡斐 maxmp 1500
+upgrade maxhp 胡斐 1500
+upgrade maxmp 胡斐 1500
 get_point 胡斐 40
-upgrade 胡斐 剑法 30
-upgrade 胡斐 刀法 30
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 10
-learn 胡斐 talent 雪山飞狐
-learn 胡斐 talent 轻功大师
+upgrade 剑法 胡斐 30
+upgrade 刀法 胡斐 30
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 10
+learn talent 胡斐 雪山飞狐
+learn talent 胡斐 轻功大师
 item 胡家刀法秘籍 1
 item 苗家剑法秘籍 1
 maxlevel 苗家剑法 1
@@ -9143,15 +9143,15 @@ map 苗人凤居
 background 地图.小村口
 music 音乐.天龙八部.紧张感5
 胡斐：原来这才是胡家刀法和苗家剑法的精髓所在！
-upgrade 胡斐 maxhp 500
-upgrade 胡斐 maxmp 500
+upgrade maxhp 胡斐 500
+upgrade maxmp 胡斐 500
 get_point 胡斐 20
-upgrade 胡斐 剑法 10
-upgrade 胡斐 刀法 10
-learn 胡斐 skill 苗家剑法 10
-learn 胡斐 skill 胡家刀法 10
-learn 胡斐 talent 雪山飞狐
-learn 胡斐 talent 轻功大师
+upgrade 剑法 胡斐 10
+upgrade 刀法 胡斐 10
+learn skill 胡斐 苗家剑法 10
+learn skill 胡斐 胡家刀法 10
+learn talent 胡斐 雪山飞狐
+learn talent 胡斐 轻功大师
 胡斐：感觉还有点不太够。。
 苗人凤：知足吧，谁叫你玩的是简单模式呢？
 胡斐：……
@@ -9190,10 +9190,10 @@ background 地图.小村口
 music 音乐.天龙八部.紧张感5
 程灵素：顿时觉得学到了很多……
 毒手药王：不错！这是奖给你的。
-upgrade 程灵素 maxhp 1000
-upgrade 程灵素 maxmp 1000
+upgrade maxhp 程灵素 1000
+upgrade maxmp 程灵素 1000
 get_point 程灵素 30
-upgrade 程灵素 拳掌 10
+upgrade 拳掌 程灵素 10
 item 药王神篇 1
 nick 药王传人
 log 击败毒手药王。
@@ -9233,11 +9233,11 @@ background 地图.小村口
 music 音乐.天龙八部.紧张感5
 毒手药王：果然是青出于蓝而胜于蓝啊！
 程灵素：师父，承让！（顿时学到了很多）
-upgrade 程灵素 maxhp 500
-upgrade 程灵素 maxmp 500
-upgrade 程灵素 拳掌 10
-upgrade 程灵素 定力 10
-learn 程灵素 skill 药王神掌 10
+upgrade maxhp 程灵素 500
+upgrade maxmp 程灵素 500
+upgrade 拳掌 程灵素 10
+upgrade 定力 程灵素 10
+learn skill 程灵素 药王神掌 10
 maxlevel 药王神掌 1
 nick 毒手药王
 log 程灵素单挑击败毒手药王。
@@ -9250,11 +9250,11 @@ music 音乐.天龙八部.紧张感5
 毒手药王：你这闯荡江湖看来没太大长进呀，心思没放在功夫上？
 程灵素：（脸红，瞟了一眼胡斐）师父教训的是，弟子一定加倍努力。
 毒手药王：呵呵！很好，看在这个份上，我再教你几手吧！
-upgrade 程灵素 maxhp 400
-upgrade 程灵素 maxmp 400
-upgrade 程灵素 身法 10
-upgrade 程灵素 臂力 10
-learn 程灵素 skill 黑血神针 10
+upgrade maxhp 程灵素 400
+upgrade maxmp 程灵素 400
+upgrade 身法 程灵素 10
+upgrade 臂力 程灵素 10
+learn skill 程灵素 黑血神针 10
 nick 药王庄主
 log 程灵素单挑负于毒手药王。
 毒手药王：谨记，毒能害人，也能救人。
@@ -9393,7 +9393,7 @@ battle 白驼山欧阳锋_战斗
 background 地图.绝情谷
 music 音乐.神雕.舒缓
 欧阳锋：小子武功不错...
-upgrade 郭靖 拳掌 5
+upgrade 拳掌 郭靖 5
 item 蛤蟆功秘籍 1
 maxlevel 蛤蟆功 1
 log 击败西毒欧阳锋。
@@ -9418,11 +9418,11 @@ battle 桃花岛黄药师_战斗
 background 地图.桃花岛
 music 音乐.神雕.歌泣
 黄药师：小子武功还不行啊...你要争气一点嘛，我可不想要西毒欧阳锋的侄子当我的女婿！
-upgrade 郭靖 maxhp 300
-upgrade 郭靖 maxmp 300
-upgrade 郭靖 悟性 15
-upgrade 郭靖 身法 25
-upgrade 郭靖 臂力 10
+upgrade maxhp 郭靖 300
+upgrade maxmp 郭靖 300
+upgrade 悟性 郭靖 15
+upgrade 身法 郭靖 25
+upgrade 臂力 郭靖 10
 郭靖：多谢未来岳父！
 黄药师：别乱叫！
 
@@ -9465,10 +9465,10 @@ battle 一灯居一灯大师_战斗
 background 地图.主角之家
 music 音乐.室内_清新
 一灯大师：小友武功还不够，来，我再教你一点。
-upgrade 郭靖 maxhp 300
-upgrade 郭靖 maxmp 300
-upgrade 郭靖 臂力 10
-upgrade 郭靖 拳掌 5
+upgrade maxhp 郭靖 300
+upgrade maxmp 郭靖 300
+upgrade 臂力 郭靖 10
+upgrade 拳掌 郭靖 5
 郭靖：多谢大师！
 
 # 射雕英雄传_一灯居再战
@@ -9521,14 +9521,14 @@ battle 长江岸边洪七公_战斗
 background 地图.树林
 music 音乐.室内_世俗
 洪七公：小子，你这水平还不行啊...罢了，我们总是有缘，你很适合学我丐帮武功，试试这个！
-upgrade 郭靖 maxhp 500
-upgrade 郭靖 maxmp 500
+upgrade maxhp 郭靖 500
+upgrade maxmp 郭靖 500
 get_point 郭靖 25
-upgrade 郭靖 拳掌 10
-upgrade 郭靖 剑法 10
-upgrade 郭靖 刀法 10
-upgrade 郭靖 奇门 10
-learn 郭靖 skill 降龙十八掌 8
+upgrade 拳掌 郭靖 10
+upgrade 剑法 郭靖 10
+upgrade 刀法 郭靖 10
+upgrade 奇门 郭靖 10
+learn skill 郭靖 降龙十八掌 8
 郭靖：多谢七公传授武艺！
 
 # 射雕英雄传_洪七公再战
@@ -9574,13 +9574,13 @@ music 音乐.神雕.歌泣
 黄药师：蓉儿，你就随这傻小子多多历练一下吧。
 黄蓉：是，爹爹。
 join 黄蓉
-upgrade 郭靖 maxhp 1000
-upgrade 郭靖 maxmp 1000
+upgrade maxhp 郭靖 1000
+upgrade maxmp 郭靖 1000
 get_point 郭靖 25
-upgrade 郭靖 拳掌 5
-learn 郭靖 skill 降龙十八掌 10
-learn 郭靖 internalskill 九阴神功 10
-learn 郭靖 talent 射雕英雄
+upgrade 拳掌 郭靖 5
+learn skill 郭靖 降龙十八掌 10
+learn internal 郭靖 九阴神功 10
+learn talent 郭靖 射雕英雄
 log 击败天下四绝。
 if should_finish original_长安.家中 and key_in_team 女主
   jump original_女主.射雕英雄传
@@ -9603,10 +9603,10 @@ battle 全真教欧阳锋_战斗
   jump 射雕英雄传_重阳宫王重阳3
 
 # 射雕英雄传_重阳宫王重阳3
-upgrade 郭靖 拳掌 10
-upgrade 黄蓉 奇门 15
-upgrade 黄蓉 maxhp 1000
-upgrade 黄蓉 maxmp 1000
+upgrade 拳掌 郭靖 10
+upgrade 奇门 黄蓉 15
+upgrade maxhp 黄蓉 1000
+upgrade maxmp 黄蓉 1000
 王重阳：感谢几位小友打退欧阳锋。
 主角：哇，王重阳又复活了！
 王重阳：多复活几次，就习惯了…一如既往，赢了我，就有秘籍哦。
@@ -9742,18 +9742,18 @@ battle 穆人清_战斗
 木桑道长：教出这么个徒弟，洒家这辈子也值了！
 袁承志：师父们太抬举了！
 穆人清：来来，我再教你一手！看好了。
-upgrade 袁承志 maxhp 500
-upgrade 袁承志 maxmp 500
+upgrade maxhp 袁承志 500
+upgrade maxmp 袁承志 500
 get_point 袁承志 25
-upgrade 袁承志 拳掌 30
-upgrade 袁承志 剑法 5
-learn 袁承志 talent 混元一气
+upgrade 拳掌 袁承志 30
+upgrade 剑法 袁承志 5
+learn talent 袁承志 混元一气
 木桑道长：喂喂，穆老头，光许你教不许我教啊？我也教一招，看好了！
 item 神行百变秘籍 1
-learn 袁承志 skill 漫天花雨 10
+learn skill 袁承志 漫天花雨 10
 maxlevel 混元掌 1
 maxlevel 混元功 1
-upgrade 袁承志 奇门 30
+upgrade 奇门 袁承志 30
 木桑道长：不错不错！走吧，穆老头。咱俩已经没什么顾念了，四海为家，云游为乐。
 穆人清：正是！承志你们保重，我们去也。
 log 袁承志得到穆人清和木桑道长真传。
@@ -9765,15 +9765,15 @@ nick 神剑仙猿
 木桑道长：教出这么个徒弟，洒家这辈子也值了！
 袁承志：师父们太抬举了！
 穆人清：来来，我再教你一手！看好了。
-upgrade 袁承志 maxhp 300
-upgrade 袁承志 maxmp 300
+upgrade maxhp 袁承志 300
+upgrade maxmp 袁承志 300
 get_point 袁承志 15
-upgrade 袁承志 拳掌 15
-upgrade 袁承志 剑法 5
-learn 袁承志 talent 混元一气
+upgrade 拳掌 袁承志 15
+upgrade 剑法 袁承志 5
+learn talent 袁承志 混元一气
 木桑道长：喂喂，穆老头，光许你教不许我教啊？我也教一招，看好了！
-learn 袁承志 skill 漫天花雨 10
-upgrade 袁承志 奇门 15
+learn skill 袁承志 漫天花雨 10
+upgrade 奇门 袁承志 15
 温青青：俩老头真吝啬，也就教这么点东西啊？
 穆人清：简单模式下，这个已经能够行走江湖了，知足吧！
 木桑道长：不错不错！走吧，穆老头。咱俩已经没什么顾念了，四海为家，云游为乐。
@@ -9787,12 +9787,12 @@ nick 神剑仙猿
 木桑道长：教出这么个徒弟，洒家这辈子也值了！
 袁承志：师父们太抬举了！
 木桑道长：来来，我再教你一手！看好了。
-upgrade 袁承志 maxhp 500
-upgrade 袁承志 maxmp 500
+upgrade maxhp 袁承志 500
+upgrade maxmp 袁承志 500
 get_point 袁承志 20
-upgrade 袁承志 奇门 50
-upgrade 袁承志 剑法 5
-learn 袁承志 skill 漫天花雨 10
+upgrade 奇门 袁承志 50
+upgrade 剑法 袁承志 5
+learn skill 袁承志 漫天花雨 10
 木桑道长：不错不错！走吧，穆老头。咱俩已经没什么顾念了，四海为家，云游为乐。
 穆人清：正是！承志你们保重，我们去也。
 log 木桑道人穆人清考校袁承志。
@@ -9804,12 +9804,12 @@ nick 铁剑传人
 木桑道长：教出这么个徒弟，洒家这辈子也值了！
 袁承志：师父们太抬举了！
 木桑道长：来来，我再教你一手！看好了。
-upgrade 袁承志 maxhp 200
-upgrade 袁承志 maxmp 200
+upgrade maxhp 袁承志 200
+upgrade maxmp 袁承志 200
 get_point 袁承志 5
-upgrade 袁承志 奇门 5
-upgrade 袁承志 剑法 5
-learn 袁承志 skill 漫天花雨 10
+upgrade 奇门 袁承志 5
+upgrade 剑法 袁承志 5
+learn skill 袁承志 漫天花雨 10
 温青青：俩老头真吝啬，也就教这么点东西啊？
 穆人清：简单模式下，这个已经能够行走江湖了，知足吧！
 木桑道长：不错不错！走吧，穆老头。咱俩已经没什么顾念了，四海为家，云游为乐。
@@ -10004,10 +10004,10 @@ nick 富可敌国
 主角：快逼毒吧！
 主角：（一个时辰以后）
 主角：呼，好厉害的毒。全身经脉几乎被撕裂一半，却得到了连城宝藏，不知是福是祸啊！
-upgrade 主角 臂力 -5
-upgrade 主角 身法 -5
-upgrade 主角 根骨 -5
-upgrade 主角 定力 -5
+upgrade 臂力 主角 -5
+upgrade 身法 主角 -5
+upgrade 根骨 主角 -5
+upgrade 定力 主角 -5
 item 连城剑法 1
 log 天宁寺找宝藏中毒了...
 map 天宁寺
@@ -10066,21 +10066,21 @@ music 音乐.武侠回忆
 background 地图.天宁寺
 狄云：原来神照经应该如此运行方可大成！
 水笙：这就是力敌血刀门的连城剑法么！
-upgrade 狄云 maxhp 1000
-upgrade 狄云 maxmp 1000
+upgrade maxhp 狄云 1000
+upgrade maxmp 狄云 1000
 get_point 狄云 20
-upgrade 狄云 拳掌 10
-upgrade 狄云 剑法 25
-upgrade 水笙 maxhp 1000
-upgrade 水笙 maxmp 1000
+upgrade 拳掌 狄云 10
+upgrade 剑法 狄云 25
+upgrade maxhp 水笙 1000
+upgrade maxmp 水笙 1000
 get_point 水笙 20
-upgrade 水笙 拳掌 10
-upgrade 水笙 剑法 25
-learn 狄云 internalskill 神照功 12
-learn 水笙 internalskill 神照功 12
-learn 狄云 skill 连城剑法 10
-learn 狄云 talent 铁骨墨萼
-learn 水笙 talent 铁骨墨萼
+upgrade 拳掌 水笙 10
+upgrade 剑法 水笙 25
+learn internal 狄云 神照功 12
+learn internal 水笙 神照功 12
+learn skill 狄云 连城剑法 10
+learn talent 狄云 铁骨墨萼
+learn talent 水笙 铁骨墨萼
 nick 铁骨墨萼
 item 连城剑法精要 1
 maxlevel 连城剑法 1
@@ -10255,8 +10255,8 @@ music 音乐.室内_世俗
 韦小宝：皇上洪福齐天，自然无事，多亏了这位义士。皇上可要好好奖赏他们。
 康熙：那是自然。赏！
 get_point 韦小宝 15
-upgrade 韦小宝 身法 15
-upgrade 韦小宝 定力 15
+upgrade 身法 韦小宝 15
+upgrade 定力 韦小宝 15
 康熙：你可要啥奖励？
 - 神兵
   jump 鹿鼎记_皇宫鳌拜_1
@@ -10348,7 +10348,7 @@ music 音乐.室内_世俗
 胖头陀：Hi，我是胖头陀。
 瘦头陀：那啥，我是瘦头陀...
 韦小宝：今夜慈宁宫的汉子可真不少啊...看来只能使出我的必杀技了..
-learn 韦小宝 specialskill 撒石灰
+learn special 韦小宝 撒石灰
 battle 慈宁宫2_战斗
 - win
   jump 鹿鼎记_皇宫太后7
@@ -10420,8 +10420,8 @@ join 阿珂
 九难：你这孩子，虽然油嘴滑舌，但是却很讨人喜欢。
 九难：我教你一点武功，可以保全性命。
 韦小宝：谢谢师太!师太文成武德，鸟生鱼汤~
-learn 韦小宝 talent 神行百变
-upgrade 韦小宝 身法 15
+learn talent 韦小宝 神行百变
+upgrade 身法 韦小宝 15
 get_point 主角 10
 
 # 鹿鼎记_阿九.不邀请
@@ -10437,7 +10437,7 @@ music 音乐.宿命
 阿珂：是，师父。
 袁承志：...
 九难：（袁大哥，你我今生无缘，只盼来世...）
-learn 袁承志 talent 长平公主的眷恋
+learn talent 袁承志 长平公主的眷恋
 
 # 鹿鼎记_吴三桂1
 background 地图.平西王府
@@ -10518,8 +10518,8 @@ music 音乐.武侠进行
 苏荃：（白了韦小宝一眼）你这坏家伙！你可要对我负责。
 韦小宝：哈哈，必须的必须的！
 join 苏荃
-upgrade 韦小宝 maxhp 500
-upgrade 韦小宝 maxmp 500
+upgrade maxhp 韦小宝 500
+upgrade maxmp 韦小宝 500
 get_point 韦小宝 15
 
 # 鹿鼎记_台湾1
@@ -10598,10 +10598,10 @@ music 音乐.如梦往事
 康熙：好。从今天起再无小玄子，只有康熙。我走了，你保重。
 韦小宝：从此之后，韦小宝浪迹江湖，再不受朝廷约束。
 主角：夕阳西下，小玄子和小桂子依依不舍地告别了...
-learn 韦小宝 talent 鹿鼎.一品鹿鼎公
+learn talent 韦小宝 鹿鼎.一品鹿鼎公
 item 一品鹿鼎公印记
-upgrade 韦小宝 maxhp 1000
-upgrade 韦小宝 maxmp 1000
+upgrade maxhp 韦小宝 1000
+upgrade maxmp 韦小宝 1000
 get_point 韦小宝 15
 
 # 门派古墓_拜师
@@ -10627,7 +10627,7 @@ music 音乐.神雕.舒缓
 menpai 古墓
 nick 古墓弟子
 item 古墓派装束
-learn 主角 talent 幽居
+learn talent 主角 幽居
 jump 门派古墓_练功
 
 # 门派古墓_新的一天
@@ -10659,9 +10659,9 @@ background 地图.古墓天罗地网之间
 music 音乐.神雕.舒缓
 主角：练习了一下捕捉麻雀的技巧！
 主角：捕捉麻雀看来也不简单呀...
-upgrade 主角 身法 1
-upgrade 主角 拳掌 1
-upgrade 主角 skill 天罗地网掌 1
+upgrade 身法 主角 1
+upgrade 拳掌 主角 1
+upgrade skill 主角 天罗地网掌 1
 cost_day 1
 if exceed_day 60
   jump 门派古墓_古墓出师
@@ -10677,10 +10677,10 @@ background 地图.古墓寒玉之间
 music 音乐.神雕.舒缓
 主角：在寒玉床上躺了几个时辰...
 主角：好冷啊！
-upgrade 主角 根骨 1
-upgrade 主角 maxhp 15
-upgrade 主角 maxmp 15
-upgrade 主角 internalskill 玉女心经 1
+upgrade 根骨 主角 1
+upgrade maxhp 主角 15
+upgrade maxmp 主角 15
+upgrade internal 主角 玉女心经 1
 cost_day 1
 if exceed_day 60
   jump 门派古墓_古墓出师
@@ -10696,9 +10696,9 @@ background 地图.古墓师祖之间
 music 音乐.神雕.舒缓
 主角：遵照我古墓派祖师之命，用口水淹死王重阳！
 主角：祖师爷显灵，教我神功吧！
-upgrade 主角 悟性 1
-upgrade 主角 剑法 1
-upgrade 主角 skill 玉女剑法 1
+upgrade 悟性 主角 1
+upgrade 剑法 主角 1
+upgrade skill 主角 玉女剑法 1
 cost_day 1
 if exceed_day 60
   jump 门派古墓_古墓出师
@@ -10714,9 +10714,9 @@ background 地图.古墓绳床之间
 music 音乐.神雕.舒缓
 主角：睡在绳子上，这是一种时尚。
 主角：颤颤巍巍...
-upgrade 主角 定力 1
-upgrade 主角 身法 1
-upgrade 主角 maxhp 15
+upgrade 定力 主角 1
+upgrade 身法 主角 1
+upgrade maxhp 主角 15
 cost_day 1
 if exceed_day 60
   jump 门派古墓_古墓出师
@@ -10732,9 +10732,9 @@ background 地图.古墓玉蜂之间
 music 音乐.神雕.舒缓
 主角：养蜜蜂，养蜜蜂...
 主角：差点被扎成了马蜂窝！
-upgrade 主角 定力 1
-upgrade 主角 奇门 1
-upgrade 主角 skill 玉蜂针 1
+upgrade 定力 主角 1
+upgrade 奇门 主角 1
+upgrade skill 主角 玉蜂针 1
 cost_day 1
 if exceed_day 60
   jump 门派古墓_古墓出师
@@ -11043,7 +11043,7 @@ battle 玄铁剑1_战斗
   jump 门派古墓_回古墓.玄铁剑法负
 
 # 门派古墓_回古墓.玄铁剑法1胜
-upgrade 主角 skill 玄铁剑法 3
+upgrade skill 主角 玄铁剑法 3
 黄衫女子：好。干得不错。再来！
 battle 玄铁剑2_战斗
 - win
@@ -11052,7 +11052,7 @@ battle 玄铁剑2_战斗
   jump 门派古墓_回古墓.玄铁剑法负
 
 # 门派古墓_回古墓.玄铁剑法2胜
-upgrade 主角 skill 玄铁剑法 4
+upgrade skill 主角 玄铁剑法 4
 maxlevel 玉女心经 1
 黄衫女子：好。干得不错。再来！
 battle 玄铁剑3_战斗
@@ -11062,7 +11062,7 @@ battle 玄铁剑3_战斗
   jump 门派古墓_回古墓.玄铁剑法负
 
 # 门派古墓_回古墓.玄铁剑法3胜
-upgrade 主角 skill 玄铁剑法 3
+upgrade skill 主角 玄铁剑法 3
 黄衫女子：好！不愧为我古墓新一代中出类拔萃之人！
 黄衫女子：今日你玄铁剑法已然大成，这柄玄铁剑你也拿去吧。
 item 玄铁剑 1
@@ -11129,21 +11129,21 @@ battle 古墓左右互搏_战斗
 # 门派古墓_左右互搏胜
 music 音乐.神雕.舒缓
 主角：这门功夫终于学到了！
-learn 主角 talent 左右互搏
+learn talent 主角 左右互搏
 黄衫女子：干得漂亮！光大我古墓门楣就靠你了。
 主角：恩，师父。我一定办到！
 
 # 门派古墓_左右互搏负
 music 音乐.神雕.舒缓
 主角：果然很难啊！
-upgrade 主角 maxhp -500
-upgrade 主角 maxmp -500
-upgrade 主角 根骨 -10
-upgrade 主角 身法 -10
-upgrade 主角 定力 -10
-upgrade 主角 悟性 -10
+upgrade maxhp 主角 -500
+upgrade maxmp 主角 -500
+upgrade 根骨 主角 -10
+upgrade 身法 主角 -10
+upgrade 定力 主角 -10
+upgrade 悟性 主角 -10
 主角：不过功夫总算还是学到手了...
-learn 主角 talent 左右互搏
+learn talent 主角 左右互搏
 黄衫女子：不错，终究还是办到了。光大我古墓门楣就靠你了。
 主角：恩，师父。我一定办到！
 
@@ -11168,7 +11168,7 @@ music 音乐.天龙八部.佛音4
 menpai 大轮寺
 nick 大轮弟子
 item 大轮寺装束
-learn 主角 talent 金刚
+learn talent 主角 金刚
 jump 门派大轮寺_练功
 
 # 门派大轮寺_新的一天
@@ -11192,9 +11192,9 @@ map 门派大轮寺
 # 门派大轮寺_雪山小路
 主角：练习了一下雪中跑步！
 主角：累死了，累死了...
-upgrade 主角 根骨 1
-upgrade 主角 maxhp 15
-upgrade 主角 maxmp 15
+upgrade 根骨 主角 1
+upgrade maxhp 主角 15
+upgrade maxmp 主角 15
 cost_day 1
 if exceed_day 60
   jump 门派大轮寺_大轮寺出师
@@ -11206,9 +11206,9 @@ background 地图.大轮寺武场
 music 音乐.天龙八部.佛音4
 主角：练习一下大手印功夫...
 主角：拍你一个大手印！
-upgrade 主角 根骨 1
-upgrade 主角 臂力 1
-upgrade 主角 skill 密宗大手印 1
+upgrade 根骨 主角 1
+upgrade 臂力 主角 1
+upgrade skill 主角 密宗大手印 1
 cost_day 1
 if exceed_day 60
   jump 门派大轮寺_大轮寺出师
@@ -11220,9 +11220,9 @@ background 地图.大轮寺武场
 music 音乐.天龙八部.佛音4
 主角：嘿呀！抡起杆子砸死你！
 主角：真重，真重...
-upgrade 主角 臂力 1
-upgrade 主角 根骨 1
-upgrade 主角 skill 无上大力杵 1
+upgrade 臂力 主角 1
+upgrade 根骨 主角 1
+upgrade skill 主角 无上大力杵 1
 cost_day 1
 if exceed_day 60
   jump 门派大轮寺_大轮寺出师
@@ -11234,8 +11234,8 @@ background 地图.大轮寺武场
 music 音乐.天龙八部.佛音4
 主角：原来我大轮寺还会暗器，是不是跟四川人学的...
 主角：看我的，漫天花雨！
-upgrade 主角 身法 2
-upgrade 主角 skill 漫天花雨 1
+upgrade 身法 主角 2
+upgrade skill 主角 漫天花雨 1
 cost_day 1
 if exceed_day 60
   jump 门派大轮寺_大轮寺出师
@@ -11245,9 +11245,9 @@ if should_not_finish 门派大轮寺_大理高手1 and exceed_day 40
 # 门派大轮寺_参禅
 主角：作为大轮寺弟子，雪中参禅也是很重要的。
 主角：欢喜禅，欢喜禅...（快冻死了）
-upgrade 主角 福缘 1
-upgrade 主角 定力 1
-upgrade 主角 根骨 1
+upgrade 福缘 主角 1
+upgrade 定力 主角 1
+upgrade 根骨 主角 1
 cost_day 1
 if exceed_day 60
   jump 门派大轮寺_大轮寺出师
@@ -11420,10 +11420,10 @@ log 出师大轮寺。
 郭襄：这，怎么可能呢。
 金轮法王：好孩子，我大轮龙象般若功举世无双，如果修炼得法，天下无敌。我将基本口诀传授给你。
 郭襄：（好吧，不学白不学）
-upgrade 郭襄 internalskill 龙象般若功 5
+upgrade internal 郭襄 龙象般若功 5
 主角：那师父，我...
 金轮法王：哈哈，你带她来也有功劳，我也传你一点功法。
-upgrade 主角 internalskill 龙象般若功 5
+upgrade internal 主角 龙象般若功 5
 maxlevel 龙象般若功 1
 主角：谢师父！
 
@@ -11455,8 +11455,8 @@ item 打狗棒 1
 金轮法王：咦？霍都！
 达尔巴：师父，我们不辱使命，将霍都带回来了。
 金轮法王：好，好！你们干得好！来，我传你们几手龙象般若功的功夫。
-upgrade 主角 internalskill 龙象般若功 5
-upgrade 达尔巴 internalskill 龙象般若功 5
+upgrade internal 主角 龙象般若功 5
+upgrade internal 达尔巴 龙象般若功 5
 主角：谢师父！
 
 # 门派大轮寺_回大轮寺.龙象秘籍
@@ -11490,7 +11490,7 @@ background 地图.血刀门
 menpai 血刀门
 nick 血刀门人
 item 血刀门门装
-learn 主角 talent 嗜血狂魔
+learn talent 主角 嗜血狂魔
 map 血刀门
 
 # 血刀门_善勇
@@ -11513,15 +11513,15 @@ jump 血刀门_善勇4
 
 # 血刀门_善勇3
 善勇：舒服啊，好了，大爷今天心情好，教你两手。看好了！
-upgrade 主角 skill 血刀大法 3
-upgrade 主角 刀法 3
+upgrade skill 主角 血刀大法 3
+upgrade 刀法 主角 3
 
 # 血刀门_善勇4
 善勇：今天捶得太用力了，老子背都要被你捶烂了。不教了！不教了！
 主角：（这个坑爹货！就当顺便锻炼臂力算了）
-upgrade 主角 臂力 2
-upgrade 主角 maxhp 40
-upgrade 主角 maxmp 40
+upgrade 臂力 主角 2
+upgrade maxhp 主角 40
+upgrade maxmp 主角 40
 
 # 血刀门_宝象
 宝象：嘿嘿，师弟新来的把。我叫宝象，是你的师哥。
@@ -11601,8 +11601,8 @@ jump 血刀门_宝象问答5
 
 # 血刀门_宝象问答OK
 宝象：完全正确！不愧是我血刀门的好兄弟，来来，师哥教你两手！
-upgrade 主角 身法 1
-upgrade 主角 福缘 1
+upgrade 身法 主角 1
+upgrade 福缘 主角 1
 if should_not_finish 血刀门_宝象雪遁步行2 and probability 15
   jump 血刀门_宝象雪遁步行
 map 血刀门
@@ -11630,7 +11630,7 @@ battle 血刀门_宝象雪遁步行
 
 # 血刀门_宝象雪遁步行2
 宝象：佩服佩服！真是年轻青出于蓝胜于蓝！师哥来教你一手绝活！
-learn 主角 specialskill 雪遁步行
+learn special 主角 雪遁步行
 主角：师哥威武，师哥真厉害！从今以后，我一切听你的~
 宝象：（抛个媚眼）来，师弟，师哥的肥皂掉了，麻烦你帮拣拣……
 主角：（浑身一哆嗦）……我还是赶紧撤吧。
@@ -11700,9 +11700,9 @@ maxlevel 血刀心法 3
 # 血刀门_胜谛事后
 主角：师兄，滋味如何？
 胜谛：妙极妙极！来，今天我教你点硬功吧。
-upgrade 主角 maxhp 50
-upgrade 主角 maxmp 50
-upgrade 主角 根骨 2
+upgrade maxhp 主角 50
+upgrade maxmp 主角 50
+upgrade 根骨 主角 2
 cost_day 1
 
 # 血刀门_出师
@@ -11894,7 +11894,7 @@ music 音乐.全真教
 主角：是，弟子记下了。
 马钰：恩，你下去吧。
 nick 全真弟子
-learn 主角 talent 清风
+learn talent 主角 清风
 menpai 全真教
 item 全真教道服
 map 全真教
@@ -11902,17 +11902,17 @@ map 全真教
 # 全真教_烧香坊
 background 地图.佛堂
 主角：点上一根香，求神灵保佑！
-upgrade 主角 福缘 2
-upgrade 主角 maxhp 30
+upgrade 福缘 主角 2
+upgrade maxhp 主角 30
 cost_day 1
 map 全真教
 
 # 全真教_静念楼
 background 地图.藏书
 主角：自别后遥山隐隐，更那堪远山粼粼。 见杨柳飞绵滚滚，对桃花醉脸醺醺。 透内阁香风阵阵，掩重门暮雨纷纷。
-upgrade 主角 根骨 1
-upgrade 主角 定力 1
-upgrade 主角 maxmp 30
+upgrade 根骨 主角 1
+upgrade 定力 主角 1
+upgrade maxmp 主角 30
 cost_day 1
 map 全真教
 
@@ -11966,14 +11966,14 @@ map 全真教
 
 # 全真教_尹志平内功学习
 主角：一住行窠五十年，蓬头白日走如颠。
-upgrade 主角 internalskill 全真心法 1
-upgrade 主角 根骨 1
+upgrade internal 主角 全真心法 1
+upgrade 根骨 主角 1
 cost_day 1
 
 # 全真教_尹志平内功学习2
 主角：一住行窠五十年，蓬头白日走如颠。
-upgrade 主角 internalskill 全真心法 5
-upgrade 主角 根骨 5
+upgrade internal 主角 全真心法 5
+upgrade 根骨 主角 5
 cost_day 5
 
 # 全真教_尹志平内功修炼完毕
@@ -12004,42 +12004,42 @@ jump 全真教_尹志平2
 
 # 全真教_尹志平_全真剑法
 主角：可得一点浩然气，便成千里快哉风！
-upgrade 主角 skill 全真剑法 1
-upgrade 主角 剑法 1
-upgrade 主角 定力 1
+upgrade skill 主角 全真剑法 1
+upgrade 剑法 主角 1
+upgrade 定力 主角 1
 cost_day 1
 
 # 全真教_尹志平_全真剑法2
 主角：可得一点浩然气，便成千里快哉风！
-upgrade 主角 skill 全真剑法 5
-upgrade 主角 剑法 5
-upgrade 主角 定力 5
+upgrade skill 主角 全真剑法 5
+upgrade 剑法 主角 5
+upgrade 定力 主角 5
 cost_day 5
 
 # 全真教_尹志平_昊天掌
 主角：摩拳擦掌弓弦挽，英雄泼墨断云山！
-upgrade 主角 skill 昊天掌 1
-upgrade 主角 拳掌 1
-upgrade 主角 定力 1
-upgrade 主角 根骨 1
+upgrade skill 主角 昊天掌 1
+upgrade 拳掌 主角 1
+upgrade 定力 主角 1
+upgrade 根骨 主角 1
 cost_day 1
 
 # 全真教_尹志平_昊天掌2
 主角：摩拳擦掌弓弦挽，英雄泼墨断云山！
-upgrade 主角 skill 昊天掌 5
-upgrade 主角 拳掌 5
-upgrade 主角 定力 5
-upgrade 主角 根骨 5
+upgrade skill 主角 昊天掌 5
+upgrade 拳掌 主角 5
+upgrade 定力 主角 5
+upgrade 根骨 主角 5
 cost_day 5
 
 # 全真教_尹志平_金雁功
 主角：漫雪走飞割如瀑,白光辗转鸟不绝。
-upgrade 主角 身法 2
+upgrade 身法 主角 2
 cost_day 1
 
 # 全真教_尹志平_金雁功2
 主角：漫雪走飞割如瀑,白光辗转鸟不绝。
-upgrade 主角 身法 10
+upgrade 身法 主角 10
 cost_day 5
 
 # 全真教_赵志敬
@@ -12081,15 +12081,15 @@ cost_day 1
 
 # 全真教_讨好赵志敬开小灶
 赵志敬：小娃娃不错，来今天我偷偷教你一招，看好了。
-upgrade 主角 skill 一剑化三清 1
-upgrade 主角 剑法 1
+upgrade skill 主角 一剑化三清 1
+upgrade 剑法 主角 1
 主角：哇，赵仙长你简直是小人的再生父母啊！
 cost_day 1
 
 # 全真教_讨好赵志敬开小灶2
 赵志敬：小娃娃，来帮我把那堆衣服洗了。
 主角：是，赵仙长（当锻炼臂力了……）
-upgrade 主角 臂力 2
+upgrade 臂力 主角 2
 cost_day 1
 
 # 全真教_门派大比
@@ -12195,7 +12195,7 @@ map 大地图
 小龙女：过儿，带他去看看吧。
 杨过：好的姑姑，来兄弟，这边走，请看。
 主角：（仔细参详）原来九阴真经是这般这般……
-learn 主角 internalskill 九阴神功 6
+learn internal 主角 九阴神功 6
 
 # 全真教_周伯通胜
 周伯通：你的武功路数不对！你肯定看过九九九九九阴真经！你是什么人！
@@ -12205,7 +12205,7 @@ learn 主角 internalskill 九阴神功 6
 周伯通：给我看看！这是师兄的佩剑啊！他连这把剑都给你了，也难怪你会一点九阴真经上的武功路数了。
 主角：（给？王重阳祖师不是早已仙逝了么？难道另有隐情？）
 周伯通：不过你学的不太全啊，没关系，我再点拨点拨你吧。
-learn 主角 internalskill 九阴神功 9
+learn internal 主角 九阴神功 9
 
 # 全真教_马钰考核
 马钰：你下山历练这么久，也闯下不小的名头了，就让我看看你现在的功夫如何吧。
@@ -12248,9 +12248,9 @@ if daode_less_than 75
 主角：必须守住灵台清明，才有可能渡过难关！
 主角：可恶！心念太杂，心中戾气都冲了上来，完了...
 主角：（一口鲜血喷出）看来正气不足，走火入魔了，王重阳，你好狠..
-upgrade 主角 maxhp -1000
-upgrade 主角 maxmp -1000
-learn 主角 internalskill 逆运九阴神功 12
+upgrade maxhp 主角 -1000
+upgrade maxmp 主角 -1000
+learn internal 主角 逆运九阴神功 12
 主角：好在我福大命大，活着不说，居然还因为领悟了这逆运九阴神功...这是..天意？
 log 学习全真教顶级武学九阴真经过程中，走火入魔，领悟逆运九阴。
 map 大地图
@@ -12258,8 +12258,8 @@ map 大地图
 # 全真教_真九阴胜利正义
 主角：（重阳遗剑传来一阵又一阵的清凉，逐渐压制了澎湃汹涌的内力）
 主角：多亏了祖师爷的佩剑，否则就要走火入魔了。如果是没有佩戴这重阳遗剑的人来练这九阴真经的总纲，一定会走火入魔，全身内力迸发而死。好险好险。
-learn 主角 internalskill 九阴神功 12
-learn 主角 talent 玄门罡气
+learn internal 主角 九阴神功 12
+learn talent 主角 玄门罡气
 maxlevel 九阴神功 1
 maxlevel 先天功 1
 get_point 主角 15
@@ -12327,7 +12327,7 @@ map 大地图
 # 全真教_孙不二完成任务
 主角：师伯，幸不辱命，田伯光首级在此。
 孙不二：很好，很好！我这就传授你一招全真教的超强武学，但非到紧急关头勿要使用，因为此招名为同归剑法，实质上时欲与敌人同归于尽。
-learn 主角 specialskill 同归剑法
+learn special 主角 同归剑法
 主角：谢谢孙师伯！
 
 # 全真教_大校
@@ -12386,7 +12386,7 @@ music 音乐.天外村
 秦婆婆：人生有限，宇宙无穷。所以古人讲的是抛弃小我，追求大道。越工作人越容易狭隘，所以要看看诗歌回归过去，才能有好文章，好作品。武学也是一样的道理。
 主角：受教了，婆婆。
 nick 灵鹫弟子
-learn 主角 talent 御风
+learn talent 主角 御风
 item 灵鹫宫装束
 menpai 灵鹫宫
 map 灵鹫宫
@@ -12397,9 +12397,9 @@ music 音乐.天外村
 梅剑：今日就教你灵鹫宫的基本武学，听好了“其形也，翩若惊鸿，婉若游龙，荣曜秋菊，华茂春松。
 梅剑：髣髴兮若轻云之蔽月，飘飖兮若流风之回雪。远而望之，皎若太阳升朝霞。迫而察之，灼若芙蕖出渌波。秾纤得衷，修短合度。肩若削成，腰如约素。。。。。。”
 主角：“。。。。。。。。。（好多好困）
-upgrade 主角 身法 2
-upgrade 主角 拳掌 1
-upgrade 主角 skill 天山掌法 2
+upgrade 身法 主角 2
+upgrade 拳掌 主角 1
+upgrade skill 主角 天山掌法 2
 cost_day 2
 map 灵鹫宫
 
@@ -12410,9 +12410,9 @@ music 音乐.天外村
 梅剑：髣髴兮若轻云之蔽月，飘飖兮若流风之回雪。远而望之，皎若太阳升朝霞。迫而察之，灼若芙蕖出渌波。秾纤得衷，修短合度。肩若削成，腰如约素。。。。。。”
 主角：后面好像是“延颈秀项，皓质呈露，芳泽无加，铅华弗御。云髻峨峨，修眉联娟，丹唇外朗，皓齿内鲜。明眸善睐，靥辅承权，瓌姿艳逸，仪静体闲。
 主角：柔情绰态，媚于语言。奇服旷世，骨象应图。披罗衣之璀粲兮，珥瑶碧之华琚。戴金翠之首饰，缀明珠以耀躯。。。。”
-upgrade 主角 悟性 3
-upgrade 主角 身法 6
-upgrade 主角 skill 天山掌法 2
+upgrade 悟性 主角 3
+upgrade 身法 主角 6
+upgrade skill 主角 天山掌法 2
 cost_day 2
 map 灵鹫宫
 
@@ -12421,7 +12421,7 @@ background 地图.雪山
 music 音乐.天外村
 梅剑：听好了“体迅飞凫，飘忽若神。凌波微步，罗袜生尘。动无常则，若危若安。进止难期，若往若还。转眄流精，光润玉颜。含辞未吐，气若幽兰。华容婀娜，令我忘餐。”
 主角：（体迅飞凫，飘忽若神。凌波微步，罗袜生尘。体迅飞凫，飘忽若神。）好一个凌波仙子，体迅飞凫，飘忽若神。
-upgrade 主角 身法 10
+upgrade 身法 主角 10
 主角：凌波微步啊！好像差那么一点就能悟出来了。
 cost_day 2
 map 灵鹫宫
@@ -12431,9 +12431,9 @@ background 地图.琴舍
 music 音乐.天外村
 秦婆婆：既然入得我灵鹫宫，就要对姥姥敬爱有加，别学梅兰竹菊那些小丫头片子们没个规矩。来虽然童姥不在，和婆婆一起三叩九拜，学习天山心法。”
 主角：嗯，婆婆说的是（尊老爱幼，是传统美德）
-upgrade 主角 定力 3
-upgrade 主角 根骨 1
-upgrade 主角 internalskill 天山心法 3
+upgrade 定力 主角 3
+upgrade 根骨 主角 1
+upgrade internal 主角 天山心法 3
 cost_day 3
 map 灵鹫宫
 
@@ -12454,7 +12454,7 @@ music 音乐.天外村
 竹剑：首先是乾剑道，乾剑道”变化繁复，为诸剑之首。“乾”者天也，剑势高远，如万古云霄，空灵无极。 ”
 竹剑：乾剑道”包容天象，前后九个‘大剑势’，每个“大剑势”又包容九个‘中剑势’，每个“中剑势”里又包括九个“小剑势”，环环相套，生生不穷。
 主角：这剑法深谙道家至理，我可得用心学。
-upgrade 主角 skill 归藏剑 2
+upgrade skill 主角 归藏剑 2
 cost_day 1
 map 灵鹫宫
 
@@ -12463,7 +12463,7 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：坤剑道：“坤”卦为大地，故而“坤剑道”沉浑厚重，是极厉害的防守剑术。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
+upgrade skill 主角 归藏剑 1
 cost_day 1
 map 灵鹫宫
 
@@ -12472,7 +12472,7 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：艮剑道：“艮”卦为山岳，是以“艮剑道”雍穆雄奇。但这路剑法很少独运，多与“兑剑道”合使。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
+upgrade skill 主角 归藏剑 1
 cost_day 1
 map 灵鹫宫
 
@@ -12482,8 +12482,8 @@ music 音乐.天外村
 竹剑：坎剑道：“坎”为天下之水，“坎剑道”自也深得水性，若江若海，若湖若瀑。
 竹剑：要知“天下莫柔弱于水，而攻坚强者莫之能胜”，这路剑法极得“弱之胜强，柔之胜刚”的妙谛，堪称归藏剑中最厉害的剑术。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
-upgrade 主角 剑法 2
+upgrade skill 主角 归藏剑 1
+upgrade 剑法 主角 2
 cost_day 1
 map 灵鹫宫
 
@@ -12492,7 +12492,7 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：震剑道：“震”为雷霆霹雳，雷霆万钧，但只是一瞬。是以这路剑法只有一招，不出则已，出则无坚不摧。其狠辣迅疾，足为归藏剑第一。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
+upgrade skill 主角 归藏剑 1
 cost_day 1
 map 灵鹫宫
 
@@ -12501,8 +12501,8 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：巽剑道：巽者风也，风乃宇宙之气，起于青萍之末，舞于松柏之下。“巽剑道”变化多端，为“归藏剑”之最，轻柔时有扬花拂柳之妙；但若是癫狂起来，则有碎石伐木、摧枯拉朽的大威力。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
-upgrade 主角 剑法 1
+upgrade skill 主角 归藏剑 1
+upgrade 剑法 主角 1
 cost_day 1
 map 灵鹫宫
 
@@ -12511,7 +12511,7 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：离剑道：“离剑道”则为火象，霸气十足，无所遮拦，可一旦使出，便似野火燎原，势不可当。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
+upgrade skill 主角 归藏剑 1
 cost_day 1
 map 灵鹫宫
 
@@ -12520,8 +12520,8 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：兑剑道：兑为沼泽，山泽合用，一正一奇，往往陷敌于无形。
 竹剑：今天就教到这里了，明天再教
-upgrade 主角 skill 归藏剑 1
-upgrade 主角 剑法 1
+upgrade skill 主角 归藏剑 1
+upgrade 剑法 主角 1
 cost_day 1
 map 灵鹫宫
 
@@ -12530,7 +12530,7 @@ background 地图.九宫八卦
 music 音乐.天外村
 竹剑：这就是归藏剑的全部了，姐姐没什么教的了，自己体悟吧
 主角：慢慢想啊，慢慢想，要不回家先吃个饭吧。。。
-upgrade 主角 剑法 1
+upgrade 剑法 主角 1
 cost_day 1
 map 灵鹫宫
 
@@ -12539,7 +12539,7 @@ background 地图.琴舍
 music 音乐.天外村
 兰剑：“小弟弟，不读书可是不行的哟。。。。”
 主角：（郁闷，我不小。。。。）子曰：“学而时习之，不亦悦乎？有朋自远方来，不亦乐乎？。。。。。。”
-upgrade 主角 悟性 2
+upgrade 悟性 主角 2
 cost_day 1
 map 灵鹫宫
 
@@ -12548,7 +12548,7 @@ background 地图.树林
 music 音乐.天外村
 菊剑：反正也没事儿做，和姐姐踢毽子吧。
 主角：好啊，好啊（咦？这踢毽子的时候怎么觉得像我派信天游轻功啊）
-upgrade 主角 身法 1
+upgrade 身法 主角 1
 cost_day 1
 map 灵鹫宫
 
@@ -12636,7 +12636,7 @@ music 音乐.紧张感
 主角：是这样的。。。。。。。
 李秋水：看你这么苦，教你两手好好替我办事
 主角：谢王妃（可不是我愿意当二五仔，实在是没有办法）
-upgrade 主角 skill 天山六阳掌 4
+upgrade skill 主角 天山六阳掌 4
 maxlevel 天山六阳掌 1
 cost_day 1
 map 灵鹫宫
@@ -12741,7 +12741,7 @@ jump 灵鹫宫_山顶大战4
 主角：尊主，这是我灵鹫宫弟子应该的。
 虚竹：我这有几手童姥教给我的武功，我便都传与了你把！
 主角：谢尊主！谢尊主！
-upgrade 主角 skill 天山折梅手 10
+upgrade skill 主角 天山折梅手 10
 item 真北冥气穴图 1
 maxlevel 北冥神功 1
 log 与虚竹一起平息了灵鹫宫风波。虚竹当上了灵鹫宫尊主。
@@ -12814,7 +12814,7 @@ music 音乐.神雕.舒缓
 主角：‘乾’卦与‘坤’卦相合，乾上坤下便成天地‘泰’卦，坤上乾下则成了天地‘否’卦，如此一来，无异变出‘泰道’与‘否道’，若泰否两卦相交，又成新卦，如此循环演化，当可无穷无尽了。-‘泰道’‘否道’
 主角：天下武学也不过是那易经卦理，降龙十八掌见龙在田，或跃在渊，哪个不是出自易经。纵观八荒，宇宙六合。唯我独尊。”
 cost_day 10
-learn 主角 internalskill 八荒六合唯我独尊功 12
+learn internal 主角 八荒六合唯我独尊功 12
 maxlevel 八荒六合唯我独尊功 2
 jump 灵鹫宫_密室武学1
 
@@ -12893,15 +12893,15 @@ music 音乐.紧张感
 主角：哎呦怎么肚子突然疼成这个样子！
 主角：比我小时候喝了生豆浆还疼。。。。。
 主角：比去年得了肾结石还疼。。。。。
-upgrade 主角 maxhp -500
-upgrade 主角 maxmp -500
+upgrade maxhp 主角 -500
+upgrade maxmp 主角 -500
 主角：坑爹啊。。。
 主角：多做运动，争取拉出来。。。。
 主角：。。。。。。。
 主角：动无常则，若危若安。进止难期，若往若还
 主角：唉，舒服点了。
 主角：摁。。。。。怎么突然更痛了。。。
-upgrade 主角 定力 -10
+upgrade 定力 主角 -10
 主角：我要忍不住了。。。。（主角意识渐渐模糊）
 jump 灵鹫宫_偶遇逍遥子
 
@@ -12922,8 +12922,8 @@ music 音乐.中原树林
 逍遥子：逍遥好似追风翼，不达北冥终不还
 主角：（难不成这是北冥神功的心法？和庄子有关？）
 主角：（真气游走，渐渐化解了体内的疼痛）
-upgrade 主角 悟性 20
-learn 主角 talent 北冥真气
+upgrade 悟性 主角 20
+learn talent 主角 北冥真气
 逍遥子：（小子还算有点悟性）道可道，非常道。名可名，非常名。
 逍遥子：（嗯，已经稳定下来了，可以走了)
 cost_day 5
@@ -12959,7 +12959,7 @@ menpai 少林寺
 # 少林派_剃度
 background 地图.大雄宝殿
 方证大师：既然如此就让我为施主剃度吧。
-learn 主角 talent 无相
+learn talent 主角 无相
 nick 看破红尘
 animation 主角 jylh
 head 头像.少林弟子
@@ -12969,7 +12969,7 @@ map 少林寺内
 background 地图.大雄宝殿
 方证大师：施主有此志向老衲深感欣慰，你就挂名做我少林的俗家弟子吧。我师弟会传授你些武功希望施主能够达成所愿
 主角：谢方丈成全
-learn 主角 talent 俗家弟子
+learn talent 主角 俗家弟子
 nick 俗家弟子
 map 少林寺内
 
@@ -12977,9 +12977,9 @@ map 少林寺内
 background 地图.罗汉堂
 罗汉堂首座：本派武学自达摩祖师以来向来是只为了强身健体，不为与人比武争胜，不过你既然已经剃度，自然要先从少林武僧做起，现在我就传你少林十八罗汉拳。
 主角：是，首座。
-upgrade 主角 臂力 1
-upgrade 主角 拳掌 1
-upgrade 主角 skill 罗汉拳 1
+upgrade 臂力 主角 1
+upgrade 拳掌 主角 1
+upgrade skill 主角 罗汉拳 1
 cost_day 2
 map 少林寺内
 
@@ -12987,9 +12987,9 @@ map 少林寺内
 background 地图.罗汉堂
 罗汉堂首座：基本的招式已经交给你了，那边有木桩沙袋，你和师兄弟们一起练习吧
 主角：是，师傅
-upgrade 主角 臂力 1
-upgrade 主角 拳掌 1
-upgrade 主角 skill 罗汉拳 1
+upgrade 臂力 主角 1
+upgrade 拳掌 主角 1
+upgrade skill 主角 罗汉拳 1
 cost_day 2
 map 少林寺内
 
@@ -13002,9 +13002,9 @@ map 少林寺内
 background 地图.戒律院
 戒律院首座：曾经我少林十三棍，因救唐王李世民而名扬天下，从今日起我就传你少林棍法吧。
 主角：多谢大师。
-upgrade 主角 臂力 1
-upgrade 主角 奇门 2
-upgrade 主角 skill 韦陀棍 1
+upgrade 臂力 主角 1
+upgrade 奇门 主角 2
+upgrade skill 主角 韦陀棍 1
 cost_day 2
 map 少林寺内
 
@@ -13012,9 +13012,9 @@ map 少林寺内
 background 地图.戒律院
 戒律院首座：少林棍法之所以名扬天下没别的窍门，只有勤学苦练。
 主角：是，大师弟子知晓了。
-upgrade 主角 臂力 1
-upgrade 主角 奇门 1
-upgrade 主角 skill 韦陀棍 1
+upgrade 臂力 主角 1
+upgrade 奇门 主角 1
+upgrade skill 主角 韦陀棍 1
 cost_day 1
 map 少林寺内
 
@@ -13027,11 +13027,11 @@ map 少林寺内
 background 地图.大雄宝殿
 方证大师：既然是佛门弟子，早课是必须要上的。
 主角：南无阿弥陀佛。。。。
-upgrade 主角 internalskill 少林心法 2
-upgrade 主角 根骨 1
-upgrade 主角 定力 2
-upgrade 主角 maxhp 20
-upgrade 主角 maxmp 20
+upgrade internal 主角 少林心法 2
+upgrade 根骨 主角 1
+upgrade 定力 主角 2
+upgrade maxhp 主角 20
+upgrade maxmp 主角 20
 cost_day 2
 map 少林寺内
 
@@ -13039,9 +13039,9 @@ map 少林寺内
 background 地图.初祖庵
 主角：据说我佛菩提达摩为佛陀正法第二十八代祖，曾在此面壁九年有得，不如我也面壁个十天半个月看看有什么收获。
 主角：果然达摩祖师是有大智慧的人。古人求道，无不历尽艰难险阻，忍常人所不能忍。古人尚且如此，我有何德何能？当自勉励!
-upgrade 主角 福缘 5
-upgrade 主角 悟性 5
-upgrade 主角 定力 5
+upgrade 福缘 主角 5
+upgrade 悟性 主角 5
+upgrade 定力 主角 5
 cost_day 12
 无名老僧：（不错。。。孺子可教）
 map 少林寺内
@@ -13050,9 +13050,9 @@ map 少林寺内
 background 地图.少林塔林
 主角：举足下足，长在道场，是心是情，同归性海，“提水砍柴无非妙道”，在日常劳动生活中一样可以顿悟成佛。我少林许多功夫，都是由砍柴，挑水而来，最普通的功夫，也是最高深的功夫。
 主角：内练一口气，外练筋骨皮。
-upgrade 主角 福缘 3
-upgrade 主角 maxhp 30
-upgrade 主角 maxmp 30
+upgrade 福缘 主角 3
+upgrade maxhp 主角 30
+upgrade maxmp 主角 30
 cost_day 3
 map 少林寺内
 
@@ -13092,14 +13092,14 @@ background 地图.东汉三阙
 主角：这里看整个少室山的风景最是不错了。少林自汉代起也有数百年的历史了。
 主角：不争和合少林心，止恶扬善少林根；以德服人消贪瞋，后发制人少林门
 主角：我少林不愧为天下武宗。
-upgrade 主角 悟性 10
+upgrade 悟性 主角 10
 cost_day 1
 map 少林寺内
 
 # 少林派_东汉三阙1
 background 地图.东汉三阙
 主角：直指人心观本性，见性成佛定禅宗。
-upgrade 主角 悟性 1
+upgrade 悟性 主角 1
 cost_day 1
 map 少林寺内
 
@@ -13161,18 +13161,18 @@ map 南少林
 本真和尚：步法要求稳固而灵活，眼法讲究以目视目，运气要气沉丹田。其动作迅如闪电，转似轮旋，站如钉立，跳似轻飞。。
 本真和尚：我教你小洪拳，打赢了我，我师弟雷老虎教你大洪拳。
 主角：看我洪拳三十三手定天下
-upgrade 主角 臂力 1
-upgrade 主角 拳掌 2
-upgrade 主角 根骨 3
-upgrade 主角 skill 小洪拳 1
+upgrade 臂力 主角 1
+upgrade 拳掌 主角 2
+upgrade 根骨 主角 3
+upgrade skill 主角 小洪拳 1
 cost_day 2
 map 南少林
 
 # 少林寺_福建南少林小洪拳
 主角：看我洪拳三十三手定天下
-upgrade 主角 臂力 2
-upgrade 主角 拳掌 2
-upgrade 主角 skill 小洪拳 1
+upgrade 臂力 主角 2
+upgrade 拳掌 主角 2
+upgrade skill 主角 小洪拳 1
 cost_day 1
 map 南少林
 
@@ -13191,9 +13191,9 @@ battle 少林寺_南少林之战
 雷老虎：虎形练骨、豹形练力、蛇形练气、鹤形练精、龙形练神
 雷老虎：虎走刚猛、练筋骨劲力，鹤讲轻巧、明角度攻守，蛇主飘缠、气沉连绵，猴则手眼明快、迅速灵敏，龙写神意、化刚柔。
 雷老虎：故虎形刚猛、鹤形清而巧、龙形合刚化柔、蛇形气沉连绵、猴态快速轻灵。
-upgrade 主角 臂力 2
-upgrade 主角 拳掌 2
-upgrade 主角 skill 大洪拳 1
+upgrade 臂力 主角 2
+upgrade 拳掌 主角 2
+upgrade skill 主角 大洪拳 1
 cost_day 1
 
 # 南少林_大洪拳失败
@@ -13251,7 +13251,7 @@ map 大地图
 # 少林寺_重回塔林
 主角：方丈，凭我低微武功，这几个月闯荡江湖恐怕是丢了我少林武宗的名号了。
 方证大师：无妨，老衲现在传你少林不传绝学易筋经，让你行走江湖无碍
-upgrade 主角 internalskill 易筋经 5
+upgrade internal 主角 易筋经 5
 方证大师：易筋经乃是强身健体之法，切不可好勇斗狠
 主角：谨遵法旨
 
@@ -13313,7 +13313,7 @@ battle 少林寺_洗髓经
 玄生：佛性起，把恩怨嗔痴 ，皆放下。
 玄生：了不起，希望你在现实生活中也能改变这一切！
 主角：我一定会的。
-learn 主角 talent 易经伐髓
+learn talent 主角 易经伐髓
 maxlevel 易筋经 1
 nick 达摩再世
 
@@ -13501,7 +13501,7 @@ music 音乐.武当
 冲虚道长：本派武学讲究以柔克刚，后发制人；辩位于尺寸毫厘，制敌于擒扑封闭。平日里要用心体会。你就和松溪学武吧。
 主角：多谢道长。
 menpai 武当派
-learn 主角 talent 阴阳
+learn talent 主角 阴阳
 map 武当广场
 
 # 武当派_武当心法
@@ -13511,9 +13511,9 @@ map 武当广场
 # 武当派_武当心法1
 俞岱岩：好了，你们开始修习本派心法吧：呼吸自然，周身放松;心静意专，神态精神;内外三合，节节贯通;任凭阴阳，身法中正;
 俞岱岩：意到气到，气随意行;内外合一，神形兼备;奇经八脉，畅流全身;太乙五行，旨在养身
-upgrade 主角 internalskill 武当心法 2
-upgrade 主角 根骨 1
-upgrade 主角 定力 1
+upgrade internal 主角 武当心法 2
+upgrade 根骨 主角 1
+upgrade 定力 主角 1
 cost_day 2
 
 # 武当派_宋青书介绍
@@ -13561,21 +13561,21 @@ map 武当广场
 
 # 武当派_绵掌
 宋远桥：你是新入门弟子，就先从绵掌修炼起吧。。。，别小看了这门功夫，它可是我武当拳法根基。
-upgrade 主角 skill 绵掌 2
-upgrade 主角 臂力 2
+upgrade skill 主角 绵掌 2
+upgrade 臂力 主角 2
 cost_day 2
 
 # 武当派_绕指柔剑
 莫声谷：今天我们来学习我门派的入门剑法。
 主角：是，师叔。。。。
-upgrade 主角 skill 绕指柔剑 2
-upgrade 主角 定力 2
+upgrade skill 主角 绕指柔剑 2
+upgrade 定力 主角 2
 cost_day 2
 
 # 武当派_身法
 莫声谷：我武当轻功冠绝天下希望你用心学习，平时与人比武切记卖弄，随我来练习
 主角：是，莫师傅
-upgrade 主角 身法 3
+upgrade 身法 主角 3
 cost_day 2
 
 # 武当派_梯云纵
@@ -13584,7 +13584,7 @@ cost_day 2
 莫声谷：没错，看好了！
 主角：（只见莫声谷纵身高跃，一转一折，在半空中居然能转向）
 主角：我武当身法果然冠绝天下！
-learn 主角 specialskill 梯云纵
+learn special 主角 梯云纵
 莫声谷：好了，作为新的门派弟子，你的轻功能学到这个境界，已然很不错了！
 
 # 武当派_殷梨亭
@@ -13670,17 +13670,17 @@ music 音乐.武当
 主角：圣人体道之无，法道之自然无为，以之修身，当无欲而静，无心而虚，不自见自是，自伐自矜，为而不持，功成而不居，怀慈尚俭，处实去华，以之治天下，
 主角：当“处无为之事，行不言之教”，还刀兵，离争斗，不尚贤，不贵难得之货，不见可欲，使民虚心实腹，无知无欲，则无为而治。
 主角：“反者道之动，弱者道之用”，故知道者守雌抱朴，退让谦下，挫锐解纷，和光同尘，以柔弱胜刚强。
-upgrade 主角 根骨 1
-upgrade 主角 定力 1
-upgrade 主角 悟性 1
+upgrade 根骨 主角 1
+upgrade 定力 主角 1
+upgrade 悟性 主角 1
 cost_day 2
 
 # 武当派_天柱峰
 background 地图.天柱峰
 music 音乐.武当
 主角：“亘古无双胜境，天下第一仙山”！名闻于世，何及伟哉？
-upgrade 主角 定力 1
-upgrade 主角 悟性 1
+upgrade 定力 主角 1
+upgrade 悟性 主角 1
 cost_day 1
 
 # 武当派_太和山
@@ -13690,7 +13690,7 @@ music 音乐.武当
 主角：“灵源仙涧三方绕，古桧苍松四面环。雨滴琼珠敲石栈，风吹玉笛响松关。
 主角：角鸡报晓东方曙，晚鹤归来月半湾。谷口仙禽常唤语，山巅神兽任跻攀。个中自是乾坤别，就里原来日月闲。
 主角：此是高真成道处，故留踪迹在人间。古来多少神仙侣，为爱名山去复还。-唐“吕洞宾”
-upgrade 主角 悟性 2
+upgrade 悟性 主角 2
 cost_day 1
 
 # 武当派_玉虚宫
@@ -13699,8 +13699,8 @@ music 音乐.武当
 主角：今日静下来阅读道德经吧
 主角：道之理则，分无、有二面。道常无，无名无形，先于天地鬼神，而为天地万物之始，道常有，生天地万物，具无穷之用。
 主角：道之理则贯穿于万有，表现为万有皆相对而存，极则必反，终必归，根本之规律。而有之用，常以无为本，“有生于无”。
-upgrade 主角 maxhp 60
-upgrade 主角 maxmp 60
+upgrade maxhp 主角 60
+upgrade maxmp 主角 60
 cost_day 2
 
 # 武当派_宋远桥
@@ -13863,13 +13863,13 @@ map 武当广场
 俞莲舟：我也是无意中变化我武当长拳、绵掌练就的这门功夫，但由于它实在是过于狠辣，你太师傅张真人当年告诫我们，不到迫不得已不得使用。
 俞莲舟：其实武功本无善恶，善恶在于人心。你要好好利用这门功夫，锄奸惩恶、行侠仗义。
 主角：是，师伯！
-upgrade 主角 skill 绝户虎爪手 10
+upgrade skill 主角 绝户虎爪手 10
 maxlevel 绝户虎爪手 2
 
 # 武当派_俞莲舟考校六合劲
 俞莲舟：哎……（看来你还是不适合学习那门功夫。）
 俞莲舟：行，今天我就传授给你一门武当绝学，在实战中非常有用，看好了！
-learn 主角 specialskill 六合劲
+learn special 主角 六合劲
 俞莲舟：这一招可以将一个对手的集气和怒气瞬间打散，属于战术型技能，可要小心使用了。
 主角：谢谢俞师伯！
 
@@ -13901,7 +13901,7 @@ map 后山练功场
 # 武当派_神门十三剑3
 殷梨亭：哈哈，你这招应该如此如此……
 主角：谢谢师叔指点武学！
-upgrade 主角 skill 神门十三剑 12
+upgrade skill 主角 神门十三剑 12
 map 后山练功场
 
 # 武当派_殷梨亭邪
@@ -14030,7 +14030,7 @@ music 音乐.仙剑奇缘
 主角：太玄岳，武当山。
 主角：三过必醉吕纯阳，白日疯癫张玄玄。
 主角：只问真仙何处有，不向江湖寻道颜。
-upgrade 主角 internalskill 纯阳无极功 10
+upgrade internal 主角 纯阳无极功 10
 maxlevel 太极拳 1
 maxlevel 太极剑 1
 maxlevel 纯阳无极功 1
@@ -14062,12 +14062,12 @@ background 地图.秦淮河
 主角：红灯闪闪笙歌地，吊古怀金自在行。（也就是这时候才能感受下古南京，这六朝古都。。。）
 主角：（现在就只能去喝碗鸭血粉丝汤，来份灌汤小笼了）
 主角：因为一起吃了好吃的感到相当满足。。。
-upgrade 主角 maxhp 300
-upgrade 主角 maxmp 300
-upgrade 段誉 maxhp 300
-upgrade 段誉 maxmp 300
-upgrade 田伯光 maxhp 300
-upgrade 田伯光 maxmp 300
+upgrade maxhp 主角 300
+upgrade maxmp 主角 300
+upgrade maxhp 段誉 300
+upgrade maxmp 段誉 300
+upgrade maxhp 田伯光 300
+upgrade maxmp 田伯光 300
 nick 金陵怀古
 map 大地图
 
@@ -14132,7 +14132,7 @@ map 大地图
 主角：桩式沉稳，架势紧凑。腰随胯转，肩胯相对。两手环抱，脚走弧线。绵软缠绕，走圆化柔。动如蛇之行，柔似蚕作茧，这是基本。
 主角：以静为基，以柔为形，神足而意远。以静制动，以柔克刚，尚意不尚力动中求静，静中求动，重意不重形。意气劲形，心息相随，化劲不硬抗。辩位于尺寸毫厘，制动于擒扑封闭。这是技法。
 主角：地法天，天法道，道法自然，返璞归真。这是意境。
-learn 主角 talent 刚柔并济
+learn talent 主角 刚柔并济
 maxlevel 太极神功 1
 maxlevel 武当心法 3
 nick 太极生圆
@@ -14262,7 +14262,7 @@ music 音乐.天龙八部.逍遥派
 龙岛主：诸位掌教们！各位远道光临，敝岛无以为敬。这碗腊八粥外边倒还不易喝到，其中最主要的一味‘断肠蚀骨腐心草’，要开花之后效力方着。
 龙岛主：但这草隔十年才开一次花。我们总要等其开花之后，这才邀请江湖同道来此同享，屈指算来，这是第四回邀请。请，请，不用客气。
 主角：（哈哈！增加内力的大补品腊八粥，我来啦！）咕咚咕咚咕咚，爽，再来一碗！！
-upgrade 主角 maxmp 400
+upgrade maxmp 主角 400
 木岛主：这，这位小兄弟倒是有胆识，却可惜这‘断肠蚀骨腐心草’每年就这么多，要想再多喝一碗，可真没有啦！
 主角：岛主！这个可以有！
 龙岛主：小兄弟，这个真没有。
@@ -14326,10 +14326,10 @@ music 音乐.天龙八部.逍遥派
 木岛主：小兄弟，你，你静坐了三天之后，适才突然发狂，竟无论敌我发起疯来！岛上这么多人联手，才堪堪将你拖住。看来……
 龙岛主：看来小兄弟是练成了这传说中的太玄经，能，能不能告诉我等，这侠客行中有何秘密？小兄弟是如何练了这太玄经的？
 主角：其实，那不是诗……我只能说这么多。哈哈，龙岛主，木岛主，小弟这就告辞了！
-upgrade 主角 maxmp 2000
+upgrade maxmp 主角 2000
 get_point 主角 25
-upgrade 主角 根骨 20
-learn 主角 internalskill 太玄神功 10
+upgrade 根骨 主角 20
+learn internal 主角 太玄神功 10
 maxlevel 太玄神功 1
 log 参悟了侠客岛的太玄神功
 nick 侠客行
@@ -14582,8 +14582,8 @@ background 地图.室内
 张三丰：这是我近年来潜心钻研的太极功夫，这便传授给你！
 张无忌：多谢太师傅！
 get_point 张无忌 15
-learn 张无忌 skill 太极拳 10
-learn 张无忌 skill 太极剑 10
+learn skill 张无忌 太极拳 10
+learn skill 张无忌 太极剑 10
 张三丰：无忌，多保重！记住，只要无愧于心，则无愧于天地！
 张无忌：我懂了，太师傅！告辞了！
 nick 乾坤挪移
@@ -14687,7 +14687,7 @@ music 音乐.武侠雄壮
 张无忌：咱们将这些剑法拓印下来吧
 赵敏：东岳岱宗夫如何，西岳华山智取难，中岳嵩山巍巍然，北岳恒山栈道寒，南岳衡山寿比安。
 张无忌：这些剑法路数各不相同，端的是精妙无比，真是大开眼界啊！
-upgrade 张无忌 剑法 30
+upgrade 剑法 张无忌 30
 map 大地图
 
 # 倚天屠龙_劝说嵩山2
@@ -14731,14 +14731,14 @@ music 音乐.武侠回忆
   jump 倚天屠龙_不答
 
 # 倚天屠龙_赵敏好看
-upgrade 张无忌 臂力 5
+upgrade 臂力 张无忌 5
 张无忌：当然是我的敏敏漂亮啦！
 赵敏：哈哈，无忌哥哥，我知道你对我最好啦！
 周芷若：哼……
 jump 倚天屠龙_劝说峨眉2
 
 # 倚天屠龙_周芷若好看
-upgrade 张无忌 定力 5
+upgrade 定力 张无忌 5
 张无忌：还是芷若妹妹更胜一筹了。。
 周芷若：无忌哥哥，你真好！
 赵敏：哼，张无忌！回头让你跪搓衣板！
@@ -14769,12 +14769,12 @@ jump 倚天屠龙_劝说峨眉2
 
 # 倚天屠龙_劝说峨眉2_赵敏
 赵敏：嘻嘻！算你识相。
-learn 张无忌 talent 赵敏的眷念
+learn talent 张无忌 赵敏的眷念
 jump 倚天屠龙_劝说峨眉成功
 
 # 倚天屠龙_劝说峨眉2_周芷若
 周芷若：爱死你了，无忌哥哥！
-learn 张无忌 talent 芷若的眷念
+learn talent 张无忌 芷若的眷念
 jump 倚天屠龙_劝说峨眉成功
 
 # 倚天屠龙_劝说峨眉成功
@@ -14878,10 +14878,10 @@ music 音乐.武侠回忆
 周芷若：其实看开了，都只是过眼烟云，我真高兴我们能不再有这些你争我抢的仇杀和负担。
 张无忌：（顿时觉得心情豁然开朗）没错，权力都是过眼烟云，[color=yellow]“浅斟低吟浮名尽，流觞曲水入梦来”[/color]，让我们好好享受余下的生活吧！
 get_point 张无忌 25
-learn 张无忌 internalskill 太极神功 10
-learn 张无忌 talent 至空至明
-upgrade 张无忌 maxhp 1000
-upgrade 张无忌 maxmp 1000
+learn internal 张无忌 太极神功 10
+learn talent 张无忌 至空至明
+upgrade maxhp 张无忌 1000
+upgrade maxmp 张无忌 1000
 maxlevel 太极神功 1
 主角：（你是可以享受了，可我还得游戏通关啊。）
 张无忌：兄弟，你放心，我会帮你达成你的心愿，然后再与敏敏、芷若一起去草原牧马放牛！
@@ -15394,8 +15394,8 @@ music 音乐.武林至尊
 杨过：呼呼，终于通过了试炼。
 主角：杨兄，恭喜了！
 杨过：这一势黯然销魂掌，终于有了新的领悟。
-upgrade 杨过 skill 黯然销魂掌 5
-learn 杨过 talent 铁拳无双
+upgrade skill 杨过 黯然销魂掌 5
+learn talent 杨过 铁拳无双
 map 霹雳堂
 
 # 霹雳堂_段誉
@@ -15403,15 +15403,15 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 段誉：原来如此！原来如此！
 主角：段兄，大理段氏的武功，果然独步天下！
-upgrade 段誉 skill 六脉神剑 5
-learn 段誉 talent 灵心慧质
+upgrade skill 段誉 六脉神剑 5
+learn talent 段誉 灵心慧质
 map 霹雳堂
 
 # 霹雳堂_袁承志
 background 地图.霹雳堂
 music 音乐.武林至尊
 袁承志：金蛇剑法果然奇妙无穷！
-upgrade 袁承志 skill 金蛇剑法 5
+upgrade skill 袁承志 金蛇剑法 5
 map 霹雳堂
 
 # 霹雳堂_狄云
@@ -15420,9 +15420,9 @@ music 音乐.武林至尊
 狄云：这邪恶的血刀门武功……
 主角：狄云兄，正邪在于人，而非武学本身
 狄云：你说的对！
-upgrade 狄云 skill 血刀大法 5
-learn 狄云 talent 血海魔功
-learn 狄云 talent 哀歌
+upgrade skill 狄云 血刀大法 5
+learn talent 狄云 血海魔功
+learn talent 狄云 哀歌
 maxlevel 血海魔功 1
 map 霹雳堂
 
@@ -15432,8 +15432,8 @@ music 音乐.武林至尊
 胡斐：我胡家刀法果然洒脱飘逸！
 主角：但胡兄你这刀法太霸道了，每次都打着队友啊！
 胡斐：放心，我已经领悟出胡家刀法精妙招式，不再会误伤了！
-upgrade 胡斐 skill 胡家刀法 5
-learn 胡斐 talent 灵心慧质
+upgrade skill 胡斐 胡家刀法 5
+learn talent 胡斐 灵心慧质
 maxlevel 胡家刀法 1
 map 霹雳堂
 
@@ -15443,20 +15443,20 @@ music 音乐.武林至尊
 张无忌：啊！浑身发热好像火焰在燃烧。
 主角：无忌小哥，你没事吧？
 张无忌：放心，看我的，乾坤大挪移！
-upgrade 张无忌 internalskill 九阳神功 5
-remove 张无忌 talent 乾坤大挪移
-learn 张无忌 talent 乾坤大挪移奥义
+upgrade internal 张无忌 九阳神功 5
+remove talent 张无忌 乾坤大挪移
+learn talent 张无忌 乾坤大挪移奥义
 map 霹雳堂
 
 # 霹雳堂_程英.初级
 background 地图.霹雳堂
 music 音乐.武林至尊
 程英.初级：瞻彼淇奥，绿竹猗猗，有匪君子，如切如磋，如琢如磨……
-learn 程英.初级 skill 落英神剑掌 20
-learn 程英.初级 skill 玉箫剑法 20
-upgrade 程英.初级 skill 弹指神通 10
-upgrade 程英.初级 internalskill 九阴神功 5
-learn 程英.初级 talent 追魂
+learn skill 程英.初级 落英神剑掌 20
+learn skill 程英.初级 玉箫剑法 20
+upgrade skill 程英.初级 弹指神通 10
+upgrade internal 程英.初级 九阴神功 5
+learn talent 程英.初级 追魂
 maxlevel 落英神剑掌 1
 maxlevel 玉箫剑法 1
 maxlevel 弹指神通 1
@@ -15466,11 +15466,11 @@ map 霹雳堂
 background 地图.霹雳堂
 music 音乐.武林至尊
 程英.高级：瞻彼淇奥，绿竹猗猗，有匪君子，如切如磋，如琢如磨……
-learn 程英.初级 skill 落英神剑掌 20
-learn 程英.初级 skill 玉箫剑法 20
-upgrade 程英.高级 skill 弹指神通 10
-upgrade 程英.高级 internalskill 九阴神功 5
-learn 程英.高级 talent 追魂
+learn skill 程英.初级 落英神剑掌 20
+learn skill 程英.初级 玉箫剑法 20
+upgrade skill 程英.高级 弹指神通 10
+upgrade internal 程英.高级 九阴神功 5
+learn talent 程英.高级 追魂
 maxlevel 落英神剑掌 1
 maxlevel 玉箫剑法 1
 maxlevel 弹指神通 1
@@ -15481,8 +15481,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 郭襄：风铃渡口、绝情谷底、峨眉金顶，大哥哥，一路走来，我真的很开心！
 杨过：襄儿……
-upgrade 郭襄 skill 弹指神通 10
-upgrade 郭襄 internalskill 九阴神功 5
+upgrade skill 郭襄 弹指神通 10
+upgrade internal 郭襄 九阴神功 5
 maxlevel 落英神剑掌 1
 maxlevel 玉箫剑法 1
 maxlevel 弹指神通 1
@@ -15498,9 +15498,9 @@ music 音乐.武林至尊
 item 春宫图 2
 主角：（鼻血喷张）这这这……
 田伯光：嘿嘿！有意思吧。
-learn 田伯光 skill 狂风刀法 20
+learn skill 田伯光 狂风刀法 20
 get_point 田伯光 20
-upgrade 田伯光 刀法 30
+upgrade 刀法 田伯光 30
 maxlevel 狂风刀法 5
 map 霹雳堂
 
@@ -15509,8 +15509,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 小龙女：过儿，祖师婆婆传下来的武功果然厉害。
 杨过：是啊，龙儿，恭喜你又精进一层！
-upgrade 小龙女 skill 玉女素心剑 5
-learn 小龙女 talent 左右互搏
+upgrade skill 小龙女 玉女素心剑 5
+learn talent 小龙女 左右互搏
 maxlevel 玉女素心剑 1
 map 霹雳堂
 
@@ -15518,9 +15518,9 @@ map 霹雳堂
 background 地图.霹雳堂
 music 音乐.武林至尊
 木婉清：这六脉神剑的武功真是神奇。
-learn 木婉清 skill 六脉神剑 12
-learn 木婉清 talent 灵心慧质
-learn 木婉清 specialskill 凌波微步
+learn skill 木婉清 六脉神剑 12
+learn talent 木婉清 灵心慧质
+learn special 木婉清 凌波微步
 maxlevel 北冥神功 1
 map 霹雳堂
 
@@ -15541,7 +15541,7 @@ music 音乐.武林至尊
 段正淳：看来我风流了这么多年，武功却一点也没落下。
 主角：是啊，段王爷，我真是佩服你有一颗滚烫的肾啊！
 段正淳：兄弟，不需着急，我这就把我的绝世秘籍传授给你。你只需这般这般勾引女人……
-learn 主角 talent 段王爷的电眼
+learn talent 主角 段王爷的电眼
 主角：哇靠，从今以后把妞无敌了！
 maxlevel 一阳指 3
 map 霹雳堂
@@ -15565,9 +15565,9 @@ music 音乐.武林至尊
 程灵素：师父，我终于将我药王门发扬光大了！让世人知道，毒并不是用来害人的，还是一门绝世神功！
 item 药王神篇 1
 item 妙手仁心 1
-learn 程灵素 talent 医仙
-learn 程灵素 talent 隔空取物
-upgrade 程灵素 maxhp 1000
+learn talent 程灵素 医仙
+learn talent 程灵素 隔空取物
+upgrade maxhp 程灵素 1000
 maxlevel 药王神掌 1
 map 霹雳堂
 
@@ -15577,16 +15577,16 @@ music 音乐.武林至尊
 主角：郭兄，看着你从蒙古包里的那个二百五慢慢成为当今世上一代巨侠，真是赏心悦目啊！
 郭靖：哈哈哈哈，过奖过奖！作为射雕的主角，我当然很虎啦！
 主角：必须的！（这家伙真不谦虚）
-upgrade 郭靖 skill 降龙十八掌 3
-upgrade 郭靖 skill 打狗棒法 2
-learn 郭靖 talent 铁拳无双
+upgrade skill 郭靖 降龙十八掌 3
+upgrade skill 郭靖 打狗棒法 2
+learn talent 郭靖 铁拳无双
 map 霹雳堂
 
 # 霹雳堂_黄蓉
 background 地图.霹雳堂
 music 音乐.武林至尊
 黄蓉：这一招的名称，可得罪了，叫作‘棒打双犬’！
-upgrade 黄蓉 skill 打狗棒法 4
+upgrade skill 黄蓉 打狗棒法 4
 item 打狗棒法 1
 map 霹雳堂
 
@@ -15594,9 +15594,9 @@ map 霹雳堂
 background 地图.霹雳堂
 music 音乐.武林至尊
 阿朱：嘻嘻，你真厉害，这也能将我练上来，让我过了一把高手的瘾！
-learn 阿朱 talent 百变千幻
+learn talent 阿朱 百变千幻
 阿朱：作为报答，我就教你一手易容术吧！
-learn 主角 specialskill 易容术
+learn special 主角 易容术
 主角：这可是好技能啊，谢谢你，阿朱姑娘！
 item 无尽斗志 1
 map 霹雳堂
@@ -15617,8 +15617,8 @@ music 音乐.武侠流水
 阿碧：盛放红菱吐艳水上~
 阿碧：湖上把鸳鸯订~
 主角：（沉醉了）
-learn 阿碧 specialskill 吴侬软语
-learn 阿碧 talent 吴侬软语
+learn special 阿碧 吴侬软语
+learn talent 阿碧 吴侬软语
 map 霹雳堂
 
 # 霹雳堂_钟灵
@@ -15629,8 +15629,8 @@ music 音乐.武林至尊
 钟灵：那我把它送给大哥哥好不好？
 主角：啊，这可是你的宠物呀！
 钟灵：反正我以后都和大哥哥在一起嘛，你的就是我的。以后雕雕就是我俩的宠物！
-learn 钟灵 specialskill 闪电貂
-learn 主角 specialskill 闪电貂
+learn special 钟灵 闪电貂
+learn special 主角 闪电貂
 item 飞向天际 1
 map 霹雳堂
 
@@ -15640,9 +15640,9 @@ music 音乐.武林至尊
 慕容复：如今武功精进如斯，看来我大燕国复国有望了！
 主角：慕容兄，恭喜恭喜！
 慕容复：（我要号令武林，共同为我的复国志向努力）谢谢！
-learn 慕容复 talent 博览群书
-learn 慕容复 talent 阴谋家
-learn 慕容复 skill 斗转星移 15
+learn talent 慕容复 博览群书
+learn talent 慕容复 阴谋家
+learn skill 慕容复 斗转星移 15
 item 斗转星移之法 1
 maxlevel 斗转星移 1
 get_point 慕容复 15
@@ -15653,8 +15653,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 乔峰：哈哈哈，痛快痛快！兄弟，今天你我要喝个痛快。
 主角：乔兄，真乃好汉子！（豪气顿生）干了！
-upgrade 乔峰 skill 降龙十八掌 3
-learn 乔峰 talent 碎裂的怒吼
+upgrade skill 乔峰 降龙十八掌 3
+learn talent 乔峰 碎裂的怒吼
 maxlevel 擒龙功 2
 get_point 乔峰 10
 map 霹雳堂
@@ -15676,8 +15676,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 阿紫：好玩好玩！
 阿紫：从今以后，我就是星宿派大师姐，哦不！应该是大掌门啦，哈哈！丁春秋老贼也不是我的对手！
-learn 阿紫 skill 三阴蜈蚣爪 20
-learn 阿紫 internalskill 化功大法 20
+learn skill 阿紫 三阴蜈蚣爪 20
+learn internal 阿紫 化功大法 20
 get_point 阿紫 30
 maxlevel 化功大法 1
 item 道家仙丹 2
@@ -15690,7 +15690,7 @@ music 音乐.武林至尊
 令狐冲：好酒好酒！行走江湖别无所求，一壶好酒一把剑！
 主角：冲哥，剑在心中，无招胜有招，天下更何求啊
 令狐冲：正是！干杯！
-upgrade 令狐冲 skill 独孤九剑 4
+upgrade skill 令狐冲 独孤九剑 4
 map 霹雳堂
 
 # 霹雳堂_蓝凤凰
@@ -15698,8 +15698,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 蓝凤凰：嘻嘻，冲哥哥，我厉不厉害？
 令狐冲：哈哈！妹子进步很大！
-upgrade 蓝凤凰 skill 毒龙鞭法 5
-learn 蓝凤凰 talent 毒圣
+upgrade skill 蓝凤凰 毒龙鞭法 5
+learn talent 蓝凤凰 毒圣
 item 道家仙丹 2
 item 妙手仁心 1
 maxlevel 毒龙鞭法 5
@@ -15710,7 +15710,7 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 令狐冲：曲妹妹，你好厉害！
 曲非烟：令狐哥哥，谢谢你！没有你，我只能永远活在仇恨中。
-upgrade 曲非烟 skill 日月鞭法 5
+upgrade skill 曲非烟 日月鞭法 5
 get_point 曲非烟 20
 item 道家仙丹 2
 maxlevel 日月鞭法 5
@@ -15734,10 +15734,10 @@ music 音乐.武林至尊
 任盈盈：嘻嘻，我来教你，你应该说“日月神教，千秋万载，一统江湖”
 主角：壮哉我大圣姑，一桶浆糊！
 任盈盈：（白了一眼）
-upgrade 任盈盈 skill 日月鞭法 5
-upgrade 任盈盈 skill 独孤九剑 3
-upgrade 任盈盈 maxhp 1000
-upgrade 任盈盈 maxmp 1000
+upgrade skill 任盈盈 日月鞭法 5
+upgrade skill 任盈盈 独孤九剑 3
+upgrade maxhp 任盈盈 1000
+upgrade maxmp 任盈盈 1000
 maxlevel 日月鞭法 3
 maxlevel 华山剑法 3
 map 霹雳堂
@@ -15747,9 +15747,9 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 血刀老祖：好汉威武，好汉荡漾，好汉你是我心中的红太阳！把我培养得这么虎，简直是我的再生父母啊！
 主角：够了够了，大男人这样拍马屁，一身鸡皮疙瘩！
-upgrade 血刀老祖 skill 血刀大法 5
-upgrade 血刀老祖 maxhp 1000
-upgrade 血刀老祖 maxmp 1000
+upgrade skill 血刀老祖 血刀大法 5
+upgrade maxhp 血刀老祖 1000
+upgrade maxmp 血刀老祖 1000
 maxlevel 血海魔功 1
 map 霹雳堂
 
@@ -15759,9 +15759,9 @@ music 音乐.武林至尊
 水笙：狄大哥，我们真的成长了好多！
 狄云：是呀，要多谢这位小兄弟了！
 主角：过奖过奖！（赶紧，奖品拿来）
-upgrade 水笙 skill 连城剑法 4
-upgrade 水笙 maxhp 1000
-upgrade 水笙 maxmp 1000
+upgrade skill 水笙 连城剑法 4
+upgrade maxhp 水笙 1000
+upgrade maxmp 水笙 1000
 maxlevel 连城剑法 1
 maxlevel 神照功 1
 item 道家仙丹 1
@@ -15773,10 +15773,10 @@ music 音乐.武林至尊
 李文秀：你说的对，人不能活在回忆里！活着的人，应该追求的是未来耀眼的幸福。
 李文秀：谢谢你！让看到世界这么大，让我看到有这么多需要帮助的人们，让我的生命这么耀眼！
 主角：客气了！我也谢谢你这么久以来对我的帮助！
-upgrade 李文秀 skill 流星锤 10
-upgrade 李文秀 maxhp 1000
-upgrade 李文秀 maxmp 1000
-upgrade 李文秀 奇门 20
+upgrade skill 李文秀 流星锤 10
+upgrade maxhp 李文秀 1000
+upgrade maxmp 李文秀 1000
+upgrade 奇门 李文秀 20
 item 道家仙丹 1
 item 灵心慧质 1
 map 霹雳堂
@@ -15786,10 +15786,10 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 主角：好厉害的妹子，不愧是翠羽黄衫！
 霍青桐：谢谢少侠！
-upgrade 霍青桐 skill 三分剑法 10
-upgrade 霍青桐 maxhp 1000
-upgrade 霍青桐 maxmp 1000
-upgrade 霍青桐 剑法 20
+upgrade skill 霍青桐 三分剑法 10
+upgrade maxhp 霍青桐 1000
+upgrade maxmp 霍青桐 1000
+upgrade 剑法 霍青桐 20
 item 道家仙丹 1
 item 灵心慧质 1
 map 霹雳堂
@@ -15799,11 +15799,11 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 主角：威武我红花会大当家！
 陈家洛：少侠过奖！这些年来和你一起历练才能达到这种武功境界！
-upgrade 陈家洛 skill 百花错拳 5
-upgrade 陈家洛 skill 庖丁解牛 5
-upgrade 陈家洛 maxhp 1000
-upgrade 陈家洛 maxmp 1000
-upgrade 陈家洛 拳掌 20
+upgrade skill 陈家洛 百花错拳 5
+upgrade skill 陈家洛 庖丁解牛 5
+upgrade maxhp 陈家洛 1000
+upgrade maxmp 陈家洛 1000
+upgrade 拳掌 陈家洛 20
 陈家洛：这招将敌人打飞的技能，就教给你吧！
 item 飞向天际 1
 maxlevel 庖丁解牛 2
@@ -15817,9 +15817,9 @@ music 音乐.武林至尊
 韦小宝：你爷爷的，武功神马的我最讨厌了，脚底抹油鸟生鱼汤吹溜拍马我到是在行。
 主角：小宝哥，那你就教做哥哥的两手吧！
 韦小宝：嘿嘿，看好了！
-learn 主角 specialskill 撒石灰
-learn 主角 specialskill 溜须拍马
-learn 主角 talent 神行百变
+learn special 主角 撒石灰
+learn special 主角 溜须拍马
+learn talent 主角 神行百变
 map 霹雳堂
 
 # 霹雳堂_阿珂
@@ -15847,15 +15847,15 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 九难：我都断了一只手你还这么摧残我，没人性啊！
 主角：。。那啥，今天天气很好啊。。
-upgrade 九难 skill 金蛇剑法 5
-upgrade 九难 skill 漫天花雨 5
-upgrade 九难 skill 混元掌 5
-upgrade 九难 internalskill 混元功 5
-upgrade 九难 maxhp 1000
-upgrade 九难 maxmp 1000
-upgrade 九难 拳掌 15
-upgrade 九难 剑法 15
-upgrade 九难 奇门 15
+upgrade skill 九难 金蛇剑法 5
+upgrade skill 九难 漫天花雨 5
+upgrade skill 九难 混元掌 5
+upgrade internal 九难 混元功 5
+upgrade maxhp 九难 1000
+upgrade maxmp 九难 1000
+upgrade 拳掌 九难 15
+upgrade 剑法 九难 15
+upgrade 奇门 九难 15
 maxlevel 混元掌 1
 maxlevel 混元功 1
 map 霹雳堂
@@ -15866,8 +15866,8 @@ music 音乐.武林至尊
 主角：师姐，好功夫！
 杨冰儿：师弟，过奖了！我们这可真是一并携手，为古墓派在江湖上打出了大大的名声。
 主角：是啊！我古墓派的武功，真是精深无穷！
-upgrade 杨冰儿 skill 玉女素心剑 5
-upgrade 杨冰儿 internalskill 九阴神功 5
+upgrade skill 杨冰儿 玉女素心剑 5
+upgrade internal 杨冰儿 九阴神功 5
 item 素心神剑心得 1
 maxlevel 玉女素心剑 1
 maxlevel 九阴神功 1
@@ -15878,8 +15878,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 主角：师兄，好功夫！
 达尔巴：师弟，过奖了！壮哉我大轮寺，真是横行江湖啊！
-upgrade 达尔巴 skill 火焰刀法 5
-upgrade 达尔巴 internalskill 龙象般若功 5
+upgrade skill 达尔巴 火焰刀法 5
+upgrade internal 达尔巴 龙象般若功 5
 maxlevel 龙象般若功 2
 maxlevel 火焰刀法 2
 item 金钟罩心法 1
@@ -15890,8 +15890,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 主角：崔大哥，好功夫！
 崔秋山：小兄弟，这也多亏了你啊，我那么弱你都能把我练成这样，不容易啊！
-upgrade 崔秋山 skill 混元掌 5
-upgrade 崔秋山 skill 破玉拳 5
+upgrade skill 崔秋山 混元掌 5
+upgrade skill 崔秋山 破玉拳 5
 maxlevel 混元掌 2
 item 金钟罩心法 1
 map 霹雳堂
@@ -15901,8 +15901,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 汉家松鼠：你这变态啊，虐待儿童啊，这角色都弱成这般渣样了你还能打过去啊！你是不是人啊！
 主角：NND，你以为我容易么，快呕血三十升了好不好！废话少说，奖励拿来！
-upgrade 儿时袁承志 skill 金蛇剑法 10
-upgrade 儿时袁承志 skill 破玉拳 10
+upgrade skill 儿时袁承志 金蛇剑法 10
+upgrade skill 儿时袁承志 破玉拳 10
 item 铁血大旗功秘籍 1
 map 霹雳堂
 
@@ -15911,7 +15911,7 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 金蛇郎君：不是说好去挖宝藏的么，你为啥把我练这么厉害都还不去挖？不挖我怎么走人啊！
 主角：嘿嘿嘿，休想，乖乖陪着你女儿女婿给我打工吧！
-upgrade 金蛇郎君 skill 金蛇剑法 10
+upgrade skill 金蛇郎君 金蛇剑法 10
 item 金蛇剑法真解 1
 map 霹雳堂
 
@@ -15920,8 +15920,8 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 温青青：哎呀，我这么厉害，相公都不是我对手了，这可怎么办？
 主角：这有什么不好的！他要是敢嚣张你就削他，削死他！
-upgrade 温青青 skill 金蛇剑法 5
-learn 温青青 talent 无尽斗志
+upgrade skill 温青青 金蛇剑法 5
+learn talent 温青青 无尽斗志
 maxlevel 金蛇剑法 1
 map 霹雳堂
 
@@ -15930,9 +15930,9 @@ background 地图.霹雳堂
 music 音乐.武林至尊
 阿九：哎呀，我这么厉害，承志大哥会不会觉得我太厉害不敢要我了啊？这可怎么办？
 主角：这有什么不好的！他要是敢嚣张你就削他，削死他！
-upgrade 阿九 skill 金蛇剑法 5
-upgrade 阿九 skill 混元掌 5
-learn 阿九 talent 混元一气
+upgrade skill 阿九 金蛇剑法 5
+upgrade skill 阿九 混元掌 5
+learn talent 阿九 混元一气
 item 铁血大旗功秘籍 1
 map 霹雳堂
 
@@ -15943,7 +15943,7 @@ music 音乐.紧张感
 崔秋山：他老人家传授这套掌法之时，曾叫我立誓，学会之后，决不能用来欺压良善，伤害无辜。”
 儿时袁承志：弟子袁承志,学会了伏虎掌法之后，决不敢欺压良善，伤害无辜
 崔秋山：好,你且瞧仔细了,喝阿!
-learn 儿时袁承志 skill 伏虎掌 8
+learn skill 儿时袁承志 伏虎掌 8
 崔秋山：(忽闻喊声大作，又隐隐有金鼓之声，原来是追杀的官兵已到山腰处。)
 崔秋山：不好,东厂番子!
 孙仲寿：袁督师只有这点骨血，请崔大哥护送他脱险。
@@ -16084,7 +16084,7 @@ music 音乐.室内_安静
 主角：哇,那么多的金子!
 get_money 20000
 item 温青青的发簪 1
-upgrade 主角 定力 -10
+upgrade 定力 主角 -10
 
 # bixuejianShyou_接黄金3
 music 音乐.苦闷
@@ -16303,10 +16303,10 @@ music 音乐.武林至尊
 木桑道长：哈。哈。哈（大笑三声后怒目圆睁着死去）
 玉真子：咳,师兄,你这就先走一步了可不厚道啊,师弟还有杀手锏没用呐！贼子，看招，呔！
 主角：艹！是小金蛇！尼玛得逼毒！
-upgrade 主角 maxhp -200
-upgrade 主角 maxmp -200
-upgrade 主角 根骨 -5
-upgrade 主角 臂力 -5
+upgrade maxhp 主角 -200
+upgrade maxmp 主角 -200
+upgrade 根骨 主角 -5
+upgrade 臂力 主角 -5
 主角：好霸道的毒！该死的道士，我要把你挫骨扬灰！
 玉真子：哈。哈。哈！（大笑三声后怒目圆睁着死去）
 主角：。。。死的到快！罢了，也算是一条好汉，算我倒霉！
@@ -16416,11 +16416,11 @@ music 音乐.宿命
 穆人清：现在你可明白了？
 袁承志：大音希声，大象无形，大巧若拙，大智若愚，原来如此原来如此！
 get_point 袁承志 40
-upgrade 袁承志 剑法 50
-upgrade 袁承志 maxhp 1500
-upgrade 袁承志 maxmp 1500
-learn 袁承志 internalskill 混元功 12
-learn 袁承志 skill 天外飞龙 12
+upgrade 剑法 袁承志 50
+upgrade maxhp 袁承志 1500
+upgrade maxmp 袁承志 1500
+learn internal 袁承志 混元功 12
+learn skill 袁承志 天外飞龙 12
 item 天外飞龙秘籍 1
 maxlevel 天外飞龙 1
 nick 天外飞龙
@@ -16593,10 +16593,10 @@ music 音乐.武侠雄壮
 木桑道长：(木桑轻飘飘飘向外面，若惊鸿若闪电，一会轻似鸿毛，一会飘若落叶。)
 袁承志：这...这身法！！！
 主角：（这...这身法！！！赶紧偷学才是王道啊！）
-learn 袁承志 talent 神行百变
-upgrade 袁承志 身法 20
-learn 主角 talent 神行百变
-upgrade 主角 身法 10
+learn talent 袁承志 神行百变
+upgrade 身法 袁承志 20
+learn talent 主角 神行百变
+upgrade 身法 主角 10
 nick 百变不传
 木桑道长：悟性不错，你学了老道这套压箱底的功夫，晚上对上你师兄肯定不是问题，只管放心的打！
 袁承志：......(看来不打也不行了）
@@ -16633,13 +16633,13 @@ background 地图.郊外
 袁承志：（师兄攻时迅如雷霆，守时凝若山岳，名家身手，果真不凡。）
 袁承志：原来如此原来如此，我华山派拳法就该如此！
 get_point 袁承志 30
-upgrade 袁承志 拳掌 40
-upgrade 袁承志 maxhp 1500
-upgrade 袁承志 maxmp 1500
-learn 袁承志 skill 混元掌 12
-learn 袁承志 skill 破玉拳 12
-learn 袁承志 talent 混元一气
-learn 袁承志 talent 铁拳无双
+upgrade 拳掌 袁承志 40
+upgrade maxhp 袁承志 1500
+upgrade maxmp 袁承志 1500
+learn skill 袁承志 混元掌 12
+learn skill 袁承志 破玉拳 12
+learn talent 袁承志 混元一气
+learn talent 袁承志 铁拳无双
 maxlevel 混元掌 1
 maxlevel 破玉拳 1
 maxlevel 混元功 1
@@ -16655,11 +16655,11 @@ background 地图.郊外
 袁承志：（师兄攻时迅如雷霆，守时凝若山岳，名家身手，果真不凡。）
 袁承志：原来如此原来如此，我华山派拳法就该如此！
 get_point 袁承志 15
-upgrade 袁承志 拳掌 20
-upgrade 袁承志 maxhp 1000
-upgrade 袁承志 maxmp 1000
-learn 袁承志 skill 混元掌 12
-learn 袁承志 skill 破玉拳 12
+upgrade 拳掌 袁承志 20
+upgrade maxhp 袁承志 1000
+upgrade maxmp 袁承志 1000
+learn skill 袁承志 混元掌 12
+learn skill 袁承志 破玉拳 12
 map 大地图
 
 # bixuejianShyou_金蛇郎君
@@ -16688,22 +16688,22 @@ battle 华山仙境.战斗4
 music 音乐.天外村
 background 地图.华山仙境
 get_point 袁承志 40
-upgrade 袁承志 剑法 40
-upgrade 袁承志 奇门 40
-upgrade 袁承志 maxhp 1500
-upgrade 袁承志 maxmp 1500
-learn 袁承志 skill 金蛇剑法 12
-learn 袁承志 skill 金蛇锥 10
-learn 袁承志 talent 金蛇郎君
-learn 袁承志 talent 金蛇狂舞
+upgrade 剑法 袁承志 40
+upgrade 奇门 袁承志 40
+upgrade maxhp 袁承志 1500
+upgrade maxmp 袁承志 1500
+learn skill 袁承志 金蛇剑法 12
+learn skill 袁承志 金蛇锥 10
+learn talent 袁承志 金蛇郎君
+learn talent 袁承志 金蛇狂舞
 get_point 温青青 20
-upgrade 温青青 剑法 20
-upgrade 温青青 拳掌 20
-upgrade 温青青 maxhp 500
-upgrade 温青青 maxmp 500
-learn 温青青 skill 金蛇剑法 10
-learn 温青青 skill 金蛇游身掌 10
-learn 温青青 talent 金蛇郎君
+upgrade 剑法 温青青 20
+upgrade 拳掌 温青青 20
+upgrade maxhp 温青青 500
+upgrade maxmp 温青青 500
+learn skill 温青青 金蛇剑法 10
+learn skill 温青青 金蛇游身掌 10
+learn talent 温青青 金蛇郎君
 item 金蛇剑法真解 1
 item 金蛇游身掌掌谱 1
 item 真.金蛇剑 1
@@ -16723,20 +16723,20 @@ background 地图.华山仙境
 温青青：对啊对啊，爹，那是你留给女儿的嫁妆，你总得亲手交到我手上才算数吧？
 金蛇郎君：这...好吧,那便带你们先去把东西拿出来。
 get_point 袁承志 20
-upgrade 袁承志 剑法 20
-upgrade 袁承志 奇门 20
-upgrade 袁承志 maxhp 800
-upgrade 袁承志 maxmp 800
-learn 袁承志 skill 金蛇剑法 10
-learn 袁承志 skill 金蛇锥 10
+upgrade 剑法 袁承志 20
+upgrade 奇门 袁承志 20
+upgrade maxhp 袁承志 800
+upgrade maxmp 袁承志 800
+learn skill 袁承志 金蛇剑法 10
+learn skill 袁承志 金蛇锥 10
 get_point 温青青 40
-upgrade 温青青 剑法 20
-upgrade 温青青 拳掌 20
-upgrade 温青青 maxhp 1500
-upgrade 温青青 maxmp 1500
-learn 温青青 skill 金蛇剑法 12
-learn 温青青 skill 金蛇游身掌 10
-learn 温青青 talent 金蛇郎君
+upgrade 剑法 温青青 20
+upgrade 拳掌 温青青 20
+upgrade maxhp 温青青 1500
+upgrade maxmp 温青青 1500
+learn skill 温青青 金蛇剑法 12
+learn skill 温青青 金蛇游身掌 10
+learn talent 温青青 金蛇郎君
 maxlevel 金蛇剑法 1
 join 金蛇郎君
 item 真.金蛇剑 1
@@ -16837,8 +16837,8 @@ music 音乐.紧张感
 袁承志：（我何苦让她伤心？）（叹气）好吧，看在你的份上，我便不杀他，只是即便我不杀他，他也活不了多久了，外面闯王大军即刻便至。
 阿九：他毕竟是我父亲，我不能眼看着他死在我眼前，我们走吧，离开这里！
 袁承志：好，我们离开京城
-upgrade 阿九 臂力 -30
-upgrade 阿九 定力 30
+upgrade 臂力 阿九 -30
+upgrade 定力 阿九 30
 log 阿九断臂
 nick 剑光殿前
 map 大地图
@@ -16931,23 +16931,23 @@ battle 袁九变身_战斗
 # bixuejianShyou_华山仙境变身03
 music 音乐.经典
 袁承志：原来如此，金蛇武学的奥秘就在于金蛇二字之上！矫若灵蛇,翩似飞仙，静如处子，动如脱兔！
-upgrade 袁承志 maxhp 1200
-upgrade 袁承志 maxmp 1200
+upgrade maxhp 袁承志 1200
+upgrade maxmp 袁承志 1200
 get_point 袁承志 40
-upgrade 袁承志 剑法 40
-upgrade 袁承志 拳掌 20
-learn 袁承志 skill 金蛇剑法 12
-learn 袁承志 skill 金蛇游身掌 10
-learn 袁承志 talent 金蛇郎君
-upgrade 九难 maxhp 1200
-upgrade 九难 maxmp 1200
+upgrade 剑法 袁承志 40
+upgrade 拳掌 袁承志 20
+learn skill 袁承志 金蛇剑法 12
+learn skill 袁承志 金蛇游身掌 10
+learn talent 袁承志 金蛇郎君
+upgrade maxhp 九难 1200
+upgrade maxmp 九难 1200
 get_point 九难 40
-upgrade 九难 剑法 20
-upgrade 九难 奇门 20
-learn 九难 skill 金蛇剑法 12
-learn 九难 skill 金蛇锥 10
+upgrade 剑法 九难 20
+upgrade 奇门 九难 20
+learn skill 九难 金蛇剑法 12
+learn skill 九难 金蛇锥 10
 maxlevel 金蛇锥 3
-learn 九难 talent 金蛇郎君
+learn talent 九难 金蛇郎君
 
 # 珍珑棋局_intro
 无崖子：不错！不错！后生可畏！

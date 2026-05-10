@@ -296,6 +296,15 @@ function actionValueToArgs(type: string, value: string): string[] {
 
   const typeParts = type.split(".").filter((part) => part.length > 0);
   const valueParts = splitHashArgs(value);
+  const commandName = actionTypeToCommandName(type);
+
+  if (commandName === "learn" || commandName === "remove") {
+    return skillMutationValueToArgs(typeParts, valueParts);
+  }
+
+  if (commandName === "upgrade") {
+    return upgradeValueToArgs(typeParts, valueParts);
+  }
 
   if (typeParts.length <= 1) {
     return valueParts;
@@ -308,6 +317,51 @@ function actionValueToArgs(type: string, value: string): string[] {
 
   const [firstValue, ...restValues] = valueParts;
   return [firstValue, commandArg, ...restValues];
+}
+
+function skillMutationValueToArgs(typeParts: string[], valueParts: string[]): string[] {
+  if (valueParts.length < 2) {
+    return valueParts;
+  }
+
+  const [characterId, legacyType, ...restValues] = valueParts;
+  if (typeParts.length > 1) {
+    const typeArg = normalizeSkillCommandType(actionTypeToCommand(typeParts.slice(1).join(".")));
+    return [typeArg, characterId, legacyType, ...restValues];
+  }
+
+  const typeArg = normalizeSkillCommandType(legacyType);
+  return [typeArg, characterId, ...restValues];
+}
+
+function upgradeValueToArgs(typeParts: string[], valueParts: string[]): string[] {
+  if (valueParts.length < 2) {
+    return valueParts;
+  }
+
+  const [characterId, legacyTarget, ...restValues] = valueParts;
+  if (typeParts.length > 1) {
+    const targetArg = normalizeSkillCommandType(actionTypeToCommand(typeParts.slice(1).join(".")));
+    return [targetArg, characterId, legacyTarget, ...restValues];
+  }
+
+  const targetArg = normalizeSkillCommandType(legacyTarget);
+  return [targetArg, characterId, ...restValues];
+}
+
+function normalizeSkillCommandType(type: string): string {
+  switch (type.trim().toLowerCase()) {
+    case "internalskill":
+    case "internal_skill":
+      return "internal";
+    case "specialskill":
+    case "special_skill":
+      return "special";
+    case "external_skill":
+      return "external";
+    default:
+      return type.trim().toLowerCase();
+  }
 }
 
 function actionTypeToCommand(type: string): string {

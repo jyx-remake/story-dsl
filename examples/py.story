@@ -900,20 +900,20 @@ cost_day 3
 background 地图.草场
 主角：看着羊儿满山坡跑，不如试试多久能把它们都赶到一堆里去。
 主角：呼呼，累死了。
-upgrade 主角 身法 2
+upgrade 身法 主角 2
 cost_day 1
 
 # original_长安一梦.部落长老打水
 background 地图.郊野
 主角：一个部落这么多人，要打水也是很辛苦的事情呢。
 主角：哼哧！好重！好像回到了天天练基本功的生活一样。
-upgrade 主角 臂力 2
+upgrade 臂力 主角 2
 cost_day 1
 
 # original_长安一梦.部落长老砍柴
 background 地图.树林
 主角：这附近有片林子可以砍柴，不用烧粪便真是好啊。
-upgrade 主角 根骨 2
+upgrade 根骨 主角 2
 cost_day 1
 
 # original_长安一梦.部落长老没事
@@ -989,8 +989,8 @@ newbie 购买药品完成
 
 # original_新手引导.买药完成
 南贤：恩，干得不错！
-upgrade 主角 maxhp 100
-upgrade 主角 maxmp 100
+upgrade maxhp 主角 100
+upgrade maxmp 主角 100
 南贤：吃药很重要的！打不过的敌人记得多吃药！
 主角：......哦。
 
@@ -1713,7 +1713,7 @@ jump original_东海剑池升级剑无效
 
 # original_东海剑池升级剑结束
 主角：从刚才的对决中，我也明白了一些用剑的道理。
-upgrade 主角 剑法 5
+upgrade 剑法 主角 5
 
 # original_东海剑池升级剑无效
 主角：这些用剑的道理我都已经烂熟于胸，似乎学不到什么了。
@@ -1731,7 +1731,7 @@ jump original_东海剑池升级拳无效
 
 # original_东海剑池升级拳结束
 主角：从刚才的对决中，我也明白了一些拳掌功夫的道理。
-upgrade 主角 拳掌 5
+upgrade 拳掌 主角 5
 
 # original_东海剑池升级拳无效
 主角：这些拳掌的道理我都已经烂熟于胸，似乎学不到什么了。
@@ -1749,7 +1749,7 @@ jump original_东海剑池升级刀无效
 
 # original_东海剑池升级刀结束
 主角：从刚才的对决中，我也明白了一些刀法的道理。
-upgrade 主角 刀法 5
+upgrade 刀法 主角 5
 
 # original_东海剑池升级刀无效
 主角：这些刀法的道理我都已经烂熟于胸，似乎学不到什么了。
@@ -1767,7 +1767,7 @@ jump original_东海剑池升级奇门无效
 
 # original_东海剑池升级奇门结束
 主角：从刚才的对决中，我也明白了一些奇门绝学的道理。
-upgrade 主角 奇门 5
+upgrade 奇门 主角 5
 
 # original_东海剑池升级奇门无效
 主角：这些奇门绝学的道理我都已经烂熟于胸，似乎学不到什么了。
@@ -1998,9 +1998,9 @@ music 音乐.宿命
 李文秀：好了，为了报答你这一番教诲，我和你去中原看看吧。
 主角：哈哈，那我们走吧！
 get_point 李文秀 30
-upgrade 李文秀 奇门 40
-upgrade 李文秀 maxhp 500
-upgrade 李文秀 maxmp 500
+upgrade 奇门 李文秀 40
+upgrade maxhp 李文秀 500
+upgrade maxmp 李文秀 500
 item 黑血神针秘籍 1
 nick 白马西风
 if should_finish original_长安.家中 and key_in_team 女主
@@ -2233,8 +2233,8 @@ music 音乐.天龙八部.逍遥派抒情版
 主角：婉妹...
 木婉清：...（莞尔一笑）走吧。
 join 木婉清
-learn 木婉清 talent 夫妻同心
-learn 主角 talent 夫妻同心
+learn talent 木婉清 夫妻同心
+learn talent 主角 夫妻同心
 
 # tlbb.dy_再见木婉清.仇恨
 主角：算了，忘了段誉吧，跟我走！我会照顾你的！
@@ -2417,8 +2417,8 @@ music 音乐.天龙八部.逍遥派抒情版
 王语嫣：嗯...公子，我们走吧。去找表哥！
 主角：嗯。
 join 王语嫣
-learn 王语嫣 talent 夫妻同心
-learn 主角 talent 夫妻同心
+learn talent 王语嫣 夫妻同心
+learn talent 主角 夫妻同心
 
 # tlbb.dy_阿碧线李青萝.touch.不成功
 background 地图.院内
@@ -2477,42 +2477,42 @@ cost_day 10
 
 # 一键变态
 主角：我要变身了！！
-upgrade 主角 maxhp 7000
-upgrade 主角 maxmp 7000
-learn 主角 talent 乾坤大挪移
-learn 主角 talent 清心
-learn 主角 talent 破甲
-learn 主角 talent 铁拳无双
-learn 主角 talent 素心神剑
-learn 主角 talent 斗转星移
-learn 主角 talent 不老长春
-learn 主角 talent 博览群书
-learn 主角 talent 碎裂的怒吼
-learn 主角 talent 沾衣十八跌
-learn 主角 talent 妙手仁心
+upgrade maxhp 主角 7000
+upgrade maxmp 主角 7000
+learn talent 主角 乾坤大挪移
+learn talent 主角 清心
+learn talent 主角 破甲
+learn talent 主角 铁拳无双
+learn talent 主角 素心神剑
+learn talent 主角 斗转星移
+learn talent 主角 不老长春
+learn talent 主角 博览群书
+learn talent 主角 碎裂的怒吼
+learn talent 主角 沾衣十八跌
+learn talent 主角 妙手仁心
 get_point 主角 150
-learn 主角 skill 野球拳 12
-learn 主角 skill 天山折梅手 12
-learn 主角 skill 降龙十八掌 12
-learn 主角 skill 庖丁解牛 12
-learn 主角 skill 六脉神剑 12
-learn 主角 skill 黯然销魂掌 12
-learn 主角 skill 一阳指 12
-learn 主角 skill 越女剑法 12
-learn 主角 specialskill 凌波微步
-learn 主角 internalskill 九阴神功 12
-learn 主角 internalskill 九阳神功 12
-learn 主角 internalskill 易筋经 12
-upgrade 主角 拳掌 100
-upgrade 主角 剑法 100
-upgrade 主角 刀法 100
-upgrade 主角 奇门 100
+learn skill 主角 野球拳 12
+learn skill 主角 天山折梅手 12
+learn skill 主角 降龙十八掌 12
+learn skill 主角 庖丁解牛 12
+learn skill 主角 六脉神剑 12
+learn skill 主角 黯然销魂掌 12
+learn skill 主角 一阳指 12
+learn skill 主角 越女剑法 12
+learn special 主角 凌波微步
+learn internal 主角 九阴神功 12
+learn internal 主角 九阳神功 12
+learn internal 主角 易筋经 12
+upgrade 拳掌 主角 100
+upgrade 剑法 主角 100
+upgrade 刀法 主角 100
+upgrade 奇门 主角 100
 item 续命八丸 10
 item 生生造化丹 30
 item 灭仙爪 1
-upgrade 主角 定力 200
-upgrade 主角 根骨 200
-upgrade 主角 臂力 200
+upgrade 定力 主角 200
+upgrade 根骨 主角 200
+upgrade 臂力 主角 200
 
 # original_新手任务无法进入
 主角：还是先跟着[color=red]地图提示[/color]，完成新手任务吧。如果忘了任务是什么，点击右下的[color=yellow]日志[/color]按钮可以查看。

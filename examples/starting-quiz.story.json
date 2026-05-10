@@ -60,8 +60,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     -5
                   ]
                 },
@@ -110,8 +110,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "身法",
+                    "主角",
                     15
                   ]
                 },
@@ -119,8 +119,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     -2
                   ]
                 },
@@ -128,8 +128,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "拳掌",
+                    "主角",
                     15
                   ]
                 },
@@ -137,8 +137,8 @@
                   "kind": "command",
                   "name": "learn",
                   "args": [
-                    "主角",
                     "talent",
+                    "主角",
                     "猎人"
                   ]
                 },
@@ -159,8 +159,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     3
                   ]
                 },
@@ -168,8 +168,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     -3
                   ]
                 },
@@ -177,8 +177,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     2
                   ]
                 },
@@ -186,8 +186,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     20
                   ]
                 },
@@ -195,8 +195,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "剑法",
+                    "主角",
                     2
                   ]
                 },
@@ -204,8 +204,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     2
                   ]
                 },
@@ -240,8 +240,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     -5
                   ]
                 },
@@ -249,8 +249,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     12
                   ]
                 },
@@ -258,8 +258,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "刀法",
+                    "主角",
                     15
                   ]
                 },
@@ -267,8 +267,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "奇门",
+                    "主角",
                     12
                   ]
                 },
@@ -303,8 +303,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     35
                   ]
                 },
@@ -312,8 +312,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     10
                   ]
                 },
@@ -321,8 +321,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     10
                   ]
                 },
@@ -330,8 +330,8 @@
                   "kind": "command",
                   "name": "learn",
                   "args": [
-                    "主角",
                     "talent",
+                    "主角",
                     "神经病"
                   ]
                 },
@@ -352,8 +352,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     20
                   ]
                 },
@@ -361,8 +361,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     1
                   ]
                 },
@@ -370,8 +370,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "身法",
+                    "主角",
                     -10
                   ]
                 },
@@ -379,8 +379,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     -5
                   ]
                 },
@@ -422,8 +422,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     15
                   ]
                 }
@@ -436,8 +436,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     15
                   ]
                 }
@@ -450,8 +450,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "身法",
+                    "主角",
                     15
                   ]
                 }
@@ -464,8 +464,8 @@
                   "kind": "command",
                   "name": "learn",
                   "args": [
-                    "主角",
                     "talent",
+                    "主角",
                     "自我主义"
                   ]
                 }
@@ -487,8 +487,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     9
                   ]
                 }
@@ -501,8 +501,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     6
                   ]
                 },
@@ -510,8 +510,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     6
                   ]
                 }
@@ -524,8 +524,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     10
                   ]
                 }
@@ -538,8 +538,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     10
                   ]
                 }
@@ -552,8 +552,8 @@
                   "kind": "command",
                   "name": "learn",
                   "args": [
-                    "主角",
                     "talent",
+                    "主角",
                     "好色"
                   ]
                 }
@@ -575,8 +575,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "拳掌",
+                    "主角",
                     10
                   ]
                 }
@@ -589,8 +589,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "剑法",
+                    "主角",
                     10
                   ]
                 }
@@ -603,8 +603,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "刀法",
+                    "主角",
                     10
                   ]
                 }
@@ -617,8 +617,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "奇门",
+                    "主角",
                     10
                   ]
                 }
@@ -640,8 +640,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     5
                   ]
                 }
@@ -654,8 +654,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     5
                   ]
                 }
@@ -668,8 +668,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     5
                   ]
                 },
@@ -677,8 +677,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     5
                   ]
                 }
@@ -691,8 +691,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "拳掌",
+                    "主角",
                     6
                   ]
                 },
@@ -700,8 +700,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     6
                   ]
                 }
@@ -714,8 +714,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     10
                   ]
                 }
@@ -737,8 +737,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     5
                   ]
                 },
@@ -746,8 +746,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     10
                   ]
                 }
@@ -760,8 +760,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     -10
                   ]
                 },
@@ -769,8 +769,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     15
                   ]
                 },
@@ -778,8 +778,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     5
                   ]
                 }
@@ -792,8 +792,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     5
                   ]
                 },
@@ -801,8 +801,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     5
                   ]
                 }
@@ -815,8 +815,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     10
                   ]
                 }
@@ -829,8 +829,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "剑法",
+                    "主角",
                     10
                   ]
                 },
@@ -838,8 +838,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "定力",
+                    "主角",
                     10
                   ]
                 }
@@ -861,8 +861,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "臂力",
+                    "主角",
                     10
                   ]
                 },
@@ -870,8 +870,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "拳掌",
+                    "主角",
                     9
                   ]
                 }
@@ -884,8 +884,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "福缘",
+                    "主角",
                     20
                   ]
                 }
@@ -898,8 +898,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "悟性",
+                    "主角",
                     13
                   ]
                 },
@@ -907,8 +907,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "剑法",
+                    "主角",
                     5
                   ]
                 },
@@ -916,8 +916,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "刀法",
+                    "主角",
                     5
                   ]
                 },
@@ -925,8 +925,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "拳掌",
+                    "主角",
                     5
                   ]
                 },
@@ -934,8 +934,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "奇门",
+                    "主角",
                     5
                   ]
                 }
@@ -948,8 +948,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     20
                   ]
                 }
@@ -962,8 +962,8 @@
                   "kind": "command",
                   "name": "upgrade",
                   "args": [
-                    "主角",
                     "根骨",
+                    "主角",
                     10
                   ]
                 },
@@ -971,8 +971,8 @@
                   "kind": "command",
                   "name": "learn",
                   "args": [
+                    "internal",
                     "主角",
-                    "internalskill",
                     "基本内功",
                     20
                   ]

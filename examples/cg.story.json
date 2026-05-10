@@ -29,8 +29,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "阴毒"
           ]
         },
@@ -160,8 +160,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "悟性",
+            "主角",
             1
           ]
         },
@@ -312,8 +312,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "skill",
+            "主角",
             "抽髓掌",
             2
           ]
@@ -322,8 +322,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "拳掌",
+            "主角",
             2
           ]
         },
@@ -351,8 +351,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             5
           ]
         },
@@ -360,8 +360,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
+            "internal",
             "主角",
-            "internalskill",
             "星宿心法",
             2
           ]
@@ -481,8 +481,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "福缘",
+            "主角",
             2
           ]
         },
@@ -539,8 +539,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "定力",
+            "主角",
             1
           ]
         }
@@ -711,8 +711,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "臂力",
+            "主角",
             3
           ]
         },
@@ -838,8 +838,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxhp",
+            "主角",
             -10
           ]
         },
@@ -942,8 +942,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "maxmp",
+            "主角",
             -20
           ]
         },
@@ -976,8 +976,8 @@
           "kind": "command",
           "name": "upgrade",
           "args": [
-            "主角",
             "根骨",
+            "主角",
             -1
           ]
         },
@@ -1256,8 +1256,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
-            "主角",
             "talent",
+            "主角",
             "毒素抗性"
           ]
         },
@@ -1374,8 +1374,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "腐尸毒"
           ]
         },
@@ -1608,8 +1608,8 @@
           "kind": "command",
           "name": "learn",
           "args": [
+            "special",
             "主角",
-            "specialskill",
             "飞星术"
           ]
         },
