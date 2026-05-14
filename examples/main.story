@@ -2353,7 +2353,7 @@ map 大地图
 background 地图.主角之家
 music 音乐.室内_清新
 主角：来练一下级！
-battle 南贤居_经验木头人_战斗
+battle 南贤居_木头人_战斗
 - win
   map 南贤居
 - lose

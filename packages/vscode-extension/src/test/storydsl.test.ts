@@ -77,10 +77,11 @@ set_reward $moneyCnt 小刀 2 -5
   });
 });
 
-test("parses negative numeric literals in commands and expressions", () => {
+test("parses signed numeric literals in commands and expressions", () => {
   const source = `# Start
 upgrade 臂力 主角 -5
-if $money > -100
+haogan 王语嫣 +5
+if $money > +100
   get_money -10
 `;
 
@@ -94,10 +95,15 @@ if $money > -100
     name: "upgrade",
     args: ["臂力", "主角", -5],
   });
+  assert.deepEqual(compiled.ir.segments[0].steps[1], {
+    kind: "command",
+    name: "haogan",
+    args: ["王语嫣", 5],
+  });
 
-  const branchStep = compiled.ir.segments[0].steps[1];
+  const branchStep = compiled.ir.segments[0].steps[2];
   assert.equal(branchStep.kind, "branch");
-  assert.deepEqual(branchStep.cases[0].when, [">", ["var", "money"], -100]);
+  assert.deepEqual(branchStep.cases[0].when, [">", ["var", "money"], 100]);
   assert.deepEqual(branchStep.cases[0].steps[0], {
     kind: "command",
     name: "get_money",

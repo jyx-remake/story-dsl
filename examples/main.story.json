@@ -11602,7 +11602,7 @@
         },
         {
           "kind": "battle",
-          "battleId": "南贤居_经验木头人_战斗",
+          "battleId": "南贤居_木头人_战斗",
           "outcomes": {
             "win": [
               {

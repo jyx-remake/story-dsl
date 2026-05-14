@@ -146,8 +146,8 @@ function tokenize(text: string): Token[] {
       continue;
     }
 
-    if (/\d/u.test(char) || (char === "-" && /\d/u.test(text[index + 1] ?? ""))) {
-      let end = index + (char === "-" ? 2 : 1);
+    if (/\d/u.test(char) || ((char === "-" || char === "+") && /\d/u.test(text[index + 1] ?? ""))) {
+      let end = index + (char === "-" || char === "+" ? 2 : 1);
       while (end < text.length && /\d/u.test(text[end])) {
         end += 1;
       }

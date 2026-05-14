@@ -2,7 +2,7 @@
   "name": "storydsl-vscode",
   "displayName": "Story DSL",
   "description": "VSCode support for a screenplay DSL with AST parsing and JSON IR compilation.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "local",
   "private": true,
   "license": "MIT",
