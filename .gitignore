@@ -10,6 +10,14 @@ packages/vscode-extension/node_modules/
 packages/vscode-extension/dist/
 packages/vscode-extension/*.vsix
 
+# TypeScript packages
+packages/core/node_modules/
+packages/core/dist/
+packages/web/node_modules/
+packages/web/dist/
+packages/web/*.tsbuildinfo
+packages/web/tsconfig.tsbuildinfo
+
 # C# build outputs
 packages/runtime-csharp/**/bin/
 packages/runtime-csharp/**/obj/

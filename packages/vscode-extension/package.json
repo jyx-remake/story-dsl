@@ -66,10 +66,13 @@
     ]
   },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "npm --prefix ../core run build && tsc -p .",
     "watch": "tsc -w -p .",
     "test": "npm run build && node --test dist/test/**/*.test.js",
     "package:vsix": "npx @vscode/vsce package --allow-missing-repository --no-rewrite-relative-links --readme-path README.vscode.md"
+  },
+  "dependencies": {
+    "@storydsl/core": "file:../core"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",

@@ -4,12 +4,13 @@
 
 ## Project Goal
 
-这是一个剧情脚本 DSL 工具链仓库，当前包含 VSCode 插件与 C# 运行时：
+这是一个剧情脚本 DSL 工具链仓库，当前包含 TypeScript 核心库、VSCode 插件、Web 版与 C# 运行时：
 
 - 编辑 `.story` 文件
 - 解析 DSL 为 AST
 - 编译为引擎友好的 JSON IR
 - 在 VSCode 中提供高亮、诊断、编译命令
+- 在 Web 中提供独立编辑、诊断与 JSON IR 预览
 - 提供独立的 C# JSON IR 执行器原型
 
 仓库包含独立的 C# 执行器目录 `packages/runtime-csharp/`，用于消费 JSON IR。
@@ -17,32 +18,38 @@
 
 ## Source Of Truth
 
-- TypeScript 源码在 `packages/vscode-extension/src/`
+- TypeScript DSL 核心源码在 `packages/core/src/`
+- VSCode 插件外壳在 `packages/vscode-extension/src/`
+- Web 前端在 `packages/web/src/`
 - TextMate 高亮在 `packages/vscode-extension/syntaxes/story.tmLanguage.json`
-- `packages/vscode-extension/dist/` 是构建产物，不应手写修改
+- `packages/core/dist/`、`packages/web/dist/`、`packages/vscode-extension/dist/` 是构建产物，不应手写修改
 - 示例输入输出在 `examples/`
 - C# 执行器在 `packages/runtime-csharp/`
 - 路线图与设计待办在 `TODO.md`
 - 根目录 `README.md` 是仓库总说明
 - `packages/vscode-extension/README.vscode.md` 是插件打包页说明
 
-根目录的 `npm run build / test / package:vsix` 是工作区代理脚本，会转发到 `packages/vscode-extension/`。
+根目录的 `npm run build:core / build / test / build:web / package:vsix` 是工作区代理脚本，会转发到对应包。
 如果改了插件源码，请重新构建生成 `packages/vscode-extension/dist/`。
 
 ## Architecture
 
-- `packages/vscode-extension/src/ast.ts`
+- `packages/core/src/ast.ts`
   - AST 节点、源位置信息、诊断类型
-- `packages/vscode-extension/src/parser/expression.ts`
+- `packages/core/src/parser/expression.ts`
   - 条件表达式词法与优先级解析
-- `packages/vscode-extension/src/parser/parser.ts`
+- `packages/core/src/parser/parser.ts`
   - 行预处理、缩进处理、段/语句解析
-- `packages/vscode-extension/src/compiler/ir.ts`
+- `packages/core/src/compiler/ir.ts`
   - JSON IR 类型定义
-- `packages/vscode-extension/src/compiler/compiler.ts`
+- `packages/core/src/compiler/compiler.ts`
   - AST 归一化编译为 JSON IR
+- `packages/core/src/converter/xml-to-story.ts`
+  - 旧 Story XML 转 `.story`
 - `packages/vscode-extension/src/extension.ts`
   - VSCode 命令、诊断、保存时编译
+- `packages/web/src/`
+  - Web 编辑器、大纲、诊断与 JSON IR 预览
 - `packages/runtime-csharp/`
   - C# 运行时、CLI 与测试
 - `TODO.md`
@@ -90,8 +97,8 @@
   - README 中的 DSL 说明
   - 若影响关键字或文本形态，也同步 grammar
 - 修改 IR 字段名时：
-  - 更新 `packages/vscode-extension/src/compiler/ir.ts`
-  - 更新 `packages/vscode-extension/src/compiler/compiler.ts`
+  - 更新 `packages/core/src/compiler/ir.ts`
+  - 更新 `packages/core/src/compiler/compiler.ts`
   - 更新示例 JSON
   - 更新 README
 - 修改高亮时，优先使用 VSCode TextMate 可兼容的正则，避免使用不稳定的 Unicode 属性写法

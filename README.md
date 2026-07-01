@@ -1,8 +1,10 @@
 # Story DSL Project
 
-这是一个围绕剧情脚本 DSL 的工具链仓库，当前主体包括两部分：
+这是一个围绕剧情脚本 DSL 的工具链仓库，当前主体包括四部分：
 
+- TypeScript 核心库：解析 `.story`、生成 AST、编译 JSON IR，位于 `packages/core/`
 - VSCode 插件：编辑 `.story` 文件、提供高亮与诊断、编译为 JSON IR
+- Web 版：浏览器内编辑、诊断、查看和下载 JSON IR，位于 `packages/web/`
 - C# 运行时原型：消费 JSON IR，位于 `packages/runtime-csharp/`
 
 本文件面向仓库使用者与协作者。插件打包页使用单独的 `packages/vscode-extension/README.vscode.md`。
@@ -15,21 +17,24 @@
 - TextMate 基础高亮
 - DSL 解析为 AST
 - AST 归一化编译为 JSON IR
+- Web 编辑器、大纲、诊断、JSON IR 预览和下载
 - VSCode 问题面板诊断
 - 保存时自动输出同名 `.story.json`
 - 段级大纲展示
 - 从旧版 Story XML 转换为 `.story` 草稿
 
-仓库仍以 VSCode 插件与 JSON IR 编译为主，`packages/runtime-csharp/` 是独立的消费端原型。
+仓库以 `packages/core/` 的 DSL 核心为共享源，VSCode 插件与 Web 版复用同一套 parser/compiler。`packages/runtime-csharp/` 是独立的消费端原型。
 
 后续演进计划集中记录在 `TODO.md`，当前只作为设计稿，不代表已经实现。
 
 ## Quick Start
 
-根目录的 `npm` 命令是工作区代理脚本，会转发到 `packages/vscode-extension/`。
+根目录的 `npm` 命令是工作区代理脚本，会转发到对应包。
 
 ```powershell
+npm run install:core
 npm run install:vscode
+npm run install:web
 npm run build
 npm test
 ```
@@ -45,6 +50,12 @@ npm test
 
 ```powershell
 npm run package:vsix
+```
+
+如果要启动 Web 版，使用：
+
+```powershell
+npm run dev:web
 ```
 
 ## Commands
@@ -185,11 +196,17 @@ else
 examples/
   demo.story             示例 DSL
 packages/
+  core/
+    src/                  DSL AST、parser、compiler、XML converter
+    dist/                 core 构建产物
   vscode-extension/
     src/                 VSCode 插件源码
     dist/                VSCode 插件构建产物
     syntaxes/            TextMate 高亮
     README.vscode.md     插件打包页专用说明
+  web/
+    src/                 Web 前端源码
+    dist/                Web 构建产物
   runtime-csharp/
     StoryDsl.Runtime.slnx  C# 执行器解决方案
 TODO.md
@@ -198,14 +215,16 @@ TODO.md
 
 ## Development Notes
 
-- 插件代码在 `packages/vscode-extension/`
+- DSL 核心代码在 `packages/core/`
+- 插件外壳代码在 `packages/vscode-extension/`
+- Web 前端代码在 `packages/web/`
 - C# 执行器在 `packages/runtime-csharp/`
-- 根目录 `npm run build / test / package:vsix` 会转发到插件包
+- 根目录 `npm run build / test / build:web / package:vsix` 会转发到对应包
 - `TODO.md` 只记录后续设计方向，不表示功能已实现
 - `packages/vscode-extension/README.vscode.md` 专用于插件打包，不承担仓库总说明职责
 - 修改解析或 IR 后，请同步更新测试与示例 JSON
 - 高亮规则在 `packages/vscode-extension/syntaxes/story.tmLanguage.json`
-- 若只改 TypeScript 代码，重新执行 `npm run build`
+- 若改了 DSL 核心 TypeScript 代码，重新执行 `npm run build:core`，并按影响面执行 `npm test` / `npm run build:web`
 
 ## Current Constraints
 

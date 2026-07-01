@@ -1,9 +1,6 @@
 import * as path from "path";
 import * as vscode from "vscode";
-import { DiagnosticItem } from "./ast";
-import { compileScript } from "./compiler/compiler";
-import { convertXmlToStory } from "./converter/xml-to-story";
-import { parseStory } from "./parser/parser";
+import { compileScript, convertXmlToStory, DiagnosticItem, parseStory } from "@storydsl/core";
 
 const LANGUAGE_ID = "storydsl";
 
