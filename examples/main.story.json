@@ -66519,6 +66519,13 @@
               "text": "请大师为我看破孽障",
               "steps": [
                 {
+                  "kind": "command",
+                  "name": "menpai",
+                  "args": [
+                    "少林寺"
+                  ]
+                },
+                {
                   "kind": "jump",
                   "target": "少林派_剃度"
                 }
@@ -66528,18 +66535,18 @@
               "text": "大师误会了，我希望练的一身武艺拯救天下苍生",
               "steps": [
                 {
+                  "kind": "command",
+                  "name": "menpai",
+                  "args": [
+                    "少林寺"
+                  ]
+                },
+                {
                   "kind": "jump",
                   "target": "少林派_不剃度"
                 }
               ]
             }
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "menpai",
-          "args": [
-            "少林寺"
           ]
         }
       ]
