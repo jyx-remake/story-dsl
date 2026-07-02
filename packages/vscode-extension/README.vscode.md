@@ -82,6 +82,7 @@ else
   - `["pred", "has_item", "小刀"]`
   - `["and", left, right]`
 - 命令参数会归一化为值参数，例如 `100`、`"小刀"`、`["var", "money"]`
+- `maxlevel 技能名 等级` 会额外补第三个参数 `当前剧情段名_技能名`；已显式提供第三参时保留原值
 
 ## Limitations
 

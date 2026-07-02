@@ -77,6 +77,72 @@ set_reward $moneyCnt 小刀 2 -5
   });
 });
 
+test("fills maxlevel key from segment name and skill name", () => {
+  const source = `# 某剧情
+maxlevel 独孤九剑 1
+主角：选择
+- 练刀
+  maxlevel 胡家刀法 2
+if has_item 小刀
+  maxlevel 斗转星移 3
+battle 新手战
+- win
+  maxlevel 野球拳 4
+# 自定义
+maxlevel 独孤九剑 1 custom_key
+# 动态
+maxlevel $skill 1
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.diagnostics.length, 1);
+  assert.equal(compiled.diagnostics[0].code, "semantic");
+  assert.match(compiled.diagnostics[0].message, /maxlevel/);
+  assert.deepEqual(compiled.ir.segments[0].steps[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: ["独孤九剑", 1, "某剧情_独孤九剑"],
+  });
+
+  const choiceStep = compiled.ir.segments[0].steps[1];
+  assert.equal(choiceStep.kind, "choice");
+  assert.deepEqual(choiceStep.options[0].steps[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: ["胡家刀法", 2, "某剧情_胡家刀法"],
+  });
+
+  const branchStep = compiled.ir.segments[0].steps[2];
+  assert.equal(branchStep.kind, "branch");
+  assert.deepEqual(branchStep.cases[0].steps[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: ["斗转星移", 3, "某剧情_斗转星移"],
+  });
+
+  const battleStep = compiled.ir.segments[0].steps[3];
+  assert.equal(battleStep.kind, "battle");
+  assert.deepEqual(battleStep.outcomes.win?.[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: ["野球拳", 4, "某剧情_野球拳"],
+  });
+
+  assert.deepEqual(compiled.ir.segments[1].steps[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: ["独孤九剑", 1, "custom_key"],
+  });
+  assert.deepEqual(compiled.ir.segments[2].steps[0], {
+    kind: "command",
+    name: "maxlevel",
+    args: [["var", "skill"], 1],
+  });
+});
+
 test("parses signed numeric literals in commands and expressions", () => {
   const source = `# Start
 upgrade 臂力 主角 -5

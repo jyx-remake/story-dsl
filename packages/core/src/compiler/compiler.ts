@@ -26,6 +26,7 @@ import {
   ValueArgIr,
   VariableExprIr as VariableValueIr,
 } from "./ir";
+import { transformCommand } from "./command-transforms";
 
 export interface CompileResult {
   ir: ScriptIr;
@@ -45,7 +46,7 @@ export function compileScript(ast: ScriptAst): CompileResult {
   const diagnostics: DiagnosticItem[] = [];
   const segments: SegmentIr[] = ast.segments.map((segment) => ({
     name: segment.name,
-    steps: compileSteps(segment.statements, diagnostics),
+    steps: compileSteps(segment.statements, segment.name, diagnostics),
   }));
 
   return {
@@ -57,7 +58,7 @@ export function compileScript(ast: ScriptAst): CompileResult {
   };
 }
 
-function compileSteps(statements: StatementAst[], diagnostics: DiagnosticItem[]): StepIr[] {
+function compileSteps(statements: StatementAst[], segmentName: string, diagnostics: DiagnosticItem[]): StepIr[] {
   const steps: StepIr[] = [];
   let terminated = false;
 
@@ -67,7 +68,7 @@ function compileSteps(statements: StatementAst[], diagnostics: DiagnosticItem[])
       continue;
     }
 
-    const step = compileStatement(statement, diagnostics);
+    const step = compileStatement(statement, segmentName, diagnostics);
     if (step) {
       steps.push(step);
       if (step.kind === "jump") {
@@ -79,7 +80,7 @@ function compileSteps(statements: StatementAst[], diagnostics: DiagnosticItem[])
   return steps;
 }
 
-function compileStatement(statement: StatementAst, diagnostics: DiagnosticItem[]): StepIr | null {
+function compileStatement(statement: StatementAst, segmentName: string, diagnostics: DiagnosticItem[]): StepIr | null {
   switch (statement.type) {
     case "dialogue":
       return {
@@ -88,11 +89,15 @@ function compileStatement(statement: StatementAst, diagnostics: DiagnosticItem[]
         text: statement.text,
       };
     case "command":
-      return {
+      return transformCommand({
         kind: "command",
         name: statement.name,
         args: statement.args.map(compileValueArg),
-      } satisfies CommandIr;
+      } satisfies CommandIr, {
+        segmentName,
+        span: statement.span,
+        diagnostics,
+      });
     case "jump":
       return {
         kind: "jump",
@@ -107,13 +112,13 @@ function compileStatement(statement: StatementAst, diagnostics: DiagnosticItem[]
         },
         options: statement.options.map((option) => ({
           text: option.text,
-          steps: compileSteps(option.statements, diagnostics),
+          steps: compileSteps(option.statements, segmentName, diagnostics),
         })),
       } satisfies ChoiceIr;
     case "battle": {
       const outcomes: BattleIr["outcomes"] = {};
       statement.outcomes.forEach((outcome) => {
-        outcomes[outcome.outcome] = compileSteps(outcome.statements, diagnostics);
+        outcomes[outcome.outcome] = compileSteps(outcome.statements, segmentName, diagnostics);
       });
       return {
         kind: "battle",
@@ -122,18 +127,18 @@ function compileStatement(statement: StatementAst, diagnostics: DiagnosticItem[]
       };
     }
     case "if":
-      return compileBranch(statement, diagnostics);
+      return compileBranch(statement, segmentName, diagnostics);
     default:
       return null;
   }
 }
 
-function compileBranch(statement: IfStmtAst, diagnostics: DiagnosticItem[]): BranchIr {
+function compileBranch(statement: IfStmtAst, segmentName: string, diagnostics: DiagnosticItem[]): BranchIr {
   const cases: BranchIr["cases"] = [];
   let fallback: StepIr[] | null = null;
 
   for (const branch of statement.branches) {
-    const steps = compileSteps(branch.statements, diagnostics);
+    const steps = compileSteps(branch.statements, segmentName, diagnostics);
     if (branch.keyword === "else") {
       fallback = steps;
       continue;

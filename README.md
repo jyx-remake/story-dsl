@@ -108,6 +108,7 @@ jump 游戏开始
 
 - 参数按空格分词
 - JSON IR 中命令参数会归一化为值参数：数字变数字，`$name` 变 `["var", "name"]`
+- 编译到 JSON IR 时，`maxlevel 技能名 等级` 会额外补第三个参数 `当前剧情段名_技能名`
 - 第一版不支持带空格字符串参数
 - `jump` 会终止当前段后续同级语句的 IR 输出
 
@@ -175,6 +176,14 @@ else
 - `choice`: `prompt`, `options`
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
+
+命令 IR 会保留通用 `command { name, args }` 形态。`maxlevel` 有一条额外编译转换：
+
+```json
+{ "kind": "command", "name": "maxlevel", "args": ["独孤九剑", 1, "某剧情_独孤九剑"] }
+```
+
+当 DSL 写作 `maxlevel 独孤九剑 1` 时，第三个参数由当前剧情段名和技能名拼接得到。若 DSL 已显式提供第三个参数，则保留原值。
 
 表达式使用紧凑前缀数组 IR：
 
