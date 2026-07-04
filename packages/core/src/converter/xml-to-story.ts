@@ -44,6 +44,7 @@ interface EmitResultOptions {
 
 const BATTLE_OUTCOMES = new Set(["win", "lose", "timeout"]);
 const LEGACY_INLINE_COLOR_PATTERN = /\[\[([A-Za-z][\w-]*):([\s\S]*?)\]\]/gu;
+const VALUELESS_RESULT_COMMANDS = new Set(["nextzhoumu", "gamefin", "gameover"]);
 
 export function convertXmlToStory(xmlText: string): string {
   const stories = parseStoryXml(xmlText);
@@ -282,7 +283,13 @@ function resultToStatement(result: ResultEntry): string {
     return joinCommand("jump", [result.value]);
   }
 
-  return joinCommand(actionTypeToCommand(result.type), result.value.trim() ? [result.value] : []);
+  const command = actionTypeToCommand(result.type);
+  return joinCommand(
+    command,
+    VALUELESS_RESULT_COMMANDS.has(command) || !result.value.trim()
+      ? []
+      : [result.value],
+  );
 }
 
 function conditionToExpression(condition: ConditionEntry): string {

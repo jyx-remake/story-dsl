@@ -285,7 +285,7 @@ battle 新手村梅超风_战斗
   if have_item 小刀
     jump 破庙_梅超风_胜利
 - lose
-  gameover gameOver
+  gameover
 `);
 
   assert.equal(parseStory(story).diagnostics.length, 0);
@@ -295,6 +295,36 @@ battle 新手村梅超风_战斗
     name: "upgrade",
     args: ["skill", "小龙女", "玉女素心剑", -5],
   });
+});
+
+test("drops legacy self-value arguments from valueless result commands", () => {
+  const xml = `<root>
+  <story name="终局选择">
+    <action type="SELECT" value="主角#怎么办？#下一周目#结束" />
+    <result type="nextZhoumu" ret="0" value="nextZhoumu" />
+    <result type="gameFin" ret="1" value="gameFin" />
+  </story>
+  <story name="失败战斗">
+    <action type="BATTLE" value="必败战" />
+    <result type="gameOver" ret="lose" value="gameOver" />
+  </story>
+</root>`;
+
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 终局选择
+主角：怎么办？
+- 下一周目
+  nextzhoumu
+- 结束
+  gamefin
+
+# 失败战斗
+battle 必败战
+- lose
+  gameover
+`);
+
+  assert.equal(parseStory(story).diagnostics.length, 0);
 });
 
 test("renames legacy NO_GLOBAL_EVENT flag writes to world_trigger on/off", () => {
