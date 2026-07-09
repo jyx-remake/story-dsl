@@ -41,7 +41,7 @@
       "patterns": [
         {
           "name": "keyword.control.storydsl",
-          "match": "\\b(if|elif|else|battle|jump|and|or|not|win|lose|timeout)\\b|&&|\\|\\||!"
+          "match": "\\b(if|elif|else|battle|jump|call|return|and|or|not|win|lose|timeout)\\b|&&|\\|\\||!"
         }
       ]
     },

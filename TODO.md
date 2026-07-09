@@ -16,24 +16,15 @@
 - 语句层保持对象化，表达式层保持紧凑化，不混用表示方式。
 - `command` 只表示宿主副作用，DSL 内建语义应尽量独立建模。
 
-## Phase 1: Control Flow Closure
+## Completed: Control Flow Closure
 
-目标：补齐“可复用片段”的控制流能力，避免内容只能依赖平铺分支和终止跳转。
+已落地“可复用片段”的控制流能力，避免内容只能依赖平铺分支和终止跳转。
 
-- 设计 `call`
-- 设计 `return`
-- 定义调用栈语义
-- 明确 `jump` 与 `call` 的职责边界
-- 设计对应 AST / IR 形态
-- 设计运行期错误规则
+- `call` 进入目标段，目标段自然结束或执行 `return` 后回到调用点下一条语句
+- `return` 结束当前调用段；无调用栈时结束当前 story flow
+- `jump` 保持强跳转语义，触发后不返回调用点
 
-验收标准：
-
-- 可以从一个段调用另一个段并在返回后继续执行
-- `jump` 仍保持终止式跳转语义
-- IR 不泄漏源码层语法糖
-
-## Phase 2: State Mutation Model
+## Phase 1: State Mutation Model
 
 目标：把剧情状态修改从宿主命令里剥离出来，形成 DSL 内建的状态语义。
 
@@ -50,7 +41,7 @@
 - `command` 和状态变更职责清晰分离
 - 表达式复用现有紧凑 IR，不再引入第二套表示
 
-## Phase 3: Interaction Semantics
+## Phase 2: Interaction Semantics
 
 目标：让 `choice` / `battle` 这类交互结构自身具备更强表达力，而不是总靠外围 `if` 包裹。
 
@@ -66,7 +57,7 @@
 - 不引入零散特判字段
 - 条件模型与现有表达式体系一致
 
-## Phase 4: Scope And Metadata
+## Phase 3: Scope And Metadata
 
 目标：提升大型脚本的可维护性和组织能力。
 
@@ -99,12 +90,11 @@
 
 真正开始实现时，按以下顺序推进：
 
-1. `call / return`
-2. `set`
-3. 选项级条件与一次性选项
-4. 局部变量
-5. 标签 / 元数据
-6. 输入语法与历史系统评估
+1. `set`
+2. 选项级条件与一次性选项
+3. 局部变量
+4. 标签 / 元数据
+5. 输入语法与历史系统评估
 
 ## Execution Checklist
 

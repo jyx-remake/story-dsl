@@ -85,6 +85,112 @@ public sealed class StoryRuntimeTests
     }
 
     [Fact]
+    public async Task RunAsync_CallReturnsToCallerAndContinuesNextStep()
+    {
+        const string json = """
+        {
+          "version": 1,
+          "segments": [
+            {
+              "name": "Start",
+              "steps": [
+                { "kind": "command", "name": "mark", "args": ["before_call"] },
+                { "kind": "call", "target": "Shared" },
+                { "kind": "command", "name": "mark", "args": ["after_call"] }
+              ]
+            },
+            {
+              "name": "Shared",
+              "steps": [
+                { "kind": "command", "name": "mark", "args": ["inside_call"] },
+                { "kind": "return" },
+                { "kind": "command", "name": "mark", "args": ["after_return"] }
+              ]
+            }
+          ]
+        }
+        """;
+
+        var script = StoryScriptJson.Parse(json);
+        var runtime = new StoryRuntime();
+        var host = new TestRuntimeHost();
+
+        _ = await CollectAsync(runtime.RunAsync(script, host));
+
+        Assert.Equal(
+            ["mark:before_call", "mark:inside_call", "mark:after_call"],
+            host.Commands);
+    }
+
+    [Fact]
+    public async Task RunAsync_TopLevelReturnEndsStoryFlow()
+    {
+        const string json = """
+        {
+          "version": 1,
+          "segments": [
+            {
+              "name": "Start",
+              "steps": [
+                { "kind": "command", "name": "mark", "args": ["before_return"] },
+                { "kind": "return" },
+                { "kind": "command", "name": "mark", "args": ["after_return"] }
+              ]
+            }
+          ]
+        }
+        """;
+
+        var script = StoryScriptJson.Parse(json);
+        var runtime = new StoryRuntime();
+        var host = new TestRuntimeHost();
+
+        _ = await CollectAsync(runtime.RunAsync(script, host));
+
+        Assert.Equal(["mark:before_return"], host.Commands);
+    }
+
+    [Fact]
+    public async Task RunAsync_JumpInsideCalledSegmentDoesNotReturnToCaller()
+    {
+        const string json = """
+        {
+          "version": 1,
+          "segments": [
+            {
+              "name": "Start",
+              "steps": [
+                { "kind": "call", "target": "Shared" },
+                { "kind": "command", "name": "mark", "args": ["after_call"] }
+              ]
+            },
+            {
+              "name": "Shared",
+              "steps": [
+                { "kind": "jump", "target": "Target" }
+              ]
+            },
+            {
+              "name": "Target",
+              "steps": [
+                { "kind": "command", "name": "mark", "args": ["landed"] }
+              ]
+            }
+          ]
+        }
+        """;
+
+        var script = StoryScriptJson.Parse(json);
+        var runtime = new StoryRuntime();
+        var host = new TestRuntimeHost();
+
+        var events = await CollectAsync(runtime.RunAsync(script, host));
+
+        Assert.Equal(["mark:landed"], host.Commands);
+        Assert.Contains(events, item => item is JumpEvent jump && jump.Target == "Target");
+    }
+
+    [Fact]
     public async Task RunAsync_WaitsOnHostForEachDialogue()
     {
         const string json = """

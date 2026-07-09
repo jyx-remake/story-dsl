@@ -8,7 +8,7 @@ export interface SegmentIr {
   steps: StepIr[];
 }
 
-export type StepIr = DialogueIr | CommandIr | ChoiceIr | BattleIr | BranchIr | JumpIr;
+export type StepIr = DialogueIr | CommandIr | ChoiceIr | BattleIr | BranchIr | JumpIr | CallIr | ReturnIr;
 
 export interface DialogueIr {
   kind: "dialogue";
@@ -25,6 +25,15 @@ export interface CommandIr {
 export interface JumpIr {
   kind: "jump";
   target: string;
+}
+
+export interface CallIr {
+  kind: "call";
+  target: string;
+}
+
+export interface ReturnIr {
+  kind: "return";
 }
 
 export interface ChoiceIr {

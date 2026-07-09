@@ -207,6 +207,60 @@ jump End
   assert.equal(compiled.ir.segments[0].steps[0]?.kind, "jump");
 });
 
+test("parses call and return control flow", () => {
+  const source = `# Start
+call Shared
+南贤：回来
+return
+南贤：这里不该到达
+# Shared
+南贤：公共段
+return
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+
+  const compiled = compileScript(parsed.ast);
+  assert.ok(compiled.diagnostics.some((item) => item.code === "unreachable"));
+  assert.deepEqual(compiled.ir.segments[0].steps, [
+    {
+      kind: "call",
+      target: "Shared",
+    },
+    {
+      kind: "dialogue",
+      speaker: "南贤",
+      text: "回来",
+    },
+    {
+      kind: "return",
+    },
+  ]);
+  assert.deepEqual(compiled.ir.segments[1].steps, [
+    {
+      kind: "dialogue",
+      speaker: "南贤",
+      text: "公共段",
+    },
+    {
+      kind: "return",
+    },
+  ]);
+});
+
+test("reports invalid call and return syntax", () => {
+  const source = `# Start
+call
+return value
+`;
+
+  const parsed = parseStory(source);
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("call 之后必须提供目标段名")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("return 后不能跟参数")));
+});
+
+
 test("reports indentation and stray branch errors", () => {
   const source = "# Start\n   南贤：错缩进\n- stray\n";
   const parsed = parseStory(source);

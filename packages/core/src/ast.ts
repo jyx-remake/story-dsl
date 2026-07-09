@@ -43,7 +43,9 @@ export type StatementAst =
   | ChoiceStmtAst
   | BattleStmtAst
   | IfStmtAst
-  | JumpStmtAst;
+  | JumpStmtAst
+  | CallStmtAst
+  | ReturnStmtAst;
 
 export interface DialogueStmtAst {
   type: "dialogue";
@@ -66,6 +68,19 @@ export interface JumpStmtAst {
   type: "jump";
   span: SourceSpan;
   target: string;
+  raw: string;
+}
+
+export interface CallStmtAst {
+  type: "call";
+  span: SourceSpan;
+  target: string;
+  raw: string;
+}
+
+export interface ReturnStmtAst {
+  type: "return";
+  span: SourceSpan;
   raw: string;
 }
 

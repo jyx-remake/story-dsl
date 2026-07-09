@@ -2,6 +2,7 @@ import {
   BattleOutcomeAst,
   BattleOutcomeName,
   BattleStmtAst,
+  CallStmtAst,
   ChoiceOptionAst,
   ChoiceStmtAst,
   CommandStmtAst,
@@ -11,6 +12,7 @@ import {
   ExprAst,
   IfStmtAst,
   JumpStmtAst,
+  ReturnStmtAst,
   ScriptAst,
   SegmentAst,
   SourcePosition,
@@ -42,6 +44,8 @@ const RESERVED_COMMAND_NAMES = new Set([
   "elif",
   "else",
   "battle",
+  "call",
+  "return",
   "and",
   "or",
   "not",
@@ -329,6 +333,31 @@ export class StoryParser {
         raw: line.trimmed,
         span: lineSpan(line),
       } satisfies JumpStmtAst;
+    }
+
+    if (name === "call") {
+      const target = line.trimmed.slice(name.length).trim();
+      if (!target) {
+        this.pushDiagnostic("call 之后必须提供目标段名", lineSpan(line), "syntax");
+      }
+      return {
+        type: "call",
+        target,
+        raw: line.trimmed,
+        span: lineSpan(line),
+      } satisfies CallStmtAst;
+    }
+
+    if (name === "return") {
+      const rest = line.trimmed.slice(name.length).trim();
+      if (rest) {
+        this.pushDiagnostic("return 后不能跟参数", lineSpan(line), "syntax");
+      }
+      return {
+        type: "return",
+        raw: line.trimmed,
+        span: lineSpan(line),
+      } satisfies ReturnStmtAst;
     }
 
     if (RESERVED_COMMAND_NAMES.has(name)) {

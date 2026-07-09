@@ -22,6 +22,7 @@
 - 保存时自动输出同名 `.story.json`
 - 段级大纲展示
 - 从旧版 Story XML 转换为 `.story` 草稿
+- `call / return` 剧情段调用与返回控制流
 
 仓库以 `packages/core/` 的 DSL 核心为共享源，VSCode 插件与 Web 版复用同一套 parser/compiler。`packages/runtime-csharp/` 是独立的消费端原型。
 
@@ -98,19 +99,24 @@ npm run dev:web
 - 冒号左右空格忽略
 - 角色名和文本都允许为空
 
-### 命令与跳转
+### 命令与控制流
 
 ```text
 change_map 金陵
 play_music 笑傲江湖曲
 jump 游戏开始
+call 公共片段
+return
 ```
 
 - 参数按空格分词
 - JSON IR 中命令参数会归一化为值参数：数字变数字，`$name` 变 `["var", "name"]`
 - 编译到 JSON IR 时，`maxlevel 技能名 等级` 会额外补第三个参数 `当前剧情段名_技能名`
 - 第一版不支持带空格字符串参数
-- `jump` 会终止当前段后续同级语句的 IR 输出
+- `jump` 是强跳转，会终止当前段后续同级语句的 IR 输出
+- `call` 会进入目标段，目标段结束或执行 `return` 后回到调用点下一条语句
+- `return` 会结束当前调用段；顶层 `return` 会结束当前 story flow
+- `jump` 与 `return` 后续同级语句不可达，不会进入 IR
 
 ### 选择分支
 
@@ -173,6 +179,8 @@ else
 - `dialogue`: `speaker`, `text`
 - `command`: `name`, `args`
 - `jump`: `target`
+- `call`: `target`
+- `return`: 无额外字段
 - `choice`: `prompt`, `options`
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
@@ -259,11 +267,10 @@ TODO.md
 
 当前只确定方向，不代表已经落地：
 
-1. `call / return`
-2. `set`
-3. 选项级条件与一次性选项
-4. 局部变量
-5. 标签 / 元数据
-6. 输入语法与历史系统评估
+1. `set`
+2. 选项级条件与一次性选项
+3. 局部变量
+4. 标签 / 元数据
+5. 输入语法与历史系统评估
 
 详细计划见 `TODO.md`。

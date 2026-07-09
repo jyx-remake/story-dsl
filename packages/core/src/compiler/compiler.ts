@@ -14,11 +14,13 @@ import {
   BranchIr,
   BattleIr,
   BinaryExprIr,
+  CallIr,
   ChoiceIr,
   CommandIr,
   ExprIr,
   JumpIr,
   PredicateExprIr,
+  ReturnIr,
   ScriptIr,
   SegmentIr,
   StepIr,
@@ -35,7 +37,7 @@ export interface CompileResult {
 
 function unreachableDiagnostic(span: SourceSpan): DiagnosticItem {
   return {
-    message: "jump 之后的同级语句不可达，已跳过 IR 输出",
+    message: "jump/return 之后的同级语句不可达，已跳过 IR 输出",
     span,
     severity: "error",
     code: "unreachable",
@@ -71,13 +73,17 @@ function compileSteps(statements: StatementAst[], segmentName: string, diagnosti
     const step = compileStatement(statement, segmentName, diagnostics);
     if (step) {
       steps.push(step);
-      if (step.kind === "jump") {
+      if (isTerminatingStep(step)) {
         terminated = true;
       }
     }
   }
 
   return steps;
+}
+
+function isTerminatingStep(step: StepIr): boolean {
+  return step.kind === "jump" || step.kind === "return";
 }
 
 function compileStatement(statement: StatementAst, segmentName: string, diagnostics: DiagnosticItem[]): StepIr | null {
@@ -103,6 +109,15 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
         kind: "jump",
         target: statement.target,
       } satisfies JumpIr;
+    case "call":
+      return {
+        kind: "call",
+        target: statement.target,
+      } satisfies CallIr;
+    case "return":
+      return {
+        kind: "return",
+      } satisfies ReturnIr;
     case "choice":
       return {
         kind: "choice",

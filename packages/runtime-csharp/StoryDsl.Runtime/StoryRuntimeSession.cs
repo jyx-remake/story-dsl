@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace StoryDsl.Runtime;
 
-internal sealed class StoryRuntimeSession(
+internal sealed partial class StoryRuntimeSession(
     StoryScript script,
     IRuntimeHost host,
     string? startSegment,
@@ -37,10 +37,15 @@ internal sealed class StoryRuntimeSession(
                     yield return stepResult.Event;
                 }
 
-                if (stepResult.JumpTarget is not null)
+                if (stepResult.Control == StepControl.Jump)
                 {
-                    jumpTarget = stepResult.JumpTarget;
+                    jumpTarget = stepResult.Target;
                     break;
+                }
+
+                if (stepResult.Control == StepControl.Return)
+                {
+                    yield break;
                 }
             }
 
@@ -63,6 +68,16 @@ internal sealed class StoryRuntimeSession(
         throw new StoryRuntimeException($"Segment '{_currentSegmentName}' does not exist.");
     }
 
+    private bool TryGetSegment(string name, out Segment segment)
+    {
+        if (_segments.TryGetValue(name, out segment!))
+        {
+            return true;
+        }
+
+        throw new StoryRuntimeException($"Segment '{name}' does not exist.");
+    }
+
     private async IAsyncEnumerable<StepResult> ExecuteStepsAsync(
         IReadOnlyList<Step> steps,
         [EnumeratorCancellation] CancellationToken ct)
@@ -74,7 +89,7 @@ internal sealed class StoryRuntimeSession(
             await foreach (var result in ExecuteStepAsync(step, ct))
             {
                 yield return result;
-                if (result.JumpTarget is not null)
+                if (result.IsControl)
                 {
                     yield break;
                 }
@@ -123,105 +138,39 @@ internal sealed class StoryRuntimeSession(
                 yield break;
             case JumpStep jump:
                 yield return StepResult.FromEvent(new JumpEvent(jump.Target));
-                yield return StepResult.FromJump(jump.Target);
+                yield return StepResult.Jump(jump.Target);
                 yield break;
-            default:
-                throw new StoryRuntimeException($"Unsupported step type '{step.GetType().Name}'.");
-        }
-    }
-
-    private async IAsyncEnumerable<StepResult> ExecuteChoiceAsync(
-        ChoiceStep choice,
-        [EnumeratorCancellation] CancellationToken ct)
-    {
-        var context = new ChoiceContext(
-            choice.Prompt.Speaker,
-            choice.Prompt.Text,
-            choice.Options.Select((option, index) => new ChoiceOptionView(index, option.Text)).ToArray());
-
-        yield return StepResult.FromEvent(new ChoiceOfferedEvent(context));
-
-        var selectedIndex = await host.ChooseOptionAsync(context, ct);
-        if (selectedIndex < 0 || selectedIndex >= choice.Options.Count)
-        {
-            throw new StoryRuntimeException(
-                $"Choice selection index {selectedIndex} is out of range for {choice.Options.Count} options.");
-        }
-
-        yield return StepResult.FromEvent(new ChoiceResolvedEvent(context, selectedIndex));
-
-        await foreach (var result in ExecuteStepsAsync(choice.Options[selectedIndex].Steps, ct))
-        {
-            yield return result;
-            if (result.JumpTarget is not null)
-            {
-                yield break;
-            }
-        }
-    }
-
-    private async IAsyncEnumerable<StepResult> ExecuteBattleAsync(
-        BattleStep battle,
-        [EnumeratorCancellation] CancellationToken ct)
-    {
-        var context = new BattleContext(battle.BattleId, battle.Outcomes.Keys.ToArray());
-        yield return StepResult.FromEvent(new BattleStartedEvent(context));
-
-        var selectedOutcome = await host.ResolveBattleAsync(context, ct);
-        if (!battle.Outcomes.TryGetValue(selectedOutcome, out var steps))
-        {
-            throw new StoryRuntimeException(
-                $"Battle '{battle.BattleId}' resolved to '{selectedOutcome}', but the script does not define that outcome.");
-        }
-
-        yield return StepResult.FromEvent(new BattleResolvedEvent(context, selectedOutcome));
-
-        await foreach (var result in ExecuteStepsAsync(steps, ct))
-        {
-            yield return result;
-            if (result.JumpTarget is not null)
-            {
-                yield break;
-            }
-        }
-    }
-
-    private async IAsyncEnumerable<StepResult> ExecuteBranchAsync(
-        BranchStep branch,
-        [EnumeratorCancellation] CancellationToken ct)
-    {
-        foreach (var branchCase in branch.Cases)
-        {
-            var result = await ExpressionEvaluator.EvaluateAsync(branchCase.When, host, ct);
-            if (!result.AsBoolean("branch condition"))
-            {
-                continue;
-            }
-
-            await foreach (var stepResult in ExecuteStepsAsync(branchCase.Steps, ct))
-            {
-                yield return stepResult;
-                if (stepResult.JumpTarget is not null)
+            case CallStep call:
+                if (!TryGetSegment(call.Target, out var segment))
                 {
                     yield break;
                 }
-            }
 
-            yield break;
-        }
+                await foreach (var result in ExecuteStepsAsync(segment.Steps, ct))
+                {
+                    if (result.Event is not null)
+                    {
+                        yield return result;
+                    }
 
-        if (branch.Fallback is null)
-        {
-            yield break;
-        }
+                    if (result.Control == StepControl.Jump)
+                    {
+                        yield return result;
+                        yield break;
+                    }
 
-        await foreach (var stepResult in ExecuteStepsAsync(branch.Fallback, ct))
-        {
-            yield return stepResult;
-            if (stepResult.JumpTarget is not null)
-            {
+                    if (result.Control == StepControl.Return)
+                    {
+                        yield break;
+                    }
+                }
+
                 yield break;
-            }
+            case ReturnStep:
+                yield return StepResult.Return();
+                yield break;
+            default:
+                throw new StoryRuntimeException($"Unsupported step type '{step.GetType().Name}'.");
         }
     }
 
@@ -238,10 +187,4 @@ internal sealed class StoryRuntimeSession(
         return values;
     }
 
-    private sealed record StepResult(RuntimeEvent? Event, string? JumpTarget)
-    {
-        public static StepResult FromEvent(RuntimeEvent runtimeEvent) => new(runtimeEvent, null);
-
-        public static StepResult FromJump(string jumpTarget) => new(null, jumpTarget);
-    }
 }
