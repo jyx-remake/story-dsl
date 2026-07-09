@@ -5,7 +5,7 @@
 - TypeScript 核心库：解析 `.story`、生成 AST、编译 JSON IR，位于 `packages/core/`
 - VSCode 插件：编辑 `.story` 文件、提供高亮与诊断、编译为 JSON IR
 - Web 版：浏览器内编辑、诊断、查看和下载 JSON IR，位于 `packages/web/`
-- C# 运行时原型：消费 JSON IR，位于 `packages/runtime-csharp/`
+- C# 运行时原型：已弃用，仅保留历史参考，位于 `packages/runtime-csharp/`
 
 本文件面向仓库使用者与协作者。插件打包页使用单独的 `packages/vscode-extension/README.vscode.md`。
 
@@ -24,7 +24,7 @@
 - 从旧版 Story XML 转换为 `.story` 草稿
 - `call / return` 剧情段调用与返回控制流
 
-仓库以 `packages/core/` 的 DSL 核心为共享源，VSCode 插件与 Web 版复用同一套 parser/compiler。`packages/runtime-csharp/` 是独立的消费端原型。
+仓库以 `packages/core/` 的 DSL 核心为共享源，VSCode 插件与 Web 版复用同一套 parser/compiler。`packages/runtime-csharp/` 是已弃用的独立消费端原型，仅保留历史参考，不再作为当前 IR 能力的同步目标。
 
 后续演进计划集中记录在 `TODO.md`，当前只作为设计稿，不代表已经实现。
 
@@ -225,7 +225,7 @@ packages/
     src/                 Web 前端源码
     dist/                Web 构建产物
   runtime-csharp/
-    StoryDsl.Runtime.slnx  C# 执行器解决方案
+    StoryDsl.Runtime.slnx  已弃用的 C# 执行器解决方案
 TODO.md
   后续语法与架构演进计划
 ```
@@ -235,7 +235,7 @@ TODO.md
 - DSL 核心代码在 `packages/core/`
 - 插件外壳代码在 `packages/vscode-extension/`
 - Web 前端代码在 `packages/web/`
-- C# 执行器在 `packages/runtime-csharp/`
+- C# 执行器在 `packages/runtime-csharp/`，已弃用，仅保留历史参考
 - 根目录 `npm run build / test / build:web / package:vsix` 会转发到对应包
 - `TODO.md` 只记录后续设计方向，不表示功能已实现
 - `packages/vscode-extension/README.vscode.md` 专用于插件打包，不承担仓库总说明职责

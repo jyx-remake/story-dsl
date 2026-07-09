@@ -5,7 +5,7 @@
 ## Repository Layout
 
 - VSCode 插件位于 `packages/vscode-extension/`
-- C# 执行器位于 `packages/runtime-csharp/`
+- C# 执行器位于 `packages/runtime-csharp/`，已弃用，仅保留历史参考
 - `examples/` 作为两边共享的 DSL / JSON IR 示例目录，保持在仓库根级
 
 ## Guiding Principles

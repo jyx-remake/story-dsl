@@ -170,7 +170,13 @@ export interface PredicateCallExprAst {
   args: ValueArgAst[];
 }
 
-export type ValueArgAst = VariableExprAst | LiteralExprAst;
+export type ValueArgAst = VariableExprAst | LiteralExprAst | ListValueArgAst;
+
+export interface ListValueArgAst {
+  type: "list";
+  span: SourceSpan;
+  items: ValueArgAst[];
+}
 
 export interface VariableExprAst {
   type: "variable";

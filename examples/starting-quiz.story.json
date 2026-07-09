@@ -12,6 +12,10 @@
           ]
         },
         {
+          "kind": "call",
+          "target": "试炼之地奖励"
+        },
+        {
           "kind": "command",
           "name": "background",
           "args": [
@@ -1048,6 +1052,274 @@
           ]
         },
         {
+          "kind": "branch",
+          "cases": [
+            {
+              "when": [
+                "pred",
+                "in_round",
+                1
+              ],
+              "steps": [
+                {
+                  "kind": "branch",
+                  "cases": [
+                    {
+                      "when": [
+                        "pred",
+                        "game_mode",
+                        "normal"
+                      ],
+                      "steps": [
+                        {
+                          "kind": "command",
+                          "name": "random_item",
+                          "args": [
+                            [
+                              "list",
+                              "新手礼包-大蟠桃"
+                            ],
+                            5
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "fallback": null
+                }
+              ]
+            },
+            {
+              "when": [
+                "pred",
+                "in_round",
+                2
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_item",
+                  "args": [
+                    [
+                      "list",
+                      "佛光普照",
+                      "百变千幻云雾十三式秘籍",
+                      "反两仪刀法",
+                      "伏魔杖法"
+                    ],
+                    1
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "random_item",
+                  "args": [
+                    [
+                      "list",
+                      "灭仙爪",
+                      "倚天剑",
+                      "屠龙刀",
+                      "打狗棒"
+                    ],
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                "pred",
+                "in_round",
+                3
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_item",
+                  "args": [
+                    [
+                      "list",
+                      "隔空取物",
+                      "妙手仁心",
+                      "飞向天际",
+                      "血刀"
+                    ],
+                    1
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "random_item",
+                  "args": [
+                    [
+                      "list",
+                      "仙丽雅的项链",
+                      "李延宗的项链",
+                      "王语嫣的武学概要",
+                      "神木王鼎"
+                    ],
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          "fallback": [
+            {
+              "kind": "command",
+              "name": "random_item",
+              "args": [
+                [
+                  "list",
+                  "碎裂的怒吼",
+                  "沾衣十八跌",
+                  "灵心慧质",
+                  "不老长春功法"
+                ],
+                1
+              ]
+            },
+            {
+              "kind": "command",
+              "name": "random_item",
+              "args": [
+                [
+                  "list",
+                  "仙丽雅的项链",
+                  "李延宗的项链",
+                  "王语嫣的武学概要",
+                  "神木王鼎"
+                ],
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "branch",
+          "cases": [
+            {
+              "when": [
+                "pred",
+                "in_round",
+                2
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_join",
+                  "args": [
+                    [
+                      "list",
+                      "鲁连荣",
+                      "冲虚道长",
+                      "方证大师",
+                      "灭绝师太",
+                      "张翠山",
+                      "宋远桥",
+                      "韦一笑",
+                      "仪清",
+                      "何太冲",
+                      "哑仆",
+                      "温方达",
+                      "温方义",
+                      "温方山",
+                      "温方施",
+                      "温方悟",
+                      "安小慧",
+                      "阿九"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                "pred",
+                "in_round",
+                3
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_join",
+                  "args": [
+                    [
+                      "list",
+                      "紫衫龙王",
+                      "殷天正",
+                      "商剑鸣",
+                      "杨逍",
+                      "范遥",
+                      "霍都",
+                      "孙不二",
+                      "龙岛主",
+                      "木岛主",
+                      "善勇"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                "pred",
+                "in_round",
+                4
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_join",
+                  "args": [
+                    [
+                      "list",
+                      "白自在",
+                      "向问天",
+                      "丁春秋",
+                      "成昆",
+                      "段延庆",
+                      "丘处机",
+                      "欧阳锋"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                "not",
+                [
+                  "pred",
+                  "in_round",
+                  1
+                ]
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "random_join",
+                  "args": [
+                    [
+                      "list",
+                      "任我行",
+                      "王重阳",
+                      "林朝英",
+                      "归辛树",
+                      "玉真子",
+                      "慕容博",
+                      "卓一航",
+                      "谢逊",
+                      "虚竹"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "fallback": null
+        },
+        {
           "kind": "choice",
           "prompt": {
             "speaker": "",
@@ -1119,6 +1391,198 @@
         {
           "kind": "jump",
           "target": "新手村_出生"
+        }
+      ]
+    },
+    {
+      "name": "试炼之地奖励",
+      "steps": [
+        {
+          "kind": "branch",
+          "cases": [
+            {
+              "when": [
+                "pred",
+                "in_round",
+                1
+              ],
+              "steps": [
+                {
+                  "kind": "return"
+                }
+              ]
+            }
+          ],
+          "fallback": null
+        },
+        {
+          "kind": "branch",
+          "cases": [
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                20
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "真葵花宝典"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                15
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "武穆遗书"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "笑傲江湖曲"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                12
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "沾衣十八跌"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "易筋经"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "厚黑学"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                9
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "素心神剑心得"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "太极心得手抄本"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "乾坤大挪移心法"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                6
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "灵心慧质"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "妙手仁心"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": [
+                ">=",
+                [
+                  "var",
+                  "last_trial_count"
+                ],
+                3
+              ],
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "王母蟠桃"
+                  ]
+                },
+                {
+                  "kind": "command",
+                  "name": "item",
+                  "args": [
+                    "道家仙丹"
+                  ]
+                }
+              ]
+            }
+          ],
+          "fallback": null
         }
       ]
     }

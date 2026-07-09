@@ -1034,7 +1034,7 @@ battle 黑衣_华山
 主角：小意思啦，那我可以再继续玩？
 南贤：想继续？没问题啊！快快进入下一周目，做出不同的选择，体验不同的武林人生吧！
 主角：走起！
-nextzhoumu nextZhoumu
+nextzhoumu
 
 # 黑衣_对战魔君失败
 魔君：无用之人，给你几个月时间学我黑衣神功，居然还是如此无用！滚吧。
@@ -1373,7 +1373,7 @@ music 音乐.琵琶语
 jump original_女主出场.结束
 
 # original_女主出场.结束
-change_female_name 玲兰
+input_name 女主 玲兰
 女主：家父随现任陇右节度使王忠嗣大人辖制河西重地。家父性情豪爽，教女也别具一格，让我随军来陇右体验一番边塞风情。
 女主：小女子平日久居长安，一时来到塞外，颇感新奇，便带上三五随从出来游玩。谁知在沙漠中迷了路途，又遇上了马贼，若不是恩公出手相助，我...我...呜呜呜呜...
 主角：额...最怕看到女孩子哭了。刚不还挺有礼节的么...
@@ -2114,9 +2114,9 @@ map 大地图
 - 重新开始本周目，寻找幸福的终点。
   restart restart
 - 这个周目就这么混过去算了，开始下个周目！
-  nextzhoumu nextZhoumu
+  nextzhoumu
 - 就在此结束这个SB的游戏吧。
-  gamefin gameFin
+  gamefin
 
 # original_女主.华山论剑.trueEnding1
 background 地图.华山后山
@@ -2172,7 +2172,7 @@ jump original_女主.华山论剑.trueEnding1.结束
 - 挑战下一周目！
   jump original_华山论剑下一周目
 - 算了，完美了。等下一版！
-  gamefin gameFin
+  gamefin
 maxlevel 野球拳 1
 
 # original_女主.华山论剑.trueEnding2
@@ -2221,7 +2221,7 @@ jump original_女主.华山论剑.trueEnding2.选择
 - 挑战下一周目！
   jump original_华山论剑下一周目
 - 算了，累死了。等下一版！
-  gamefin gameFin
+  gamefin
 
 # original_女主.华山论剑.normalEnding
 background 地图.华山后山
@@ -2252,7 +2252,7 @@ jump original_女主.华山论剑.normalEnding.结束
 - 挑战下一周目！
   jump original_华山论剑下一周目
 - 算了，累死了。等下一版！
-  gamefin gameFin
+  gamefin
 
 # original_主角之家.开场
 background 地图.主角之家
@@ -2348,26 +2348,6 @@ maxlevel 基本内功 1
 南贤：哈哈，你这个武学[color=red]全局只能触发一次[/color]，以后周目来找我触发这个剧情，或者在别的存档里触发这个剧情，也不会提高了喔！
 suggest 点击左上角玩家头像，可以查看已经获得的武学精通。
 map 大地图
-
-# original_主角之家.殴打木头人
-background 地图.主角之家
-music 音乐.室内_清新
-主角：来练一下级！
-battle 南贤居_木头人_战斗
-- win
-  map 南贤居
-- lose
-  map 南贤居
-
-# original_主角之家.殴打练功木头人
-background 地图.主角之家
-music 音乐.室内_清新
-主角：来练一下武功！
-battle 南贤居_练功木头人_战斗
-- win
-  map 南贤居
-- lose
-  map 南贤居
 
 # original_天关
 主角：...这里是？
@@ -3776,11 +3756,11 @@ maxlevel 野球拳 1
 - 算了，挑战下一周目吧。
   jump original_华山论剑下一周目
 - 累死了，不玩了，松鼠只知道挖坑让我跳。
-  gamefin gameFin
+  gamefin
 
 # original_华山论剑下一周目
 汉家松鼠：好吧！请继续挑战下一周目！你还真是个BT啊！
-nextzhoumu nextZhoumu
+nextzhoumu
 
 # original_华山论剑最终炼狱
 background 地图.树林
@@ -4220,16 +4200,16 @@ jump original_武道大会_挑战
 汉家松鼠：对不起，武道大会在当前手机版本[color=yellow]暂未开放[/color]，尽请期待！
 
 # original_武道大会_买
-if rank 1
-  shop 武道大会.VIP1
-if rank 10
-  shop 武道大会.VIP2
-if rank 50
-  shop 武道大会.VIP3
-if rank 100
-  shop 武道大会.VIP4
-if rank 500
-  shop 武道大会.VIP5
+// if rank 1
+//   shop 武道大会.VIP1
+// if rank 10
+//   shop 武道大会.VIP2
+// if rank 50
+//   shop 武道大会.VIP3
+// if rank 100
+//   shop 武道大会.VIP4
+// if rank 500
+//   shop 武道大会.VIP5
 jump original_武道大会_买不了
 
 # original_武道大会_买不了
@@ -4736,19 +4716,6 @@ log 绝情谷底，小龙女芳踪难寻，郭襄对杨过真情告白。
 log 获得武学宝典《九阴真经》抄本。
 maxlevel 玉女素心剑 1
 daode 2
-jump original_女主.神雕侠侣.绝情谷结束郭襄
-
-# original_女主.神雕侠侣.绝情谷结束郭襄
-女主：......
-主角：怎么啦？
-女主：心情不好，杨大哥、龙姐姐与襄儿真的很不容易呢，没想到最后是这样...
-主角：人力有时尽，人声已经如此艰难了，我们还是开心一点吧，还要珍惜身边的一切。
-女主：嗯…要珍惜身边的女孩子，尤其是离家跟着你闯荡的那种，你说是吧，这位大侠。
-主角：咳咳咳…我，我会的。
-女主：今天在武学上也有所收获呢。
-haogan 10
-get_point 女主 15
-upgrade 剑法 女主 20
 map 大地图
 
 # sdxl_峨眉金顶
@@ -4863,7 +4830,7 @@ jump original_天关.失败
 # test_HUASHAN
 南贤：带着你的小伙伴们fight吧！
 北丑：哈哈，真是激动人心啊！
-// gameover gameOver
+// gameover
 if game_mode crazy
   jump original_华山论剑最终炼狱
 jump original_华山论剑最终
@@ -9412,7 +9379,7 @@ battle 桃花岛黄药师_战斗
 - lose
   if should_not_finish 射雕英雄传_桃花岛黄药师负
     jump 射雕英雄传_桃花岛黄药师负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_桃花岛黄药师负
 background 地图.桃花岛
@@ -9437,7 +9404,7 @@ battle 桃花岛黄药师_战斗
 - lose
   if should_not_finish 射雕英雄传_桃花岛黄药师负
     jump 射雕英雄传_桃花岛黄药师负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_桃花岛黄药师2
 background 地图.桃花岛
@@ -9459,7 +9426,7 @@ battle 一灯居一灯大师_战斗
 - lose
   if should_not_finish 射雕英雄传_一灯居负
     jump 射雕英雄传_一灯居负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_一灯居负
 background 地图.主角之家
@@ -9482,7 +9449,7 @@ battle 一灯居一灯大师_战斗
 - lose
   if should_not_finish 射雕英雄传_一灯居负
     jump 射雕英雄传_一灯居负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_一灯居2
 background 地图.主角之家
@@ -9515,7 +9482,7 @@ battle 长江岸边洪七公_战斗
 - lose
   if should_not_finish 射雕英雄传_洪七公负
     jump 射雕英雄传_洪七公负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_洪七公负
 background 地图.树林
@@ -9542,7 +9509,7 @@ battle 长江岸边洪七公_战斗
 - lose
   if should_not_finish 射雕英雄传_洪七公负
     jump 射雕英雄传_洪七公负
-  gameover gameOver
+  gameover
 
 # 射雕英雄传_洪七公2
 background 地图.树林
@@ -14609,7 +14576,7 @@ battle 金刚伏魔圈
 # 倚天屠龙_劝说少林成功
 background 地图.嵩山
 music 音乐.天龙八部5
-nick 金刚伏魔圈
+nick 金刚伏魔
 张无忌：承让！
 方证大师：张施主既然破的了这金刚伏魔圈。
 方证大师：自也是参透这若当来世，后五百岁，其有众生得闻是经，信解受持，是人即为第一希有。

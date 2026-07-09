@@ -65,7 +65,9 @@ export interface BranchIr {
 
 export type VariableExprIr = ["var", string];
 
-export type ValueArgIr = string | number | VariableExprIr;
+export type ListValueArgIr = ["list", ...ValueArgIr[]];
+
+export type ValueArgIr = string | number | VariableExprIr | ListValueArgIr;
 
 export type PredicateExprIr = ["pred", string, ...ValueArgIr[]];
 

@@ -101,6 +101,98 @@
           "target": "original_门派选择"
         }
       ]
+    },
+    {
+      "name": "南贤居-木头人-首次提示",
+      "steps": [
+        {
+          "kind": "command",
+          "name": "suggest",
+          "args": [
+            "人物面板可以选择自动战斗策略，“修炼”策略下角色优先使用未满级技能。"
+          ]
+        },
+        {
+          "kind": "jump",
+          "target": "南贤居-木头人-修炼"
+        }
+      ]
+    },
+    {
+      "name": "南贤居-木头人-修炼",
+      "steps": [
+        {
+          "kind": "choice",
+          "prompt": {
+            "speaker": "主角",
+            "text": "来打一下木头人！"
+          },
+          "options": [
+            {
+              "text": "练级木头人",
+              "steps": [
+                {
+                  "kind": "battle",
+                  "battleId": "南贤居-木头人练级",
+                  "outcomes": {
+                    "win": [
+                      {
+                        "kind": "jump",
+                        "target": "南贤居-木头人-修炼"
+                      }
+                    ],
+                    "lose": []
+                  }
+                },
+                {
+                  "kind": "command",
+                  "name": "map",
+                  "args": [
+                    "南贤居"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "练功木头人",
+              "steps": [
+                {
+                  "kind": "battle",
+                  "battleId": "南贤居-木头人练功",
+                  "outcomes": {
+                    "win": [
+                      {
+                        "kind": "jump",
+                        "target": "南贤居-木头人-修炼"
+                      }
+                    ],
+                    "lose": []
+                  }
+                },
+                {
+                  "kind": "command",
+                  "name": "map",
+                  "args": [
+                    "南贤居"
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "不打了",
+              "steps": [
+                {
+                  "kind": "command",
+                  "name": "map",
+                  "args": [
+                    "南贤居"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

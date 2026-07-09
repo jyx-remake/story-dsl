@@ -18,10 +18,9 @@ import {
   SourcePosition,
   SourceSpan,
   StatementAst,
-  ValueArgAst,
 } from "../ast";
 import { parseExpression } from "./expression";
-import { parseValueArgAst } from "./value-arg";
+import { parseValueArgs } from "./value-arg";
 
 interface ParsedLine {
   lineNumber: number;
@@ -316,12 +315,12 @@ export class StoryParser {
       } satisfies DialogueStmtAst;
     }
 
-    const parts = line.trimmed.split(/\s+/u).filter(Boolean);
-    if (parts.length === 0) {
+    const commandMatch = /^(\S+)(?:\s+(.*))?$/u.exec(line.trimmed);
+    if (!commandMatch) {
       return null;
     }
 
-    const name = parts[0];
+    const name = commandMatch[1];
     if (name === "jump") {
       const target = line.trimmed.slice(name.length).trim();
       if (!target) {
@@ -364,10 +363,15 @@ export class StoryParser {
       this.pushDiagnostic(`'${name}' 是保留字，不能作为命令名`, lineSpan(line), "semantic");
     }
 
+    const argsText = commandMatch[2] ?? "";
+    const argsStartColumnInTrimmed = argsText ? line.trimmed.indexOf(argsText, name.length) + 1 : name.length + 1;
+    const parsedArgs = parseValueArgs(argsText, position(line, line.indentSpaces + argsStartColumnInTrimmed));
+    this.diagnostics.push(...parsedArgs.diagnostics);
+
     return {
       type: "command",
       name,
-      args: parts.slice(1).map((part) => parseValueArgAst(part, lineSpan(line))),
+      args: parsedArgs.args,
       raw: line.trimmed,
       span: lineSpan(line),
     } satisfies CommandStmtAst;

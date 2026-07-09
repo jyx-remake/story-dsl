@@ -4,6 +4,7 @@ import {
   ExprAst,
   IfStmtAst,
   LiteralExprAst,
+  ListValueArgAst,
   ScriptAst,
   SourceSpan,
   StatementAst,
@@ -198,11 +199,19 @@ function compileComparison(expr: ComparisonExprAst): BinaryExprIr {
 }
 
 function compileValueArg(arg: ValueArgAst): ValueArgIr {
+  if (arg.type === "list") {
+    return compileListValueArg(arg);
+  }
+
   if (arg.type === "variable") {
     return compileVariableExpr(arg);
   }
 
   return compileLiteralExpr(arg);
+}
+
+function compileListValueArg(arg: ListValueArgAst): ValueArgIr {
+  return ["list", ...arg.items.map(compileValueArg)];
 }
 
 function compileVariableExpr(expr: VariableExprAst): VariableValueIr {

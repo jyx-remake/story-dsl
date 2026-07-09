@@ -77,6 +77,48 @@ set_reward $moneyCnt 小刀 2 -5
   });
 });
 
+test("parses command list arguments with English and Chinese separators", () => {
+  const source = `# Start
+random_item [小还丹, 大还丹] 1
+random_item [小还丹， 大还丹] 2
+random_join [胡斐, 程灵素, $candidateId]
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.diagnostics.length, 0);
+  assert.deepEqual(compiled.ir.segments[0].steps[0], {
+    kind: "command",
+    name: "random_item",
+    args: [["list", "小还丹", "大还丹"], 1],
+  });
+  assert.deepEqual(compiled.ir.segments[0].steps[1], {
+    kind: "command",
+    name: "random_item",
+    args: [["list", "小还丹", "大还丹"], 2],
+  });
+  assert.deepEqual(compiled.ir.segments[0].steps[2], {
+    kind: "command",
+    name: "random_join",
+    args: [["list", "胡斐", "程灵素", ["var", "candidateId"]]],
+  });
+});
+
+test("reports invalid command list arguments", () => {
+  const source = `# Start
+random_item [小还丹, 大还丹
+random_item [] 1
+random_join [胡斐,,程灵素]
+`;
+
+  const parsed = parseStory(source);
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("缺少右括号")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("不能为空")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("缺少元素")));
+});
+
 test("fills maxlevel key from segment name and skill name", () => {
   const source = `# 某剧情
 maxlevel 独孤九剑 1
@@ -259,7 +301,6 @@ return value
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("call 之后必须提供目标段名")));
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("return 后不能跟参数")));
 });
-
 
 test("reports indentation and stray branch errors", () => {
   const source = "# Start\n   南贤：错缩进\n- stray\n";

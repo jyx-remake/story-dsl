@@ -4997,9 +4997,7 @@
         {
           "kind": "command",
           "name": "nextzhoumu",
-          "args": [
-            "nextZhoumu"
-          ]
+          "args": []
         }
       ]
     },
@@ -6667,8 +6665,9 @@
       "steps": [
         {
           "kind": "command",
-          "name": "change_female_name",
+          "name": "input_name",
           "args": [
+            "女主",
             "玲兰"
           ]
         },
@@ -10428,9 +10427,7 @@
                 {
                   "kind": "command",
                   "name": "nextzhoumu",
-                  "args": [
-                    "nextZhoumu"
-                  ]
+                  "args": []
                 }
               ]
             },
@@ -10440,9 +10437,7 @@
                 {
                   "kind": "command",
                   "name": "gamefin",
-                  "args": [
-                    "gameFin"
-                  ]
+                  "args": []
                 }
               ]
             }
@@ -10709,9 +10704,7 @@
                 {
                   "kind": "command",
                   "name": "gamefin",
-                  "args": [
-                    "gameFin"
-                  ]
+                  "args": []
                 }
               ]
             }
@@ -10952,9 +10945,7 @@
                 {
                   "kind": "command",
                   "name": "gamefin",
-                  "args": [
-                    "gameFin"
-                  ]
+                  "args": []
                 }
               ]
             }
@@ -11107,9 +11098,7 @@
                 {
                   "kind": "command",
                   "name": "gamefin",
-                  "args": [
-                    "gameFin"
-                  ]
+                  "args": []
                 }
               ]
             }
@@ -11590,102 +11579,6 @@
           "args": [
             "大地图"
           ]
-        }
-      ]
-    },
-    {
-      "name": "original_主角之家.殴打木头人",
-      "steps": [
-        {
-          "kind": "command",
-          "name": "background",
-          "args": [
-            "地图.主角之家"
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "music",
-          "args": [
-            "音乐.室内_清新"
-          ]
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "主角",
-          "text": "来练一下级！"
-        },
-        {
-          "kind": "battle",
-          "battleId": "南贤居_木头人_战斗",
-          "outcomes": {
-            "win": [
-              {
-                "kind": "command",
-                "name": "map",
-                "args": [
-                  "南贤居"
-                ]
-              }
-            ],
-            "lose": [
-              {
-                "kind": "command",
-                "name": "map",
-                "args": [
-                  "南贤居"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "original_主角之家.殴打练功木头人",
-      "steps": [
-        {
-          "kind": "command",
-          "name": "background",
-          "args": [
-            "地图.主角之家"
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "music",
-          "args": [
-            "音乐.室内_清新"
-          ]
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "主角",
-          "text": "来练一下武功！"
-        },
-        {
-          "kind": "battle",
-          "battleId": "南贤居_练功木头人_战斗",
-          "outcomes": {
-            "win": [
-              {
-                "kind": "command",
-                "name": "map",
-                "args": [
-                  "南贤居"
-                ]
-              }
-            ],
-            "lose": [
-              {
-                "kind": "command",
-                "name": "map",
-                "args": [
-                  "南贤居"
-                ]
-              }
-            ]
-          }
         }
       ]
     },
@@ -18969,9 +18862,7 @@
                 {
                   "kind": "command",
                   "name": "gamefin",
-                  "args": [
-                    "gameFin"
-                  ]
+                  "args": []
                 }
               ]
             }
@@ -18990,9 +18881,7 @@
         {
           "kind": "command",
           "name": "nextzhoumu",
-          "args": [
-            "nextZhoumu"
-          ]
+          "args": []
         }
       ]
     },
@@ -20864,116 +20753,6 @@
     {
       "name": "original_武道大会_买",
       "steps": [
-        {
-          "kind": "branch",
-          "cases": [
-            {
-              "when": [
-                "pred",
-                "rank",
-                1
-              ],
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "shop",
-                  "args": [
-                    "武道大会.VIP1"
-                  ]
-                }
-              ]
-            }
-          ],
-          "fallback": null
-        },
-        {
-          "kind": "branch",
-          "cases": [
-            {
-              "when": [
-                "pred",
-                "rank",
-                10
-              ],
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "shop",
-                  "args": [
-                    "武道大会.VIP2"
-                  ]
-                }
-              ]
-            }
-          ],
-          "fallback": null
-        },
-        {
-          "kind": "branch",
-          "cases": [
-            {
-              "when": [
-                "pred",
-                "rank",
-                50
-              ],
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "shop",
-                  "args": [
-                    "武道大会.VIP3"
-                  ]
-                }
-              ]
-            }
-          ],
-          "fallback": null
-        },
-        {
-          "kind": "branch",
-          "cases": [
-            {
-              "when": [
-                "pred",
-                "rank",
-                100
-              ],
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "shop",
-                  "args": [
-                    "武道大会.VIP4"
-                  ]
-                }
-              ]
-            }
-          ],
-          "fallback": null
-        },
-        {
-          "kind": "branch",
-          "cases": [
-            {
-              "when": [
-                "pred",
-                "rank",
-                500
-              ],
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "shop",
-                  "args": [
-                    "武道大会.VIP5"
-                  ]
-                }
-              ]
-            }
-          ],
-          "fallback": null
-        },
         {
           "kind": "jump",
           "target": "original_武道大会_买不了"
@@ -23539,74 +23318,6 @@
           "name": "daode",
           "args": [
             2
-          ]
-        },
-        {
-          "kind": "jump",
-          "target": "original_女主.神雕侠侣.绝情谷结束郭襄"
-        }
-      ]
-    },
-    {
-      "name": "original_女主.神雕侠侣.绝情谷结束郭襄",
-      "steps": [
-        {
-          "kind": "dialogue",
-          "speaker": "女主",
-          "text": "......"
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "主角",
-          "text": "怎么啦？"
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "女主",
-          "text": "心情不好，杨大哥、龙姐姐与襄儿真的很不容易呢，没想到最后是这样..."
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "主角",
-          "text": "人力有时尽，人声已经如此艰难了，我们还是开心一点吧，还要珍惜身边的一切。"
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "女主",
-          "text": "嗯…要珍惜身边的女孩子，尤其是离家跟着你闯荡的那种，你说是吧，这位大侠。"
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "主角",
-          "text": "咳咳咳…我，我会的。"
-        },
-        {
-          "kind": "dialogue",
-          "speaker": "女主",
-          "text": "今天在武学上也有所收获呢。"
-        },
-        {
-          "kind": "command",
-          "name": "haogan",
-          "args": [
-            10
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "get_point",
-          "args": [
-            "女主",
-            15
-          ]
-        },
-        {
-          "kind": "command",
-          "name": "upgrade",
-          "args": [
-            "剑法",
-            "女主",
-            20
           ]
         },
         {
@@ -47984,9 +47695,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -48132,9 +47841,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -48254,9 +47961,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -48388,9 +48093,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -48562,9 +48265,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -48732,9 +48433,7 @@
               {
                 "kind": "command",
                 "name": "gameover",
-                "args": [
-                  "gameOver"
-                ]
+                "args": []
               }
             ]
           }
@@ -74855,7 +74554,7 @@
           "kind": "command",
           "name": "nick",
           "args": [
-            "金刚伏魔圈"
+            "金刚伏魔"
           ]
         },
         {

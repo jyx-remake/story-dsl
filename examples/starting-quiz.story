@@ -1,5 +1,6 @@
 # 开局答题
 toast off
+call 试炼之地奖励
 background 地图.竹林
 item 小还丹 3
 get_money 100
@@ -139,6 +140,26 @@ get_money 100
 - [color=red]炼狱[/color]
   set_game_mode crazy
 // - [color=magenta]无悔[/color]
+if in_round 1
+  if game_mode normal
+    random_item [新手礼包-大蟠桃] 5
+elif in_round 2
+  random_item [佛光普照, 百变千幻云雾十三式秘籍, 反两仪刀法, 伏魔杖法] 1
+  random_item [灭仙爪, 倚天剑, 屠龙刀, 打狗棒] 1
+elif in_round 3
+  random_item [隔空取物, 妙手仁心, 飞向天际, 血刀] 1
+  random_item [仙丽雅的项链, 李延宗的项链, 王语嫣的武学概要, 神木王鼎] 1
+else
+  random_item [碎裂的怒吼, 沾衣十八跌, 灵心慧质, 不老长春功法] 1
+  random_item [仙丽雅的项链, 李延宗的项链, 王语嫣的武学概要, 神木王鼎] 1
+if in_round 2
+  random_join [鲁连荣, 冲虚道长, 方证大师, 灭绝师太, 张翠山, 宋远桥, 韦一笑, 仪清, 何太冲, 哑仆, 温方达, 温方义, 温方山, 温方施, 温方悟, 安小慧, 阿九]
+elif in_round 3
+  random_join [紫衫龙王, 殷天正, 商剑鸣, 杨逍, 范遥, 霍都, 孙不二, 龙岛主, 木岛主, 善勇]
+elif in_round 4
+  random_join [白自在, 向问天, 丁春秋, 成昆, 段延庆, 丘处机, 欧阳锋]
+elif not in_round 1
+  random_join [任我行, 王重阳, 林朝英, 归辛树, 玉真子, 慕容博, 卓一航, 谢逊, 虚竹]
 ：请输入你的名字
 - 继续..
   input_name 主角 小虾米
@@ -150,3 +171,27 @@ get_money 100
   roll_stats
 toast on
 jump 新手村_出生
+
+# 试炼之地奖励
+if in_round 1
+  return
+
+if $last_trial_count >= 20
+  item 真葵花宝典
+elif $last_trial_count >= 15
+  item 武穆遗书
+  item 笑傲江湖曲
+elif $last_trial_count >= 12
+  item 沾衣十八跌
+  item 易筋经
+  item 厚黑学
+elif $last_trial_count >= 9
+  item 素心神剑心得
+  item 太极心得手抄本
+  item 乾坤大挪移心法
+elif $last_trial_count >= 6
+  item 灵心慧质
+  item 妙手仁心
+elif $last_trial_count >= 3
+  item 王母蟠桃
+  item 道家仙丹
