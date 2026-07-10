@@ -3,6 +3,7 @@ import {
   BattleOutcomeName,
   BattleStmtAst,
   CallStmtAst,
+  ChoiceOptionGroupAst,
   ChoiceOptionAst,
   ChoiceStmtAst,
   CommandStmtAst,
@@ -45,6 +46,7 @@ const RESERVED_COMMAND_NAMES = new Set([
   "battle",
   "call",
   "return",
+  "when",
   "and",
   "or",
   "not",
@@ -279,6 +281,12 @@ export class StoryParser {
       return this.parseIfStatement(expectedIndent);
     }
 
+    if (isKeywordLine(line, "when")) {
+      this.pushDiagnostic("when 只能作为 choice 的条件组选项出现", lineSpan(line), "structure");
+      this.index += 1;
+      return null;
+    }
+
     if (isKeywordLine(line, "battle")) {
       return this.parseBattleStatement(expectedIndent);
     }
@@ -294,7 +302,11 @@ export class StoryParser {
 
     if (simpleStatement?.type === "dialogue") {
       const nextLine = this.peekNonBlank();
-      if (nextLine && nextLine.indentLevel === expectedIndent && isBranchLine(nextLine)) {
+      if (
+        nextLine &&
+        nextLine.indentLevel === expectedIndent &&
+        (isBranchLine(nextLine) || isKeywordLine(nextLine, "when"))
+      ) {
         return this.parseChoiceStatement(simpleStatement, expectedIndent);
       }
     }
@@ -378,39 +390,134 @@ export class StoryParser {
   }
 
   private parseChoiceStatement(prompt: DialogueStmtAst, expectedIndent: number): ChoiceStmtAst {
-    const options: ChoiceOptionAst[] = [];
+    const groups: ChoiceOptionGroupAst[] = [];
 
     while (true) {
       this.skipBlankLines();
       const line = this.peek();
-      if (!line || line.indentLevel !== expectedIndent || !isBranchLine(line)) {
+      if (!line || line.indentLevel !== expectedIndent) {
         break;
       }
 
-      const optionText = /^-\s*(.*)$/u.exec(line.trimmed)?.[1] ?? "";
-      const optionSpan = lineSpan(line);
-      this.index += 1;
-      const statements = this.parseStatements(
-        expectedIndent + 1,
-        (candidate) => candidate.indentLevel === expectedIndent && isBranchLine(candidate),
-      );
-      options.push({
-        type: "choiceOption",
-        text: optionText,
-        statements,
-        span: statements.length > 0 ? mergeSpans(optionSpan, statements[statements.length - 1].span) : optionSpan,
-      });
+      if (isBranchLine(line)) {
+        const options = this.parseChoiceOptions(expectedIndent);
+        groups.push({
+          type: "choiceOptionGroup",
+          condition: null,
+          rawCondition: null,
+          options,
+          span: mergeSpans(options[0].span, options[options.length - 1].span),
+        });
+        continue;
+      }
+
+      if (isKeywordLine(line, "when")) {
+        groups.push(this.parseConditionalChoiceGroup(expectedIndent));
+        continue;
+      }
+
+      break;
     }
 
-    if (options.length === 0) {
+    if (groups.length === 0) {
       this.pushDiagnostic("choice 至少需要一个 '- 选项' 分支", prompt.span, "structure");
+    }
+
+    if (groups.length > 0 && groups.every((group) => group.condition !== null)) {
+      this.pushWarning("choice 全部为条件组选项，运行时可能没有可用选项", prompt.span, "semantic");
     }
 
     return {
       type: "choice",
       prompt,
+      groups,
+      span: groups.length > 0 ? mergeSpans(prompt.span, groups[groups.length - 1].span) : prompt.span,
+    };
+  }
+
+  private parseChoiceOptions(optionIndent: number): ChoiceOptionAst[] {
+    const options: ChoiceOptionAst[] = [];
+
+    while (true) {
+      this.skipBlankLines();
+      const line = this.peek();
+      if (!line || line.indentLevel !== optionIndent || !isBranchLine(line)) {
+        break;
+      }
+
+      options.push(this.parseChoiceOption(optionIndent));
+    }
+
+    return options;
+  }
+
+  private parseChoiceOption(optionIndent: number): ChoiceOptionAst {
+    const line = this.peek()!;
+    const optionText = /^-\s*(.*)$/u.exec(line.trimmed)?.[1] ?? "";
+    const optionSpan = lineSpan(line);
+    this.index += 1;
+    const statements = this.parseStatements(
+      optionIndent + 1,
+      (candidate) => candidate.indentLevel === optionIndent && isBranchLine(candidate),
+    );
+
+    return {
+      type: "choiceOption",
+      text: optionText,
+      statements,
+      span: statements.length > 0 ? mergeSpans(optionSpan, statements[statements.length - 1].span) : optionSpan,
+    };
+  }
+
+  private parseConditionalChoiceGroup(expectedIndent: number): ChoiceOptionGroupAst {
+    const whenLine = this.peek()!;
+    const rawCondition = whenLine.trimmed.slice("when".length).trim();
+    let condition: ExprAst | null = null;
+    if (!rawCondition) {
+      this.pushDiagnostic("when 后缺少条件表达式", lineSpan(whenLine), "syntax");
+    } else {
+      const startColumn = whenLine.indentSpaces + 1 + whenLine.text.indexOf(rawCondition);
+      const expressionResult = parseExpression(rawCondition, position(whenLine, startColumn + 1));
+      condition = expressionResult.expr;
+      this.diagnostics.push(...expressionResult.diagnostics);
+    }
+
+    this.index += 1;
+    const optionIndent = expectedIndent + 1;
+    const options: ChoiceOptionAst[] = [];
+
+    while (true) {
+      this.skipBlankLines();
+      const line = this.peek();
+      if (!line || line.indentLevel <= expectedIndent) {
+        break;
+      }
+
+      if (line.indentLevel === optionIndent && isBranchLine(line)) {
+        options.push(this.parseChoiceOption(optionIndent));
+        continue;
+      }
+
+      if (line.indentLevel === optionIndent && isKeywordLine(line, "when")) {
+        this.pushDiagnostic("when 条件组不允许嵌套", lineSpan(line), "structure");
+      } else if (line.indentLevel === optionIndent) {
+        this.pushDiagnostic("when 条件组只能包含 '- 选项'", lineSpan(line), "structure");
+      } else {
+        this.pushDiagnostic("when 条件组中出现了意外的缩进层级", lineSpan(line), "indentation");
+      }
+      this.index += 1;
+    }
+
+    if (options.length === 0) {
+      this.pushDiagnostic("when 条件组至少需要一个缩进的 '- 选项'", lineSpan(whenLine), "structure");
+    }
+
+    return {
+      type: "choiceOptionGroup",
+      condition,
+      rawCondition,
       options,
-      span: options.length > 0 ? mergeSpans(prompt.span, options[options.length - 1].span) : prompt.span,
+      span: options.length > 0 ? mergeSpans(lineSpan(whenLine), options[options.length - 1].span) : lineSpan(whenLine),
     };
   }
 
@@ -591,6 +698,15 @@ export class StoryParser {
       span,
       code,
       severity: "error",
+    });
+  }
+
+  private pushWarning(message: string, span: SourceSpan, code: DiagnosticItem["code"]): void {
+    this.diagnostics.push({
+      message,
+      span,
+      code,
+      severity: "warning",
     });
   }
 }

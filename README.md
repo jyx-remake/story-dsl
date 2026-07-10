@@ -131,6 +131,24 @@ return
 - `choice` 不是独立头语法，而是“对白后紧跟若干 `- 选项`”
 - 分支体允许多语句
 
+选项可以按条件成组显示：
+
+```text
+掌柜：客官需要什么？
+- 离开
+  jump leave
+when shop_open and $money > 0
+  - 购买
+    jump buy
+  - 出售
+    jump sell
+```
+
+- `when` 与对白及普通选项同级，其组内选项缩进一级
+- 同一条件组可以包含一个或多个选项，进入 choice 时条件只求值一次
+- 条件为假时整组隐藏；无条件组选项始终显示
+- 若运行时没有任何可用选项，剧情执行失败
+
 ### 战斗分支
 
 ```text
@@ -169,7 +187,7 @@ else
 
 ```json
 {
-  "version": 1,
+  "version": 2,
   "segments": []
 }
 ```
@@ -181,7 +199,7 @@ else
 - `jump`: `target`
 - `call`: `target`
 - `return`: 无额外字段
-- `choice`: `prompt`, `options`
+- `choice`: `prompt`, `groups`；无条件组省略 `when`，条件组使用 `when`, `options`
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
 
@@ -268,7 +286,7 @@ TODO.md
 当前只确定方向，不代表已经落地：
 
 1. `set`
-2. 选项级条件与一次性选项
+2. 一次性选项
 3. 局部变量
 4. 标签 / 元数据
 5. 输入语法与历史系统评估

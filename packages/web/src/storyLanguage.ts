@@ -26,7 +26,7 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
   monacoApi.languages.setMonarchTokensProvider(LANGUAGE_ID, {
     defaultToken: "",
     tokenPostfix: ".story",
-    keywords: ["if", "elif", "else", "battle", "jump", "and", "or", "not", "win", "lose", "timeout"],
+    keywords: ["if", "elif", "else", "when", "battle", "jump", "and", "or", "not", "win", "lose", "timeout"],
     operators: ["==", "!=", ">=", "<=", ">", "<", "&&", "||", "!"],
     tokenizer: {
       root: [
@@ -34,7 +34,7 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
         [/^(#)(.*)$/, ["story.segmentMarker", "story.segmentName"]],
         [/^(\s*)(-)(\s*)(win|lose|timeout)\b/, ["", "story.branchMarker", "", "keyword"]],
         [/^(\s*)(-)(\s*)(.*)$/, ["", "story.branchMarker", "", "story.choiceText"]],
-        [/^(\s*)(if|elif|else)\b/, ["", "keyword"]],
+        [/^(\s*)(if|elif|else|when)\b/, ["", "keyword"]],
         [/^(\s*)(battle|jump)\b/, ["", "keyword"]],
         [/^(\s*)([A-Za-z_][\w.]*)\b/, ["", "story.commandName"]],
         [/^(\s*)([^:：\s][^:：]*)([:：])/, ["", "story.speaker", "delimiter"]],

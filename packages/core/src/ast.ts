@@ -88,6 +88,14 @@ export interface ChoiceStmtAst {
   type: "choice";
   span: SourceSpan;
   prompt: DialogueStmtAst;
+  groups: ChoiceOptionGroupAst[];
+}
+
+export interface ChoiceOptionGroupAst {
+  type: "choiceOptionGroup";
+  span: SourceSpan;
+  condition: ExprAst | null;
+  rawCondition: string | null;
   options: ChoiceOptionAst[];
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "segments": [
     {
       "name": "游戏开始",
@@ -15,30 +15,68 @@
             "speaker": "胡斐",
             "text": "少侠来此所谓何事？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "无事",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "nothing"
+                  "text": "无事",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "nothing"
+                    }
+                  ]
+                },
+                {
+                  "text": "乞讨",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "get_money",
+                      "args": [
+                        100
+                      ]
+                    },
+                    {
+                      "kind": "dialogue",
+                      "speaker": "胡斐",
+                      "text": "给你钱"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "text": "乞讨",
-              "steps": [
+              "when": [
+                "and",
+                [
+                  "pred",
+                  "has_item",
+                  "小刀"
+                ],
+                [
+                  ">",
+                  [
+                    "var",
+                    "money"
+                  ],
+                  10
+                ]
+              ],
+              "options": [
                 {
-                  "kind": "command",
-                  "name": "get_money",
-                  "args": [
-                    100
+                  "text": "出示小刀",
+                  "steps": [
+                    {
+                      "kind": "dialogue",
+                      "speaker": "胡斐",
+                      "text": "这把刀从哪里来的？"
+                    }
                   ]
                 },
                 {
-                  "kind": "dialogue",
-                  "speaker": "胡斐",
-                  "text": "给你钱"
+                  "text": "收起小刀",
+                  "steps": []
                 }
               ]
             }

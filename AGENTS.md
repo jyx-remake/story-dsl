@@ -67,7 +67,9 @@
 - 对白支持 `:` 与 `：`
 - `- xxx` 不是独立顶级语法，只能依附：
   - 对白后的 choice 选项
+  - `when` 条件组中的 choice 选项
   - battle 的结果分支
+- `when expr` 只能出现在 choice 中，与 prompt 同级；其下缩进的一个或多个选项共享条件，并且每组只求值一次
 - `battle` 当前只支持：
   - `win`
   - `lose`
@@ -83,6 +85,7 @@
 ## Naming Conventions
 
 - JSON IR 层统一使用 `kind` 作为判别字段
+- JSON IR 当前版本为 2；choice 使用 `groups`，无条件组省略 `when`
 - battle 的标识字段用 `battleId`
 - AST 目前仍使用 `type` 作为节点区分字段；如果要统一改为 `kind`，请全量同步测试与编译层
 

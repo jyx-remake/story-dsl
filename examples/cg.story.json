@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "segments": [
     {
       "name": "门派星宿_入门",
@@ -65,40 +65,44 @@
             "speaker": "主角",
             "text": "我也应该跟着一起喊吧……"
           },
-          "options": [
+          "groups": [
             {
-              "text": "战无不胜~",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "门派星宿_入门口号错"
-                }
-              ]
-            },
-            {
-              "text": "法力无边~",
-              "steps": [
+                  "text": "战无不胜~",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "门派星宿_入门口号错"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "门派星宿_入门口号对"
-                }
-              ]
-            },
-            {
-              "text": "仙福永享~",
-              "steps": [
+                  "text": "法力无边~",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "门派星宿_入门口号对"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "门派星宿_入门口号错"
-                }
-              ]
-            },
-            {
-              "text": "寿与天齐~",
-              "steps": [
+                  "text": "仙福永享~",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "门派星宿_入门口号错"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "门派星宿_入门口号错"
+                  "text": "寿与天齐~",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "门派星宿_入门口号错"
+                    }
+                  ]
                 }
               ]
             }
@@ -261,37 +265,41 @@
             "speaker": "天狼子",
             "text": "师弟有什么需求？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "学习武功",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "星宿派_天狼子学习武功"
+                  "text": "学习武功",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_天狼子学习武功"
+                    }
+                  ]
+                },
+                {
+                  "text": "学习内功",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_天狼子学习内功"
+                    }
+                  ]
+                },
+                {
+                  "text": "兑换钱",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_天狼子兑换钱"
+                    }
+                  ]
+                },
+                {
+                  "text": "没事了",
+                  "steps": []
                 }
               ]
-            },
-            {
-              "text": "学习内功",
-              "steps": [
-                {
-                  "kind": "jump",
-                  "target": "星宿派_天狼子学习内功"
-                }
-              ]
-            },
-            {
-              "text": "兑换钱",
-              "steps": [
-                {
-                  "kind": "jump",
-                  "target": "星宿派_天狼子兑换钱"
-                }
-              ]
-            },
-            {
-              "text": "没事了",
-              "steps": []
             }
           ]
         }
@@ -749,22 +757,26 @@
             "speaker": "主角",
             "text": "怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "(讨好)大师姐，请多关照小弟",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "星宿派_阿紫介绍1"
-                }
-              ]
-            },
-            {
-              "text": "(高冷)就你这小姑娘，做我妹子还差不多。",
-              "steps": [
+                  "text": "(讨好)大师姐，请多关照小弟",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_阿紫介绍1"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "星宿派_阿紫介绍2"
+                  "text": "(高冷)就你这小姑娘，做我妹子还差不多。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_阿紫介绍2"
+                    }
+                  ]
                 }
               ]
             }
@@ -1042,22 +1054,26 @@
             "speaker": "主角",
             "text": "怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "欣然赴邀",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "星宿派_阿紫偷鼎去"
-                }
-              ]
-            },
-            {
-              "text": "果断拒绝",
-              "steps": [
+                  "text": "欣然赴邀",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_阿紫偷鼎去"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "星宿派_阿紫偷鼎不去"
+                  "text": "果断拒绝",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "星宿派_阿紫偷鼎不去"
+                    }
+                  ]
                 }
               ]
             }

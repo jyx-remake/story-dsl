@@ -37,7 +37,9 @@ else
   assert.equal(compiled.ir.segments[0].steps[2]?.kind, "branch");
   const choiceStep = compiled.ir.segments[0].steps[0];
   assert.equal(choiceStep.kind, "choice");
-  assert.deepEqual(choiceStep.options[1].steps[0], {
+  assert.equal(choiceStep.groups.length, 1);
+  assert.equal("when" in choiceStep.groups[0], false);
+  assert.deepEqual(choiceStep.groups[0].options[1].steps[0], {
     kind: "command",
     name: "get_money",
     args: [100],
@@ -58,6 +60,83 @@ else
     [">", ["var", "money"], 10],
   ]);
   assert.equal(branchStep.fallback?.[0]?.kind, "dialogue");
+});
+
+test("parses conditional choice groups and compiles version 2 IR", () => {
+  const source = `# Start
+掌柜：客官需要什么？
+- 离开
+  jump leave
+when has_item 小刀 and $money > 10
+  - 购买
+    jump buy
+  - 出售
+    jump sell
+- 打听消息
+  jump gossip
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+  const choice = parsed.ast.segments[0].statements[0];
+  assert.equal(choice.type, "choice");
+  assert.equal(choice.groups.length, 3);
+  assert.equal(choice.groups[0].condition, null);
+  assert.equal(choice.groups[1].options.length, 2);
+  assert.equal(choice.groups[2].options[0].text, "打听消息");
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.ir.version, 2);
+  const step = compiled.ir.segments[0].steps[0];
+  assert.equal(step.kind, "choice");
+  assert.equal("when" in step.groups[0], false);
+  assert.deepEqual(step.groups[1].when, [
+    "and",
+    ["pred", "has_item", "小刀"],
+    [">", ["var", "money"], 10],
+  ]);
+  assert.deepEqual(step.groups.map((group) => group.options.map((option) => option.text)), [
+    ["离开"],
+    ["购买", "出售"],
+    ["打听消息"],
+  ]);
+});
+
+test("reports invalid conditional choice group structures", () => {
+  const source = `# Start
+when always
+旁白：空条件
+when
+  - 选项
+旁白：空组
+when always
+旁白：直接语句
+when always
+  do_something
+旁白：嵌套组
+when always
+  when always
+    - 选项
+`;
+
+  const parsed = parseStory(source);
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 只能作为 choice")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 后缺少条件表达式")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("至少需要一个缩进")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("只能包含 '- 选项'")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("不允许嵌套")));
+});
+
+test("warns when every choice group is conditional", () => {
+  const source = `# Start
+旁白：选择
+when always
+  - 唯一选项
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.filter((item) => item.severity === "error").length, 0);
+  assert.ok(parsed.diagnostics.some((item) => item.severity === "warning" && item.message.includes("可能没有可用选项")));
 });
 
 test("normalizes command arguments into value args", () => {
@@ -151,7 +230,7 @@ maxlevel $skill 1
 
   const choiceStep = compiled.ir.segments[0].steps[1];
   assert.equal(choiceStep.kind, "choice");
-  assert.deepEqual(choiceStep.options[0].steps[0], {
+  assert.deepEqual(choiceStep.groups[0].options[0].steps[0], {
     kind: "command",
     name: "maxlevel",
     args: ["胡家刀法", 2, "某剧情_胡家刀法"],

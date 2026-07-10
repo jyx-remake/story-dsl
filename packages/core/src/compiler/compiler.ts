@@ -54,7 +54,7 @@ export function compileScript(ast: ScriptAst): CompileResult {
 
   return {
     ir: {
-      version: 1,
+      version: 2,
       segments,
     },
     diagnostics,
@@ -126,9 +126,12 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
           speaker: statement.prompt.speaker,
           text: statement.prompt.text,
         },
-        options: statement.options.map((option) => ({
-          text: option.text,
-          steps: compileSteps(option.statements, segmentName, diagnostics),
+        groups: statement.groups.map((group) => ({
+          ...(group.condition ? { when: compileExpr(group.condition) } : {}),
+          options: group.options.map((option) => ({
+            text: option.text,
+            steps: compileSteps(option.statements, segmentName, diagnostics),
+          })),
         })),
       } satisfies ChoiceIr;
     case "battle": {

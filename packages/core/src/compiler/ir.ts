@@ -1,5 +1,5 @@
 export interface ScriptIr {
-  version: 1;
+  version: 2;
   segments: SegmentIr[];
 }
 
@@ -42,9 +42,12 @@ export interface ChoiceIr {
     speaker: string;
     text: string;
   };
-  options: Array<{
-    text: string;
-    steps: StepIr[];
+  groups: Array<{
+    when?: ExprIr;
+    options: Array<{
+      text: string;
+      steps: StepIr[];
+    }>;
   }>;
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "segments": [
     {
       "name": "original_女主长安",
@@ -15,22 +15,26 @@
             "speaker": "主角",
             "text": "说些什么好呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "最近还好吗？",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_女主长安接任务"
-                }
-              ]
-            },
-            {
-              "text": "要不要和我一起闯江湖？",
-              "steps": [
+                  "text": "最近还好吗？",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_女主长安接任务"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_女主长安加入队伍判断"
+                  "text": "要不要和我一起闯江湖？",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_女主长安加入队伍判断"
+                    }
+                  ]
                 }
               ]
             }
@@ -293,22 +297,26 @@
             "speaker": "主角",
             "text": "要过去看看吗？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "过去看看",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安深夜怪事.初遇夜间人"
-                }
-              ]
-            },
-            {
-              "text": "有点不安的感觉，还是回去吧。",
-              "steps": [
+                  "text": "过去看看",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安深夜怪事.初遇夜间人"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安深夜怪事.回复任务失败"
+                  "text": "有点不安的感觉，还是回去吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安深夜怪事.回复任务失败"
+                    }
+                  ]
                 }
               ]
             }
@@ -811,22 +819,26 @@
             "speaker": "主角",
             "text": "该怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "趁她病，要她命啊！",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安深夜怪事.三遇夜间人.杀"
-                }
-              ]
-            },
-            {
-              "text": "再观察一下",
-              "steps": [
+                  "text": "趁她病，要她命啊！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安深夜怪事.三遇夜间人.杀"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安深夜怪事.三遇夜间人.不杀"
+                  "text": "再观察一下",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安深夜怪事.三遇夜间人.不杀"
+                    }
+                  ]
                 }
               ]
             }
@@ -1553,22 +1565,26 @@
             "speaker": "主角",
             "text": "要去鸣凤山庄喝酒吗？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "去吧。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_山庄风云.出发"
-                }
-              ]
-            },
-            {
-              "text": "不去，没兴趣。",
-              "steps": [
+                  "text": "去吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_山庄风云.出发"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_山庄风云.开篇不去"
+                  "text": "不去，没兴趣。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_山庄风云.开篇不去"
+                    }
+                  ]
                 }
               ]
             }
@@ -1971,22 +1987,26 @@
             "speaker": "主角",
             "text": "怎么办呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "留下来。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_山庄风云.金盆洗手大会.恶战"
-                }
-              ]
-            },
-            {
-              "text": "先撤退，再缓图之。",
-              "steps": [
+                  "text": "留下来。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_山庄风云.金盆洗手大会.恶战"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_山庄风云.金盆洗手大会.撤退"
+                  "text": "先撤退，再缓图之。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_山庄风云.金盆洗手大会.撤退"
+                    }
+                  ]
                 }
               ]
             }
@@ -3174,22 +3194,26 @@
             "speaker": "主角",
             "text": "对阿玉说什么好呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "别听仙丽雅胡说八道。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.溪边阿玉胡说八道"
-                }
-              ]
-            },
-            {
-              "text": "阿玉，大哥哥挺喜欢你的。",
-              "steps": [
+                  "text": "别听仙丽雅胡说八道。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.溪边阿玉胡说八道"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.溪边阿玉调戏"
+                  "text": "阿玉，大哥哥挺喜欢你的。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.溪边阿玉调戏"
+                    }
+                  ]
                 }
               ]
             }
@@ -3326,22 +3350,26 @@
             "speaker": "主角",
             "text": "要去看看吗？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "去看看吧。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.半夜鬼叫去"
-                }
-              ]
-            },
-            {
-              "text": "算了。",
-              "steps": [
+                  "text": "去看看吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.半夜鬼叫去"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.半夜鬼叫不去"
+                  "text": "算了。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.半夜鬼叫不去"
+                    }
+                  ]
                 }
               ]
             }
@@ -3380,19 +3408,23 @@
             "speaker": "主角",
             "text": "要走吗？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "走吧，不管了",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.半夜鬼叫不去"
+                  "text": "走吧，不管了",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.半夜鬼叫不去"
+                    }
+                  ]
+                },
+                {
+                  "text": "不走，查个究竟！",
+                  "steps": []
                 }
               ]
-            },
-            {
-              "text": "不走，查个究竟！",
-              "steps": []
             }
           ]
         }
@@ -3495,40 +3527,44 @@
             "speaker": "主角",
             "text": "选什么好呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "春天的花",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.春花"
-                }
-              ]
-            },
-            {
-              "text": "夏天的瓜",
-              "steps": [
+                  "text": "春天的花",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.春花"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.夏瓜"
-                }
-              ]
-            },
-            {
-              "text": "秋天的月亮",
-              "steps": [
+                  "text": "夏天的瓜",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.夏瓜"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.秋月"
-                }
-              ]
-            },
-            {
-              "text": "冬天的太阳",
-              "steps": [
+                  "text": "秋天的月亮",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.秋月"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.冬日"
+                  "text": "冬天的太阳",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.冬日"
+                    }
+                  ]
                 }
               ]
             }
@@ -3898,22 +3934,26 @@
             "speaker": "主角",
             "text": "往哪边追？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "左边",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.阿玉失踪结束"
-                }
-              ]
-            },
-            {
-              "text": "右边",
-              "steps": [
+                  "text": "左边",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.阿玉失踪结束"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.阿玉失踪结束"
+                  "text": "右边",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.阿玉失踪结束"
+                    }
+                  ]
                 }
               ]
             }
@@ -4280,49 +4320,53 @@
             "speaker": "主角",
             "text": "我是想..."
           },
-          "options": [
+          "groups": [
             {
-              "text": "找您聊天",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.部落长老聊天"
-                }
-              ]
-            },
-            {
-              "text": "去草场放牧",
-              "steps": [
+                  "text": "找您聊天",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.部落长老聊天"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.部落长老放牧"
-                }
-              ]
-            },
-            {
-              "text": "去河边打水",
-              "steps": [
+                  "text": "去草场放牧",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.部落长老放牧"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.部落长老打水"
-                }
-              ]
-            },
-            {
-              "text": "去砍柴",
-              "steps": [
+                  "text": "去河边打水",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.部落长老打水"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.部落长老砍柴"
-                }
-              ]
-            },
-            {
-              "text": "没事",
-              "steps": [
+                  "text": "去砍柴",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.部落长老砍柴"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_长安一梦.部落长老没事"
+                  "text": "没事",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_长安一梦.部落长老没事"
+                    }
+                  ]
                 }
               ]
             }
@@ -4492,22 +4536,26 @@
             "speaker": "主角",
             "text": "要不要做新手任务？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "还是做一做吧。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.任务买药"
-                }
-              ]
-            },
-            {
-              "text": "做啥新手任务，我要闯江湖！",
-              "steps": [
+                  "text": "还是做一做吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.任务买药"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_门派选择"
+                  "text": "做啥新手任务，我要闯江湖！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_门派选择"
+                    }
+                  ]
                 }
               ]
             }
@@ -4610,40 +4658,44 @@
             "speaker": "主角",
             "text": "要什么类型的秘籍呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拳掌",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.买药拳"
-                }
-              ]
-            },
-            {
-              "text": "剑法",
-              "steps": [
+                  "text": "拳掌",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.买药拳"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.买药剑"
-                }
-              ]
-            },
-            {
-              "text": "刀法",
-              "steps": [
+                  "text": "剑法",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.买药剑"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.买药刀"
-                }
-              ]
-            },
-            {
-              "text": "奇门",
-              "steps": [
+                  "text": "刀法",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.买药刀"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.买药奇门"
+                  "text": "奇门",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.买药奇门"
+                    }
+                  ]
                 }
               ]
             }
@@ -4841,22 +4893,26 @@
             "speaker": "主角",
             "text": "该如何选择？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "还是去欺负小孩吧。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.任务打人小孩"
-                }
-              ]
-            },
-            {
-              "text": "我要教训黑老大！",
-              "steps": [
+                  "text": "还是去欺负小孩吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.任务打人小孩"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_新手引导.任务打人黑帮"
+                  "text": "我要教训黑老大！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_新手引导.任务打人黑帮"
+                    }
+                  ]
                 }
               ]
             }
@@ -5413,57 +5469,61 @@
             "speaker": "主角",
             "text": "要不要接镖？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "接镖！",
-              "steps": [
+              "options": [
                 {
-                  "kind": "branch",
-                  "cases": [
+                  "text": "接镖！",
+                  "steps": [
                     {
-                      "when": [
-                        "pred",
-                        "probability",
-                        50
-                      ],
-                      "steps": [
+                      "kind": "branch",
+                      "cases": [
                         {
-                          "kind": "jump",
-                          "target": "original_新手地图.接镖劫匪1"
+                          "when": [
+                            "pred",
+                            "probability",
+                            50
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_新手地图.接镖劫匪1"
+                            }
+                          ]
                         }
-                      ]
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "probability",
+                            50
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_新手地图.接镖劫匪2"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "jump",
+                      "target": "original_新手地图.接镖完成"
                     }
-                  ],
-                  "fallback": null
+                  ]
                 },
                 {
-                  "kind": "branch",
-                  "cases": [
-                    {
-                      "when": [
-                        "pred",
-                        "probability",
-                        50
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "original_新手地图.接镖劫匪2"
-                        }
-                      ]
-                    }
-                  ],
-                  "fallback": null
-                },
-                {
-                  "kind": "jump",
-                  "target": "original_新手地图.接镖完成"
+                  "text": "不接",
+                  "steps": []
                 }
               ]
-            },
-            {
-              "text": "不接",
-              "steps": []
             }
           ]
         }
@@ -5678,22 +5738,26 @@
             "speaker": "主角",
             "text": "要怎么做？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拜会古墓派",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_拜会古墓"
-                }
-              ]
-            },
-            {
-              "text": "[color=red]灭门古墓！[/color]",
-              "steps": [
+                  "text": "拜会古墓派",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_拜会古墓"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_灭门古墓"
+                  "text": "[color=red]灭门古墓！[/color]",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_灭门古墓"
+                    }
+                  ]
                 }
               ]
             }
@@ -5995,22 +6059,26 @@
             "speaker": "主角",
             "text": "要怎么做？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拜会大轮寺",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_拜会大轮"
-                }
-              ]
-            },
-            {
-              "text": "[color=red]灭门大轮寺！[/color]",
-              "steps": [
+                  "text": "拜会大轮寺",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_拜会大轮"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_灭门大轮"
+                  "text": "[color=red]灭门大轮寺！[/color]",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_灭门大轮"
+                    }
+                  ]
                 }
               ]
             }
@@ -6153,41 +6221,45 @@
             "speaker": "主角",
             "text": "要怎么做？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拜会血刀门",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_拜会血刀"
-                }
-              ]
-            },
-            {
-              "text": "[color=red]灭门血刀！[/color]",
-              "steps": [
-                {
-                  "kind": "branch",
-                  "cases": [
+                  "text": "拜会血刀门",
+                  "steps": [
                     {
-                      "when": [
-                        "pred",
-                        "in_team",
-                        "血刀老祖"
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "original_灭门血刀血刀老祖离开"
-                        }
-                      ]
+                      "kind": "jump",
+                      "target": "original_拜会血刀"
                     }
-                  ],
-                  "fallback": null
+                  ]
                 },
                 {
-                  "kind": "jump",
-                  "target": "original_灭门血刀开始"
+                  "text": "[color=red]灭门血刀！[/color]",
+                  "steps": [
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "in_team",
+                            "血刀老祖"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_灭门血刀血刀老祖离开"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "jump",
+                      "target": "original_灭门血刀开始"
+                    }
+                  ]
                 }
               ]
             }
@@ -6347,22 +6419,26 @@
             "speaker": "主角",
             "text": "要怎么做？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拜会全真教",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_拜会全真"
-                }
-              ]
-            },
-            {
-              "text": "[color=red]灭门全真！[/color]",
-              "steps": [
+                  "text": "拜会全真教",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_拜会全真"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_灭门全真"
+                  "text": "[color=red]灭门全真！[/color]",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_灭门全真"
+                    }
+                  ]
                 }
               ]
             }
@@ -6658,22 +6734,26 @@
             "speaker": "主角",
             "text": "要怎么做？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拜会灵鹫宫",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "original_拜会灵鹫"
-                }
-              ]
-            },
-            {
-              "text": "[color=red]灭门灵鹫宫！[/color]",
-              "steps": [
+                  "text": "拜会灵鹫宫",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_拜会灵鹫"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "original_灭门灵鹫"
+                  "text": "[color=red]灭门灵鹫宫！[/color]",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "original_灭门灵鹫"
+                    }
+                  ]
                 }
               ]
             }
@@ -6833,142 +6913,146 @@
             "speaker": "主角",
             "text": "来到剑池做什么？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "静修",
-              "steps": [
+              "options": [
                 {
-                  "kind": "branch",
-                  "cases": [
+                  "text": "静修",
+                  "steps": [
                     {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "original_东海剑池开始"
-                      ],
-                      "steps": [
+                      "kind": "branch",
+                      "cases": [
                         {
-                          "kind": "jump",
-                          "target": "original_东海剑池开始"
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "original_东海剑池开始"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_东海剑池开始"
+                            }
+                          ]
                         }
-                      ]
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "original_东海剑池开始2"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_东海剑池开始2"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "original_东海剑池开始3"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_东海剑池开始3"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "original_东海剑池开始4"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_东海剑池开始4"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "branch",
+                      "cases": [
+                        {
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "original_东海剑池开始5"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "original_东海剑池开始5"
+                            }
+                          ]
+                        }
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "jump",
+                      "target": "original_东海剑池开始6"
                     }
-                  ],
-                  "fallback": null
+                  ]
                 },
                 {
-                  "kind": "branch",
-                  "cases": [
+                  "text": "洗练装备",
+                  "steps": [
                     {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "original_东海剑池开始2"
-                      ],
-                      "steps": [
+                      "kind": "branch",
+                      "cases": [
                         {
-                          "kind": "jump",
-                          "target": "original_东海剑池开始2"
+                          "when": [
+                            "pred",
+                            "should_not_finish",
+                            "洗练装备介绍"
+                          ],
+                          "steps": [
+                            {
+                              "kind": "jump",
+                              "target": "洗练装备介绍"
+                            }
+                          ]
                         }
-                      ]
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "jump",
+                      "target": "洗练选择"
                     }
-                  ],
-                  "fallback": null
+                  ]
                 },
                 {
-                  "kind": "branch",
-                  "cases": [
-                    {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "original_东海剑池开始3"
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "original_东海剑池开始3"
-                        }
-                      ]
-                    }
-                  ],
-                  "fallback": null
-                },
-                {
-                  "kind": "branch",
-                  "cases": [
-                    {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "original_东海剑池开始4"
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "original_东海剑池开始4"
-                        }
-                      ]
-                    }
-                  ],
-                  "fallback": null
-                },
-                {
-                  "kind": "branch",
-                  "cases": [
-                    {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "original_东海剑池开始5"
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "original_东海剑池开始5"
-                        }
-                      ]
-                    }
-                  ],
-                  "fallback": null
-                },
-                {
-                  "kind": "jump",
-                  "target": "original_东海剑池开始6"
+                  "text": "离开",
+                  "steps": []
                 }
               ]
-            },
-            {
-              "text": "洗练装备",
-              "steps": [
-                {
-                  "kind": "branch",
-                  "cases": [
-                    {
-                      "when": [
-                        "pred",
-                        "should_not_finish",
-                        "洗练装备介绍"
-                      ],
-                      "steps": [
-                        {
-                          "kind": "jump",
-                          "target": "洗练装备介绍"
-                        }
-                      ]
-                    }
-                  ],
-                  "fallback": null
-                },
-                {
-                  "kind": "jump",
-                  "target": "洗练选择"
-                }
-              ]
-            },
-            {
-              "text": "离开",
-              "steps": []
             }
           ]
         }
@@ -9444,24 +9528,28 @@
             "speaker": "主角",
             "text": "该怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "跟出去看看。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_沙漠恶战"
-                }
-              ]
-            },
-            {
-              "text": "别管闲事了。",
-              "steps": [
+                  "text": "跟出去看看。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_沙漠恶战"
+                    }
+                  ]
+                },
                 {
-                  "kind": "command",
-                  "name": "map",
-                  "args": [
-                    "哈萨克部落"
+                  "text": "别管闲事了。",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "map",
+                      "args": [
+                        "哈萨克部落"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -9587,22 +9675,26 @@
             "speaker": "主角",
             "text": "我该怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "太狂妄了吧前辈，扁你哦！",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_沙漠战华辉"
-                }
-              ]
-            },
-            {
-              "text": "赔笑",
-              "steps": [
+                  "text": "太狂妄了吧前辈，扁你哦！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_沙漠战华辉"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_沙漠赔笑"
+                  "text": "赔笑",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_沙漠赔笑"
+                    }
+                  ]
                 }
               ]
             }
@@ -9792,22 +9884,26 @@
             "speaker": "主角",
             "text": "我该怎么办？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "李姑娘，我帮你教训这些恶人！",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_陈达海战斗"
-                }
-              ]
-            },
-            {
-              "text": "李姑娘，这里头是不是有误会...",
-              "steps": [
+                  "text": "李姑娘，我帮你教训这些恶人！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_陈达海战斗"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_陈达海和事佬"
+                  "text": "李姑娘，这里头是不是有误会...",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_陈达海和事佬"
+                    }
+                  ]
                 }
               ]
             }
@@ -10667,22 +10763,26 @@
             "speaker": "主角",
             "text": "要带上陈达海一起吗？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "看他可怜，带上吧。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_陈达海加入2"
-                }
-              ]
-            },
-            {
-              "text": "不理他",
-              "steps": [
+                  "text": "看他可怜，带上吧。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_陈达海加入2"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "白马啸西风_陈达海加入3"
+                  "text": "不理他",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "白马啸西风_陈达海加入3"
+                    }
+                  ]
                 }
               ]
             }
@@ -10882,22 +10982,26 @@
             "speaker": "主角",
             "text": "说什么好呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "算了，忘了段誉吧，跟我走！",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "tlbb.dy_再见木婉清.仇恨"
-                }
-              ]
-            },
-            {
-              "text": "你不要怕，我想一定可以找到段誉的。",
-              "steps": [
+                  "text": "算了，忘了段誉吧，跟我走！",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "tlbb.dy_再见木婉清.仇恨"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "tlbb.dy_再见木婉清.好感"
+                  "text": "你不要怕，我想一定可以找到段誉的。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "tlbb.dy_再见木婉清.好感"
+                    }
+                  ]
                 }
               ]
             }
@@ -11713,22 +11817,26 @@
             "speaker": "主角",
             "text": "说些什么呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "姑娘，你真美。",
-              "steps": [
+              "options": [
                 {
-                  "kind": "jump",
-                  "target": "tlbb.dy_曼陀山庄初见王语嫣2"
-                }
-              ]
-            },
-            {
-              "text": "敢问姑娘芳名？",
-              "steps": [
+                  "text": "姑娘，你真美。",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "tlbb.dy_曼陀山庄初见王语嫣2"
+                    }
+                  ]
+                },
                 {
-                  "kind": "jump",
-                  "target": "tlbb.dy_曼陀山庄初见王语嫣3"
+                  "text": "敢问姑娘芳名？",
+                  "steps": [
+                    {
+                      "kind": "jump",
+                      "target": "tlbb.dy_曼陀山庄初见王语嫣3"
+                    }
+                  ]
                 }
               ]
             }
@@ -13034,41 +13142,45 @@
             "speaker": "主角",
             "text": "要开始洗练装备吗？（消耗一个元宝）"
           },
-          "options": [
+          "groups": [
             {
-              "text": "是",
-              "steps": [
+              "options": [
                 {
-                  "kind": "branch",
-                  "cases": [
+                  "text": "是",
+                  "steps": [
                     {
-                      "when": [
-                        "pred",
-                        "have_yuanbao",
-                        1
-                      ],
-                      "steps": [
+                      "kind": "branch",
+                      "cases": [
                         {
-                          "kind": "command",
-                          "name": "xilian",
-                          "args": [
-                            0
+                          "when": [
+                            "pred",
+                            "have_yuanbao",
+                            1
+                          ],
+                          "steps": [
+                            {
+                              "kind": "command",
+                              "name": "xilian",
+                              "args": [
+                                0
+                              ]
+                            }
                           ]
                         }
-                      ]
+                      ],
+                      "fallback": null
+                    },
+                    {
+                      "kind": "jump",
+                      "target": "洗练元宝不够"
                     }
-                  ],
-                  "fallback": null
+                  ]
                 },
                 {
-                  "kind": "jump",
-                  "target": "洗练元宝不够"
+                  "text": "否",
+                  "steps": []
                 }
               ]
-            },
-            {
-              "text": "否",
-              "steps": []
             }
           ]
         }

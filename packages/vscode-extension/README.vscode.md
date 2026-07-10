@@ -65,6 +65,19 @@ else
   南贤：穷鬼
 ```
 
+Choice options can also be grouped by a shared condition:
+
+```text
+掌柜：客官需要什么？
+- 离开
+  jump leave
+when shop_open
+  - 购买
+    jump buy
+  - 出售
+    jump sell
+```
+
 ## Current Rules
 
 - 段头必须是顶格 `# 段名`
@@ -77,6 +90,7 @@ else
 ## JSON IR Notes
 
 - `if / elif / else` 会编译为 `branch { cases, fallback }`
+- 条件选项会编译为 `choice.groups`；无条件组不输出 `when`
 - 表达式使用紧凑前缀数组，例如：
   - `["var", "money"]`
   - `["pred", "has_item", "小刀"]`

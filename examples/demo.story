@@ -6,6 +6,10 @@
 - 乞讨
   get_money 100
   胡斐：给你钱
+when has_item 小刀 and $money > 10
+  - 出示小刀
+    胡斐：这把刀从哪里来的？
+  - 收起小刀
 
 battle 新手战
 - win

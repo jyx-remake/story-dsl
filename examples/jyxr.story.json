@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "segments": [
     {
       "name": "出新手村",
@@ -20,51 +20,55 @@
             "speaker": "主角",
             "text": "要什么类型的秘籍呢？"
           },
-          "options": [
+          "groups": [
             {
-              "text": "拳掌",
-              "steps": [
+              "options": [
                 {
-                  "kind": "command",
-                  "name": "item",
-                  "args": [
-                    "罗汉拳谱"
+                  "text": "拳掌",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "item",
+                      "args": [
+                        "罗汉拳谱"
+                      ]
+                    }
                   ]
-                }
-              ]
-            },
-            {
-              "text": "剑法",
-              "steps": [
+                },
                 {
-                  "kind": "command",
-                  "name": "item",
-                  "args": [
-                    "青蟒剑法秘籍"
+                  "text": "剑法",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "item",
+                      "args": [
+                        "青蟒剑法秘籍"
+                      ]
+                    }
                   ]
-                }
-              ]
-            },
-            {
-              "text": "刀法",
-              "steps": [
+                },
                 {
-                  "kind": "command",
-                  "name": "item",
-                  "args": [
-                    "万劫刀法谱"
+                  "text": "刀法",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "item",
+                      "args": [
+                        "万劫刀法谱"
+                      ]
+                    }
                   ]
-                }
-              ]
-            },
-            {
-              "text": "奇门",
-              "steps": [
+                },
                 {
-                  "kind": "command",
-                  "name": "item",
-                  "args": [
-                    "疯魔杖法秘诀"
+                  "text": "奇门",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "item",
+                      "args": [
+                        "疯魔杖法秘诀"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -127,65 +131,69 @@
             "speaker": "主角",
             "text": "来打一下木头人！"
           },
-          "options": [
+          "groups": [
             {
-              "text": "练级木头人",
-              "steps": [
+              "options": [
                 {
-                  "kind": "battle",
-                  "battleId": "南贤居-木头人练级",
-                  "outcomes": {
-                    "win": [
-                      {
-                        "kind": "jump",
-                        "target": "南贤居-木头人-修炼"
+                  "text": "练级木头人",
+                  "steps": [
+                    {
+                      "kind": "battle",
+                      "battleId": "南贤居-木头人练级",
+                      "outcomes": {
+                        "win": [
+                          {
+                            "kind": "jump",
+                            "target": "南贤居-木头人-修炼"
+                          }
+                        ],
+                        "lose": []
                       }
-                    ],
-                    "lose": []
-                  }
+                    },
+                    {
+                      "kind": "command",
+                      "name": "map",
+                      "args": [
+                        "南贤居"
+                      ]
+                    }
+                  ]
                 },
                 {
-                  "kind": "command",
-                  "name": "map",
-                  "args": [
-                    "南贤居"
-                  ]
-                }
-              ]
-            },
-            {
-              "text": "练功木头人",
-              "steps": [
-                {
-                  "kind": "battle",
-                  "battleId": "南贤居-木头人练功",
-                  "outcomes": {
-                    "win": [
-                      {
-                        "kind": "jump",
-                        "target": "南贤居-木头人-修炼"
+                  "text": "练功木头人",
+                  "steps": [
+                    {
+                      "kind": "battle",
+                      "battleId": "南贤居-木头人练功",
+                      "outcomes": {
+                        "win": [
+                          {
+                            "kind": "jump",
+                            "target": "南贤居-木头人-修炼"
+                          }
+                        ],
+                        "lose": []
                       }
-                    ],
-                    "lose": []
-                  }
+                    },
+                    {
+                      "kind": "command",
+                      "name": "map",
+                      "args": [
+                        "南贤居"
+                      ]
+                    }
+                  ]
                 },
                 {
-                  "kind": "command",
-                  "name": "map",
-                  "args": [
-                    "南贤居"
-                  ]
-                }
-              ]
-            },
-            {
-              "text": "不打了",
-              "steps": [
-                {
-                  "kind": "command",
-                  "name": "map",
-                  "args": [
-                    "南贤居"
+                  "text": "不打了",
+                  "steps": [
+                    {
+                      "kind": "command",
+                      "name": "map",
+                      "args": [
+                        "南贤居"
+                      ]
+                    }
                   ]
                 }
               ]
