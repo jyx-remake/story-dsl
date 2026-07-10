@@ -1,38 +1,31 @@
 import {
-  BattleOutcomeAst,
-  BattleOutcomeName,
-  BattleStmtAst,
   CallStmtAst,
-  ChoiceOptionGroupAst,
-  ChoiceOptionAst,
-  ChoiceStmtAst,
   CommandStmtAst,
-  ConditionalBranchAst,
   DiagnosticItem,
   DialogueStmtAst,
-  ExprAst,
-  IfStmtAst,
   JumpStmtAst,
   ReturnStmtAst,
   ScriptAst,
   SegmentAst,
-  SourcePosition,
   SourceSpan,
   StatementAst,
 } from "../ast";
-import { parseExpression } from "./expression";
+import { parseBattleStatement } from "./battle";
+import { parseChoiceStatement } from "./choice";
+import { parseIfStatement } from "./conditional";
+import {
+  findDialogueSeparator,
+  isBranchLine,
+  isKeywordLine,
+  isSegmentHeader,
+  lineSpan,
+  mergeSpans,
+  ParsedLine,
+  position,
+  zeroSpan,
+} from "./source-lines";
+import { ParserContext } from "./parser-context";
 import { parseValueArgs } from "./value-arg";
-
-interface ParsedLine {
-  lineNumber: number;
-  rawText: string;
-  text: string;
-  trimmed: string;
-  indentSpaces: number;
-  indentLevel: number;
-  blank: boolean;
-  lineStartOffset: number;
-}
 
 export interface ParseStoryResult {
   ast: ScriptAst;
@@ -55,107 +48,12 @@ const RESERVED_COMMAND_NAMES = new Set([
   "timeout",
 ]);
 
-function position(line: ParsedLine, column: number): SourcePosition {
-  return {
-    line: line.lineNumber,
-    column,
-    offset: line.lineStartOffset + column - 1,
-  };
-}
-
-function lineSpan(line: ParsedLine, startColumn = 1, endColumn?: number): SourceSpan {
-  const end = endColumn ?? line.rawText.length + 1;
-  return {
-    start: position(line, startColumn),
-    end: position(line, end),
-  };
-}
-
-function mergeSpans(start: SourceSpan, end: SourceSpan): SourceSpan {
-  return {
-    start: start.start,
-    end: end.end,
-  };
-}
-
-function zeroSpan(): SourceSpan {
-  return {
-    start: { line: 1, column: 1, offset: 0 },
-    end: { line: 1, column: 1, offset: 0 },
-  };
-}
-
-function stripComment(text: string): string {
-  const commentIndex = text.indexOf("//");
-  return commentIndex >= 0 ? text.slice(0, commentIndex) : text;
-}
-
-function preprocessLines(text: string): ParsedLine[] {
-  const rawLines = text.split(/\r?\n/u);
-  const lines: ParsedLine[] = [];
-  let offset = 0;
-
-  rawLines.forEach((rawText, index) => {
-    const withoutComment = stripComment(rawText);
-    let indentSpaces = 0;
-    while (indentSpaces < withoutComment.length && withoutComment[indentSpaces] === " ") {
-      indentSpaces += 1;
-    }
-
-    const textWithoutIndent = withoutComment.slice(indentSpaces);
-    const trimmed = textWithoutIndent.trimEnd();
-    lines.push({
-      lineNumber: index + 1,
-      rawText,
-      text: textWithoutIndent,
-      trimmed,
-      indentSpaces,
-      indentLevel: Math.floor(indentSpaces / 2),
-      blank: trimmed.trim().length === 0,
-      lineStartOffset: offset,
-    });
-    offset += rawText.length + 1;
-  });
-
-  return lines;
-}
-
-function isSegmentHeader(line: ParsedLine): boolean {
-  return line.indentSpaces === 0 && line.trimmed.startsWith("#");
-}
-
-function isKeywordLine(line: ParsedLine, keyword: string): boolean {
-  return line.trimmed === keyword || line.trimmed.startsWith(`${keyword} `);
-}
-
-function isBranchLine(line: ParsedLine): boolean {
-  return line.trimmed.startsWith("-");
-}
-
-function findDialogueSeparator(text: string): { marker: ":" | "："; index: number } | null {
-  const asciiIndex = text.indexOf(":");
-  const fullWidthIndex = text.indexOf("：");
-  if (asciiIndex === -1 && fullWidthIndex === -1) {
-    return null;
-  }
-  if (asciiIndex === -1) {
-    return { marker: "：", index: fullWidthIndex };
-  }
-  if (fullWidthIndex === -1) {
-    return { marker: ":", index: asciiIndex };
-  }
-  return asciiIndex < fullWidthIndex
-    ? { marker: ":", index: asciiIndex }
-    : { marker: "：", index: fullWidthIndex };
-}
 
 export class StoryParser {
-  private readonly lines: ParsedLine[];
-  private readonly diagnostics: DiagnosticItem[] = [];
-  private index = 0;
+  private readonly context: ParserContext;
 
-  constructor(private readonly text: string) {
-    this.lines = preprocessLines(text);
+  constructor(text: string) {
+    this.context = new ParserContext(text);
     this.validateIndentation();
   }
 
@@ -164,22 +62,22 @@ export class StoryParser {
     const seenSegments = new Map<string, SourceSpan>();
 
     while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
+      this.context.skipBlankLines();
+      const line = this.context.peek();
       if (!line) {
         break;
       }
 
       if (!isSegmentHeader(line)) {
-        this.pushDiagnostic("剧情段必须以顶格 '# 段名' 开始", lineSpan(line), "structure");
-        this.index += 1;
+        this.context.report("剧情段必须以顶格 '# 段名' 开始", lineSpan(line), "structure");
+        this.context.advance();
         continue;
       }
 
       const segment = this.parseSegment();
       if (segment) {
         if (seenSegments.has(segment.name)) {
-          this.pushDiagnostic(`重复的剧情段名 '${segment.name}'`, segment.headerSpan, "duplicate");
+          this.context.report(`重复的剧情段名 '${segment.name}'`, segment.headerSpan, "duplicate");
         } else {
           seenSegments.set(segment.name, segment.headerSpan);
         }
@@ -194,23 +92,23 @@ export class StoryParser {
           segments.length > 0 ? mergeSpans(segments[0].span, segments[segments.length - 1].span) : zeroSpan(),
         segments,
       },
-      diagnostics: this.diagnostics,
+      diagnostics: this.context.diagnostics,
     };
   }
 
   private validateIndentation(): void {
-    for (const line of this.lines) {
+    for (const line of this.context.lines) {
       if (line.rawText.includes("\t")) {
-        this.pushDiagnostic("禁止使用 Tab 缩进，请统一使用 2 个空格", lineSpan(line), "indentation");
+        this.context.report("禁止使用 Tab 缩进，请统一使用 2 个空格", lineSpan(line), "indentation");
       }
       if (line.indentSpaces % 2 !== 0) {
-        this.pushDiagnostic("缩进必须是 2 个空格的整数倍", lineSpan(line), "indentation");
+        this.context.report("缩进必须是 2 个空格的整数倍", lineSpan(line), "indentation");
       }
     }
   }
 
   private parseSegment(): SegmentAst | null {
-    const headerLine = this.peek();
+    const headerLine = this.context.peek();
     if (!headerLine) {
       return null;
     }
@@ -218,10 +116,10 @@ export class StoryParser {
     const rawName = headerLine.trimmed.slice(1);
     const name = rawName.trim();
     if (!name) {
-      this.pushDiagnostic("剧情段名不能为空", lineSpan(headerLine), "syntax");
+      this.context.report("剧情段名不能为空", lineSpan(headerLine), "syntax");
     }
 
-    this.index += 1;
+    this.context.advance();
     const statements = this.parseStatements(0, (line) => isSegmentHeader(line));
     const endSpan = statements.length > 0 ? statements[statements.length - 1].span : lineSpan(headerLine);
 
@@ -239,8 +137,8 @@ export class StoryParser {
     const statements: StatementAst[] = [];
 
     while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
+      this.context.skipBlankLines();
+      const line = this.context.peek();
       if (!line) {
         break;
       }
@@ -251,8 +149,8 @@ export class StoryParser {
         break;
       }
       if (line.indentLevel > expectedIndent) {
-        this.pushDiagnostic("出现了意外的缩进层级", lineSpan(line), "indentation");
-        this.index += 1;
+        this.context.report("出现了意外的缩进层级", lineSpan(line), "indentation");
+        this.context.advance();
         continue;
       }
 
@@ -266,48 +164,61 @@ export class StoryParser {
   }
 
   private parseStatement(expectedIndent: number): StatementAst | null {
-    const line = this.peek();
+    const line = this.context.peek();
     if (!line) {
       return null;
     }
 
     if (isKeywordLine(line, "elif") || isKeywordLine(line, "else")) {
-      this.pushDiagnostic("elif/else 必须紧跟在同级 if 之后", lineSpan(line), "structure");
-      this.index += 1;
+      this.context.report("elif/else 必须紧跟在同级 if 之后", lineSpan(line), "structure");
+      this.context.advance();
       return null;
     }
 
     if (isKeywordLine(line, "if")) {
-      return this.parseIfStatement(expectedIndent);
+      return parseIfStatement(
+        this.context,
+        expectedIndent,
+        (indent, shouldStop) => this.parseStatements(indent, shouldStop),
+      );
     }
 
     if (isKeywordLine(line, "when")) {
-      this.pushDiagnostic("when 只能作为 choice 的条件组选项出现", lineSpan(line), "structure");
-      this.index += 1;
+      this.context.report("when 只能作为 choice 的条件组选项出现", lineSpan(line), "structure");
+      this.context.advance();
       return null;
     }
 
     if (isKeywordLine(line, "battle")) {
-      return this.parseBattleStatement(expectedIndent);
+      return parseBattleStatement(
+        this.context,
+        expectedIndent,
+        (indent, shouldStop) => this.parseStatements(indent, shouldStop),
+      );
     }
 
     if (isBranchLine(line)) {
-      this.pushDiagnostic("'- xxx' 只能作为 choice 或 battle 的子结构出现", lineSpan(line), "structure");
-      this.index += 1;
+      this.context.report("'- xxx' 只能作为 choice 或 battle 的子结构出现", lineSpan(line), "structure");
+      this.context.advance();
       return null;
     }
 
     const simpleStatement = this.parseSimpleStatement(line);
-    this.index += 1;
+    this.context.advance();
 
     if (simpleStatement?.type === "dialogue") {
-      const nextLine = this.peekNonBlank();
+      const nextLine = this.context.peekNonBlank();
       if (
         nextLine &&
         nextLine.indentLevel === expectedIndent &&
         (isBranchLine(nextLine) || isKeywordLine(nextLine, "when"))
       ) {
-        return this.parseChoiceStatement(simpleStatement, expectedIndent);
+        return parseChoiceStatement(
+          this.context,
+          simpleStatement,
+          expectedIndent,
+          (indent, shouldStop) => this.parseStatements(indent, shouldStop),
+        );
       }
     }
 
@@ -336,7 +247,7 @@ export class StoryParser {
     if (name === "jump") {
       const target = line.trimmed.slice(name.length).trim();
       if (!target) {
-        this.pushDiagnostic("jump 之后必须提供目标段名", lineSpan(line), "syntax");
+        this.context.report("jump 之后必须提供目标段名", lineSpan(line), "syntax");
       }
       return {
         type: "jump",
@@ -349,7 +260,7 @@ export class StoryParser {
     if (name === "call") {
       const target = line.trimmed.slice(name.length).trim();
       if (!target) {
-        this.pushDiagnostic("call 之后必须提供目标段名", lineSpan(line), "syntax");
+        this.context.report("call 之后必须提供目标段名", lineSpan(line), "syntax");
       }
       return {
         type: "call",
@@ -362,7 +273,7 @@ export class StoryParser {
     if (name === "return") {
       const rest = line.trimmed.slice(name.length).trim();
       if (rest) {
-        this.pushDiagnostic("return 后不能跟参数", lineSpan(line), "syntax");
+        this.context.report("return 后不能跟参数", lineSpan(line), "syntax");
       }
       return {
         type: "return",
@@ -372,13 +283,13 @@ export class StoryParser {
     }
 
     if (RESERVED_COMMAND_NAMES.has(name)) {
-      this.pushDiagnostic(`'${name}' 是保留字，不能作为命令名`, lineSpan(line), "semantic");
+      this.context.report(`'${name}' 是保留字，不能作为命令名`, lineSpan(line), "semantic");
     }
 
     const argsText = commandMatch[2] ?? "";
     const argsStartColumnInTrimmed = argsText ? line.trimmed.indexOf(argsText, name.length) + 1 : name.length + 1;
     const parsedArgs = parseValueArgs(argsText, position(line, line.indentSpaces + argsStartColumnInTrimmed));
-    this.diagnostics.push(...parsedArgs.diagnostics);
+    this.context.addDiagnostics(parsedArgs.diagnostics);
 
     return {
       type: "command",
@@ -389,326 +300,6 @@ export class StoryParser {
     } satisfies CommandStmtAst;
   }
 
-  private parseChoiceStatement(prompt: DialogueStmtAst, expectedIndent: number): ChoiceStmtAst {
-    const groups: ChoiceOptionGroupAst[] = [];
-
-    while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
-      if (!line || line.indentLevel !== expectedIndent) {
-        break;
-      }
-
-      if (isBranchLine(line)) {
-        const options = this.parseChoiceOptions(expectedIndent);
-        groups.push({
-          type: "choiceOptionGroup",
-          condition: null,
-          rawCondition: null,
-          options,
-          span: mergeSpans(options[0].span, options[options.length - 1].span),
-        });
-        continue;
-      }
-
-      if (isKeywordLine(line, "when")) {
-        groups.push(this.parseConditionalChoiceGroup(expectedIndent));
-        continue;
-      }
-
-      break;
-    }
-
-    if (groups.length === 0) {
-      this.pushDiagnostic("choice 至少需要一个 '- 选项' 分支", prompt.span, "structure");
-    }
-
-    if (groups.length > 0 && groups.every((group) => group.condition !== null)) {
-      this.pushWarning("choice 全部为条件组选项，运行时可能没有可用选项", prompt.span, "semantic");
-    }
-
-    return {
-      type: "choice",
-      prompt,
-      groups,
-      span: groups.length > 0 ? mergeSpans(prompt.span, groups[groups.length - 1].span) : prompt.span,
-    };
-  }
-
-  private parseChoiceOptions(optionIndent: number): ChoiceOptionAst[] {
-    const options: ChoiceOptionAst[] = [];
-
-    while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
-      if (!line || line.indentLevel !== optionIndent || !isBranchLine(line)) {
-        break;
-      }
-
-      options.push(this.parseChoiceOption(optionIndent));
-    }
-
-    return options;
-  }
-
-  private parseChoiceOption(optionIndent: number): ChoiceOptionAst {
-    const line = this.peek()!;
-    const optionText = /^-\s*(.*)$/u.exec(line.trimmed)?.[1] ?? "";
-    const optionSpan = lineSpan(line);
-    this.index += 1;
-    const statements = this.parseStatements(
-      optionIndent + 1,
-      (candidate) => candidate.indentLevel === optionIndent && isBranchLine(candidate),
-    );
-
-    return {
-      type: "choiceOption",
-      text: optionText,
-      statements,
-      span: statements.length > 0 ? mergeSpans(optionSpan, statements[statements.length - 1].span) : optionSpan,
-    };
-  }
-
-  private parseConditionalChoiceGroup(expectedIndent: number): ChoiceOptionGroupAst {
-    const whenLine = this.peek()!;
-    const rawCondition = whenLine.trimmed.slice("when".length).trim();
-    let condition: ExprAst | null = null;
-    if (!rawCondition) {
-      this.pushDiagnostic("when 后缺少条件表达式", lineSpan(whenLine), "syntax");
-    } else {
-      const startColumn = whenLine.indentSpaces + 1 + whenLine.text.indexOf(rawCondition);
-      const expressionResult = parseExpression(rawCondition, position(whenLine, startColumn + 1));
-      condition = expressionResult.expr;
-      this.diagnostics.push(...expressionResult.diagnostics);
-    }
-
-    this.index += 1;
-    const optionIndent = expectedIndent + 1;
-    const options: ChoiceOptionAst[] = [];
-
-    while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
-      if (!line || line.indentLevel <= expectedIndent) {
-        break;
-      }
-
-      if (line.indentLevel === optionIndent && isBranchLine(line)) {
-        options.push(this.parseChoiceOption(optionIndent));
-        continue;
-      }
-
-      if (line.indentLevel === optionIndent && isKeywordLine(line, "when")) {
-        this.pushDiagnostic("when 条件组不允许嵌套", lineSpan(line), "structure");
-      } else if (line.indentLevel === optionIndent) {
-        this.pushDiagnostic("when 条件组只能包含 '- 选项'", lineSpan(line), "structure");
-      } else {
-        this.pushDiagnostic("when 条件组中出现了意外的缩进层级", lineSpan(line), "indentation");
-      }
-      this.index += 1;
-    }
-
-    if (options.length === 0) {
-      this.pushDiagnostic("when 条件组至少需要一个缩进的 '- 选项'", lineSpan(whenLine), "structure");
-    }
-
-    return {
-      type: "choiceOptionGroup",
-      condition,
-      rawCondition,
-      options,
-      span: options.length > 0 ? mergeSpans(lineSpan(whenLine), options[options.length - 1].span) : lineSpan(whenLine),
-    };
-  }
-
-  private parseBattleStatement(expectedIndent: number): BattleStmtAst {
-    const headerLine = this.peek()!;
-    const battleId = headerLine.trimmed.slice("battle".length).trim();
-    if (!battleId) {
-      this.pushDiagnostic("battle 之后必须提供战斗名", lineSpan(headerLine), "syntax");
-    }
-    this.index += 1;
-
-    const outcomes: BattleOutcomeAst[] = [];
-    const seenOutcomes = new Set<BattleOutcomeName>();
-
-    while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
-      if (!line || line.indentLevel !== expectedIndent || !isBranchLine(line)) {
-        break;
-      }
-
-      const rawOutcome = (/^-\s*(.*)$/u.exec(line.trimmed)?.[1] ?? "").trim();
-      const outcomeSpan = lineSpan(line);
-      this.index += 1;
-
-      if (rawOutcome !== "win" && rawOutcome !== "lose" && rawOutcome !== "timeout") {
-        this.pushDiagnostic("battle 分支只允许 win / lose / timeout", outcomeSpan, "semantic");
-        this.parseStatements(
-          expectedIndent + 1,
-          (candidate) => candidate.indentLevel === expectedIndent && isBranchLine(candidate),
-        );
-        continue;
-      }
-
-      if (seenOutcomes.has(rawOutcome)) {
-        this.pushDiagnostic(`battle 结果分支 '${rawOutcome}' 重复`, outcomeSpan, "duplicate");
-      }
-      seenOutcomes.add(rawOutcome);
-
-      const statements = this.parseStatements(
-        expectedIndent + 1,
-        (candidate) => candidate.indentLevel === expectedIndent && isBranchLine(candidate),
-      );
-      outcomes.push({
-        type: "battleOutcome",
-        outcome: rawOutcome,
-        statements,
-        span: statements.length > 0 ? mergeSpans(outcomeSpan, statements[statements.length - 1].span) : outcomeSpan,
-      });
-    }
-
-    if (outcomes.length === 0) {
-      this.pushDiagnostic("battle 至少需要一个结果分支", lineSpan(headerLine), "structure");
-    }
-
-    return {
-      type: "battle",
-      battleId,
-      outcomes,
-      raw: headerLine.trimmed,
-      span: outcomes.length > 0 ? mergeSpans(lineSpan(headerLine), outcomes[outcomes.length - 1].span) : lineSpan(headerLine),
-    };
-  }
-
-  private parseIfStatement(expectedIndent: number): IfStmtAst {
-    const branches: ConditionalBranchAst[] = [];
-    const startLine = this.peek()!;
-
-    while (true) {
-      this.skipBlankLines();
-      const line = this.peek();
-      if (!line || line.indentLevel !== expectedIndent) {
-        break;
-      }
-
-      const keyword = this.readConditionalKeyword(line);
-      if (!keyword) {
-        break;
-      }
-
-      if (branches.length === 0 && keyword !== "if") {
-        this.pushDiagnostic("条件分支必须从 if 开始", lineSpan(line), "structure");
-      }
-      if (branches.some((branch) => branch.keyword === "else")) {
-        this.pushDiagnostic("else 必须是条件分支的最后一项", lineSpan(line), "structure");
-      }
-
-      const rest = line.trimmed.slice(keyword.length).trim();
-      let condition: ExprAst | null = null;
-      let rawCondition: string | null = null;
-      if (keyword === "else") {
-        if (rest.length > 0) {
-          this.pushDiagnostic("else 后不能再跟条件表达式", lineSpan(line), "syntax");
-        }
-      } else {
-        rawCondition = rest;
-        if (!rawCondition) {
-          this.pushDiagnostic(`${keyword} 后缺少条件表达式`, lineSpan(line), "syntax");
-        } else {
-          const startColumn = line.indentSpaces + 1 + line.text.indexOf(rawCondition);
-          const expressionResult = parseExpression(rawCondition, position(line, startColumn + 1));
-          condition = expressionResult.expr;
-          this.diagnostics.push(...expressionResult.diagnostics);
-        }
-      }
-
-      this.index += 1;
-      const statements = this.parseStatements(
-        expectedIndent + 1,
-        (candidate) =>
-          candidate.indentLevel === expectedIndent &&
-          (isKeywordLine(candidate, "elif") || isKeywordLine(candidate, "else")),
-      );
-
-      branches.push({
-        type: "conditionalBranch",
-        keyword,
-        condition,
-        rawCondition,
-        statements,
-        span: statements.length > 0 ? mergeSpans(lineSpan(line), statements[statements.length - 1].span) : lineSpan(line),
-      });
-
-      const nextLine = this.peekNonBlank();
-      if (!nextLine || nextLine.indentLevel !== expectedIndent) {
-        break;
-      }
-      if (!isKeywordLine(nextLine, "elif") && !isKeywordLine(nextLine, "else")) {
-        break;
-      }
-    }
-
-    return {
-      type: "if",
-      branches,
-      span: branches.length > 0 ? mergeSpans(lineSpan(startLine), branches[branches.length - 1].span) : lineSpan(startLine),
-    };
-  }
-
-  private readConditionalKeyword(line: ParsedLine): "if" | "elif" | "else" | null {
-    if (isKeywordLine(line, "if")) {
-      return "if";
-    }
-    if (isKeywordLine(line, "elif")) {
-      return "elif";
-    }
-    if (isKeywordLine(line, "else")) {
-      return "else";
-    }
-    return null;
-  }
-
-  private skipBlankLines(): void {
-    while (this.peek()?.blank) {
-      this.index += 1;
-    }
-  }
-
-  private peek(): ParsedLine | undefined {
-    return this.lines[this.index];
-  }
-
-  private peekNonBlank(): ParsedLine | undefined {
-    let cursor = this.index;
-    while (cursor < this.lines.length) {
-      const line = this.lines[cursor];
-      if (!line.blank) {
-        return line;
-      }
-      cursor += 1;
-    }
-    return undefined;
-  }
-
-  private pushDiagnostic(message: string, span: SourceSpan, code: DiagnosticItem["code"]): void {
-    this.diagnostics.push({
-      message,
-      span,
-      code,
-      severity: "error",
-    });
-  }
-
-  private pushWarning(message: string, span: SourceSpan, code: DiagnosticItem["code"]): void {
-    this.diagnostics.push({
-      message,
-      span,
-      code,
-      severity: "warning",
-    });
-  }
 }
 
 export function parseStory(text: string): ParseStoryResult {
