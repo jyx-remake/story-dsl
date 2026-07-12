@@ -66,17 +66,17 @@
     ]
   },
   "scripts": {
-    "build": "npm --prefix ../core run build && tsc -p .",
-    "watch": "tsc -w -p .",
+    "build": "npm run build --workspace @storydsl/core && tsc -p . && esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.js",
+    "watch": "npm run build --workspace @storydsl/core && concurrently --kill-others \"tsc -w -p . --noEmit\" \"esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.js --watch\"",
     "test": "npm run build && node --test dist/test/**/*.test.js",
-    "package:vsix": "npx @vscode/vsce package --allow-missing-repository --no-rewrite-relative-links --readme-path README.vscode.md"
-  },
-  "dependencies": {
-    "@storydsl/core": "file:../core"
+    "package:vsix": "npx @vscode/vsce package --no-dependencies --allow-missing-repository --no-rewrite-relative-links --readme-path README.vscode.md"
   },
   "devDependencies": {
+    "@storydsl/core": "0.1.0",
     "@types/node": "^22.13.14",
     "@types/vscode": "^1.90.0",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.0",
     "typescript": "^5.8.2"
   }
 }

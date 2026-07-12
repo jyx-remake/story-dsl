@@ -11,6 +11,7 @@ packages/vscode-extension/dist/
 packages/vscode-extension/*.vsix
 
 # TypeScript packages
+node_modules/
 packages/core/node_modules/
 packages/core/dist/
 packages/web/node_modules/

@@ -1,8 +1,11 @@
 dist/test/**
+dist/ast.js
+dist/compiler/**
+dist/converter/**
+dist/parser/**
 src/**
 tsconfig.json
-node_modules/typescript/**
-node_modules/@types/**
+node_modules/**
 .vscode/**
 AGENTS.md
 TODO.md

@@ -30,12 +30,10 @@
 
 ## Quick Start
 
-根目录的 `npm` 命令是工作区代理脚本，会转发到对应包。
+仓库使用 npm workspaces 管理 TypeScript 包。在根目录统一安装依赖，再通过根脚本构建和测试：
 
 ```powershell
-npm run install:core
-npm run install:vscode
-npm run install:web
+npm install
 npm run build
 npm test
 ```
@@ -254,7 +252,8 @@ TODO.md
 - 插件外壳代码在 `packages/vscode-extension/`
 - Web 前端代码在 `packages/web/`
 - C# 执行器在 `packages/runtime-csharp/`，已弃用，仅保留历史参考
-- 根目录 `npm run build / test / build:web / package:vsix` 会转发到对应包
+- 根目录的 `package-lock.json` 是所有 npm workspaces 的唯一依赖锁文件
+- 根目录 `npm run build / test / build:web / package:vsix` 会转发到对应工作区
 - `TODO.md` 只记录后续设计方向，不表示功能已实现
 - `packages/vscode-extension/README.vscode.md` 专用于插件打包，不承担仓库总说明职责
 - 修改解析或 IR 后，请同步更新测试与示例 JSON

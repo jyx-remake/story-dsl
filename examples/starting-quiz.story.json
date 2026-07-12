@@ -1046,6 +1046,11 @@
           },
           "groups": [
             {
+              "when": [
+                "pred",
+                "in_round",
+                1
+              ],
               "options": [
                 {
                   "text": "简单",
@@ -1058,7 +1063,11 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "options": [
                 {
                   "text": "[color=yellow]进阶[/color]",
                   "steps": [

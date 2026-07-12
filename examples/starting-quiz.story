@@ -133,8 +133,9 @@ get_money 100
 - 半瓶神仙醋
   item 天王保命丹 6
 ：选择你的游戏难度
-- 简单
-  set_game_mode normal
+when in_round 1
+  - 简单
+    set_game_mode normal
 - [color=yellow]进阶[/color]
   set_game_mode hard
 - [color=red]炼狱[/color]
