@@ -2166,6 +2166,7 @@ jump original_女主.华山论剑.trueEnding1.留下
 jump original_女主.华山论剑.trueEnding1.结束
 
 # original_女主.华山论剑.trueEnding1.结束
+maxlevel 野球拳 1
 汉家松鼠：亲爱的玩家，恭喜你历经千难万苦，终于达成了金庸群侠传X的True Ending！
 汉家松鼠：那么，一如往常，你可以选择继续进行游戏！游戏将从头开始，并且增大难度，同时可能有更多隐藏要素等待你来探索！
 汉家松鼠：要开始下一周目吗？
@@ -2173,7 +2174,7 @@ jump original_女主.华山论剑.trueEnding1.结束
   jump original_华山论剑下一周目
 - 算了，完美了。等下一版！
   gamefin
-maxlevel 野球拳 1
+
 
 # original_女主.华山论剑.trueEnding2
 background 地图.华山后山
@@ -4200,6 +4201,18 @@ jump original_武道大会_挑战
 汉家松鼠：对不起，武道大会在当前手机版本[color=yellow]暂未开放[/color]，尽请期待！
 
 # original_武道大会_买
+汉家松鼠：要到哪个商店购买？
+- VIP1
+  shop 武道大会.VIP1
+- VIP2
+  shop 武道大会.VIP2
+- VIP3
+  shop 武道大会.VIP3
+- VIP4
+  shop 武道大会.VIP4
+- VIP5
+  shop 武道大会.VIP5
+- 算了
 // if rank 1
 //   shop 武道大会.VIP1
 // if rank 10
@@ -4210,7 +4223,7 @@ jump original_武道大会_挑战
 //   shop 武道大会.VIP4
 // if rank 500
 //   shop 武道大会.VIP5
-jump original_武道大会_买不了
+// jump original_武道大会_买不了
 
 # original_武道大会_买不了
 汉家松鼠：抱歉你的江湖排名太可怜了，所以我还不能卖东西给你。
@@ -11282,8 +11295,8 @@ battle 达尔巴_战斗
 主角：侥幸啦。
 达尔巴：好，武功好还谦虚，这本秘籍是我自己钻研出来的，你拿去吧。
 主角：谢谢师兄。
-item 无上大力杵秘籍 2
-maxlevel 无上大力杵 1
+item 无上大力杵秘籍 1
+maxlevel 无上大力杵 2
 
 # 门派大轮寺_达尔巴负
 达尔巴：师弟德才兼备，佩服，佩服。

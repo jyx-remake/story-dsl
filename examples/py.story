@@ -2523,12 +2523,10 @@ suggest 在东海剑池可以支付元宝，将装备的一项属性重置，从
 jump 洗练选择
 
 # 洗练选择
-主角：要开始洗练装备吗？（消耗一个元宝）
-- 是
-  if have_yuanbao 1
-    xilian
+if have_yuanbao 1
+  xilian
+else
   jump 洗练元宝不够
-- 否
 
 # 洗练元宝不够
 主角：身上的元宝数不够了。。

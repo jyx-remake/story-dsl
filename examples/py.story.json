@@ -13137,48 +13137,27 @@
       "name": "洗练选择",
       "steps": [
         {
-          "kind": "choice",
-          "prompt": {
-            "speaker": "主角",
-            "text": "要开始洗练装备吗？（消耗一个元宝）"
-          },
-          "groups": [
+          "kind": "branch",
+          "cases": [
             {
-              "options": [
+              "when": [
+                "pred",
+                "have_yuanbao",
+                1
+              ],
+              "steps": [
                 {
-                  "text": "是",
-                  "steps": [
-                    {
-                      "kind": "branch",
-                      "cases": [
-                        {
-                          "when": [
-                            "pred",
-                            "have_yuanbao",
-                            1
-                          ],
-                          "steps": [
-                            {
-                              "kind": "command",
-                              "name": "xilian",
-                              "args": []
-                            }
-                          ]
-                        }
-                      ],
-                      "fallback": null
-                    },
-                    {
-                      "kind": "jump",
-                      "target": "洗练元宝不够"
-                    }
-                  ]
-                },
-                {
-                  "text": "否",
-                  "steps": []
+                  "kind": "command",
+                  "name": "xilian",
+                  "args": []
                 }
               ]
+            }
+          ],
+          "fallback": [
+            {
+              "kind": "jump",
+              "target": "洗练元宝不够"
             }
           ]
         }
