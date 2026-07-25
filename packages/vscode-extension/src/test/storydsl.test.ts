@@ -501,6 +501,43 @@ battle 必败战
   assert.equal(parseStory(story).diagnostics.length, 0);
 });
 
+test("converts every valueless result command without arguments", () => {
+  const commands = [
+    ["gameFin", "gameFin", "gamefin"],
+    ["gameOver", "gameOver", "gameover"],
+    ["huashan", "huashan", "huashan"],
+    ["mainmenu", "mainmenu", "mainmenu"],
+    ["nextZhoumu", "nextZhoumu", "nextzhoumu"],
+    ["restart", "restart", "restart"],
+    ["tower", "tower", "tower"],
+    ["trial", "trial", "trial"],
+    ["xilian", "0", "xilian"],
+    ["zhenlongqiju", "zhenlongqiju", "zhenlongqiju"],
+  ] as const;
+
+  for (const [legacyType, legacyValue, commandName] of commands) {
+    const xml = `<root>
+  <story name="${commandName}">
+    <result type="${legacyType}" ret="0" value="${legacyValue}" />
+  </story>
+</root>`;
+
+    const story = convertXmlToStory(xml);
+    assert.equal(story, `# ${commandName}
+${commandName}
+`);
+
+    const parsed = parseStory(story);
+    assert.equal(parsed.diagnostics.length, 0);
+    const compiled = compileScript(parsed.ast);
+    assert.deepEqual(compiled.ir.segments[0].steps, [{
+      kind: "command",
+      name: commandName,
+      args: [],
+    }]);
+  }
+});
+
 test("renames legacy NO_GLOBAL_EVENT flag writes to world_trigger on/off", () => {
   const xml = `<root>
   <story name="黑衣开关">

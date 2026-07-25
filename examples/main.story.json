@@ -10489,9 +10489,7 @@
                     {
                       "kind": "command",
                       "name": "restart",
-                      "args": [
-                        "restart"
-                      ]
+                      "args": []
                     }
                   ]
                 },
@@ -11010,9 +11008,7 @@
                     {
                       "kind": "command",
                       "name": "restart",
-                      "args": [
-                        "restart"
-                      ]
+                      "args": []
                     }
                   ]
                 },
@@ -11167,9 +11163,7 @@
                     {
                       "kind": "command",
                       "name": "restart",
-                      "args": [
-                        "restart"
-                      ]
+                      "args": []
                     }
                   ]
                 },
@@ -11908,9 +11902,7 @@
         {
           "kind": "command",
           "name": "tower",
-          "args": [
-            "tower"
-          ]
+          "args": []
         }
       ]
     },
@@ -12164,9 +12156,7 @@
         {
           "kind": "command",
           "name": "trial",
-          "args": [
-            "trial"
-          ]
+          "args": []
         }
       ]
     },
@@ -18718,9 +18708,7 @@
         {
           "kind": "command",
           "name": "huashan",
-          "args": [
-            "huashan"
-          ]
+          "args": []
         }
       ]
     },
@@ -19039,9 +19027,7 @@
                     {
                       "kind": "command",
                       "name": "restart",
-                      "args": [
-                        "restart"
-                      ]
+                      "args": []
                     }
                   ]
                 },

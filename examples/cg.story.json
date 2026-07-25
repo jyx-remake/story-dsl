@@ -1747,9 +1747,7 @@
         {
           "kind": "command",
           "name": "restart",
-          "args": [
-            "restart"
-          ]
+          "args": []
         }
       ]
     }

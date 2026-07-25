@@ -2526,7 +2526,7 @@ jump 洗练选择
 主角：要开始洗练装备吗？（消耗一个元宝）
 - 是
   if have_yuanbao 1
-    xilian 0
+    xilian
   jump 洗练元宝不够
 - 否
 

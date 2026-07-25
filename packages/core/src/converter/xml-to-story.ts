@@ -44,7 +44,18 @@ interface EmitResultOptions {
 
 const BATTLE_OUTCOMES = new Set(["win", "lose", "timeout"]);
 const LEGACY_INLINE_COLOR_PATTERN = /\[\[([A-Za-z][\w-]*):([\s\S]*?)\]\]/gu;
-const VALUELESS_RESULT_COMMANDS = new Set(["nextzhoumu", "gamefin", "gameover"]);
+const VALUELESS_RESULT_COMMANDS = new Set([
+  "gamefin",
+  "gameover",
+  "huashan",
+  "mainmenu",
+  "nextzhoumu",
+  "restart",
+  "tower",
+  "trial",
+  "xilian",
+  "zhenlongqiju",
+]);
 
 export function convertXmlToStory(xmlText: string): string {
   const stories = parseStoryXml(xmlText);
