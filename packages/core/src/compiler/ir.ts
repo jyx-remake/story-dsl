@@ -14,6 +14,7 @@ export interface DialogueIr {
   kind: "dialogue";
   speaker: string;
   text: string;
+  style?: string;
 }
 
 export interface CommandIr {
@@ -38,6 +39,7 @@ export interface ReturnIr {
 
 export interface ChoiceIr {
   kind: "choice";
+  style?: string;
   prompt: {
     speaker: string;
     text: string;

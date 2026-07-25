@@ -52,6 +52,7 @@ export interface DialogueStmtAst {
   span: SourceSpan;
   speaker: string;
   text: string;
+  style: string | null;
   marker: ":" | "：";
   raw: string;
 }
@@ -87,6 +88,7 @@ export interface ReturnStmtAst {
 export interface ChoiceStmtAst {
   type: "choice";
   span: SourceSpan;
+  style: string | null;
   prompt: DialogueStmtAst;
   groups: ChoiceOptionGroupAst[];
 }

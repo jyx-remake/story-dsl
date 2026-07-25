@@ -13,6 +13,7 @@ import {
 import { parseBattleStatement } from "./battle";
 import { parseChoiceStatement } from "./choice";
 import { parseIfStatement } from "./conditional";
+import { parsePresentationStyle } from "./presentation-style";
 import {
   findDialogueSeparator,
   isBranchLine,
@@ -228,10 +229,19 @@ export class StoryParser {
   private parseSimpleStatement(line: ParsedLine): StatementAst | null {
     const dialogueSeparator = findDialogueSeparator(line.trimmed);
     if (dialogueSeparator) {
+      const rawContent = line.trimmed.slice(dialogueSeparator.index + 1);
+      const leadingWhitespace = /^\s*/u.exec(rawContent)?.[0].length ?? 0;
+      const parsedContent = parsePresentationStyle(
+        this.context,
+        line,
+        rawContent.slice(leadingWhitespace),
+        line.indentSpaces + dialogueSeparator.index + 2 + leadingWhitespace,
+      );
       return {
         type: "dialogue",
         speaker: line.trimmed.slice(0, dialogueSeparator.index).trim(),
-        text: line.trimmed.slice(dialogueSeparator.index + 1).trim(),
+        text: parsedContent.text,
+        style: parsedContent.style,
         marker: dialogueSeparator.marker,
         raw: line.trimmed,
         span: lineSpan(line),

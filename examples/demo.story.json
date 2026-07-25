@@ -7,10 +7,12 @@
         {
           "kind": "dialogue",
           "speaker": "南贤",
-          "text": "游戏开始"
+          "text": "游戏开始",
+          "style": "opening"
         },
         {
           "kind": "choice",
+          "style": "question-cards",
           "prompt": {
             "speaker": "胡斐",
             "text": "少侠来此所谓何事？"

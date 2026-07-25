@@ -94,6 +94,7 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
         kind: "dialogue",
         speaker: statement.speaker,
         text: statement.text,
+        ...(statement.style ? { style: statement.style } : {}),
       };
     case "command":
       return transformCommand({
@@ -122,6 +123,7 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
     case "choice":
       return {
         kind: "choice",
+        ...(statement.style ? { style: statement.style } : {}),
         prompt: {
           speaker: statement.prompt.speaker,
           text: statement.prompt.text,

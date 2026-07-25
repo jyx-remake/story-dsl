@@ -62,6 +62,71 @@ else
   assert.equal(branchStep.fallback?.[0]?.kind, "dialogue");
 });
 
+test("compiles dialogue and whole-choice presentation styles into version 2 IR", () => {
+  const source = `# Start
+胡斐：[#style=怒气.强调]你骗我！
+掌柜:[#style=shop-cards] 客官需要什么？
+- 购买
+  jump buy
+when shop_open
+  - 出售
+    jump sell
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+
+  const dialogue = parsed.ast.segments[0].statements[0];
+  assert.equal(dialogue.type, "dialogue");
+  assert.equal(dialogue.style, "怒气.强调");
+  assert.equal(dialogue.text, "你骗我！");
+
+  const choice = parsed.ast.segments[0].statements[1];
+  assert.equal(choice.type, "choice");
+  assert.equal(choice.style, "shop-cards");
+  assert.equal(choice.prompt.style, null);
+  assert.equal(choice.prompt.text, "客官需要什么？");
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.ir.version, 2);
+  assert.deepEqual(compiled.ir.segments[0].steps[0], {
+    kind: "dialogue",
+    speaker: "胡斐",
+    text: "你骗我！",
+    style: "怒气.强调",
+  });
+  const choiceStep = compiled.ir.segments[0].steps[1];
+  assert.equal(choiceStep.kind, "choice");
+  assert.equal(choiceStep.style, "shop-cards");
+  assert.deepEqual(choiceStep.prompt, {
+    speaker: "掌柜",
+    text: "客官需要什么？",
+  });
+});
+
+test("reports invalid or unsupported presentation style tags", () => {
+  const source = `# Start
+旁白：[#mood=angry]未知标签
+旁白：[#style=]空样式
+旁白：[#style=two words]空白样式
+旁白：[#style=first][#style=second]重复样式
+旁白：正文[#style=late]
+旁白：[#style=missing
+旁白：选择
+- [#style=option]选项
+`;
+
+  const parsed = parseStory(source);
+  const messages = parsed.diagnostics.map((item) => item.message);
+  assert.ok(messages.some((message) => message.includes("暂不支持展示标签 'mood'")));
+  assert.ok(messages.some((message) => message.includes("必须提供样式 ID")));
+  assert.ok(messages.some((message) => message.includes("不能包含空白")));
+  assert.ok(messages.some((message) => message.includes("只能配置一个 style")));
+  assert.ok(messages.some((message) => message.includes("只能出现在对白正文开头")));
+  assert.ok(messages.some((message) => message.includes("缺少右方括号")));
+  assert.ok(messages.some((message) => message.includes("选项暂不支持展示样式")));
+});
+
 test("parses conditional choice groups and compiles version 2 IR", () => {
   const source = `# Start
 掌柜：客官需要什么？

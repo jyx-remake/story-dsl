@@ -18,6 +18,9 @@
       "include": "#dialogue"
     },
     {
+      "include": "#presentationStyle"
+    },
+    {
       "include": "#variable"
     },
     {
@@ -56,18 +59,41 @@
     "dialogue": {
       "patterns": [
         {
-          "captures": {
+          "beginCaptures": {
             "1": {
               "name": "entity.name.function.storydsl"
             },
             "2": {
               "name": "punctuation.separator.key-value.storydsl"
-            },
-            "3": {
-              "name": "string.unquoted.storydsl"
             }
           },
-          "match": "^\\s*([^:/：\\n]*?)\\s*([:：])\\s*(.*)$"
+          "begin": "^\\s*([^:/：\\n]*?)\\s*([:：])\\s*",
+          "contentName": "string.unquoted.storydsl",
+          "end": "$",
+          "patterns": [
+            {
+              "include": "#presentationStyle"
+            },
+            {
+              "include": "#richText"
+            }
+          ]
+        }
+      ]
+    },
+    "presentationStyle": {
+      "patterns": [
+        {
+          "name": "meta.annotation.presentation.storydsl",
+          "match": "\\[#\\s*style\\s*=\\s*[^\\]\\s]+\\s*\\]"
+        }
+      ]
+    },
+    "richText": {
+      "patterns": [
+        {
+          "name": "markup.other.storydsl",
+          "match": "\\[/?color(?:=[A-Za-z]+)?\\]"
         }
       ]
     },

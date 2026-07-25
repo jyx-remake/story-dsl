@@ -7,6 +7,7 @@ import {
 import { parseConditionHeader } from "./condition-header";
 import { ParserContext } from "./parser-context";
 import { ParseStatements } from "./parser-types";
+import { reportOptionPresentationStyle } from "./presentation-style";
 import {
   isBranchLine,
   isKeywordLine,
@@ -59,7 +60,8 @@ export function parseChoiceStatement(
 
   return {
     type: "choice",
-    prompt,
+    style: prompt.style,
+    prompt: { ...prompt, style: null },
     groups,
     span: groups.length > 0 ? mergeSpans(prompt.span, groups[groups.length - 1].span) : prompt.span,
   };
@@ -92,6 +94,7 @@ function parseChoiceOption(
 ): ChoiceOptionAst {
   const line = context.peek()!;
   const optionText = /^-\s*(.*)$/u.exec(line.trimmed)?.[1] ?? "";
+  reportOptionPresentationStyle(context, line, optionText);
   const optionSpan = lineSpan(line);
   context.advance();
   const statements = parseStatements(

@@ -1,6 +1,6 @@
 # 游戏开始
-南贤：游戏开始
-胡斐：少侠来此所谓何事？
+南贤：[#style=opening]游戏开始
+胡斐：[#style=question-cards]少侠来此所谓何事？
 - 无事
   jump nothing
 - 乞讨

@@ -42,6 +42,17 @@ Story DSL 是一个 VSCode 扩展，用于编辑剧情脚本 `.story` 文件并�
   get_money 100
 ```
 
+Dialogue and the whole choice can select a host-defined presentation style:
+
+```text
+南贤：[#style=opening]游戏开始
+掌柜：[#style=shop-cards]客官需要什么？
+- 购买
+- 离开
+```
+
+The style tag must appear at the start of the dialogue text. Whitespace is allowed around `#`, `style`, `=`, the style ID, and `]`, but not inside the style ID itself. Choice-option styles and other metadata tags are not supported yet.
+
 ### Battle
 
 ```text
@@ -91,6 +102,7 @@ when shop_open
 
 - `if / elif / else` 会编译为 `branch { cases, fallback }`
 - 条件选项会编译为 `choice.groups`；无条件组不输出 `when`
+- `[#style=...]` 会编译为可选的 `dialogue.style` 或顶层 `choice.style`
 - 表达式使用紧凑前缀数组，例如：
   - `["var", "money"]`
   - `["pred", "has_item", "小刀"]`

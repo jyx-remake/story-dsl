@@ -129,6 +129,22 @@ return
 - `choice` 不是独立头语法，而是“对白后紧跟若干 `- 选项`”
 - 分支体允许多语句
 
+对白和整个 choice 可以使用宿主定义的展示样式：
+
+```text
+南贤：[#style=opening]游戏开始
+
+掌柜：[#style=shop-cards]客官需要什么？
+- 购买
+- 离开
+```
+
+- `[#style=样式ID]` 只能出现在对白正文开头，标签不会进入显示文本
+- 普通对白的样式编译到 `dialogue.style`；对白形成 choice 时编译到 `choice.style`
+- `#`、`style`、`=`、样式 ID 与 `]` 之间允许空白
+- 样式 ID 允许中英文、数字、点、下划线和短横线，ID 自身不允许空白
+- 当前不支持选项级样式或其他展示标签
+
 选项可以按条件成组显示：
 
 ```text
@@ -192,12 +208,12 @@ else
 
 典型节点字段：
 
-- `dialogue`: `speaker`, `text`
+- `dialogue`: `speaker`, `text`，可选 `style`
 - `command`: `name`, `args`
 - `jump`: `target`
 - `call`: `target`
 - `return`: 无额外字段
-- `choice`: `prompt`, `groups`；无条件组省略 `when`，条件组使用 `when`, `options`
+- `choice`: 可选 `style`、`prompt`, `groups`；无条件组省略 `when`，条件组使用 `when`, `options`
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
 

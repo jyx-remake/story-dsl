@@ -39,6 +39,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "在来到这个世界之前，请允许询问您几个问题"
@@ -56,6 +57,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "你希望你在武侠小说中的出身是"
@@ -410,6 +412,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "以下你觉得最宝贵的是"
@@ -491,6 +494,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "以下你觉得最可恶的行为是"
@@ -583,6 +587,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "你最喜欢的兵刃是"
@@ -652,6 +657,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "以下女性角色你最喜欢的是"
@@ -753,6 +759,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "以下男性角色你最喜欢的是"
@@ -881,6 +888,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "以下你觉得最牛的人是"
@@ -1040,6 +1048,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "选择你的游戏难度"
@@ -1366,6 +1375,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "请输入你的名字"
@@ -1392,6 +1402,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "请选择人物头像"
@@ -1417,6 +1428,7 @@
         },
         {
           "kind": "choice",
+          "style": "bold",
           "prompt": {
             "speaker": "",
             "text": "欢迎来到金庸群侠传的世界"
