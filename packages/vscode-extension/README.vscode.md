@@ -94,13 +94,14 @@ when shop_open
 - 段头必须是顶格 `# 段名`
 - 仅允许空格缩进，且 2 空格一级
 - 对白支持 `:` 和 `：`
-- `battle` 当前只支持 `win / lose / timeout`
+- `battle` 当前只支持 `win / lose / timeout`，结果分支可以全部省略
 - 变量必须带 `$`
 - `jump` 是终止语句
 
 ## JSON IR Notes
 
 - `if / elif / else` 会编译为 `branch { cases, fallback }`
+- 无结果分支的 `battle` 会编译为空的 `outcomes: {}`
 - 条件选项会编译为 `choice.groups`；无条件组不输出 `when`
 - `[#style=...]` 会编译为可选的 `dialogue.style` 或顶层 `choice.style`
 - 表达式使用紧凑前缀数组，例如：

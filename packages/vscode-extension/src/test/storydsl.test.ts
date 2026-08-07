@@ -378,6 +378,30 @@ battle Test
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("重复的剧情段名")));
 });
 
+test("allows battle without outcome branches", () => {
+  const source = `# Start
+battle Training
+南贤：战斗结束
+`;
+
+  const parsed = parseStory(source);
+  assert.equal(parsed.diagnostics.length, 0);
+  assert.equal(parsed.ast.segments[0].statements.length, 2);
+
+  const compiled = compileScript(parsed.ast);
+  assert.equal(compiled.diagnostics.length, 0);
+  assert.deepEqual(compiled.ir.segments[0].steps[0], {
+    kind: "battle",
+    battleId: "Training",
+    outcomes: {},
+  });
+  assert.deepEqual(compiled.ir.segments[0].steps[1], {
+    kind: "dialogue",
+    speaker: "南贤",
+    text: "战斗结束",
+  });
+});
+
 test("skips unreachable steps in IR after jump", () => {
   const source = `# Start
 jump End

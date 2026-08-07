@@ -55,10 +55,6 @@ export function parseBattleStatement(
     });
   }
 
-  if (outcomes.length === 0) {
-    context.report("battle 至少需要一个结果分支", lineSpan(headerLine), "structure");
-  }
-
   return {
     type: "battle",
     battleId,

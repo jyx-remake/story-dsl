@@ -175,6 +175,7 @@ battle 新手战
 ```
 
 - 当前只支持 `win / lose / timeout`
+- 结果分支可以全部省略；无分支时 IR 的 `outcomes` 为 `{}`
 - IR 中使用 `battleId`
 
 ### 条件分支
