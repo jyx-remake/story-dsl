@@ -10,6 +10,7 @@
     "build:core": "npm run build --workspace @storydsl/core",
     "build": "npm run build --workspace storydsl-vscode",
     "build:web": "npm run build --workspace storydsl-web",
+    "convert:xml": "npm run build:core && node scripts/convert-xml-to-story.mjs",
     "dev:web": "npm run dev --workspace storydsl-web",
     "test": "npm test --workspace storydsl-vscode",
     "package:vsix": "npm run package:vsix --workspace storydsl-vscode"

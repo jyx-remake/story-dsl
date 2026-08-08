@@ -1,30 +1,40 @@
-import { DiagnosticItem, SourceSpan } from "../ast";
-import { CommandIr } from "./ir";
+import { CommandStmtAst, DiagnosticItem } from "../ast";
 
 interface CommandTransformContext {
   segmentName: string;
-  span: SourceSpan;
   diagnostics: DiagnosticItem[];
 }
 
-export function transformCommand(command: CommandIr, context: CommandTransformContext): CommandIr {
-  if (command.name !== "maxlevel" || command.args.length !== 2) {
-    return command;
-  }
+export function transformCommandSource(
+  statement: CommandStmtAst,
+  context: CommandTransformContext,
+): string | null {
+  const call = statement.call;
+  if (!call) return null;
+  if (call.name !== "maxlevel" || call.args.length !== 2) return statement.callSource;
 
-  const skillName = command.args[0];
-  if (typeof skillName !== "string") {
+  const skillName = call.args[0];
+  if (skillName.type !== "literal" || skillName.valueType !== "string") {
     context.diagnostics.push({
       message: "maxlevel 自动补 key 时，技能名必须是字符串字面量",
-      span: context.span,
+      span: skillName.span,
       severity: "error",
       code: "semantic",
     });
-    return command;
+    return statement.callSource;
   }
 
-  return {
-    ...command,
-    args: [...command.args, `${context.segmentName}_${skillName}`],
-  };
+  const closingParenthesis = statement.callSource.lastIndexOf(")");
+  if (closingParenthesis < 0) return statement.callSource;
+  const onceKey = quoteString(`${context.segmentName}_${skillName.value}`);
+  return `${statement.callSource.slice(0, closingParenthesis)}, ${onceKey}${statement.callSource.slice(closingParenthesis)}`;
+}
+
+function quoteString(value: string): string {
+  return `'${value.replace(/[\\'\b\f\n\r\t\u0000-\u001f]/gu, (character) => {
+    const escapes: Record<string, string> = {
+      "\\": "\\\\", "'": "\\'", "\b": "\\b", "\f": "\\f", "\n": "\\n", "\r": "\\r", "\t": "\\t",
+    };
+    return escapes[character] ?? `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`;
+  })}'`;
 }

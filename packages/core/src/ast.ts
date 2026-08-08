@@ -60,8 +60,8 @@ export interface DialogueStmtAst {
 export interface CommandStmtAst {
   type: "command";
   span: SourceSpan;
-  name: string;
-  args: ValueArgAst[];
+  call: CallExprAst | null;
+  callSource: string;
   raw: string;
 }
 
@@ -143,14 +143,29 @@ export interface ConditionalBranchAst {
 export type ExprAst =
   | BinaryExprAst
   | UnaryExprAst
-  | ComparisonExprAst
-  | PredicateCallExprAst
-  | VariableExprAst
+  | CallExprAst
+  | IdentifierExprAst
+  | ListExprAst
   | LiteralExprAst;
 
 export interface BinaryExprAst {
   type: "binary";
-  operator: "and" | "or";
+  operator:
+    | "*"
+    | "/"
+    | "%"
+    | "+"
+    | "-"
+    | "<"
+    | "<="
+    | ">"
+    | ">="
+    | "in"
+    | "not in"
+    | "=="
+    | "!="
+    | "and"
+    | "or";
   span: SourceSpan;
   rawOperator: string;
   left: ExprAst;
@@ -159,44 +174,34 @@ export interface BinaryExprAst {
 
 export interface UnaryExprAst {
   type: "unary";
-  operator: "not";
+  operator: "not" | "+" | "-";
   span: SourceSpan;
   rawOperator: string;
   operand: ExprAst;
 }
 
-export interface ComparisonExprAst {
-  type: "comparison";
-  operator: "==" | "!=" | ">" | ">=" | "<" | "<=";
+export interface CallExprAst {
+  type: "callExpr";
+  name: string;
   span: SourceSpan;
-  left: ExprAst;
-  right: ExprAst;
+  args: ExprAst[];
 }
 
-export interface PredicateCallExprAst {
-  type: "predicate";
+export interface IdentifierExprAst {
+  type: "identifier";
   span: SourceSpan;
   name: string;
-  args: ValueArgAst[];
 }
 
-export type ValueArgAst = VariableExprAst | LiteralExprAst | ListValueArgAst;
-
-export interface ListValueArgAst {
+export interface ListExprAst {
   type: "list";
   span: SourceSpan;
-  items: ValueArgAst[];
-}
-
-export interface VariableExprAst {
-  type: "variable";
-  span: SourceSpan;
-  name: string;
+  items: ExprAst[];
 }
 
 export interface LiteralExprAst {
   type: "literal";
   span: SourceSpan;
-  value: string | number;
-  valueType: "string" | "number";
+  value: string | number | boolean;
+  valueType: "string" | "number" | "boolean";
 }

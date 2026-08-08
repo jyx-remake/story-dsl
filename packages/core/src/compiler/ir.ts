@@ -1,5 +1,5 @@
 export interface ScriptIr {
-  version: 2;
+  version: 3;
   segments: SegmentIr[];
 }
 
@@ -19,37 +19,20 @@ export interface DialogueIr {
 
 export interface CommandIr {
   kind: "command";
-  name: string;
-  args: ValueArgIr[];
+  call: string;
 }
 
-export interface JumpIr {
-  kind: "jump";
-  target: string;
-}
-
-export interface CallIr {
-  kind: "call";
-  target: string;
-}
-
-export interface ReturnIr {
-  kind: "return";
-}
+export interface JumpIr { kind: "jump"; target: string; }
+export interface CallIr { kind: "call"; target: string; }
+export interface ReturnIr { kind: "return"; }
 
 export interface ChoiceIr {
   kind: "choice";
   style?: string;
-  prompt: {
-    speaker: string;
-    text: string;
-  };
+  prompt: { speaker: string; text: string };
   groups: Array<{
-    when?: ExprIr;
-    options: Array<{
-      text: string;
-      steps: StepIr[];
-    }>;
+    when?: string;
+    options: Array<{ text: string; steps: StepIr[] }>;
   }>;
 }
 
@@ -61,27 +44,6 @@ export interface BattleIr {
 
 export interface BranchIr {
   kind: "branch";
-  cases: Array<{
-    when: ExprIr;
-    steps: StepIr[];
-  }>;
+  cases: Array<{ when: string; steps: StepIr[] }>;
   fallback: StepIr[] | null;
 }
-
-export type VariableExprIr = ["var", string];
-
-export type ListValueArgIr = ["list", ...ValueArgIr[]];
-
-export type ValueArgIr = string | number | VariableExprIr | ListValueArgIr;
-
-export type PredicateExprIr = ["pred", string, ...ValueArgIr[]];
-
-export type UnaryExprIr = ["not", ExprIr];
-
-export type BinaryExprIr = [
-  "and" | "or" | "==" | "!=" | ">" | ">=" | "<" | "<=",
-  ExprIr,
-  ExprIr,
-];
-
-export type ExprIr = string | number | VariableExprIr | PredicateExprIr | UnaryExprIr | BinaryExprIr;

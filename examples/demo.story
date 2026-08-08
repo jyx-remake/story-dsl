@@ -4,9 +4,9 @@
 - 无事
   jump nothing
 - 乞讨
-  get_money 100
+  change_silver(100)
   胡斐：给你钱
-when has_item 小刀 and $money > 10
+when item_count('小刀') >= 1 and money > 10
   - 出示小刀
     胡斐：这把刀从哪里来的？
   - 收起小刀
@@ -18,9 +18,9 @@ battle 新手战
 - timeout
   南贤：太墨迹了
 
-if has_item 小刀 and $money > 100
+if item_count('小刀') >= 1 and money > 100
   南贤：不错
-elif !has_item 小刀 || $money > 10
+elif not (item_count('小刀') >= 1) or money > 10
   南贤：也行
 else
   南贤：穷鬼

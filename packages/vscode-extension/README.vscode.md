@@ -9,7 +9,7 @@ Story DSL 是一个 VSCode 扩展，用于编辑剧情脚本 `.story` 文件并�
 - 段级大纲展示
 - 实时语法诊断
 - 保存时自动编译为同名 `.story.json`
-- 从旧版 Story XML 转换为 `.story` 草稿
+- 从旧版 Story XML 转换为严格的 Story v3 `.story` 草稿
 
 ## Commands
 
@@ -18,8 +18,7 @@ Story DSL 是一个 VSCode 扩展，用于编辑剧情脚本 `.story` 文件并�
 - `Story DSL: Compile All Stories`
 - `Story DSL: Convert XML To Story`
 
-`Convert XML To Story` 会读取当前打开的 `.xml` 文件，或提示选择 XML 文件，并在同目录输出同名 `.story`。
-转换会保留段名和取值中的原始 `_` / `.`，并把 XML 的 action/result 类型映射为小写 DSL 命令名。legacy 条件 `key_in_team`、`key_not_in_team` 会分别归一化为只接收角色 ID 的 `in_team`、`not_in_team`。
+`Convert XML To Story` 输出 v3 canonical 函数调用并在写入前执行 parser/compiler 验证。结果保存为不冲突的 `<原名>.converted.story`、`<原名>.converted-2.story` 等，不覆盖现有 `.story`。非主角角色查询自动添加 `in_team(id) and ...` 短路保护；XML 中的 `skill` 按 External skill 转换。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 
@@ -39,7 +38,7 @@ Story DSL 是一个 VSCode 扩展，用于编辑剧情脚本 `.story` 文件并�
 - 出门
   jump 出门后
 - 休息
-  get_money 100
+  change_silver(100)
 ```
 
 Dialogue and the whole choice can select a host-defined presentation style:
@@ -68,9 +67,9 @@ battle 新手战
 ### Condition
 
 ```text
-if has_item 小刀 and $money > 100
+if item_count('小刀') >= 1 and silver > 100
   南贤：不错
-elif !has_item 小刀 || $money > 10
+elif item_count('小刀') == 0 or silver > 10
   南贤：也行
 else
   南贤：穷鬼
@@ -82,7 +81,7 @@ Choice options can also be grouped by a shared condition:
 掌柜：客官需要什么？
 - 离开
   jump leave
-when shop_open
+when shop_open and silver > 0
   - 购买
     jump buy
   - 出售
@@ -95,7 +94,8 @@ when shop_open
 - 仅允许空格缩进，且 2 空格一级
 - 对白支持 `:` 和 `：`
 - `battle` 当前只支持 `win / lose / timeout`，结果分支可以全部省略
-- 变量必须带 `$`
+- command 必须使用 `name(...)` 函数调用语法
+- 字符串优先使用单引号；动态变量直接使用小写 snake_case 标识符
 - `jump` 是终止语句
 
 ## JSON IR Notes
@@ -104,16 +104,13 @@ when shop_open
 - 无结果分支的 `battle` 会编译为空的 `outcomes: {}`
 - 条件选项会编译为 `choice.groups`；无条件组不输出 `when`
 - `[#style=...]` 会编译为可选的 `dialogue.style` 或顶层 `choice.style`
-- 表达式使用紧凑前缀数组，例如：
-  - `["var", "money"]`
-  - `["pred", "has_item", "小刀"]`
-  - `["and", left, right]`
-- 命令参数会归一化为值参数，例如 `100`、`"小刀"`、`["var", "money"]`
-- `maxlevel 技能名 等级` 会额外补第三个参数 `当前剧情段名_技能名`；已显式提供第三参时保留原值
+- IR 版本为 3；command 使用 `{ kind: "command", call: "..." }`
+- branch 和 choice 的 `when` 直接保存表达式字符串
+- `maxlevel('技能名', 等级)` 会额外补第三个参数 `'当前剧情段名_技能名'`；已显式提供第三参时保留原值
 
 ## Limitations
 
-- 当前不支持引号字符串和转义
+- 不支持 `null`、成员访问、索引、赋值或三元表达式
 - `choice` 只能出现在对白之后
 - 当前只做静态高亮，不做语义 token 和 LSP
 - 富文本当前仅在 XML 转换阶段处理旧颜色标记；颜色、粗体、下划线、点击、图标、变量插值的正式模型仍待设计

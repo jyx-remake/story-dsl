@@ -21,7 +21,7 @@
 - VSCode 问题面板诊断
 - 保存时自动输出同名 `.story.json`
 - 段级大纲展示
-- 从旧版 Story XML 转换为 `.story` 草稿
+- 从旧版 Story XML 转换为严格的 Story v3 `.story` 草稿
 - `call / return` 剧情段调用与返回控制流
 
 仓库以 `packages/core/` 的 DSL 核心为共享源，VSCode 插件与 Web 版复用同一套 parser/compiler。`packages/runtime-csharp/` 是已弃用的独立消费端原型，仅保留历史参考，不再作为当前 IR 能力的同步目标。
@@ -64,10 +64,18 @@ npm run dev:web
 - `Story DSL: Compile All Stories`
 - `Story DSL: Convert XML To Story`
 
-`Convert XML To Story` 会读取当前打开的 `.xml` 文件，或提示选择 XML 文件，并在同目录输出同名 `.story`。
-转换会保留段名和取值中的原始 `_` / `.`，并把 XML 的 action/result 类型映射为小写 DSL 命令名。legacy 条件 `key_in_team`、`key_not_in_team` 会分别归一化为只接收角色 ID 的 `in_team`、`not_in_team`。
+`Convert XML To Story` 输出 v3 canonical 函数调用，并在写入前通过同一套 parser/compiler 验证。输出默认使用 `<原名>.converted.story`；若文件已存在则追加 `-2`、`-3`，不会覆盖现有 `.story`。legacy 条件会转换为普通表达式，非主角的等级、属性和技能查询自动添加 `in_team(id) and ...` 短路保护。XML 中的 `skill` 按 External skill 转换；`maxlevel` 的 once key 仍由 compiler 补充。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
+
+也可以从命令行转换：
+
+```powershell
+npm run convert:xml -- path\to\storys.xml
+npm run convert:xml -- path\to\storys.xml path\to\draft.story
+```
+
+未指定输出路径时自动选择不冲突的 `.converted.story` 文件；显式输出路径已经存在时会拒绝写入。
 
 ## DSL Snapshot
 
@@ -100,17 +108,17 @@ npm run dev:web
 ### 命令与控制流
 
 ```text
-change_map 金陵
-play_music 笑傲江湖曲
+map('金陵')
+music('笑傲江湖曲')
+change_item('小还丹', 2)
 jump 游戏开始
 call 公共片段
 return
 ```
 
-- 参数按空格分词
-- JSON IR 中命令参数会归一化为值参数：数字变数字，`$name` 变 `["var", "name"]`
-- 编译到 JSON IR 时，`maxlevel 技能名 等级` 会额外补第三个参数 `当前剧情段名_技能名`
-- 第一版不支持带空格字符串参数
+- command 必须是函数调用；参数支持 Boolean、Number、String、List、标识符和嵌套调用
+- 字符串支持单引号和双引号，仓库内容优先使用单引号
+- 编译到 JSON IR 时，`maxlevel('技能名', 等级)` 会额外补第三个参数 `'当前剧情段名_技能名'`
 - `jump` 是强跳转，会终止当前段后续同级语句的 IR 输出
 - `call` 会进入目标段，目标段结束或执行 `return` 后回到调用点下一条语句
 - `return` 会结束当前调用段；顶层 `return` 会结束当前 story flow
@@ -123,7 +131,7 @@ return
 - 无事
   jump nothing
 - 乞讨
-  get_money 100
+  change_silver(100)
 ```
 
 - `choice` 不是独立头语法，而是“对白后紧跟若干 `- 选项`”
@@ -151,7 +159,7 @@ return
 掌柜：客官需要什么？
 - 离开
   jump leave
-when shop_open and $money > 0
+when shop_open and silver > 0
   - 购买
     jump buy
   - 出售
@@ -181,19 +189,19 @@ battle 新手战
 ### 条件分支
 
 ```text
-if has_item 小刀 and $money > 100
+if item_count('小刀') >= 1 and silver > 100
   南贤：不错
-elif !has_item 小刀 || $money > 10
+elif item_count('小刀') == 0 or silver > 10
   南贤：也行
 else
   南贤：穷鬼
 ```
 
-- 支持 `and or not && || ! ()`
-- IR 中统一为 `and / or / not`
-- 变量必须带 `$`
-- 裸词默认为常量或谓词参数
-- JSON IR 中 `variable.name` 不保留前导 `$`
+- 支持 Boolean、Number、单/双引号 String、同构 List、标识符和函数调用
+- 支持一元 `not / ! / + / -`，算术 `* / % + -`，比较、`in / not in / !in` 以及 `and / or / && / ||`
+- 标识符区分大小写，并限制为小写 ASCII snake_case；动态变量直接写标识符，不再使用 `$`
+- `and/or` 按 v3 语义短路；查询非主角的等级、属性或技能前必须使用 `in_team(id) and ...` 保护
+- branch/choice 的 `when` 以原始表达式字符串进入 JSON IR
 - `if / elif / else` 在 JSON IR 中统一编译为 `branch { cases, fallback }`
 
 ## JSON IR Shape
@@ -202,7 +210,7 @@ else
 
 ```json
 {
-  "version": 2,
+  "version": 3,
   "segments": []
 }
 ```
@@ -210,7 +218,7 @@ else
 典型节点字段：
 
 - `dialogue`: `speaker`, `text`，可选 `style`
-- `command`: `name`, `args`
+- `command`: `call`
 - `jump`: `target`
 - `call`: `target`
 - `return`: 无额外字段
@@ -218,22 +226,15 @@ else
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
 
-命令 IR 会保留通用 `command { name, args }` 形态。`maxlevel` 有一条额外编译转换：
+命令和条件以 v3 表达式源字符串输出。`maxlevel` 仍保留一次性奖励 key 的额外编译转换：
 
 ```json
-{ "kind": "command", "name": "maxlevel", "args": ["独孤九剑", 1, "某剧情_独孤九剑"] }
+{ "kind": "command", "call": "maxlevel('独孤九剑', 1, '某剧情_独孤九剑')" }
 ```
 
-当 DSL 写作 `maxlevel 独孤九剑 1` 时，第三个参数由当前剧情段名和技能名拼接得到。若 DSL 已显式提供第三个参数，则保留原值。
+当 DSL 写作 `maxlevel('独孤九剑', 1)` 时，第三个参数由当前剧情段名和技能名拼接得到。若 DSL 已显式提供第三个参数，则保留原值。
 
-表达式使用紧凑前缀数组 IR：
-
-- 变量：`["var", "money"]`
-- 命令参数：`["var", "money"]`、`100`、`"小刀"`
-- 谓词：`["pred", "has_item", "小刀"]`
-- 取反：`["not", expr]`
-- 逻辑与比较：`["and", left, right]`、`[">", left, right]`
-- 字面量：直接输出 JSON 字符串或数字
+例如条件 `in_team('郭襄') and character_level('郭襄') >= 20` 会原样进入 `branch.cases[].when` 或 `choice.groups[].when`。
 
 完整示例可见：
 
@@ -280,8 +281,8 @@ TODO.md
 ## Current Constraints
 
 - 严格缩进：仅允许空格，2 空格一级，禁止 Tab
-- `//` 会被当作注释起点
-- 不支持引号字符串、转义、`%temp`、`@player.name`
+- 字符串外的 `//` 会被当作注释起点；字符串内部的 `//` 保留
+- 不支持 `null`、成员访问、索引、赋值、三元表达式或字符串拼接
 - `choice` 只能出现在对白之后
 - 当前只做静态高亮，不做语义 token 和 LSP
 

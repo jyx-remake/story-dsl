@@ -19,15 +19,20 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
     comments: {
       lineComment: "//",
     },
-    brackets: [["(", ")"]],
-    autoClosingPairs: [{ open: "(", close: ")" }],
+    brackets: [["(", ")"], ["[", "]"]],
+    autoClosingPairs: [
+      { open: "(", close: ")" },
+      { open: "[", close: "]" },
+      { open: "'", close: "'" },
+      { open: "\"", close: "\"" },
+    ],
   });
 
   monacoApi.languages.setMonarchTokensProvider(LANGUAGE_ID, {
     defaultToken: "",
     tokenPostfix: ".story",
-    keywords: ["if", "elif", "else", "when", "battle", "jump", "and", "or", "not", "win", "lose", "timeout"],
-    operators: ["==", "!=", ">=", "<=", ">", "<", "&&", "||", "!"],
+    keywords: ["if", "elif", "else", "when", "battle", "jump", "call", "return", "and", "or", "not", "in", "win", "lose", "timeout"],
+    operators: ["==", "!=", ">=", "<=", ">", "<", "&&", "||", "!", "!in", "+", "-", "*", "/", "%"],
     tokenizer: {
       root: [
         [/\/\/.*$/, "comment"],
@@ -35,16 +40,18 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
         [/^(\s*)(-)(\s*)(win|lose|timeout)\b/, ["", "story.branchMarker", "", "keyword"]],
         [/^(\s*)(-)(\s*)(.*)$/, ["", "story.branchMarker", "", "story.choiceText"]],
         [/^(\s*)(if|elif|else|when)\b/, ["", "keyword"]],
-        [/^(\s*)(battle|jump)\b/, ["", "keyword"]],
-        [/^(\s*)([A-Za-z_][\w.]*)\b/, ["", "story.commandName"]],
+        [/^(\s*)(battle|jump|call|return)\b/, ["", "keyword"]],
+        [/^(\s*)([a-z_][a-z0-9_]*)(?=\s*\()/, ["", "story.commandName"]],
         [/^(\s*)([^:：\s][^:：]*)([:：])/, ["", "story.speaker", "delimiter"]],
         [/\[#\s*style\s*=\s*[\p{L}\p{N}_.-]+\s*\]/u, "story.metadata"],
         [/\[\/?color(?:=[A-Za-z]+)?\]/, "story.richText"],
-        [/\$[A-Za-z_][\w\u4e00-\u9fa5]*/, "variable"],
-        [/[+-]?\d+(?:\.\d+)?/, "number"],
+        [/'(?:\\(?:[\\'"bfnrt]|u[0-9A-Fa-f]{4})|[^'\\])*'/, "string"],
+        [/"(?:\\(?:[\\'"bfnrt]|u[0-9A-Fa-f]{4})|[^"\\])*"/, "string"],
+        [/\b(?:true|false)\b/, "constant"],
+        [/(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/, "number"],
         [/[:：]/, "delimiter"],
         [
-          /[A-Za-z_][\w.]*/,
+          /[a-z_][a-z0-9_]*/,
           {
             cases: {
               "@keywords": "keyword",
@@ -52,7 +59,7 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
             },
           },
         ],
-        [/[=!<>]=?|&&|\|\||!/, "operator"],
+        [/!in|[=!<>]=?|&&|\|\||[+\-*\/%]/, "operator"],
       ],
     },
   });
@@ -73,7 +80,8 @@ function defineStoryTheme(monacoApi: typeof monaco): void {
       { token: "story.metadata", foreground: "7DB7D9", fontStyle: "italic" },
       { token: "story.richText", foreground: "C68BD9" },
       { token: "keyword", foreground: "8FBF74", fontStyle: "bold" },
-      { token: "variable", foreground: "D7C36B" },
+      { token: "string", foreground: "D7C36B" },
+      { token: "constant", foreground: "D7C36B" },
       { token: "number", foreground: "9AD0B3" },
       { token: "operator", foreground: "B7C5CA" },
       { token: "delimiter", foreground: "B7C5CA" },

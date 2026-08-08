@@ -7,21 +7,21 @@
   jump original_女主长安加入队伍判断
 
 # original_女主长安接任务
-if should_not_finish original_长安深夜怪事.开篇
+if not story_completed('original_长安深夜怪事.开篇')
   jump original_长安深夜怪事.开篇
-if should_not_finish original_山庄风云.出发
+elif not story_completed('original_山庄风云.出发')
   jump original_山庄风云.开篇
 jump original_女主.一切太平
 
 # original_女主长安加入队伍判断
-if haogan_more_than 60
+if favorability('女主') >= 60
   jump original_女主长安加入队伍
-if haogan_less_than 60
+else
   jump original_女主长安不加入
 
 # original_女主长安加入队伍
 女主：好啊！我们走吧！
-join 女主
+join('女主')
 
 # original_女主长安不加入
 女主：我……好像不太舒服，还是下次再跟你跑吧。
@@ -49,8 +49,8 @@ join 女主
 主角：好了，就这么说定了。我去看看到底什么情况吧。
 
 # original_长安深夜怪事
-background 地图.城市
-music 音乐.紧张感
+background('地图.城市')
+music('音乐.紧张感')
 主角：夜半时分……菜市口这种专砍人头的地方，呆久了确实感觉毛毛的。
 主角：咦？似乎那边真的有怪叫？
 主角：（偷偷摸摸到街角……）是一个女子的哭声……
@@ -68,15 +68,15 @@ battle original_长安深夜怪事.初遇夜间人
   jump original_长安深夜怪事.初遇夜间人2
 
 # original_长安深夜怪事.初遇夜间人2
-music 音乐.紧张感
+music('音乐.紧张感')
 主角：你是什么人！为何要偷袭我？！
 长安深夜神秘女子：……（一下子不见了踪影）
 主角：站住！！……这人武功怪异，轻功高明，我还是先回去跟$FEMALE$说一下情况吧。
 jump original_长安深夜怪事.回复任务成功
 
 # original_长安深夜怪事.回复任务成功
-background 地图.府门前
-music 音乐.琵琶语
+background('地图.府门前')
+music('音乐.琵琶语')
 女主：怎么样，见到鬼了吗？
 主角：根本不是什么鬼，倒像是个神秘的武林高手！（将情景描述一番）
 女主：哇！好期待！她的爪法真的那么犀利吗？
@@ -89,19 +89,19 @@ music 音乐.琵琶语
 主角：而且经过今夜一战，她可能早已逃遁，不再出现在菜市口了。
 女主：好吧……真没劲。
 主角：……
-haogan 女主 3
+change_favorability('女主', 3)
 
 # original_长安深夜怪事.回复任务失败
-background 地图.府门前
-music 音乐.琵琶语
+background('地图.府门前')
+music('音乐.琵琶语')
 女主：怎么样，见到鬼了吗？
 主角：(……想办法糊弄过去吧）没见到，可能是时候不对吧，我下次再去看看。
 女主：哦……
-haogan 女主 -1
+change_favorability('女主', -1)
 
 # original_长安深夜怪事.再遇夜间人
-background 地图.树林
-music 音乐.紧张感
+background('地图.树林')
+music('音乐.紧张感')
 长安菜农：女侠饶命，女侠饶命啊！
 长安深夜神秘女子：……
 长安菜农：女侠，我上有八十老母，下有三岁小儿，一家老小都靠着我啊，女侠饶命啊女侠。
@@ -121,7 +121,7 @@ battle original_长安深夜怪事.再遇夜间人
 主角：老伯别怕，有我在她不敢再怎么样了。老伯可认识刚才的女子？
 长安菜农：不认识！不认识！我要是认识这么恐怖的婊子，恐怕三十条命都早没了。
 主角：(……既然不认识，她何苦为难素不相识、又不会武功的百姓？难道，她是杀人魔？)
-daode 3
+change_morality(3)
 
 # original_长安深夜怪事.再遇夜间人.回复任务
 女主：？你最近气色好像不太好？
@@ -132,11 +132,11 @@ daode 3
 主角：我有这个担心……你最近小心一点，尤其是夜间外出！
 女主：呵呵，谢谢你关心我。
 主角：……
-haogan 女主 3
+change_favorability('女主', 3)
 
 # original_长安深夜怪事.三遇夜间人
-background 地图.华山山洞
-music 音乐.紧张感
+background('地图.华山山洞')
+music('音乐.紧张感')
 主角：奇怪，洞中为何有一股腐臭味？
 主角：等等？！这些都是人的尸体？
 主角：被撕碎成了一块块肉片……好狠毒的手法！
@@ -154,7 +154,7 @@ battle original_长安深夜怪事.三遇夜间人
   jump original_长安深夜怪事.三遇夜间人2
 
 # original_长安深夜怪事.三遇夜间人2
-music 音乐.紧张感
+music('音乐.紧张感')
 长安深夜神秘女子：可恶！为什么我都已经将七伤摧魂手修到了顶级，却还是赢不了这个人！
 主角：因为我是主角啊，你认命吧。
 长安深夜神秘女子：连这个毛头小子都赢不了！夫君啊！儿子啊！我如何替你们报仇雪恨啊！！
@@ -170,16 +170,16 @@ music 音乐.紧张感
 
 # original_长安深夜怪事.三遇夜间人.杀
 主角：你这恶婆娘，作恶多端，杀人无数，今日我替被你杀死的无辜百姓伸张正义！（手起刀落）
-daode -3
+change_morality(-3)
 主角：……虽然乘人之危有违侠义道，但是这下子再也不会有人晚上被害了，长安终于可以恢复平安了。
 主角：咦？这是？
-item 七伤摧魂针法
+change_item('七伤摧魂针法')
 主角：……此手法果然极为凶险残暴，如果没有玄门正宗内功相佐，很容易走入邪途，甚至迷乱心性。
 主角：此人想必也是练了此武功后，才心性大变，滥杀无辜。唉，何苦。
 
 # original_长安深夜怪事.三遇夜间人.不杀
 主角：此人虽然作恶多端，死有余辜。但我辈中人决不乘人之危，痛下杀手。且看她到底会如何下去吧。
-daode 3
+change_morality(3)
 赵志诚：在这里！找到妖女了！
 主角：？是全真教的人？
 长安深夜神秘女子：咳咳……好……来得好……
@@ -211,11 +211,11 @@ daode 3
 主角：(重阳宫高手众多，她想必不会遇到什么危险……）好，我也很好奇到底是怎么回事。我们就去一趟重阳宫吧。
 女主：嘻嘻，太好了。$MALE$又带我出去玩喽。
 主角：……
-follow 女主
+follow('女主')
 
 # original_长安深夜怪事.重阳宫
-background 地图.全真教
-music 音乐.刀间鼓
+background('地图.全真教')
+music('音乐.刀间鼓')
 女主：哇！这就是天下玄门祖庭重阳宫啊！真的是神仙风骨，好一番气派！
 主角：赵道长！
 赵志诚：……你是……那天在华山上的小子？
@@ -241,7 +241,7 @@ battle original_长安深夜怪事.重阳宫霓裳
   jump original_长安深夜怪事.重阳宫2
 
 # original_长安深夜怪事.重阳宫2
-music 音乐.刀间鼓
+music('音乐.刀间鼓')
 霓裳：（冷笑）哼，你武功高强，我打不过你。可是姓赵的，你别以为躲得了一时，躲得过一世。
 赵志诚：妖女！今日你居然自投罗网，休想离开重阳宫。我赵志诚绝不会让你再出去为非作歹！
 霓裳：（凄然）哈哈哈哈，哈哈哈哈。这世界是怎么了，像你这样道貌岸然的家伙一个个狼心狗肺，天不为我撑腰，我只能选择成魔！
@@ -278,7 +278,7 @@ battle original_长安深夜怪事.重阳宫赵志诚
   jump original_长安深夜怪事.重阳宫3
 
 # original_长安深夜怪事.重阳宫3
-music 音乐.全真教
+music('音乐.全真教')
 霓裳：趁现在！（一把要救回$FEMALE$）
 赵志诚：别想得逞！！（垂死中一剑向$FEMALE$刺去）
 主角：$FEMALE$！！
@@ -290,18 +290,18 @@ music 音乐.全真教
 女主：为什么！这是为什么！
 主角：$FEMALE$……（不知为何心很疼，好想一把把她抱紧……）
 主角：咦，地上掉落了什么东西？
-item 七伤摧魂针法 1
+change_item('七伤摧魂针法', 1)
 主角：……此武功虽然邪门霸道，但是亦可以成为小女子伸张正义的武器……所以天下的武功，又哪有好坏之分呢……
 女主：我再也不想停留在这里了，我们去把霓裳姑娘安葬了吧。
 主角：好……
-cost_day 1
+advance_days(1)
 主角：这次让你遇到危险了，对不起……
 女主：嘻嘻，没事，多亏你聪明机智，才让我脱离了危险。
-haogan 女主 7
+change_favorability('女主', 7)
 主角：……总之还是护送你回家吧，外面真是太危险了。
 女主：哦……我自己回去了，下次再来玩吧。
 主角：恩。
-leave_follow 女主
+leave_follower('女主')
 
 # original_山庄风云.开篇
 主角：$FEMALE$，你好……
@@ -322,15 +322,15 @@ leave_follow 女主
 # original_山庄风云.开篇不去
 女主：……不去算了，我随便找个长安城里的官家俊小伙儿陪我去，气死你。
 主角：……
-haogan 女主 -1
+change_favorability('女主', -1)
 
 # original_山庄风云.出发
 女主：嘻嘻，太好了，我们走吧！鸣凤山庄就在长安近郊，很好找的。
-follow 女主
+follow('女主')
 
 # original_山庄风云.金盆洗手大会
-background 地图.酒楼
-music 音乐.室内_世俗
+background('地图.酒楼')
+music('音乐.室内_世俗')
 女主：今天人挺多的……来了这么多江湖豪杰，真是大场面啊！
 山庄风云江湖豪客1：哈哈哈哈！来！喝酒！
 山庄风云江湖豪客2：要感谢贾老爷子请我们喝酒啊，来！干了！哈哈哈哈！
@@ -370,7 +370,7 @@ music 音乐.室内_世俗
 jump original_山庄风云.金盆洗手大会.突变
 
 # original_山庄风云.金盆洗手大会.突变
-music 音乐.紧张感
+music('音乐.紧张感')
 山庄风云神秘人：哈哈哈哈！原来天山剑法不过如此，我还当是什么宝贝，哼。
 贾武：什么人！
 山庄风云神秘人：老子生平最喜欢搜集天下奇门武学，天山剑法百年前威名很盛，今日一见剑法传人……我呸。什么狗屎功夫。
@@ -382,11 +382,11 @@ battle original_山庄风云贾武
   jump original_山庄风云.金盆洗手大会.群豪
 
 # original_山庄风云bonus1
-music 音乐.中原树林
+music('音乐.中原树林')
 jump original_山庄风云.金盆洗手大会.群豪
 
 # original_山庄风云.金盆洗手大会.群豪
-music 音乐.中原树林
+music('音乐.中原树林')
 山庄风云神秘人：撤剑！（一股内力涌出，贾武长剑脱手，面色惨白）沽名钓誉之辈，还有点自尊的话，自裁吧。
 主角：（这贾武果然只是武功平平，并非我眼力不好。）
 贾武：（面色惨白）今日贾某人在天下英豪面前出丑，祖上蒙羞……还有何颜面立于江湖之上……(自行震碎心脉而亡）
@@ -408,10 +408,10 @@ music 音乐.中原树林
   jump original_山庄风云.金盆洗手大会.撤退
 
 # original_山庄风云.金盆洗手大会.恶战
-music 音乐.中原树林
+music('音乐.中原树林')
 女主：嘻嘻，可以留下来喽。
-haogan 女主 3
-daode 3
+change_favorability('女主', 3)
+change_morality(3)
 山庄风云神秘人：那边两位，老子还有话问这个小子。你们没事就快滚吧。
 主角：前辈武功了得，晚辈甚为佩服。但以强凛弱，绝非我道中人之举。前辈，得饶人处且饶人，今日贾老爷子已死，还请前辈收手吧。
 山庄风云神秘人：老子今日为一探天山剑法的奥妙而来，谁知这姓贾的性格如此刚烈，居然真的自裁了。大的死了，这天山剑法的秘密，当然是要问这小的了。
@@ -422,7 +422,7 @@ battle original_山庄风云神秘人
   jump original_山庄风云.金盆洗手.悲戚
 
 # original_山庄风云.金盆洗手.悲戚
-music 音乐.中原树林
+music('音乐.中原树林')
 山庄风云神秘人：……好功夫，长江后浪推前浪，原来今日座下有如此人才。我眼拙了，告辞。
 主角：……贾兄弟，请节哀，我们就此别过。
 贾飞：大侠！大侠请留步啊！
@@ -436,21 +436,21 @@ music 音乐.中原树林
 jump original_山庄风云.金盆洗手.回家
 
 # original_山庄风云.金盆洗手.回家
-background 地图.府门前
+background('地图.府门前')
 女主：今天辛苦了。
 主角：好，你也好好休息。
 女主：恩。
-leave_follow 女主
-map 长安城中心
+leave_follower('女主')
+map('长安城中心')
 
 # original_山庄风云.金盆洗手大会.撤退
-music 音乐.中原树林
+music('音乐.中原树林')
 主角：此处不宜久留，我们先走吧。
 女主：看这位贾公子一人显然不是那人对手，难道要见死不救？
 主角：江湖仇杀，天天上演。江湖有江湖的规矩，我们和鸣凤山庄不熟，外人不宜涉足太深。
 女主：哦……
-haogan 女主 -2
-daode -2
+change_favorability('女主', -2)
+change_morality(-2)
 jump original_山庄风云.金盆洗手.回家
 
 # original_山庄风云.再见贾飞
@@ -475,8 +475,8 @@ jump original_山庄风云.金盆洗手.回家
 主角：……
 
 # original_山庄风云.贾飞发疯
-background 地图.酒楼
-music 音乐.紧张感
+background('地图.酒楼')
+music('音乐.紧张感')
 酒楼老板：救命啊，救命啊！
 主角：？那边有事发生。
 酒楼老板：大侠饶命，大侠饶命啊！
@@ -491,7 +491,7 @@ battle original_山庄风云疯狂贾飞
   jump original_山庄风云.贾飞发疯2
 
 # original_山庄风云.贾飞发疯2
-music 音乐.紧张感
+music('音乐.紧张感')
 主角：他的武功变得真厉害，这就是天山剑法的真实威力吗？到底他身上发生了什么？
 疯狂贾飞：你武功这么好，为什么那天不救爹爹，为什么！
 主角：江湖上的纷争，太正常不过。那日我要保护朋友，有什么出手的必要？
@@ -499,8 +499,8 @@ music 音乐.紧张感
 主角：糟了！他怕是要对$FEMALE$不利！快追！
 
 # original_山庄风云.贾飞女主
-background 地图.府门前
-music 音乐.刀间鼓
+background('地图.府门前')
+music('音乐.刀间鼓')
 女主：救命啊，呜呜呜，呜呜呜，不要啊，不要~
 疯狂贾飞：嘿嘿嘿嘿……
 主角：$FEMALE$！畜生，你干了些什么！
@@ -510,7 +510,7 @@ battle original_山庄风云疯狂贾飞女主
   jump original_山庄风云.贾飞女主2
 
 # original_山庄风云.贾飞女主2
-music 音乐.中原树林
+music('音乐.中原树林')
 疯狂贾飞：怎么……可能……我明明已经……
 疯狂贾飞：爹……孩儿……不能替你……报仇了……（咽气）
 主角：报仇你也找错对象了吧，真是疯了。$FEMALE$，你没事吧！那个畜生对你怎么了？！
@@ -524,14 +524,14 @@ music 音乐.中原树林
 主角：我不知道，他父亲死了后，他和那个神秘人之间发生了什么，他又是怎么学会这天山剑法的，一切都已经成为谜了。
 女主：恩……
 主角: 他这把佩剑不错，我就收下了。
-item 鸣凤剑
-haogan 女主 10
+change_item('鸣凤剑')
+change_favorability('女主', 10)
 
 # original_长安一梦.宝藏的秘密1
 长安一梦部落众1：$MALE$，你好，谢谢你帮我们夺回这片草原。
 主角：不客气，只是他们为什么要霸占这里呢？他们又不放牧……
 长安一梦部落众1：这我就不知道了……
-if in_team 陈达海
+if in_team('陈达海')
   jump original_长安一梦.宝藏的秘密2
 
 # original_长安一梦.宝藏的秘密2
@@ -548,15 +548,15 @@ if in_team 陈达海
 主角：……就没有其他线索了？
 长安一梦部落众1：传说太久远了，只说这里有件宝器什么的，具体我也不知道了。
 主角：哦……
-cost_day 1
+advance_days(1)
 
 # original_长安一梦.宝藏日常
 主角：想起宝藏的事情来了么？
 长安一梦部落众1：嗯……好像有点印象！哎呀，但是我今天要去放羊，一边放羊一边想就困难了……
 主角：……我帮你放羊！你专心想！
 长安一梦部落众1：好啊，谢谢！
-cost_day 1
-if probability 20
+advance_days(1)
+if chance(0.2)
   jump original_长安一梦.宝藏想起
 jump original_长安一梦.宝藏日常2
 
@@ -569,7 +569,7 @@ jump original_长安一梦.宝藏日常2
 主角：想起来了？
 长安一梦部落众1：啊！我想起来了！是什么什么英灵集！
 主角：英灵集？
-if have_item 河岳英灵集
+if item_count('河岳英灵集') >= 1
   jump original_长安一梦.宝藏想起2
 jump original_长安一梦.宝藏没想起
 
@@ -585,7 +585,7 @@ jump original_长安一梦.宝藏没想起
 jump original_长安一梦.宝藏想起3
 
 # original_长安一梦.宝藏想起3
-background 地图.塞外
+background('地图.塞外')
 主角：唉，原来宝物也只是河岳英灵集这种书籍，真是无趣。
 主角：！！什么人？！
 battle original_长安一梦.宝藏争夺
@@ -613,9 +613,9 @@ battle original_长安一梦.宝藏争夺
 长安一梦阿玉：大哥哥，你有没有看到我得银手镯子？
 主角：手镯子不见了？
 长安一梦阿玉：是啊，急死我了，呜呜呜呜。
-if not_have_item 银手镯
+if item_count('银手镯') == 0
   jump original_长安一梦.阿玉的镯子没有
-if have_item 银手镯
+else
   jump original_长安一梦.阿玉的镯子有
 
 # original_长安一梦.阿玉的镯子没有
@@ -624,9 +624,9 @@ if have_item 银手镯
 # original_长安一梦.阿玉的镯子有
 主角：别急，别急，阿玉的银镯子我虽然没有……但是我这里有一个银镯子，送给你吧！
 长安一梦阿玉：哈哈，谢谢大哥哥，大哥哥最好了！
-item 银手镯 -1
-haogan 长安一梦阿玉 5
-cost_day 1
+change_item('银手镯', -1)
+change_favorability('长安一梦阿玉', 5)
+advance_days(1)
 
 # original_长安一梦.草场仙丽雅阿玉
 主角：啊，仙丽雅，阿玉，你们好。
@@ -675,8 +675,8 @@ cost_day 1
 主角：哈哈哈哈，太好玩了，哈哈哈哈哈哈哈哈。
 长安一梦阿玉：站住！你这个坏蛋！！站住！！
 主角：哈哈哈哈哈哈哈哈。
-haogan 长安一梦阿玉 5
-cost_day 1
+change_favorability('长安一梦阿玉', 5)
+advance_days(1)
 
 # original_长安一梦.半夜鬼叫
 长安一梦部落众1：最近好像老是听到山洞那边传来奇怪的声音。是不是闹鬼啊？
@@ -690,7 +690,7 @@ cost_day 1
 
 # original_长安一梦.半夜鬼叫去
 主角：有点在意到底是怎么回事，去山洞看看吧。
-map 长安一梦山洞
+map('长安一梦山洞')
 
 # original_长安一梦.山洞退缩
 主角：要离开山洞不再管半夜鬼叫的事情了吗？
@@ -701,8 +701,8 @@ map 长安一梦山洞
 
 # original_长安一梦.半夜鬼叫不去
 主角：……算了，不管这档子事。
-cost_day 1
-set_map 长安一梦
+advance_days(1)
+map('长安一梦')
 jump original_长安一梦.阿玉失踪
 
 # original_长安一梦.汉家松鼠
@@ -729,19 +729,19 @@ jump original_长安一梦.阿玉失踪
   jump original_长安一梦.冬日
 
 # original_长安一梦.春花
-maxlevel 独孤九剑 1
+maxlevel('独孤九剑', 1)
 jump original_长安一梦.松鼠告别
 
 # original_长安一梦.夏瓜
-maxlevel 胡家刀法 1
+maxlevel('胡家刀法', 1)
 jump original_长安一梦.松鼠告别
 
 # original_长安一梦.秋月
-maxlevel 斗转星移 1
+maxlevel('斗转星移', 1)
 jump original_长安一梦.松鼠告别
 
 # original_长安一梦.冬日
-maxlevel 野球拳 1
+maxlevel('野球拳', 1)
 jump original_长安一梦.松鼠告别
 
 # original_长安一梦.松鼠告别
@@ -763,7 +763,7 @@ battle original_长安一梦.山洞阿玉
   jump original_长安一梦.山洞阿玉2
 
 # original_长安一梦.山洞阿玉2
-music 音乐.天外村
+music('音乐.天外村')
 长安一梦阿玉：大……哥哥？我不是在做梦吧？
 主角：怎么会是做梦，你大哥哥差点就被这帮马贼给宰了，累死我了，哼哧。
 长安一梦阿玉：我……对不起……
@@ -771,13 +771,13 @@ music 音乐.天外村
 长安一梦阿玉：（脸红）对不起……
 主角：好了，平安就好。跟大哥哥回去吧。别太难过了，这里有大哥哥，还有仙丽雅，还有大家伙保护你，你爹娘知道了肯定也会很开心的。
 长安一梦阿玉：……恩！
-haogan 长安一梦阿玉 5
-cost_day 1
-map 长安一梦
+change_favorability('长安一梦阿玉', 5)
+advance_days(1)
+map('长安一梦')
 
 # original_长安一梦.阿玉失踪
-background 地图.塞外
-music 音乐.刀间鼓
+background('地图.塞外')
+music('音乐.刀间鼓')
 仙丽雅：$MALE$!$MALE$!出事了，出大事了！
 主角：怎么了？
 仙丽雅：阿玉不见了！
@@ -788,18 +788,18 @@ music 音乐.刀间鼓
 jump original_长安一梦.阿玉失踪2
 
 # original_长安一梦.阿玉失踪2
-background 地图.沙漠
+background('地图.沙漠')
 仙丽雅：阿玉！阿玉！你在哪里？阿玉！
 主角：阿玉！阿玉！
 仙丽雅：糟糕，前方出现了两道马蹄印，该走哪边好呢？
 主角：这……
-if should_finish original_长安一梦.阿玉的镯子没有
+if story_completed('original_长安一梦.阿玉的镯子没有')
   jump original_长安一梦.阿玉失踪选择
-if should_finish original_长安一梦.阿玉的镯子有
+elif story_completed('original_长安一梦.阿玉的镯子有')
   jump original_长安一梦.阿玉失踪追击
 
 # original_长安一梦.阿玉失踪选择
-background 地图.沙漠
+background('地图.沙漠')
 主角：往哪边追？
 - 左边
   jump original_长安一梦.阿玉失踪结束
@@ -807,7 +807,7 @@ background 地图.沙漠
   jump original_长安一梦.阿玉失踪结束
 
 # original_长安一梦.阿玉失踪追击
-background 地图.沙漠
+background('地图.沙漠')
 仙丽雅：等等，地上好像有什么在发光？
 主角：啊！记得有一次阿玉的手镯不见了，这是我送给她的银手镯！
 仙丽雅：阿玉真是聪明！她一定是趁强盗不注意，把镯子丢下来给我们指路！
@@ -816,7 +816,7 @@ background 地图.沙漠
 jump original_长安一梦.阿玉追踪沙漠
 
 # original_长安一梦.阿玉追踪沙漠
-background 地图.沙漠
+background('地图.沙漠')
 主角：马蹄印到这里就消失了……
 仙丽雅：看！那边！
 主角：是阿玉！阿玉！
@@ -827,8 +827,8 @@ battle original_长安一梦.沙漠马贼王
   jump original_长安一梦.阿玉追踪沙漠2
 
 # original_长安一梦.阿玉追踪沙漠2
-music 音乐.宿命
-background 地图.沙漠
+music('音乐.宿命')
+background('地图.沙漠')
 主角：阿玉，你没事吧？
 长安一梦阿玉：呜呜呜，大哥哥……我就知道你一定会来救我的……
 仙丽雅：还有我也来救你呢。
@@ -840,7 +840,7 @@ background 地图.沙漠
 长安一梦阿玉：恩……我再也不到处乱跑了……
 主角：回去吧，好好休息下。
 长安一梦阿玉：恩……
-haogan 长安一梦阿玉 5
+change_favorability('长安一梦阿玉', 5)
 
 # original_长安一梦.阿玉失踪结束
 主角：好，那就走这边吧！
@@ -854,7 +854,7 @@ haogan 长安一梦阿玉 5
 jump original_长安一梦.阿玉失踪结束2
 
 # original_长安一梦.阿玉失踪结束2
-music 音乐.宿命
+music('音乐.宿命')
 主角：阿玉！！阿玉！！
 仙丽雅：（忍不住流下泪来）阿玉！！阿玉！！你到底在哪里？！
 主角：天色渐渐暗下来，沙漠的远方什么都没有，什么……都没有……
@@ -867,7 +867,7 @@ music 音乐.宿命
 仙丽雅：（颤抖）恩。
 主角：来，上马。
 仙丽雅：嗯。
-cost_day 3
+advance_days(3)
 主角：……
 仙丽雅：（早已经泣不成声）
 主角：都是我不好，没有能保护好阿玉……
@@ -897,24 +897,24 @@ cost_day 3
 主角：好吧。
 
 # original_长安一梦.部落长老放牧
-background 地图.草场
+background('地图.草场')
 主角：看着羊儿满山坡跑，不如试试多久能把它们都赶到一堆里去。
 主角：呼呼，累死了。
-upgrade 身法 主角 2
-cost_day 1
+change_stat('主角', '身法', 2)
+advance_days(1)
 
 # original_长安一梦.部落长老打水
-background 地图.郊野
+background('地图.郊野')
 主角：一个部落这么多人，要打水也是很辛苦的事情呢。
 主角：哼哧！好重！好像回到了天天练基本功的生活一样。
-upgrade 臂力 主角 2
-cost_day 1
+change_stat('主角', '臂力', 2)
+advance_days(1)
 
 # original_长安一梦.部落长老砍柴
-background 地图.树林
+background('地图.树林')
 主角：这附近有片林子可以砍柴，不用烧粪便真是好啊。
-upgrade 根骨 主角 2
-cost_day 1
+change_stat('主角', '根骨', 2)
+advance_days(1)
 
 # original_长安一梦.部落长老没事
 
@@ -933,7 +933,7 @@ cost_day 1
 # original_新手引导.任务买药
 主角：……好吧，你赢了。
 南贤：那给你第一个任务吧，这里有300银两。
-get_money 300
+change_silver(300)
 主角：哇！真是慷慨！
 南贤：你先别开心太早！这钱给你是教你怎么买药的。
 主角：呃……买药？
@@ -941,10 +941,9 @@ get_money 300
 主角：……
 南贤：卖药的地方在洛阳，你先在大地图中找到[color=red]洛阳[/color]，然后点进去以后再找到[color=red]商店[/color]。在商店买[color=yellow]5[/color]颗[color=yellow]小还丹[/color]回来。
 主角：哦……
-newbie 购买物品
 南贤：你可以点击右边的[color=red]日志[/color]按钮查看当前游戏进度和任务目标。
 主角：好，我买药去了。
-map 大地图
+map('大地图')
 
 # original_新手引导.买药
 商人：哎呀，小兄弟来买药的？欢迎光临！看你是新手，我送你一本武功秘籍！你要什么类型的？
@@ -959,19 +958,19 @@ map 大地图
   jump original_新手引导.买药奇门
 
 # original_新手引导.买药拳
-item 罗汉拳谱 1
+change_item('罗汉拳谱', 1)
 jump original_新手引导.买药继续
 
 # original_新手引导.买药剑
-item 青蟒剑法秘籍 1
+change_item('青蟒剑法秘籍', 1)
 jump original_新手引导.买药继续
 
 # original_新手引导.买药刀
-item 万劫刀法谱 1
+change_item('万劫刀法谱', 1)
 jump original_新手引导.买药继续
 
 # original_新手引导.买药奇门
-item 疯魔杖法秘诀 1
+change_item('疯魔杖法秘诀', 1)
 jump original_新手引导.买药继续
 
 # original_新手引导.买药继续
@@ -979,18 +978,17 @@ jump original_新手引导.买药继续
 商人：哈哈，太客气了。你可是要成为一代大侠的人物，我得讨好你这个大主顾……
 商人：我再送你五颗小还丹！你不用花钱买了！
 主角：哇！慷慨啊！
-item 小还丹 5
+change_item('小还丹', 5)
 商人：嘿嘿，小意思。小兄弟可要成为一代大侠哦，这个游戏很好玩的哦。
 主角：一定一定！
 
 # original_新手引导.买到药了
 主角：呼呼，[color=yellow]任务完成了[/color]，回去[color=red]南贤居[/color]复命吧。
-newbie 购买药品完成
 
 # original_新手引导.买药完成
 南贤：恩，干得不错！
-upgrade maxhp 主角 100
-upgrade maxmp 主角 100
+change_stat('主角', 'maxhp', 100)
+change_stat('主角', 'maxmp', 100)
 南贤：吃药很重要的！打不过的敌人记得多吃药！
 主角：……哦。
 
@@ -1008,7 +1006,6 @@ upgrade maxmp 主角 100
 主角：……我还是去教训小孩吧。
 南贤：真乖，新手任务嘛，挑个好欺负的混过去就好了。
 主角：……
-newbie 教训小孩
 南贤：还愣着干什么，快去[color=red]洛阳[/color]，把街上那个[color=yellow]小孩[/color]给我教训一顿！
 
 # original_新手引导.教训小孩开始
@@ -1025,7 +1022,7 @@ battle 新手任务小孩
   jump original_教训小孩负
 
 # original_教训小孩负
-music 音乐.城市3
+music('音乐.城市3')
 主角：呃，我居然输给了这个小鬼？？
 小孩：嘻嘻，说了你很菜的。
 主角：！！小鬼，你妈来了！看那边！
@@ -1034,25 +1031,23 @@ music 音乐.城市3
 jump original_新手引导.教训小孩成功
 
 # original_新手引导.教训小孩成功
-music 音乐.城市3
+music('音乐.城市3')
 主角：（抹抹汗）呼，终于教训了这个小鬼一顿……
 小孩：……坏叔叔
 
 # original_新手引导.教训小孩复命
 主角：[color=yellow]任务完成了[/color]，这下子可以回去[color=red]南贤居[/color]复命了……
-newbie 教训小孩完成
 
 # original_新手引导.教训小孩完成
 南贤：干得不错！在江湖上，就靠拳头说话了！
 主角：唔，欺负小孩也是江湖了？
 南贤：那当然，有人的地方就是江湖！
 主角：……哦。
-maxlevel 基本内功 1
+maxlevel('基本内功', 1)
 
 # original_新手引导.任务打人黑帮
 主角：当哥真的武功全失啊？我要去教训黑老大！
 南贤：……好吧，good luck……
-newbie 教训黑老大
 南贤：你去南面的[color=red]衡阳[/color]，然后挑战了街上的[color=yellow]黑老大[/color]再回来吧。
 
 # original_新手引导.教训黑老大开始
@@ -1067,13 +1062,13 @@ battle 新手任务黑老大
   jump original_新手引导.教训黑老大负
 
 # original_新手引导.教训黑老大胜
-music 音乐.武侠流水
+music('音乐.武侠流水')
 黑老大：小子有些道行，再吃我这一招~
 主角：啊~（被一刀撂倒）
 jump original_新手引导.教训黑老大负
 
 # original_新手引导.教训黑老大负
-music 音乐.武侠流水
+music('音乐.武侠流水')
 主角：大哥，你好猛啊~大哥饶命啊，大哥饶命啊~
 黑老大：看老子一刀砍死你！敢挡着老子练轻功！
 主角：大哥我错了，大哥我上有老，下有小，大哥我也是出来混口饭吃的啊~
@@ -1082,7 +1077,6 @@ music 音乐.武侠流水
 
 # original_新手引导.教训黑老大复命
 主角：居然很羞辱地被黑老大欺负了，回[color=red]南贤居[/color]报告一下情况吧……
-newbie 教训黑老大完成
 
 # original_新手引导.教训黑老大完成
 南贤：怎么样？叫你逞英雄，打不过吧？
@@ -1093,7 +1087,7 @@ newbie 教训黑老大完成
 主角：……
 南贤：总之，等自己实力更强了，再去挑战之前无法战胜的对手吧。
 主角：哦……
-maxlevel 基本内功 1
+maxlevel('基本内功', 1)
 
 # original_新手引导.买药去啊
 南贤：还愣着干啥？快去买药啊。
@@ -1116,9 +1110,9 @@ maxlevel 基本内功 1
 jump original_门派选择
 
 # original_新手地图.送镖
-background 地图.府门前
-music 音乐.倚天.醉拳
-if level_greater_than 主角 10
+background('地图.府门前')
+music('音乐.倚天.醉拳')
+if character_level('主角') >= 10
   jump original_新手地图.送镖不进入
 jump original_新手地图.送镖进入
 
@@ -1130,16 +1124,16 @@ jump original_新手地图.送镖进入
 主角：要不要接镖？
 - 接镖！
   // jump original_新手地图.接镖完成
-  if probability 50
+  if chance(0.5)
     jump original_新手地图.接镖劫匪1
-  if probability 50
+  elif chance(0.5)
     jump original_新手地图.接镖劫匪2
   jump original_新手地图.接镖完成
 - 不接
 
 # original_新手地图.接镖劫匪1
-background 地图.沙漠
-music 音乐.太行八径
+background('地图.沙漠')
+music('音乐.太行八径')
 主角：这个镖还挺远的……
 马贼：打劫啦！打劫啦！
 主角：……老套，来吧！
@@ -1150,8 +1144,8 @@ battle original_新手地图.接镖劫匪1
   jump original_新手地图.接镖失败
 
 # original_新手地图.接镖劫匪2
-background 地图.树林
-music 音乐.太行八径
+background('地图.树林')
+music('音乐.太行八径')
 主角：这个镖还挺远的……
 山贼：打劫啦！打劫啦！
 主角：……老套，来吧！
@@ -1162,20 +1156,20 @@ battle original_新手地图.接镖劫匪2
   jump original_新手地图.接镖失败
 
 # original_新手地图.接镖完成
-cost_day 10
-background 地图.府门前
-music 音乐.倚天.醉拳
+advance_days(10)
+background('地图.府门前')
+music('音乐.倚天.醉拳')
 主角：总算把镖送到回来了。
 镖局老大：不错！打赏！
-get_money 50
+change_silver(50)
 主角：唉，真少。
 镖局老大：……
-map 龙门镖局
+map('龙门镖局')
 
 # original_新手地图.接镖失败
-cost_day 10
-background 地图.府门前
-music 音乐.倚天.醉拳
+advance_days(10)
+background('地图.府门前')
+music('音乐.倚天.醉拳')
 主角：镖丢了……
 镖局老大：饭桶一个，滚！
 
@@ -1205,27 +1199,27 @@ battle 灭门古墓黄衫女子2
   jump original_灭门古墓离开判断
 
 # original_灭门古墓离开判断
-if in_team 杨过
+if in_team('杨过')
   jump original_灭门古墓杨过离开
-if in_team 小龙女
+elif in_team('小龙女')
   jump original_灭门古墓小龙女离开
-if in_team 郭襄
+elif in_team('郭襄')
   jump original_灭门古墓郭襄离开
 jump original_灭门古墓超级战
 
 # original_灭门古墓杨过离开
 杨过：你居然真的对我古墓派痛下杀手，好，我杨过看错你了。
-leave 杨过
+leave('杨过')
 jump original_灭门古墓离开判断
 
 # original_灭门古墓小龙女离开
 小龙女：我绝不会让古墓派亡在你手上，誓死我都要和你斗争到底！
-leave 小龙女
+leave('小龙女')
 jump original_灭门古墓离开判断
 
 # original_灭门古墓郭襄离开
 郭襄：古墓是大哥哥和龙姐姐的心血，我绝不允许你破坏它！
-leave 郭襄
+leave('郭襄')
 jump original_灭门古墓离开判断
 
 # original_灭门古墓超级战
@@ -1236,15 +1230,15 @@ battle 灭门古墓超级战
 
 # original_灭门古墓成功
 主角：哈哈，从此天下再没有古墓派！
-log 灭门古墓派。
-maxlevel 玉女素心剑 2
-maxlevel 玄铁剑法 2
-maxlevel 黯然销魂掌 2
-map 大地图
+journal('灭门古墓派。')
+maxlevel('玉女素心剑', 2)
+maxlevel('玄铁剑法', 2)
+maxlevel('黯然销魂掌', 2)
+map('大地图')
 
 # original_非大轮
-background 地图.大轮寺正殿
-music 音乐.天龙八部.佛音4
+background('地图.大轮寺正殿')
+music('音乐.天龙八部.佛音4')
 主角：要怎么做？
 - 拜会大轮寺
   jump original_拜会大轮
@@ -1270,20 +1264,20 @@ battle 灭门大轮2
 
 # original_灭门大轮成功
 主角：我，$MALE$，在此宣布，从此江湖之中，再没有大轮寺这个名号！哈哈哈哈！！
-log 灭门大轮寺。
-daode 3
-maxlevel 龙象般若功 2
-item 打狗棒 1
-map 大地图
+journal('灭门大轮寺。')
+change_morality(3)
+maxlevel('龙象般若功', 2)
+change_item('打狗棒', 1)
+map('大地图')
 
 # original_非血刀
-background 地图.血刀门
-music 音乐.血刀门
+background('地图.血刀门')
+music('音乐.血刀门')
 主角：要怎么做？
 - 拜会血刀门
   jump original_拜会血刀
 - [color=red]灭门血刀！[/color]
-  if in_team 血刀老祖
+  if in_team('血刀老祖')
     jump original_灭门血刀血刀老祖离开
   jump original_灭门血刀开始
 
@@ -1292,7 +1286,7 @@ music 音乐.血刀门
 血刀老祖：嘿嘿，知道就好。你不是我血刀门的，来这里干什么，小心血刀大法伺候哦。快出去出去。
 
 # original_灭门血刀血刀老祖离开
-leave 血刀老祖
+leave('血刀老祖')
 jump original_灭门血刀开始
 
 # original_灭门血刀开始
@@ -1310,15 +1304,15 @@ battle 灭门血刀2
 
 # original_灭门血刀成功
 主角：$MALE$在此宣布，血刀大法从此绝迹江湖！哈哈哈哈！！
-log 灭门血刀。
-daode 5
-maxlevel 血刀大法 2
-maxlevel 血海魔功 2
-map 大地图
+journal('灭门血刀。')
+change_morality(5)
+maxlevel('血刀大法', 2)
+maxlevel('血海魔功', 2)
+map('大地图')
 
 # original_非全真
-background 地图.全真教
-music 音乐.全真教
+background('地图.全真教')
+music('音乐.全真教')
 主角：要怎么做？
 - 拜会全真教
   jump original_拜会全真
@@ -1344,20 +1338,20 @@ battle 灭门全真2
   jump original_灭门全真离开判断
 
 # original_灭门全真离开判断
-if in_team 郭靖
+if in_team('郭靖')
   jump original_灭门全真郭靖离开
-if in_team 黄蓉
+elif in_team('黄蓉')
   jump original_灭门古墓黄蓉离开
 jump original_灭门全真超级战
 
 # original_灭门全真郭靖离开
 郭靖：全真教上下对我有大恩，我不能眼睁睁看你灭门。
-leave 郭靖
+leave('郭靖')
 jump original_灭门全真离开判断
 
 # original_灭门古墓黄蓉离开
 黄蓉：决不允许你灭全真教！你这是与天下正义之士为敌！
-leave 黄蓉
+leave('黄蓉')
 jump original_灭门全真离开判断
 
 # original_灭门全真超级战
@@ -1369,21 +1363,21 @@ battle 灭门全真超级战
 
 # original_灭门全真成功
 主角：哈哈，全真教亡了，九阴真经在我手上了！
-log 灭门全真教。
-maxlevel 九阴神功 1
-maxlevel 先天功 2
-maxlevel 七星七绝剑 2
-item 九阴真经
-daode -5
-map 大地图
+journal('灭门全真教。')
+maxlevel('九阴神功', 1)
+maxlevel('先天功', 2)
+maxlevel('七星七绝剑', 2)
+change_item('九阴真经')
+change_morality(-5)
+map('大地图')
 
 # original_周伯通全真教灭门
 周伯通：你把师哥的全真教都灭了，我跟你这种人没什么好说的。
 主角：……
 
 # original_非灵鹫
-background 地图.灵鹫宫
-music 音乐.天外村
+background('地图.灵鹫宫')
+music('音乐.天外村')
 主角：要怎么做？
 - 拜会灵鹫宫
   jump original_拜会灵鹫
@@ -1411,31 +1405,31 @@ battle 灭门灵鹫2
 # original_灭门灵鹫成功
 李秋水：不顶用的废物！罢了，灵鹫宫气数已尽，我犯不着陪着一起死。
 主角：哈哈哈哈！天山童姥，不过尔尔。
-log 灭门灵鹫宫。
-maxlevel 八荒六合唯我独尊功 2
-maxlevel 天山折梅手 2
-item 北冥神功精义 1
-map 大地图
+journal('灭门灵鹫宫。')
+maxlevel('八荒六合唯我独尊功', 2)
+maxlevel('天山折梅手', 2)
+change_item('北冥神功精义', 1)
+map('大地图')
 
 # original_东海剑池
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：此处剑气纵横，仿佛可以感受到前辈高人的气息……
 主角：来到剑池做什么？
 - 静修
-  if should_not_finish original_东海剑池开始
+  if not story_completed('original_东海剑池开始')
     jump original_东海剑池开始
-  if should_not_finish original_东海剑池开始2
+  elif not story_completed('original_东海剑池开始2')
     jump original_东海剑池开始2
-  if should_not_finish original_东海剑池开始3
+  elif not story_completed('original_东海剑池开始3')
     jump original_东海剑池开始3
-  if should_not_finish original_东海剑池开始4
+  elif not story_completed('original_东海剑池开始4')
     jump original_东海剑池开始4
-  if should_not_finish original_东海剑池开始5
+  elif not story_completed('original_东海剑池开始5')
     jump original_东海剑池开始5
   jump original_东海剑池开始6
 - 洗练装备
-  if should_not_finish 洗练装备介绍
+  if not story_completed('洗练装备介绍')
     jump 洗练装备介绍
   jump 洗练选择
 - 离开
@@ -1443,150 +1437,150 @@ music 音乐.开场
 # original_东海剑池开始
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
 # original_东海剑池开始2
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
 # original_东海剑池开始3
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
 # original_东海剑池开始4
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
 # original_东海剑池开始5
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
 # original_东海剑池开始6
 主角：冥冥之中，仿佛无数内劲碰撞交融。到底是何处而来的侠客的思念，居然在这里凝结……
 主角：似乎有一些过往的战斗可以在这里回顾……
-if probability 9
+if chance(0.09)
   jump original_东海剑池倚天屠龙笔法
-if probability 10
+elif chance(0.1)
   jump original_东海剑池斗转星移
-if probability 11
+elif chance(0.11)
   jump original_东海剑池打狗棒法
-if probability 13
+elif chance(0.13)
   jump original_东海剑池夫妻刀法
-if probability 14
+elif chance(0.14)
   jump original_东海剑池胡家刀法
-if probability 16
+elif chance(0.16)
   jump original_东海剑池鸳鸯刀法
-if probability 20
+elif chance(0.2)
   jump original_东海剑池七伤拳
-if probability 25
+elif chance(0.25)
   jump original_东海剑池降龙十八掌
-if probability 33
+elif chance(0.33)
   jump original_东海剑池太极剑法
-if probability 50
+elif chance(0.5)
   jump original_东海剑池狂风快剑
 jump original_东海剑池独孤九剑
 
@@ -1701,96 +1695,96 @@ battle 东海剑池打狗棒法
   jump original_东海剑池白打
 
 # original_东海剑池升级剑
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：刚刚我仿佛灵魂出窍一般，居然可以和池中人影合二为一，击退强敌？
 主角：真是一次神奇的体验……
-if should_finish original_东海剑池开始 and should_finish original_东海剑池开始2 and should_finish original_东海剑池开始3 and should_finish original_东海剑池开始4 and should_finish original_东海剑池开始5
+if story_completed('original_东海剑池开始') and story_completed('original_东海剑池开始2') and story_completed('original_东海剑池开始3') and story_completed('original_东海剑池开始4') and story_completed('original_东海剑池开始5')
   jump original_东海剑池无效
-if jianfa_less_than 主角 80
+elif character_stat('主角', 'jianfa') < 80
   jump original_东海剑池升级剑结束
 jump original_东海剑池升级剑无效
 
 # original_东海剑池升级剑结束
 主角：从刚才的对决中，我也明白了一些用剑的道理。
-upgrade 剑法 主角 5
+change_stat('主角', '剑法', 5)
 
 # original_东海剑池升级剑无效
 主角：这些用剑的道理我都已经烂熟于胸，似乎学不到什么了。
 
 # original_东海剑池升级拳
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：刚刚我仿佛灵魂出窍一般，居然可以和池中人影合二为一，击退强敌？
 主角：真是一次神奇的体验……
-if should_finish original_东海剑池开始 and should_finish original_东海剑池开始2 and should_finish original_东海剑池开始3 and should_finish original_东海剑池开始4 and should_finish original_东海剑池开始5
+if story_completed('original_东海剑池开始') and story_completed('original_东海剑池开始2') and story_completed('original_东海剑池开始3') and story_completed('original_东海剑池开始4') and story_completed('original_东海剑池开始5')
   jump original_东海剑池无效
-if quanzhang_less_than 主角 80
+elif character_stat('主角', 'quanzhang') < 80
   jump original_东海剑池升级拳结束
 jump original_东海剑池升级拳无效
 
 # original_东海剑池升级拳结束
 主角：从刚才的对决中，我也明白了一些拳掌功夫的道理。
-upgrade 拳掌 主角 5
+change_stat('主角', '拳掌', 5)
 
 # original_东海剑池升级拳无效
 主角：这些拳掌的道理我都已经烂熟于胸，似乎学不到什么了。
 
 # original_东海剑池升级刀
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：刚刚我仿佛灵魂出窍一般，居然可以和池中人影合二为一，击退强敌？
 主角：真是一次神奇的体验……
-if should_finish original_东海剑池开始 and should_finish original_东海剑池开始2 and should_finish original_东海剑池开始3 and should_finish original_东海剑池开始4 and should_finish original_东海剑池开始5
+if story_completed('original_东海剑池开始') and story_completed('original_东海剑池开始2') and story_completed('original_东海剑池开始3') and story_completed('original_东海剑池开始4') and story_completed('original_东海剑池开始5')
   jump original_东海剑池无效
-if daofa_less_than 主角 80
+elif character_stat('主角', 'daofa') < 80
   jump original_东海剑池升级刀结束
 jump original_东海剑池升级刀无效
 
 # original_东海剑池升级刀结束
 主角：从刚才的对决中，我也明白了一些刀法的道理。
-upgrade 刀法 主角 5
+change_stat('主角', '刀法', 5)
 
 # original_东海剑池升级刀无效
 主角：这些刀法的道理我都已经烂熟于胸，似乎学不到什么了。
 
 # original_东海剑池升级奇门
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：刚刚我仿佛灵魂出窍一般，居然可以和池中人影合二为一，击退强敌？
 主角：真是一次神奇的体验……
-if should_finish original_东海剑池开始 and should_finish original_东海剑池开始2 and should_finish original_东海剑池开始3 and should_finish original_东海剑池开始4 and should_finish original_东海剑池开始5
+if story_completed('original_东海剑池开始') and story_completed('original_东海剑池开始2') and story_completed('original_东海剑池开始3') and story_completed('original_东海剑池开始4') and story_completed('original_东海剑池开始5')
   jump original_东海剑池无效
-if qimen_less_than 主角 80
+elif character_stat('主角', 'qimen') < 80
   jump original_东海剑池升级奇门结束
 jump original_东海剑池升级奇门无效
 
 # original_东海剑池升级奇门结束
 主角：从刚才的对决中，我也明白了一些奇门绝学的道理。
-upgrade 奇门 主角 5
+change_stat('主角', '奇门', 5)
 
 # original_东海剑池升级奇门无效
 主角：这些奇门绝学的道理我都已经烂熟于胸，似乎学不到什么了。
 
 # original_东海剑池白打
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：刚刚我仿佛灵魂出窍一般，居然可以和池中人影合二为一，抗击强敌？
 主角：真是一次神奇的体验……可惜我没能打败对手，下次再试试吧。
 
 # original_东海剑池无效
-background 地图.剑魔荒冢
-music 音乐.开场
+background('地图.剑魔荒冢')
+music('音乐.开场')
 主角：东海剑池的灵气好像减弱了，我虽然击败了对手，却似乎没有能学到什么东西了。
 
 # 白马啸西风_初次见面
 主角：咦，想不到草海荒漠之中，还有这么漂亮的汉人妹子。
 李文秀：……
-if in_team 郭靖
+if in_team('郭靖')
   jump 白马啸西风_郭靖
-if in_team 韦小宝
+elif in_team('韦小宝')
   jump 白马啸西风_韦小宝
-if not_in_team 韦小宝 and not_in_team 郭靖
+else
   jump 白马啸西风_初次见面2
 
 # 白马啸西风_郭靖
@@ -1798,7 +1792,7 @@ if not_in_team 韦小宝 and not_in_team 郭靖
 李文秀：你是……？
 郭靖：我是草海那边蒙古部落长大的，我叫郭靖。
 李文秀：嘻嘻，我是在这边的哈萨克部落长大的。计爷爷待我很好的。
-haogan 李文秀 5
+change_favorability('李文秀', 5)
 jump 白马啸西风_初次见面2
 
 # 白马啸西风_韦小宝
@@ -1806,7 +1800,7 @@ jump 白马啸西风_初次见面2
 李文秀：你是……？
 韦小宝：hi，美女，跟你认识一下。小宝哥可是见多识广，要不要听哥哥给你讲讲中原的花花草草啊？
 李文秀：我不喜欢你说话的样子，计爷爷说不要和陌生人说话。
-haogan 李文秀 -5
+change_favorability('李文秀', -5)
 jump 白马啸西风_初次见面2
 
 # 白马啸西风_初次见面2
@@ -1825,11 +1819,11 @@ jump 白马啸西风_初次见面2
 - 跟出去看看。
   jump 白马啸西风_沙漠恶战
 - 别管闲事了。
-  map 哈萨克部落
+  map('哈萨克部落')
 
 # 白马啸西风_沙漠恶战
-background 地图.沙漠2
-music 音乐.太行八径
+background('地图.沙漠2')
+music('音乐.太行八径')
 主角：李姑娘！（糟了，她似乎被中原来的武林人士盯上了）
 李文秀：公子小心！这些人来者不善！
 battle 白马啸西风.沙漠_战斗
@@ -1837,7 +1831,7 @@ battle 白马啸西风.沙漠_战斗
   jump 白马啸西风_沙漠恶战2
 
 # 白马啸西风_沙漠恶战2
-music 音乐.太行八径
+music('音乐.太行八径')
 主角：李姑娘，原来你功夫这么好的。这么俊的一手流星锤的功夫，是家传的武功吗？
 李文秀：……
 华辉：哼，小子，你动的什么歪主意？这流星锤的功夫是我教她的。
@@ -1857,16 +1851,16 @@ music 音乐.太行八径
   jump 白马啸西风_沙漠赔笑
 
 # 白马啸西风_沙漠战华辉
-music 音乐.太行八径
+music('音乐.太行八径')
 主角：(是可忍孰不可忍！）前辈，得罪了！
 李文秀：喂，你们怎么又打起来了！
-haogan 李文秀 -5
+change_favorability('李文秀', -5)
 battle 白马啸西风.沙漠战华辉_战斗
 - win
   jump 白马啸西风_沙漠战华辉2
 
 # 白马啸西风_沙漠战华辉2
-music 音乐.太行八径
+music('音乐.太行八径')
 华辉：……我打不过你，你杀了我吧！
 主角：莫名其妙，我只是出手帮了你徒弟，干嘛要杀你。
 华辉：……
@@ -1874,7 +1868,7 @@ music 音乐.太行八径
 主角：……
 
 # 白马啸西风_沙漠赔笑
-music 音乐.太行八径
+music('音乐.太行八径')
 主角：（赔笑）前辈，您大人有大量，我不知道令徒武功高强。还强出头想当英雄，多有得罪了，得罪了。
 华辉：……
 李文秀：……
@@ -1882,11 +1876,11 @@ music 音乐.太行八径
 华辉：咳咳……算了，不跟你计较。阿秀，我们走，今天师父再教你两招。
 李文秀：好的，师父。嘻嘻，你真有趣，师父从来见到陌生人都是打啊杀的，你是第一个没跟他起冲突的。
 李文秀：后会有期。
-haogan 李文秀 5
+change_favorability('李文秀', 5)
 
 # 白马啸西风_初见陈达海
-background 地图.塞外
-music 音乐.太行八径
+background('地图.塞外')
+music('音乐.太行八径')
 陈达海：哈哈，一帮蛮子，还想跟我斗。
 李文秀：你为什么要伤害他们！他们跟你无冤无仇！
 陈达海：嘿嘿，没教养的野蛮人，都杀了也不痛不痒啊。
@@ -1900,7 +1894,7 @@ music 音乐.太行八径
 
 # 白马啸西风_陈达海战斗
 主角：李姑娘，我帮你教训恶人！
-haogan 李文秀 5
+change_favorability('李文秀', 5)
 battle 哈萨克部落_战斗
 - win
   jump 白马啸西风_再见李文秀
@@ -1908,15 +1902,15 @@ battle 哈萨克部落_战斗
 # 白马啸西风_陈达海和事佬
 主角：李姑娘，这里头是不是有误会……
 李文秀：你！好，我错看了你！
-haogan 李文秀 -5
-daode -3
+change_favorability('李文秀', -5)
+change_morality(-3)
 battle 哈萨克部落李文秀_战斗
 - win
   jump 白马啸西风_再见李文秀
 
 # 白马啸西风_再见李文秀
-background 地图.塞外
-music 音乐.太行八径
+background('地图.塞外')
+music('音乐.太行八径')
 主角：啊，那个姓陈的跑了。
 李文秀：……
 主角：李姑娘，到底是怎么回事？
@@ -1924,15 +1918,15 @@ music 音乐.太行八径
 主角：啊？
 李文秀：十几年前，中原一帮武林人士得知我父母有高昌藏宝图的事情，一路追杀他们到西域。
 李文秀：后来，父母被他们杀死了，但是藏宝图却没有找到。所以他们一直没有死心，一直在试图找到我，逼我说出宝藏的事情！
-if haogan_more_than 李文秀 60
+if favorability('李文秀') >= 60
   jump 白马啸西风_李文秀加入
-if haogan_less_than 李文秀 60
+else
   jump 白马啸西风_前往高昌
 
 # 白马啸西风_李文秀加入
 主角：李姑娘，我和你一起去惩罚那些恶人！我想他们还没有走远。
 李文秀：好。
-join 李文秀
+join('李文秀')
 
 # 白马啸西风_前往高昌
 主角：那后来藏宝图呢？
@@ -1944,8 +1938,8 @@ join 李文秀
 主角：（这里头有点奇怪，有必要去找找高昌秘宝）
 
 # 白马啸西风_进入高昌迷宫
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 李文秀：我们循着那帮恶人的足迹走来，却没想到这沙漠深处，真的还有古老的迷宫……
 主角：咦？前面有打斗的声音！
 瓦耳拉齐：哈哈，苏鲁克，还有你的小崽子，都不是我的对手！
@@ -1958,8 +1952,8 @@ battle 高昌迷宫_战斗
   jump 白马啸西风_完结1
 
 # 白马啸西风_完结1
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 李文秀：等等，这功夫，这手法……你是师父？！
 瓦耳拉齐：呵呵……阿秀，你的眼睛很尖。
 李文秀：师父！他们说迷宫里的是阿萨克人，可是你……
@@ -1974,8 +1968,8 @@ music 音乐.宿命
 jump 白马啸西风_完结2
 
 # 白马啸西风_完结2
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 主角：阿秀姑娘，节哀……
 李文秀：……师父死了，计爷爷也死了。苏普心里也没有我……我不知道我还能去哪里。
 主角：不如和我一起回中原吧，江南有杨柳、桃花，有燕子、金鱼……汉人中，有的是英俊勇武的少年，倜傥潇洒的少年……
@@ -1997,20 +1991,20 @@ music 音乐.宿命
 主角：不要说我丑……
 李文秀：好了，为了报答你这一番教诲，我和你去中原看看吧。
 主角：哈哈，那我们走吧！
-get_point 李文秀 30
-upgrade 奇门 李文秀 40
-upgrade maxhp 李文秀 500
-upgrade maxmp 李文秀 500
-item 黑血神针秘籍 1
-nick 白马西风
-if should_finish original_长安.家中 and in_team 女主
+grant_points('李文秀', 30)
+change_stat('李文秀', '奇门', 40)
+change_stat('李文秀', 'maxhp', 500)
+change_stat('李文秀', 'maxmp', 500)
+change_item('黑血神针秘籍', 1)
+unlock_achievement('白马西风')
+if story_completed('original_长安.家中') and in_team('女主')
   jump original_女主.白马啸西风
-if not_in_team 女主
-  map 大地图
+elif not in_team('女主')
+  map('大地图')
 
 # 白马啸西风_高昌秘宝
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 主角：这……循着陈达海那帮人的足迹走来，这茫茫沙海之中，居然真的有一座高昌古城。
 瓦耳拉齐：你和那些汉人果然是一伙的！你果然也是觊觎高昌的宝藏而来！
 主角：糟了！是埋伏！
@@ -2019,8 +2013,8 @@ battle 高昌迷宫_战斗
   jump 白马啸西风_高昌秘宝2
 
 # 白马啸西风_高昌秘宝2
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 主角：这瓦耳拉齐还真是厉害……为什么他的武功招式和李文秀那么相像？
 李文秀：师父！我来迟了！
 瓦耳拉齐：……阿秀
@@ -2035,8 +2029,8 @@ battle 高昌迷宫李文秀_战斗
   jump 白马啸西风_高昌秘宝3
 
 # 白马啸西风_高昌秘宝3
-background 地图.沙漠3
-music 音乐.宿命
+background('地图.沙漠3')
+music('音乐.宿命')
 李文秀：……我打不过你，要杀要剐随你便。
 主角：李姑娘，我们误会太深了。我只是误打误撞来到这里，想一探高昌迷宫的秘密而已。
 瓦耳拉齐：……这里没有什么秘密，我在这里住了十年，什么宝藏都没有。
@@ -2052,7 +2046,7 @@ music 音乐.宿命
 李文秀：师父！……师父走了，我也要回部落去了。你多保重吧。
 主角：……都走了，我就不信这里什么都没有留下。
 主角：……这是……一本很独特的诗集。先收着吧。
-item 河岳英灵集
+change_item('河岳英灵集')
 
 # 白马啸西风_陈达海加入
 主角：哟，这不是陈达海嘛！你还在找高昌迷宫？
@@ -2067,8 +2061,8 @@ item 河岳英灵集
   jump 白马啸西风_陈达海加入3
 
 # 白马啸西风_陈达海加入2
-join 陈达海
-daode -2
+join('陈达海')
+change_morality(-2)
 
 # 白马啸西风_陈达海加入3
 主角：算了，他也算是完了。不理他了，走吧。
@@ -2134,13 +2128,12 @@ jump tlbb.dy_对话.再见木婉清2
 木婉清：我……段誉……（昏了过去）
 主角：形势紧急……木姑娘，得罪了！
 主角：（必须立刻替木姑娘[color=yellow]封住周身大穴[/color]才可以！木姑娘，得罪了！）
-touch 木婉清
 jump tlbb.dy_木婉清.touch.成功
 // jump tlbb.dy_木婉清.touch.不成功
 
 # tlbb.dy_木婉清.touch.成功
-background 地图.地牢
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.地牢')
+music('音乐.天龙八部.逍遥派抒情版')
 木婉清：（从半昏半醒之间渐渐回过神来）……我是在？
 主角：（尴尬）……木姑娘，你醒过来了。你的毒解得差不多了吧？
 木婉清：……毒？啊！段郎……我……你都知道了？
@@ -2153,11 +2146,11 @@ music 音乐.天龙八部.逍遥派抒情版
 主角：……
 木婉清：我该走了，公子，谢谢你。我们有缘再见。
 主角：啊！木姑娘……我……（她真是太美了，到哪里才可以再见到她？）
-map 大地图
+map('大地图')
 
 # tlbb.dy_木婉清.touch.不成功
-background 地图.地牢
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.地牢')
+music('音乐.天龙八部.逍遥派抒情版')
 木婉清：（从半昏半醒之间渐渐回过神来）……我是在？
 主角：（尴尬）……木姑娘，你醒过来了。你的毒解得差不多了吧？
 木婉清：……毒？啊！段郎……我……你都知道了？
@@ -2173,15 +2166,15 @@ battle touch木婉清失败_战斗
   jump tlbb.dy_木婉清.touch.不成功2
 
 # tlbb.dy_木婉清.touch.不成功2
-background 地图.地牢
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.地牢')
+music('音乐.天龙八部.逍遥派抒情版')
 主角：……好一场恶战……咦？木姑娘人已经不见了。
 主角：她……我……她一定是记恨我了，唉。
-map 大地图
+map('大地图')
 
 # tlbb.dy_木婉清.攻略成功
-background 地图.琴舍
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.琴舍')
+music('音乐.天龙八部.逍遥派抒情版')
 主角：……木姑娘，是你……
 木婉清：你……（说着居然留下泪来）
 秦红棉：乖女儿，怎么了？！他是不是欺负你！
@@ -2232,23 +2225,23 @@ music 音乐.天龙八部.逍遥派抒情版
 木婉清：你还叫我木姑娘……
 主角：婉妹……
 木婉清：……（莞尔一笑）走吧。
-join 木婉清
-learn talent 木婉清 夫妻同心
-learn talent 主角 夫妻同心
+join('木婉清')
+learn_talent('木婉清', '夫妻同心')
+learn_talent('主角', '夫妻同心')
 
 # tlbb.dy_再见木婉清.仇恨
 主角：算了，忘了段誉吧，跟我走！我会照顾你的！
 木婉清：（愣住）
 主角：？没听清楚？
 木婉清：（咬牙切齿）你这个轻薄子，你侮辱我！
-haogan 木婉清 -5
+change_favorability('木婉清', -5)
 battle 再见木婉清_战斗
 - win
   jump tlbb.dy_再见木婉清.仇恨2
 
 # tlbb.dy_再见木婉清.仇恨2
-background 地图.树林
-music 音乐.天龙八部10
+background('地图.树林')
+music('音乐.天龙八部10')
 木婉清：（闭上眼睛）……我打不过你，你想怎样，悉听尊便！
 主角：我……
 木婉清：……好，还算你有良心。你我就此别过！（身影消失在密林深处）
@@ -2260,7 +2253,7 @@ music 音乐.天龙八部10
 主角：木姑娘，你我不妨同行……
 木婉清：不用了，我是段郎的妻子，和你同行多有不便。我们分头打探消息，后会有期！
 主角：好吧，后会有期……
-haogan 木婉清 5
+change_favorability('木婉清', 5)
 
 # tlbb.dy_木婉清江南段誉
 段誉：啊！婉妹。
@@ -2277,8 +2270,8 @@ haogan 木婉清 5
 主角：（既要收段誉，又要收妹子，真是艰苦的人生啊……）
 
 # tlbb.dy_曼陀山庄初见王语嫣
-background 地图.院内
-music 音乐.天龙八部.燕子坞
+background('地图.院内')
+music('音乐.天龙八部.燕子坞')
 王语嫣：……
 主角：眼前的女子初一看仿佛是凭虚御风、凌波而立的仙子，带着不胜娇羞的神情，令人如痴如醉。冰雕玉琢、素手纤纤，此美只应天上有。
 主角：说些什么呢？
@@ -2297,7 +2290,7 @@ music 音乐.天龙八部.燕子坞
 主角：（不知道该怎么答好了，尴尬）
 王语嫣：你这人，还真是挺有意思的。
 主角：让姑娘见笑了……
-haogan 王语嫣 3
+change_favorability('王语嫣', 3)
 
 # tlbb.dy_曼陀山庄初见王语嫣3
 主角：敢问姑娘芳名？
@@ -2309,19 +2302,19 @@ haogan 王语嫣 3
 主角：我……
 王语嫣：来人啊！有贼啊！
 主角：糟了！！
-haogan 王语嫣 -3
+change_favorability('王语嫣', -3)
 battle 初见王语嫣_战斗
 - win
   jump tlbb.dy_曼陀山庄初见王语嫣4
 
 # tlbb.dy_曼陀山庄初见王语嫣4
-background 地图.院内
-music 音乐.天龙八部.燕子坞
+background('地图.院内')
+music('音乐.天龙八部.燕子坞')
 主角：此时解释不清楚，还是先走人吧。
 
 # tlbb.dy_曼陀山庄阿朱王语嫣
-background 地图.院内
-music 音乐.天龙八部.燕子坞
+background('地图.院内')
+music('音乐.天龙八部.燕子坞')
 阿朱：小姐，你好。
 王语嫣：啊，是阿朱来了呀。有没有什么表哥的消息呢？
 阿朱：恩……暂时还没有。
@@ -2344,7 +2337,7 @@ music 音乐.天龙八部.燕子坞
 阿朱：嘻嘻，今天玩得好开心。小姐，我们下次再一起玩。
 王语嫣：好啊，嘻嘻。公子下次也要再一起过来呀。
 主角：(这只是客套话吧……）恩，好的。王姑娘再见。
-haogan 王语嫣 +5
+change_favorability('王语嫣', 5)
 
 # tlbb.dy_听香水榭阿碧王语嫣
 
@@ -2354,8 +2347,8 @@ haogan 王语嫣 +5
 jump tlbb.dy_阿碧线王语嫣touch2
 
 # tlbb.dy_阿碧线王语嫣touch2
-background 地图.院内
-music 音乐.紧张感
+background('地图.院内')
+music('音乐.紧张感')
 曼陀山庄神秘人：不老长春的秘密到底在哪里，给我说！
 李青萝：我……不知……道……
 王语嫣：母亲！
@@ -2370,33 +2363,31 @@ battle touch王语嫣_战斗
   jump tlbb.dy_阿碧线王语嫣touch3
 
 # tlbb.dy_阿碧线王语嫣touch3
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
 阿碧：公子，敌人虽然击退了。但是小姐和夫人中的毒怎么办？
 主角：这悲酥清风毒性极强，若不及时解毒只怕要伤及五脏六腑！我来试试吧。
 李青萝：小贼！我……不要……不要……你解毒！我不相信任何男人！！
 主角：……看来只能先替王姑娘解毒了。
 王语嫣：……公……公子，语嫣……都……拜托……了……
 主角：（必须封住王姑娘[color=yellow]周身大穴[/color]，阻止[color=yellow]毒气流转[/color]！）
-touch 王语嫣
 jump tlbb.dy_阿碧线王语嫣.touch.成功
 // jump tlbb.dy_阿碧线王语嫣.touch.不成功
 
 # tlbb.dy_阿碧线王语嫣.touch.成功
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
 主角：好了，毒终于解了……王姑娘，得罪了……
 王语嫣：……没有……语嫣很感激……公子……
 李青萝：啊……好难受……毒好像……扩散……了……
 王语嫣：母亲！公子，求你救救母亲吧！！语嫣给你做牛做马了！！
 主角：（必须按照刚才救治王姑娘的方法，封住王夫人的[color=yellow]周身大穴[/color]，阻止[color=yellow]毒气流转[/color]，救人水火之中，不能犹豫！）
-touch 李青萝
 jump tlbb.dy_阿碧线李青萝.touch.成功
 // jump tlbb.dy_阿碧线李青萝.touch.不成功
 
 # tlbb.dy_阿碧线李青萝.touch.成功
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
 主角：好了，毒终于解了……应该已经没事了……
 李青萝：我……你……我……谢谢。
 主角：夫人，情势紧急，得罪了，请见谅。
@@ -2416,13 +2407,13 @@ music 音乐.天龙八部.逍遥派抒情版
 李青萝：不是……我……罢了，唉，罢了。女儿大了。今日强敌来犯，我也保护不了你了。这位公子……也……不是坏人。
 王语嫣：嗯……公子，我们走吧。去找表哥！
 主角：嗯。
-join 王语嫣
-learn talent 王语嫣 夫妻同心
-learn talent 主角 夫妻同心
+join('王语嫣')
+learn_talent('王语嫣', '夫妻同心')
+learn_talent('主角', '夫妻同心')
 
 # tlbb.dy_阿碧线李青萝.touch.不成功
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
 李青萝：住手！住手！我好难过，好难过！
 主角：糟了！毒气还没有除尽，她此时强运真气，恐怕有性命之忧！
 王语嫣：母亲！你就听这位公子的吧！求你了，母亲！
@@ -2434,9 +2425,9 @@ music 音乐.天龙八部.逍遥派抒情版
 jump tlbb.dy_阿碧线李青萝.touch.不成功2
 
 # tlbb.dy_阿碧线李青萝.touch.不成功2
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
-cost_day 10
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
+advance_days(10)
 王语嫣：母亲……呜呜呜……母亲……
 主角：王姑娘，请节哀……
 阿碧：……
@@ -2446,11 +2437,11 @@ cost_day 10
 王语嫣：表哥他……杀心太重……沉迷在复国的念头里，不可自拔。
 主角：不如我们一起去找慕容公子说个清楚，说不定事情还有转机？
 王语嫣：也罢……我就随你们一起去吧……娘……女儿会回来看你的。
-join 王语嫣
+join('王语嫣')
 
 # tlbb.dy_阿碧线王语嫣.touch.不成功
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
 王语嫣：啊……啊……好难受，好难受……
 主角：糟了，王姑娘在反抗我，她的真气开始紊乱了！
 王语嫣：好难受……难受……别过来，别过来！！
@@ -2468,73 +2459,73 @@ music 音乐.天龙八部.逍遥派抒情版
 jump tlbb.dy_阿碧线王语嫣.touch.不成功2
 
 # tlbb.dy_阿碧线王语嫣.touch.不成功2
-background 地图.院内
-music 音乐.天龙八部.逍遥派抒情版
-cost_day 10
+background('地图.院内')
+music('音乐.天龙八部.逍遥派抒情版')
+advance_days(10)
 主角：埋葬了王姑娘和王夫人，阿碧，我们走吧……
 阿碧：……嗯
 主角：唉……都怪我……都怪我……
 
 # 一键变态
 主角：我要变身了！！
-upgrade maxhp 主角 7000
-upgrade maxmp 主角 7000
-learn talent 主角 乾坤大挪移
-learn talent 主角 清心
-learn talent 主角 破甲
-learn talent 主角 铁拳无双
-learn talent 主角 素心神剑
-learn talent 主角 斗转星移
-learn talent 主角 不老长春
-learn talent 主角 博览群书
-learn talent 主角 碎裂的怒吼
-learn talent 主角 沾衣十八跌
-learn talent 主角 妙手仁心
-get_point 主角 150
-learn skill 主角 野球拳 12
-learn skill 主角 天山折梅手 12
-learn skill 主角 降龙十八掌 12
-learn skill 主角 庖丁解牛 12
-learn skill 主角 六脉神剑 12
-learn skill 主角 黯然销魂掌 12
-learn skill 主角 一阳指 12
-learn skill 主角 越女剑法 12
-learn special 主角 凌波微步
-learn internal 主角 九阴神功 12
-learn internal 主角 九阳神功 12
-learn internal 主角 易筋经 12
-upgrade 拳掌 主角 100
-upgrade 剑法 主角 100
-upgrade 刀法 主角 100
-upgrade 奇门 主角 100
-item 续命八丸 10
-item 生生造化丹 30
-item 灭仙爪 1
-upgrade 定力 主角 200
-upgrade 根骨 主角 200
-upgrade 臂力 主角 200
+change_stat('主角', 'maxhp', 7000)
+change_stat('主角', 'maxmp', 7000)
+learn_talent('主角', '乾坤大挪移')
+learn_talent('主角', '清心')
+learn_talent('主角', '破甲')
+learn_talent('主角', '铁拳无双')
+learn_talent('主角', '素心神剑')
+learn_talent('主角', '斗转星移')
+learn_talent('主角', '不老长春')
+learn_talent('主角', '博览群书')
+learn_talent('主角', '碎裂的怒吼')
+learn_talent('主角', '沾衣十八跌')
+learn_talent('主角', '妙手仁心')
+grant_points('主角', 150)
+learn_external('主角', '野球拳', 12)
+learn_external('主角', '天山折梅手', 12)
+learn_external('主角', '降龙十八掌', 12)
+learn_external('主角', '庖丁解牛', 12)
+learn_external('主角', '六脉神剑', 12)
+learn_external('主角', '黯然销魂掌', 12)
+learn_external('主角', '一阳指', 12)
+learn_external('主角', '越女剑法', 12)
+learn_special('主角', '凌波微步')
+learn_internal('主角', '九阴神功', 12)
+learn_internal('主角', '九阳神功', 12)
+learn_internal('主角', '易筋经', 12)
+change_stat('主角', '拳掌', 100)
+change_stat('主角', '剑法', 100)
+change_stat('主角', '刀法', 100)
+change_stat('主角', '奇门', 100)
+change_item('续命八丸', 10)
+change_item('生生造化丹', 30)
+change_item('灭仙爪', 1)
+change_stat('主角', '定力', 200)
+change_stat('主角', '根骨', 200)
+change_stat('主角', '臂力', 200)
 
 # original_新手任务无法进入
 主角：还是先跟着[color=red]地图提示[/color]，完成新手任务吧。如果忘了任务是什么，点击右下的[color=yellow]日志[/color]按钮可以查看。
 
 # 洗练装备介绍
 主角：这里有无数剑气，我能感受到前辈高人的武学精髓，似乎可以被兵刃所吸收，何不试一试？
-suggest 在东海剑池可以支付元宝，将装备的一项属性重置，从而强化你的装备。
+suggest('在东海剑池可以支付元宝，将装备的一项属性重置，从而强化你的装备。')
 jump 洗练选择
 
 # 洗练选择
-if have_yuanbao 1
-  xilian
+if yuanbao >= 1
+  refine()
 else
   jump 洗练元宝不够
 
 # 洗练元宝不够
 主角：身上的元宝数不够了……
-map 大地图
+map('大地图')
 
 # 洗练_没有装备
 主角：貌似没有能够洗练的装备。（物品栏中需要有一个以上的带有附加属性的非白色装备）
-map 大地图
+map('大地图')
 
 # 洗练_洗练成功
 主角：洗练成功！

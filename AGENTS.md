@@ -75,17 +75,19 @@
   - `lose`
   - `timeout`
 - `if / elif / else` 的表达式支持：
-  - `and or not`
-  - `&& || !`
-  - 括号
+  - Boolean、Number、单/双引号 String、同构 List、标识符与函数调用
+  - `and or not` 与 `&& || !`
+  - 一元正负号、算术、括号、`in / not in / !in`
   - 比较运算 `== != > >= < <=`
-- 变量必须带 `$`
+- command 必须使用 `name(...)` 函数调用语法
+- 动态变量直接使用小写 snake_case 标识符，不使用 `$`
 - `jump` 是终止语句；其后同级语句不会进入 IR
 
 ## Naming Conventions
 
 - JSON IR 层统一使用 `kind` 作为判别字段
-- JSON IR 当前版本为 2；choice 使用 `groups`，无条件组省略 `when`
+- JSON IR 当前版本为 3；command 使用字符串 `call`，条件使用字符串 `when`
+- choice 使用 `groups`，无条件组省略 `when`
 - battle 的标识字段用 `battleId`
 - AST 目前仍使用 `type` 作为节点区分字段；如果要统一改为 `kind`，请全量同步测试与编译层
 

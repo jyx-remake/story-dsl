@@ -20,9 +20,10 @@
     {
       "include": "#presentationStyle"
     },
-    {
-      "include": "#variable"
-    },
+    { "include": "#string" },
+    { "include": "#function" },
+    { "include": "#constant" },
+    { "include": "#operator" },
     {
       "include": "#number"
     }
@@ -44,7 +45,7 @@
       "patterns": [
         {
           "name": "keyword.control.storydsl",
-          "match": "\\b(if|elif|else|when|battle|jump|call|return|and|or|not|win|lose|timeout)\\b|&&|\\|\\||!"
+          "match": "\\b(if|elif|else|when|battle|jump|call|return|and|or|not|in|win|lose|timeout)\\b|!in|&&|\\|\\||!"
         }
       ]
     },
@@ -97,19 +98,36 @@
         }
       ]
     },
-    "variable": {
+    "string": {
       "patterns": [
         {
-          "name": "variable.other.readwrite.storydsl",
-          "match": "\\$[^\\s()!<>=&|/:：]+"
+          "name": "string.quoted.single.storydsl",
+          "begin": "'",
+          "end": "'",
+          "patterns": [{ "name": "constant.character.escape.storydsl", "match": "\\\\(?:[\\\\'\"bfnrt]|u[0-9A-Fa-f]{4})" }]
+        },
+        {
+          "name": "string.quoted.double.storydsl",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [{ "name": "constant.character.escape.storydsl", "match": "\\\\(?:[\\\\'\"bfnrt]|u[0-9A-Fa-f]{4})" }]
         }
       ]
+    },
+    "function": {
+      "patterns": [{ "name": "entity.name.function.storydsl", "match": "\\b[a-z_][a-z0-9_]*(?=\\s*\\()" }]
+    },
+    "constant": {
+      "patterns": [{ "name": "constant.language.boolean.storydsl", "match": "\\b(?:true|false)\\b" }]
+    },
+    "operator": {
+      "patterns": [{ "name": "keyword.operator.storydsl", "match": "!in|not\\s+in|&&|\\|\\||==|!=|>=|<=|[+*/%<>!-]" }]
     },
     "number": {
       "patterns": [
         {
           "name": "constant.numeric.storydsl",
-          "match": "(?<![\\w.])-?\\d+(?:\\.\\d+)?\\b"
+          "match": "(?<![\\w.])(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d+)?\\b"
         }
       ]
     }

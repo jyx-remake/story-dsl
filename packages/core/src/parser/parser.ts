@@ -26,7 +26,7 @@ import {
   zeroSpan,
 } from "./source-lines";
 import { ParserContext } from "./parser-context";
-import { parseValueArgs } from "./value-arg";
+import { parseCall } from "./expression";
 
 export interface ParseStoryResult {
   ast: ScriptAst;
@@ -34,21 +34,8 @@ export interface ParseStoryResult {
 }
 
 const RESERVED_COMMAND_NAMES = new Set([
-  "if",
-  "elif",
-  "else",
-  "battle",
-  "call",
-  "return",
-  "when",
-  "and",
-  "or",
-  "not",
-  "win",
-  "lose",
-  "timeout",
+  "if", "elif", "else", "when", "battle", "jump", "call", "return", "win", "lose", "timeout",
 ]);
-
 
 export class StoryParser {
   private readonly context: ParserContext;
@@ -228,7 +215,8 @@ export class StoryParser {
 
   private parseSimpleStatement(line: ParsedLine): StatementAst | null {
     const dialogueSeparator = findDialogueSeparator(line.trimmed);
-    if (dialogueSeparator) {
+    const looksLikeCommandCall = /^[a-z_][a-z0-9_]*\s*\(/u.test(line.trimmed);
+    if (dialogueSeparator && !looksLikeCommandCall) {
       const rawContent = line.trimmed.slice(dialogueSeparator.index + 1);
       const leadingWhitespace = /^\s*/u.exec(rawContent)?.[0].length ?? 0;
       const parsedContent = parsePresentationStyle(
@@ -248,12 +236,12 @@ export class StoryParser {
       } satisfies DialogueStmtAst;
     }
 
-    const commandMatch = /^(\S+)(?:\s+(.*))?$/u.exec(line.trimmed);
-    if (!commandMatch) {
+    const statementMatch = /^(\S+)(?:\s+(.*))?$/u.exec(line.trimmed);
+    if (!statementMatch) {
       return null;
     }
 
-    const name = commandMatch[1];
+    const name = statementMatch[1];
     if (name === "jump") {
       const target = line.trimmed.slice(name.length).trim();
       if (!target) {
@@ -292,19 +280,17 @@ export class StoryParser {
       } satisfies ReturnStmtAst;
     }
 
-    if (RESERVED_COMMAND_NAMES.has(name)) {
-      this.context.report(`'${name}' 是保留字，不能作为命令名`, lineSpan(line), "semantic");
+    const callSource = line.trimmed;
+    const parsedCall = parseCall(callSource, position(line, line.indentSpaces + 1));
+    this.context.addDiagnostics(parsedCall.diagnostics);
+    if (parsedCall.call && RESERVED_COMMAND_NAMES.has(parsedCall.call.name)) {
+      this.context.report(`'${parsedCall.call.name}' 是 DSL 保留字，不能作为命令名`, parsedCall.call.span, "semantic");
     }
-
-    const argsText = commandMatch[2] ?? "";
-    const argsStartColumnInTrimmed = argsText ? line.trimmed.indexOf(argsText, name.length) + 1 : name.length + 1;
-    const parsedArgs = parseValueArgs(argsText, position(line, line.indentSpaces + argsStartColumnInTrimmed));
-    this.context.addDiagnostics(parsedArgs.diagnostics);
 
     return {
       type: "command",
-      name,
-      args: parsedArgs.args,
+      call: parsedCall.call,
+      callSource,
       raw: line.trimmed,
       span: lineSpan(line),
     } satisfies CommandStmtAst;

@@ -136,6 +136,25 @@ function preprocessLines(text: string): ParsedLine[] {
 }
 
 function stripComment(text: string): string {
-  const commentIndex = text.indexOf("//");
-  return commentIndex >= 0 ? text.slice(0, commentIndex) : text;
+  let quote: "'" | '"' | null = null;
+  let escaped = false;
+  for (let index = 0; index < text.length - 1; index += 1) {
+    const char = text[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quote && char === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = quote === char ? null : quote ?? char;
+      continue;
+    }
+    if (!quote && char === "/" && text[index + 1] === "/") {
+      return text.slice(0, index);
+    }
+  }
+  return text;
 }

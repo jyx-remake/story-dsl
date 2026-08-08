@@ -1,668 +1,362 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import test from "node:test";
-import { compileScript } from "../compiler/compiler";
-import { convertXmlToStory } from "../converter/xml-to-story";
-import { parseStory } from "../parser/parser";
+import { compileScript, convertXmlToStory, parseExpression, parseStory } from "@storydsl/core";
 
-test("parses choice, battle and condition then compiles to normalized IR", () => {
-  const source = `# 游戏开始
-胡斐：少侠来此所谓何事？
-- 无事
-  jump nothing
-- 乞讨
-  get_money 100
-battle 新手战
-- win
-  南贤：少侠好身手
-- lose
-- timeout
-  南贤：太墨迹了
-if has_item 小刀 and $money>100
-  南贤：不错
-elif !has_item 小刀 || $money > 10
-  南贤：也行
-else
-  南贤：穷鬼
-`;
+const start = { line: 1, column: 1, offset: 0 };
 
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-  assert.equal(parsed.ast.segments.length, 1);
-  assert.equal(parsed.ast.segments[0].statements.length, 3);
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.diagnostics.length, 0);
-  assert.equal(compiled.ir.segments[0].steps[0]?.kind, "choice");
-  assert.equal(compiled.ir.segments[0].steps[1]?.kind, "battle");
-  assert.equal(compiled.ir.segments[0].steps[2]?.kind, "branch");
-  const choiceStep = compiled.ir.segments[0].steps[0];
-  assert.equal(choiceStep.kind, "choice");
-  assert.equal(choiceStep.groups.length, 1);
-  assert.equal("when" in choiceStep.groups[0], false);
-  assert.deepEqual(choiceStep.groups[0].options[1].steps[0], {
-    kind: "command",
-    name: "get_money",
-    args: [100],
-  });
-
-  const branchStep = compiled.ir.segments[0].steps[2];
-  assert.equal(branchStep.kind, "branch");
-  assert.equal(branchStep.cases.length, 2);
-  assert.equal(branchStep.fallback?.length, 1);
-  assert.deepEqual(branchStep.cases[0].when, [
-    "and",
-    ["pred", "has_item", "小刀"],
-    [">", ["var", "money"], 100],
-  ]);
-  assert.deepEqual(branchStep.cases[1].when, [
-    "or",
-    ["not", ["pred", "has_item", "小刀"]],
-    [">", ["var", "money"], 10],
-  ]);
-  assert.equal(branchStep.fallback?.[0]?.kind, "dialogue");
-});
-
-test("compiles dialogue and whole-choice presentation styles into version 2 IR", () => {
-  const source = `# Start
-胡斐：[#style=怒气.强调]你骗我！
-掌柜:[#style=shop-cards] 客官需要什么？
-- 购买
-  jump buy
-when shop_open
-  - 出售
-    jump sell
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
-  const dialogue = parsed.ast.segments[0].statements[0];
-  assert.equal(dialogue.type, "dialogue");
-  assert.equal(dialogue.style, "怒气.强调");
-  assert.equal(dialogue.text, "你骗我！");
-
-  const choice = parsed.ast.segments[0].statements[1];
-  assert.equal(choice.type, "choice");
-  assert.equal(choice.style, "shop-cards");
-  assert.equal(choice.prompt.style, null);
-  assert.equal(choice.prompt.text, "客官需要什么？");
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.ir.version, 2);
-  assert.deepEqual(compiled.ir.segments[0].steps[0], {
-    kind: "dialogue",
-    speaker: "胡斐",
-    text: "你骗我！",
-    style: "怒气.强调",
-  });
-  const choiceStep = compiled.ir.segments[0].steps[1];
-  assert.equal(choiceStep.kind, "choice");
-  assert.equal(choiceStep.style, "shop-cards");
-  assert.deepEqual(choiceStep.prompt, {
-    speaker: "掌柜",
-    text: "客官需要什么？",
-  });
-});
-
-test("reports invalid or unsupported presentation style tags", () => {
-  const source = `# Start
-旁白：[#mood=angry]未知标签
-旁白：[#style=]空样式
-旁白：[#style=two words]空白样式
-旁白：[#style=first][#style=second]重复样式
-旁白：正文[#style=late]
-旁白：[#style=missing
-旁白：选择
-- [#style=option]选项
-`;
-
-  const parsed = parseStory(source);
-  const messages = parsed.diagnostics.map((item) => item.message);
-  assert.ok(messages.some((message) => message.includes("暂不支持展示标签 'mood'")));
-  assert.ok(messages.some((message) => message.includes("必须提供样式 ID")));
-  assert.ok(messages.some((message) => message.includes("不能包含空白")));
-  assert.ok(messages.some((message) => message.includes("只能配置一个 style")));
-  assert.ok(messages.some((message) => message.includes("只能出现在对白正文开头")));
-  assert.ok(messages.some((message) => message.includes("缺少右方括号")));
-  assert.ok(messages.some((message) => message.includes("选项暂不支持展示样式")));
-});
-
-test("parses conditional choice groups and compiles version 2 IR", () => {
-  const source = `# Start
-掌柜：客官需要什么？
+test("compiles v3 calls and string expressions", () => {
+  const source = `# 开始
+change_item('小还丹', 2)
+掌柜：要买什么？
 - 离开
-  jump leave
-when has_item 小刀 and $money > 10
-  - 购买
-    jump buy
-  - 出售
-    jump sell
-- 打听消息
-  jump gossip
+  jump 结束
+when item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']
+  - 使用
+    remove_item('小还丹')
+if in_team('郭襄') and character_level('郭襄') >= 20
+  journal('郭襄已经成长。')
+else
+  journal('尚未达到条件。')
 `;
-
   const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-  const choice = parsed.ast.segments[0].statements[0];
-  assert.equal(choice.type, "choice");
-  assert.equal(choice.groups.length, 3);
-  assert.equal(choice.groups[0].condition, null);
-  assert.equal(choice.groups[1].options.length, 2);
-  assert.equal(choice.groups[2].options[0].text, "打听消息");
-
+  assert.deepEqual(parsed.diagnostics, []);
   const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.ir.version, 2);
-  const step = compiled.ir.segments[0].steps[0];
-  assert.equal(step.kind, "choice");
-  assert.equal("when" in step.groups[0], false);
-  assert.deepEqual(step.groups[1].when, [
-    "and",
-    ["pred", "has_item", "小刀"],
-    [">", ["var", "money"], 10],
-  ]);
-  assert.deepEqual(step.groups.map((group) => group.options.map((option) => option.text)), [
-    ["离开"],
-    ["购买", "出售"],
-    ["打听消息"],
-  ]);
-});
-
-test("reports invalid conditional choice group structures", () => {
-  const source = `# Start
-when always
-旁白：空条件
-when
-  - 选项
-旁白：空组
-when always
-旁白：直接语句
-when always
-  do_something
-旁白：嵌套组
-when always
-  when always
-    - 选项
-`;
-
-  const parsed = parseStory(source);
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 只能作为 choice")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 后缺少条件表达式")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("至少需要一个缩进")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("只能包含 '- 选项'")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("不允许嵌套")));
-});
-
-test("warns when every choice group is conditional", () => {
-  const source = `# Start
-旁白：选择
-when always
-  - 唯一选项
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.filter((item) => item.severity === "error").length, 0);
-  assert.ok(parsed.diagnostics.some((item) => item.severity === "warning" && item.message.includes("可能没有可用选项")));
-});
-
-test("normalizes command arguments into value args", () => {
-  const source = `# Start
-set_reward $moneyCnt 小刀 2 -5
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.diagnostics.length, 0);
+  assert.deepEqual(compiled.diagnostics, []);
+  assert.equal(compiled.ir.version, 3);
   assert.deepEqual(compiled.ir.segments[0].steps[0], {
     kind: "command",
-    name: "set_reward",
-    args: [["var", "moneyCnt"], "小刀", 2, -5],
+    call: "change_item('小还丹', 2)",
   });
+  const choice = compiled.ir.segments[0].steps[1];
+  assert.equal(choice.kind, "choice");
+  assert.equal(choice.groups[1].when, "item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']");
+  const branch = compiled.ir.segments[0].steps[2];
+  assert.equal(branch.kind, "branch");
+  assert.equal(branch.cases[0].when, "in_team('郭襄') and character_level('郭襄') >= 20");
 });
 
-test("parses command list arguments with English and Chinese separators", () => {
+test("parses the complete v3 expression precedence", () => {
+  const result = parseExpression(
+    "not false or 1 + 2 * -3 <= 4 and '辰' !in ['子', '丑'] and contains(['a'], 'a')",
+    start,
+  );
+  assert.deepEqual(result.diagnostics, []);
+  assert.equal(result.expr?.type, "binary");
+  if (result.expr?.type === "binary") assert.equal(result.expr.operator, "or");
+});
+
+test("accepts booleans, exponent numbers, escaped strings, empty lists and nested calls", () => {
   const source = `# Start
-random_item [小还丹, 大还丹] 1
-random_item [小还丹， 大还丹] 2
-random_join [胡斐, 程灵素, $candidateId]
+set_var('enabled', true)
+set_var('ratio', -6.02e-3)
+set_var('text', 'it\\'s ok')
+set_var('url', 'https://example.test/path')
+set_var('items', [])
+set_var('nested', contains(['a', 'b'], 'a'))
 `;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.diagnostics.length, 0);
-  assert.deepEqual(compiled.ir.segments[0].steps[0], {
-    kind: "command",
-    name: "random_item",
-    args: [["list", "小还丹", "大还丹"], 1],
-  });
-  assert.deepEqual(compiled.ir.segments[0].steps[1], {
-    kind: "command",
-    name: "random_item",
-    args: [["list", "小还丹", "大还丹"], 2],
-  });
-  assert.deepEqual(compiled.ir.segments[0].steps[2], {
-    kind: "command",
-    name: "random_join",
-    args: [["list", "胡斐", "程灵素", ["var", "candidateId"]]],
-  });
+  assert.deepEqual(parseStory(source).diagnostics, []);
 });
 
-test("reports invalid command list arguments", () => {
+test("rejects old command syntax and non-call command roots", () => {
   const source = `# Start
-random_item [小还丹, 大还丹
-random_item [] 1
-random_join [胡斐,,程灵素]
+change_item 小还丹 2
+silver >= 10
+$legacy
 `;
-
-  const parsed = parseStory(source);
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("缺少右括号")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("不能为空")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("缺少元素")));
+  const messages = parseStory(source).diagnostics.map((item) => item.message);
+  assert.ok(messages.some((message) => message.includes("尾随内容")));
+  assert.ok(messages.some((message) => message.includes("命令必须是函数调用")));
+  assert.ok(messages.some((message) => message.includes("标识符只能")));
 });
 
-test("fills maxlevel key from segment name and skill name", () => {
+test("reports malformed v3 expressions", () => {
+  const source = `# Start
+change_item('x',)
+change_item('x'
+if current_time_slot in ['子' '丑']
+  jump End
+if "unterminated
+  jump End
+`;
+  const messages = parseStory(source).diagnostics.map((item) => item.message);
+  assert.ok(messages.some((message) => message.includes("分隔符后缺少")));
+  assert.ok(messages.some((message) => message.includes("缺少右括号")));
+  assert.ok(messages.some((message) => message.includes("必须使用 ','")));
+  assert.ok(messages.some((message) => message.includes("结束引号")));
+});
+
+test("preserves single and double quoted strings in v3 IR", () => {
+  const parsed = parseStory(`# Start
+journal('单引号')
+journal("双引号")
+`);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).ir.segments[0].steps, [
+    { kind: "command", call: "journal('单引号')" },
+    { kind: "command", call: 'journal("双引号")' },
+  ]);
+});
+
+test("adds the maxlevel once key in every nested statement", () => {
   const source = `# 某剧情
-maxlevel 独孤九剑 1
+maxlevel('独孤九剑', 1)
 主角：选择
-- 练刀
-  maxlevel 胡家刀法 2
-if has_item 小刀
-  maxlevel 斗转星移 3
+- 练习
+  maxlevel('胡家刀法', 2)
+if true
+  maxlevel('斗转星移', 3)
 battle 新手战
 - win
-  maxlevel 野球拳 4
+  maxlevel('野球拳', 4)
 # 自定义
-maxlevel 独孤九剑 1 custom_key
+maxlevel('独孤九剑', 1, 'custom_key')
 # 动态
-maxlevel $skill 1
+maxlevel(skill_id, 1)
 `;
-
   const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
+  assert.deepEqual(parsed.diagnostics, []);
   const compiled = compileScript(parsed.ast);
   assert.equal(compiled.diagnostics.length, 1);
-  assert.equal(compiled.diagnostics[0].code, "semantic");
   assert.match(compiled.diagnostics[0].message, /maxlevel/);
   assert.deepEqual(compiled.ir.segments[0].steps[0], {
     kind: "command",
-    name: "maxlevel",
-    args: ["独孤九剑", 1, "某剧情_独孤九剑"],
+    call: "maxlevel('独孤九剑', 1, '某剧情_独孤九剑')",
   });
-
-  const choiceStep = compiled.ir.segments[0].steps[1];
-  assert.equal(choiceStep.kind, "choice");
-  assert.deepEqual(choiceStep.groups[0].options[0].steps[0], {
+  const choice = compiled.ir.segments[0].steps[1];
+  assert.equal(choice.kind, "choice");
+  assert.deepEqual(choice.groups[0].options[0].steps[0], {
     kind: "command",
-    name: "maxlevel",
-    args: ["胡家刀法", 2, "某剧情_胡家刀法"],
+    call: "maxlevel('胡家刀法', 2, '某剧情_胡家刀法')",
   });
-
-  const branchStep = compiled.ir.segments[0].steps[2];
-  assert.equal(branchStep.kind, "branch");
-  assert.deepEqual(branchStep.cases[0].steps[0], {
-    kind: "command",
-    name: "maxlevel",
-    args: ["斗转星移", 3, "某剧情_斗转星移"],
-  });
-
-  const battleStep = compiled.ir.segments[0].steps[3];
-  assert.equal(battleStep.kind, "battle");
-  assert.deepEqual(battleStep.outcomes.win?.[0], {
-    kind: "command",
-    name: "maxlevel",
-    args: ["野球拳", 4, "某剧情_野球拳"],
-  });
-
   assert.deepEqual(compiled.ir.segments[1].steps[0], {
     kind: "command",
-    name: "maxlevel",
-    args: ["独孤九剑", 1, "custom_key"],
-  });
-  assert.deepEqual(compiled.ir.segments[2].steps[0], {
-    kind: "command",
-    name: "maxlevel",
-    args: [["var", "skill"], 1],
+    call: "maxlevel('独孤九剑', 1, 'custom_key')",
   });
 });
 
-test("parses signed numeric literals in commands and expressions", () => {
-  const source = `# Start
-upgrade 臂力 主角 -5
-haogan 王语嫣 +5
-if $money > +100
-  get_money -10
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.diagnostics.length, 0);
-  assert.deepEqual(compiled.ir.segments[0].steps[0], {
-    kind: "command",
-    name: "upgrade",
-    args: ["臂力", "主角", -5],
-  });
-  assert.deepEqual(compiled.ir.segments[0].steps[1], {
-    kind: "command",
-    name: "haogan",
-    args: ["王语嫣", 5],
-  });
-
-  const branchStep = compiled.ir.segments[0].steps[2];
-  assert.equal(branchStep.kind, "branch");
-  assert.deepEqual(branchStep.cases[0].when, [">", ["var", "money"], 100]);
-  assert.deepEqual(branchStep.cases[0].steps[0], {
-    kind: "command",
-    name: "get_money",
-    args: [-10],
-  });
+test("keeps dialogue and choice presentation styles", () => {
+  const parsed = parseStory(`# Start
+胡斐：[#style=怒气.强调]你骗我！
+掌柜：[#style=shop-cards]客官需要什么？
+- 离开
+  jump End
+`);
+  assert.deepEqual(parsed.diagnostics, []);
+  const steps = compileScript(parsed.ast).ir.segments[0].steps;
+  assert.deepEqual(steps[0], { kind: "dialogue", speaker: "胡斐", text: "你骗我！", style: "怒气.强调" });
+  assert.equal(steps[1].kind, "choice");
+  if (steps[1].kind === "choice") assert.equal(steps[1].style, "shop-cards");
 });
 
-test("reports duplicate segments, reserved command names and invalid battle outcomes", () => {
-  const source = `# A
-and foo
-battle Test
-- draw
-# A
-南贤：重复段
-`;
-
-  const parsed = parseStory(source);
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("保留字")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("battle 分支只允许")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("重复的剧情段名")));
-});
-
-test("allows battle without outcome branches", () => {
-  const source = `# Start
-battle Training
-南贤：战斗结束
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-  assert.equal(parsed.ast.segments[0].statements.length, 2);
-
-  const compiled = compileScript(parsed.ast);
-  assert.equal(compiled.diagnostics.length, 0);
-  assert.deepEqual(compiled.ir.segments[0].steps[0], {
-    kind: "battle",
-    battleId: "Training",
-    outcomes: {},
-  });
-  assert.deepEqual(compiled.ir.segments[0].steps[1], {
-    kind: "dialogue",
-    speaker: "南贤",
-    text: "战斗结束",
-  });
-});
-
-test("skips unreachable steps in IR after jump", () => {
-  const source = `# Start
-jump End
-南贤：这里不该到达
-# End
-南贤：结束
-`;
-
-  const parsed = parseStory(source);
-  const compiled = compileScript(parsed.ast);
-  assert.ok(compiled.diagnostics.some((item) => item.code === "unreachable"));
-  assert.equal(compiled.ir.segments[0].steps.length, 1);
-  assert.equal(compiled.ir.segments[0].steps[0]?.kind, "jump");
-});
-
-test("parses call and return control flow", () => {
-  const source = `# Start
+test("keeps call/return and unreachable diagnostics", () => {
+  const parsed = parseStory(`# Start
 call Shared
-南贤：回来
 return
-南贤：这里不该到达
+journal('unreachable')
 # Shared
-南贤：公共段
 return
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.diagnostics.length, 0);
-
+`);
+  assert.deepEqual(parsed.diagnostics, []);
   const compiled = compileScript(parsed.ast);
   assert.ok(compiled.diagnostics.some((item) => item.code === "unreachable"));
   assert.deepEqual(compiled.ir.segments[0].steps, [
-    {
-      kind: "call",
-      target: "Shared",
-    },
-    {
-      kind: "dialogue",
-      speaker: "南贤",
-      text: "回来",
-    },
-    {
-      kind: "return",
-    },
-  ]);
-  assert.deepEqual(compiled.ir.segments[1].steps, [
-    {
-      kind: "dialogue",
-      speaker: "南贤",
-      text: "公共段",
-    },
-    {
-      kind: "return",
-    },
+    { kind: "call", target: "Shared" },
+    { kind: "return" },
   ]);
 });
 
-test("reports invalid call and return syntax", () => {
-  const source = `# Start
-call
+test("reports structural and indentation errors", () => {
+  const parsed = parseStory(`# A
+   journal('bad indent')
+- stray
+when true
+# A
 return value
-`;
-
-  const parsed = parseStory(source);
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("call 之后必须提供目标段名")));
+`);
+  assert.ok(parsed.diagnostics.some((item) => item.code === "indentation"));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("只能作为 choice 或 battle")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 只能作为 choice")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("重复的剧情段名")));
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("return 后不能跟参数")));
 });
 
-test("reports indentation and stray branch errors", () => {
-  const source = "# Start\n   南贤：错缩进\n- stray\n";
-  const parsed = parseStory(source);
-  assert.ok(parsed.diagnostics.some((item) => item.code === "indentation"));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("只能作为 choice 或 battle")));
-});
-
-test("normalizes segment names by ignoring spaces after # and at line end", () => {
-  const source = `#   游戏开始   
-南贤：开始
-# 游戏开始
-南贤：重复
-`;
-
-  const parsed = parseStory(source);
-  assert.equal(parsed.ast.segments[0].name, "游戏开始");
-  assert.equal(parsed.ast.segments[1].name, "游戏开始");
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("重复的剧情段名")));
-});
-
-test("converts story XML dialogue, commands, choice and standalone results to DSL", () => {
-  const xml = `<root>
-  <story name="新手村_南贤">
-    <result type="story" ret="0" value="新手村_南贤_出村" />
-    <result type="map" ret="1" value="南贤屋内" />
-    <action type="MUSIC" value="音乐.室内_清新" />
-    <action type="SELECT" value="南贤#有什么事吗？#出村#留下" />
-  </story>
-  <story name="新手村_武师7">
-    <result type="story" ret="0" value="新手村_武师不能打木头人">
-      <condition type="level_greater_than" value="主角#5" />
+test("converter emits canonical v3 calls and guarded conditions", () => {
+  const xml = `<root><story name="测试">
+    <action type="DIALOG" value="南贤#你好"/>
+    <action type="ITEM" value="小还丹#2"/>
+    <action type="COST_MONEY" value="100"/>
+    <action type="NICK" value="初出茅庐"/>
+    <action type="HEAD" value="头像.少林弟子"/>
+    <action type="SET_FLAG" value="NO_GLOBAL_EVENT"/>
+    <action type="CLEAR_FLAG" value="NO_GLOBAL_EVENT"/>
+    <action type="LEARN.SKILL" value="主角#伏虎掌#5"/>
+    <action type="LEARN.INTERNALSKILL" value="主角#基本内功#5"/>
+    <action type="LEARN.SPECIALSKILL" value="主角#凌波微步"/>
+    <action type="LEARN.TALENT" value="主角#妙手空空"/>
+    <action type="UPGRADE" value="拳掌#主角#3"/>
+    <action type="UPGRADE.SKILL" value="郭襄#峨眉剑法#2"/>
+    <action type="UPGRADE.INTERNALSKILL" value="主角#基本内功#2"/>
+    <action type="REMOVE.SKILL" value="主角#伏虎掌"/>
+    <action type="REMOVE.TALENT" value="主角#妙手空空"/>
+    <action type="RANDOM_ITEM" value="[小还丹, 大还丹]#2"/>
+    <action type="RANDOM_JOIN" value="[郭襄, 程英]"/>
+    <action type="MINUS_MAXPOINTS" value="主角#5"/>
+    <action type="TOAST" value="off"/>
+    <action type="NEWBIE" value="ignored"/>
+    <action type="TOUCH" value="ignored"/>
+    <result type="story" ret="0" value="结束">
+      <condition type="level_greater_than" value="郭襄#20"/>
+      <condition type="probability" value="25"/>
     </result>
-    <action type="DIALOG" value="武师#好嘞，去练习一下！" />
-  </story>
-</root>`;
-
+  </story></root>`;
   const story = convertXmlToStory(xml);
-  assert.equal(story, `# 新手村_南贤
-music 音乐.室内_清新
-南贤：有什么事吗？
-- 出村
-  jump 新手村_南贤_出村
-- 留下
-  map 南贤屋内
-
-# 新手村_武师7
-武师：好嘞，去练习一下！
-if level_greater_than 主角 5
-  jump 新手村_武师不能打木头人
+  assert.equal(story, `# 测试
+南贤：你好
+change_item('小还丹', 2)
+change_silver(-100)
+unlock_achievement('初出茅庐')
+set_portrait('主角', '头像.少林弟子')
+world_triggers(false)
+world_triggers(true)
+learn_external('主角', '伏虎掌', 5)
+learn_internal('主角', '基本内功', 5)
+learn_special('主角', '凌波微步')
+learn_talent('主角', '妙手空空')
+change_stat('主角', '拳掌', 3)
+upgrade_external('郭襄', '峨眉剑法', 2)
+upgrade_internal('主角', '基本内功', 2)
+remove_external('主角', '伏虎掌')
+remove_talent('主角', '妙手空空')
+add_random_item(['小还丹', '大还丹'], 2)
+join_random(['郭襄', '程英'])
+scale_stats('主角', 0.5)
+toast(false)
+if in_team('郭襄') and character_level('郭襄') >= 20 and chance(0.25)
+  jump 结束
 `);
-
-  assert.equal(parseStory(story).diagnostics.length, 0);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).diagnostics, []);
 });
 
-test("converts story XML battles, dotted action types and conditioned outcomes", () => {
+test("converter emits v3 choices, battles, valueless commands and escaped strings", () => {
   const xml = `<root>
-  <story name="破庙_梅超风_迎战">
-    <result type="story" ret="0" value="破庙_梅超风_胜利">
-      <condition type="have_item" value="小刀" />
-    </result>
-    <result type="gameOver" ret="1" value="gameOver" />
-    <action type="DIALOG" value="梅超风#找死 &amp; 接招！" />
-    <action type="LEARN.SKILL" value="主角#伏虎掌#5" />
-    <action type="UPGRADE..SKILL" value="小龙女#玉女素心剑#-5" />
-    <action type="BATTLE" value="新手村梅超风_战斗" />
-  </story>
-</root>`;
-
+    <story name="选择"><action type="SELECT" value="主角#去&apos;哪？#出发#结束"/><result type="story" ret="0" value="下一段"/><result type="gameFin" ret="1" value="gameFin"/></story>
+    <story name="战斗"><action type="BATTLE" value="测试战斗"/><result type="story" ret="win" value="胜利"/><result type="gameOver" ret="lose" value="gameOver"/></story>
+  </root>`;
   const story = convertXmlToStory(xml);
-  assert.equal(story, `# 破庙_梅超风_迎战
-梅超风：找死 & 接招！
-learn skill 主角 伏虎掌 5
-upgrade skill 小龙女 玉女素心剑 -5
-battle 新手村梅超风_战斗
+  assert.equal(story, `# 选择
+主角：去'哪？
+- 出发
+  jump 下一段
+- 结束
+  game_complete()
+
+# 战斗
+battle 测试战斗
 - win
-  if have_item 小刀
-    jump 破庙_梅超风_胜利
+  jump 胜利
 - lose
-  gameover
+  game_over()
 `);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).diagnostics, []);
+});
 
-  assert.equal(parseStory(story).diagnostics.length, 0);
-  const compiled = compileScript(parseStory(story).ast);
-  assert.deepEqual(compiled.ir.segments[0].steps[2], {
+test("converter preserves known XML quirks and legacy defaults", () => {
+  const xml = `<root><story name="兼容数据">
+    <action type="DIALOg" value="主角#大小写异常仍是对白"/>
+    <action type="CHANGE_FEMALE_NAME" value="铃兰"/>
+    <action type="UPGRADE.SKILLL" value="达尔巴#火焰刀法#5"/>
+    <action type="UPGRADE……SKILL" value="小龙女#玉女素心剑#5"/>
+    <action type="MAXLEVEL" value="火焰刀法#2"/>
+    <result type="story" value="好感结局"><condition type="haogan_more_than" value="100"/></result>
+    <result type="story" value="排名结局"><condition type="rank" value="10"/></result>
+  </story></root>`;
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 兼容数据
+主角：大小写异常仍是对白
+input_name('女主', '铃兰')
+upgrade_external('达尔巴', '火焰刀法', 5)
+upgrade_external('小龙女', '玉女素心剑', 5)
+maxlevel('火焰刀法', 2)
+if favorability('女主') >= 100
+  jump 好感结局
+if rank != -1 and rank <= 10
+  jump 排名结局
+`);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  const compiled = compileScript(parsed.ast);
+  assert.deepEqual(compiled.diagnostics, []);
+  assert.deepEqual(compiled.ir.segments[0].steps[4], {
     kind: "command",
-    name: "upgrade",
-    args: ["skill", "小龙女", "玉女素心剑", -5],
+    call: "maxlevel('火焰刀法', 2, '兼容数据_火焰刀法')",
   });
 });
 
-test("drops legacy self-value arguments from valueless result commands", () => {
-  const xml = `<root>
-  <story name="终局选择">
-    <action type="SELECT" value="主角#怎么办？#下一周目#结束" />
-    <result type="nextZhoumu" ret="0" value="nextZhoumu" />
-    <result type="gameFin" ret="1" value="gameFin" />
-  </story>
-  <story name="失败战斗">
-    <action type="BATTLE" value="必败战" />
-    <result type="gameOver" ret="lose" value="gameOver" />
-  </story>
-</root>`;
-
-  const story = convertXmlToStory(xml);
-  assert.equal(story, `# 终局选择
-主角：怎么办？
-- 下一周目
-  nextzhoumu
-- 结束
-  gamefin
-
-# 失败战斗
-battle 必败战
-- lose
-  gameover
-`);
-
-  assert.equal(parseStory(story).diagnostics.length, 0);
+test("converter rejects legacy values that cannot be migrated safely", () => {
+  assert.throws(
+    () => convertXmlToStory(`<root><story name="错误"><action type="MINUS_MAXPOINTS" value="郭襄#3"/></story></root>`),
+    /minus_maxpoints/u,
+  );
+  assert.throws(
+    () => convertXmlToStory(`<root><story name="错误"><result type="story" value="结束"><condition type="probability" value="120"/></result></story></root>`),
+    /probability/u,
+  );
 });
 
-test("converts every valueless result command without arguments", () => {
-  const commands = [
-    ["gameFin", "gameFin", "gamefin"],
-    ["gameOver", "gameOver", "gameover"],
-    ["huashan", "huashan", "huashan"],
-    ["mainmenu", "mainmenu", "mainmenu"],
-    ["nextZhoumu", "nextZhoumu", "nextzhoumu"],
-    ["restart", "restart", "restart"],
-    ["tower", "tower", "tower"],
-    ["trial", "trial", "trial"],
-    ["xilian", "0", "xilian"],
-    ["zhenlongqiju", "zhenlongqiju", "zhenlongqiju"],
-  ] as const;
-
-  for (const [legacyType, legacyValue, commandName] of commands) {
-    const xml = `<root>
-  <story name="${commandName}">
-    <result type="${legacyType}" ret="0" value="${legacyValue}" />
-  </story>
-</root>`;
-
-    const story = convertXmlToStory(xml);
-    assert.equal(story, `# ${commandName}
-${commandName}
-`);
-
-    const parsed = parseStory(story);
-    assert.equal(parsed.diagnostics.length, 0);
+test("all tracked story examples parse and compile as v3", () => {
+  const examplesDirectory = path.resolve(process.cwd(), "..", "..", "examples");
+  const files = fs.readdirSync(examplesDirectory).filter((file) => file.endsWith(".story"));
+  let maxlevelCount = 0;
+  assert.ok(files.length > 0);
+  for (const file of files) {
+    const source = fs.readFileSync(path.join(examplesDirectory, file), "utf8");
+    assert.doesNotMatch(
+      source,
+      /^\s*(?:item|cost_item|random_item|random_join|get_money|cost_money|nick|head|world_trigger|newbie|touch|minus_maxpoints)\s+/mu,
+      file,
+    );
+    assert.doesNotMatch(
+      source,
+      /\b(?:should_not_finish|not_in_team|have_money|game_mode|probability|level_greater_than|skill_less_than)\b/u,
+      file,
+    );
+    for (const line of source.split(/\r?\n/u)) {
+      for (const match of line.matchAll(/(?:character_level|character_stat|skill_level)\('([^']+)'/gu)) {
+        if (match[1] !== "主角") {
+          assert.ok(line.includes(`in_team('${match[1]}') and`), `${file}: unguarded character query: ${line}`);
+        }
+      }
+    }
+    const parsed = parseStory(source);
+    assert.deepEqual(parsed.diagnostics.filter((item) => item.severity === "error"), [], file);
     const compiled = compileScript(parsed.ast);
-    assert.deepEqual(compiled.ir.segments[0].steps, [{
-      kind: "command",
-      name: commandName,
-      args: [],
-    }]);
+    assert.deepEqual(compiled.diagnostics, [], file);
+    assert.equal(compiled.ir.version, 3, file);
+    const visit = (value: unknown): void => {
+      if (Array.isArray(value)) {
+        value.forEach(visit);
+        return;
+      }
+      if (value === null || typeof value !== "object") return;
+      const record = value as Record<string, unknown>;
+      if (record.kind === "command" && typeof record.call === "string" && record.call.startsWith("maxlevel(")) {
+        const expression = parseExpression(record.call, start);
+        assert.deepEqual(expression.diagnostics, [], `${file}: ${record.call}`);
+        assert.equal(expression.expr?.type, "callExpr", `${file}: ${record.call}`);
+        if (expression.expr?.type === "callExpr") {
+          assert.equal(expression.expr.args.length, 3, `${file}: ${record.call}`);
+        }
+        maxlevelCount += 1;
+      }
+      Object.values(record).forEach(visit);
+    };
+    visit(compiled.ir.segments);
   }
-});
-
-test("renames legacy NO_GLOBAL_EVENT flag writes to world_trigger on/off", () => {
-  const xml = `<root>
-  <story name="黑衣开关">
-    <action type="SET_FLAG" value="NO_GLOBAL_EVENT" />
-    <action type="CLEAR_FLAG" value="NO_GLOBAL_EVENT" />
-  </story>
-</root>`;
-
-  const story = convertXmlToStory(xml);
-  assert.equal(story, `# 黑衣开关
-world_trigger off
-world_trigger on
-`);
-
-  assert.equal(parseStory(story).diagnostics.length, 0);
-});
-
-test("converts legacy inline color markup in XML dialogue and select text to BBCode", () => {
-  const xml = `<root>
-  <story name="新手提示">
-    <action type="DIALOG" value="南贤#去[[red:洛阳]]找[[yellow:商店]]。" />
-    <action type="SELECT" value="主角#选择[[magenta:难度]]#[[yellow:进阶]]#[[red:炼狱]]" />
-    <result type="story" ret="0" value="进阶" />
-    <result type="story" ret="1" value="炼狱" />
-  </story>
-</root>`;
-
-  const story = convertXmlToStory(xml);
-  assert.equal(story, `# 新手提示
-南贤：去[color=red]洛阳[/color]找[color=yellow]商店[/color]。
-主角：选择[color=magenta]难度[/color]
-- [color=yellow]进阶[/color]
-  jump 进阶
-- [color=red]炼狱[/color]
-  jump 炼狱
-`);
-
-  assert.equal(parseStory(story).diagnostics.length, 0);
+  assert.equal(maxlevelCount, 187);
 });

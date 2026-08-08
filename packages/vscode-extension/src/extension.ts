@@ -132,7 +132,11 @@ export function activate(context: vscode.ExtensionContext): void {
       try {
         const xmlBytes = await vscode.workspace.fs.readFile(inputUri);
         const storyText = convertXmlToStory(Buffer.from(xmlBytes).toString("utf8"));
-        const targetUri = getStoryOutputUri(inputUri);
+        const analysis = analyzeDocument(storyText);
+        if (analysis.diagnostics.some((item) => item.severity === "error")) {
+          throw new Error("转换结果未通过 Story v3 parser/compiler，未写入文件");
+        }
+        const targetUri = await getStoryOutputUri(inputUri);
         await vscode.workspace.fs.writeFile(targetUri, Buffer.from(storyText, "utf8"));
         output.appendLine(`[ok] ${inputUri.fsPath} -> ${targetUri.fsPath}`);
 
@@ -189,10 +193,21 @@ function getOutputUri(source: vscode.Uri): vscode.Uri {
   return vscode.Uri.file(path.join(directory, `${baseName}.json`));
 }
 
-function getStoryOutputUri(source: vscode.Uri): vscode.Uri {
+async function getStoryOutputUri(source: vscode.Uri): Promise<vscode.Uri> {
   const directory = path.dirname(source.fsPath);
   const parsedPath = path.parse(source.fsPath);
-  return vscode.Uri.file(path.join(directory, `${parsedPath.name}.story`));
+  for (let index = 1; ; index += 1) {
+    const suffix = index === 1 ? "" : `-${index}`;
+    const candidate = vscode.Uri.file(path.join(directory, `${parsedPath.name}.converted${suffix}.story`));
+    try {
+      await vscode.workspace.fs.stat(candidate);
+    } catch (error) {
+      if (error instanceof vscode.FileSystemError && error.code === "FileNotFound") {
+        return candidate;
+      }
+      throw error;
+    }
+  }
 }
 
 function getActiveXmlUri(): vscode.Uri | null {
