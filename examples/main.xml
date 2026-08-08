@@ -1309,7 +1309,7 @@
   </story>
   <story name="original_女主出场.结束">
     <result type="map" ret="0" value="大地图" />
-    <action type="CHANGE_FEMALE_NAME" value="玲兰" />
+    <action type="CHANGE_FEMALE_NAME" value="铃兰" />
     <action type="DIALOG" value="女主#家父随现任陇右节度使王忠嗣大人辖制河西重地。家父性情豪爽，教女也别具一格，让我随军来陇右体验一番边塞风情。" />
     <action type="DIALOG" value="女主#小女子平日久居长安，一时来到塞外，颇感新奇，便带上三五随从出来游玩。谁知在沙漠中迷了路途，又遇上了马贼，若不是恩公出手相助，我……我……呜呜呜呜……" />
     <action type="DIALOG" value="主角#额……最怕看到女孩子哭了。刚不还挺有礼节的么……" />

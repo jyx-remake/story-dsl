@@ -531,7 +531,7 @@ haogan 女主 10
 长安一梦部落众1：$MALE$，你好，谢谢你帮我们夺回这片草原。
 主角：不客气，只是他们为什么要霸占这里呢？他们又不放牧……
 长安一梦部落众1：这我就不知道了……
-if key_in_team 陈达海
+if in_team 陈达海
   jump original_长安一梦.宝藏的秘密2
 
 # original_长安一梦.宝藏的秘密2
@@ -1786,11 +1786,11 @@ music 音乐.开场
 # 白马啸西风_初次见面
 主角：咦，想不到草海荒漠之中，还有这么漂亮的汉人妹子。
 李文秀：……
-if key_in_team 郭靖
+if in_team 郭靖
   jump 白马啸西风_郭靖
-if key_in_team 韦小宝
+if in_team 韦小宝
   jump 白马啸西风_韦小宝
-if key_not_in_team 韦小宝 and key_not_in_team 郭靖
+if not_in_team 韦小宝 and not_in_team 郭靖
   jump 白马啸西风_初次见面2
 
 # 白马啸西风_郭靖
@@ -2003,9 +2003,9 @@ upgrade maxhp 李文秀 500
 upgrade maxmp 李文秀 500
 item 黑血神针秘籍 1
 nick 白马西风
-if should_finish original_长安.家中 and key_in_team 女主
+if should_finish original_长安.家中 and in_team 女主
   jump original_女主.白马啸西风
-if key_not_in_team 女主
+if not_in_team 女主
   map 大地图
 
 # 白马啸西风_高昌秘宝

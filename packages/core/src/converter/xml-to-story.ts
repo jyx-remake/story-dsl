@@ -304,7 +304,19 @@ function resultToStatement(result: ResultEntry): string {
 }
 
 function conditionToExpression(condition: ConditionEntry): string {
-  return joinCommand(actionTypeToCommand(condition.type), splitHashArgs(condition.value));
+  return joinCommand(normalizeLegacyConditionName(condition.type), splitHashArgs(condition.value));
+}
+
+function normalizeLegacyConditionName(type: string): string {
+  const conditionName = actionTypeToCommand(type);
+  switch (conditionName) {
+    case "key_in_team":
+      return "in_team";
+    case "key_not_in_team":
+      return "not_in_team";
+    default:
+      return conditionName;
+  }
 }
 
 function actionValueToArgs(type: string, value: string): string[] {

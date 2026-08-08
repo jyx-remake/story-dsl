@@ -65,7 +65,7 @@ npm run dev:web
 - `Story DSL: Convert XML To Story`
 
 `Convert XML To Story` 会读取当前打开的 `.xml` 文件，或提示选择 XML 文件，并在同目录输出同名 `.story`。
-转换会保留段名和取值中的原始 `_` / `.`，只把 XML 的 action/result 类型映射为小写 DSL 命令名。
+转换会保留段名和取值中的原始 `_` / `.`，并把 XML 的 action/result 类型映射为小写 DSL 命令名。legacy 条件 `key_in_team`、`key_not_in_team` 会分别归一化为只接收角色 ID 的 `in_team`、`not_in_team`。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 
