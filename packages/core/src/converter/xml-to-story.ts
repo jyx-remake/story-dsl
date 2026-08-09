@@ -241,8 +241,8 @@ function emitAction(action: ActionEntry): string[] {
     return [formatCall("world_triggers", [worldTriggerMode === "on" ? "true" : "false"])];
   }
 
-  const call = actionToCall(action.type, action.value);
-  return call === null ? [] : [call];
+  const statement = actionToStatement(action.type, action.value);
+  return statement === null ? [] : [statement];
 }
 
 function emitSelect(value: string, results: ResultEntry[]): string[] {
@@ -376,7 +376,7 @@ function resultToStatement(result: ResultEntry): string {
     return `jump ${result.value.trim()}`;
   }
 
-  return actionToCall(result.type, result.value) ?? "";
+  return actionToStatement(result.type, result.value) ?? "";
 }
 
 function conditionToExpression(condition: ConditionEntry): string {
@@ -449,7 +449,7 @@ function conditionToExpression(condition: ConditionEntry): string {
   }
 }
 
-function actionToCall(type: string, value: string): string | null {
+function actionToStatement(type: string, value: string): string | null {
   const typeParts = type.split(/[.…]+/u).map(actionTypeToCommand).filter(Boolean);
   const legacyName = typeParts[0] ?? actionTypeToCommand(type);
   if (REMOVED_LEGACY_COMMANDS.has(legacyName)) return null;
@@ -459,6 +459,15 @@ function actionToCall(type: string, value: string): string | null {
   if (VALUELESS_COMMANDS.has(command)) return formatCall(command, []);
 
   switch (legacyName) {
+    case "set_flag":
+      return `${formatVariableName(requiredLegacyArg(legacyName, values, 0), legacyName)} = true`;
+    case "clear_flag":
+    case "remove_var":
+      return `del ${formatVariableName(requiredLegacyArg(legacyName, values, 0), legacyName)}`;
+    case "set_var":
+      return `${formatVariableName(requiredLegacyArg(legacyName, values, 0), legacyName)} = ${quoteString(requiredLegacyArg(legacyName, values, 1))}`;
+    case "change_var":
+      return `${formatVariableName(requiredLegacyArg(legacyName, values, 0), legacyName)} += ${formatNumber(requiredLegacyArg(legacyName, values, 1), legacyName)}`;
     case "cost_money": {
       const amount = Number(requiredLegacyArg(legacyName, values, 0));
       if (!Number.isFinite(amount)) throw new Error(`cost_money 数量不是有效数字：${values[0] ?? ""}`);
@@ -587,6 +596,14 @@ function formatCommandArguments(command: string, values: string[]): string[] {
 
 function formatCall(command: string, args: string[]): string {
   return `${command}(${args.join(", ")})`;
+}
+
+function formatVariableName(value: string, context: string): string {
+  const name = value.trim();
+  if (!/^[a-z_][a-z0-9_]*$/u.test(name)) {
+    throw new Error(`${context} 变量名必须是小写 snake_case：${value}`);
+  }
+  return name;
 }
 
 function quoteString(value: string): string {

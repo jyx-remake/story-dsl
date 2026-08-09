@@ -40,6 +40,8 @@ export interface SegmentAst {
 export type StatementAst =
   | DialogueStmtAst
   | CommandStmtAst
+  | AssignmentStmtAst
+  | DeleteStmtAst
   | ChoiceStmtAst
   | BattleStmtAst
   | IfStmtAst
@@ -62,6 +64,23 @@ export interface CommandStmtAst {
   span: SourceSpan;
   call: CallExprAst | null;
   callSource: string;
+  raw: string;
+}
+
+export interface AssignmentStmtAst {
+  type: "assignment";
+  span: SourceSpan;
+  target: string;
+  operator: "=" | "+=" | "-=";
+  value: ExprAst | null;
+  valueSource: string;
+  raw: string;
+}
+
+export interface DeleteStmtAst {
+  type: "delete";
+  span: SourceSpan;
+  target: string;
   raw: string;
 }
 
@@ -90,12 +109,27 @@ export interface ChoiceStmtAst {
   span: SourceSpan;
   style: string | null;
   prompt: DialogueStmtAst;
-  groups: ChoiceOptionGroupAst[];
+  blocks: ChoiceBlockAst[];
 }
 
-export interface ChoiceOptionGroupAst {
-  type: "choiceOptionGroup";
+export type ChoiceBlockAst = ChoiceOptionsBlockAst | ChoiceBranchBlockAst;
+
+export interface ChoiceOptionsBlockAst {
+  type: "choiceOptionsBlock";
   span: SourceSpan;
+  options: ChoiceOptionAst[];
+}
+
+export interface ChoiceBranchBlockAst {
+  type: "choiceBranchBlock";
+  span: SourceSpan;
+  branches: ChoiceBranchCaseAst[];
+}
+
+export interface ChoiceBranchCaseAst {
+  type: "choiceBranchCase";
+  span: SourceSpan;
+  keyword: "if" | "elif" | "else";
   condition: ExprAst | null;
   rawCondition: string | null;
   options: ChoiceOptionAst[];
@@ -105,6 +139,8 @@ export interface ChoiceOptionAst {
   type: "choiceOption";
   span: SourceSpan;
   text: string;
+  condition: ExprAst | null;
+  rawCondition: string | null;
   statements: StatementAst[];
 }
 

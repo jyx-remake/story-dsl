@@ -67,9 +67,9 @@
 - 对白支持 `:` 与 `：`
 - `- xxx` 不是独立顶级语法，只能依附：
   - 对白后的 choice 选项
-  - `when` 条件组中的 choice 选项
+  - `if / elif / else` 条件分支块中的 choice 选项
   - battle 的结果分支
-- `when expr` 只能出现在 choice 中，与 prompt 同级；其下缩进的一个或多个选项共享条件，并且每组只求值一次
+- choice 支持 `- 文本 if expr` 单项条件，以及与 prompt 同级的 `if / elif / else` 选项分支块
 - `battle` 当前只支持：
   - `win`
   - `lose`
@@ -81,13 +81,14 @@
   - 比较运算 `== != > >= < <=`
 - command 必须使用 `name(...)` 函数调用语法
 - 动态变量直接使用小写 snake_case 标识符，不使用 `$`
+- 变量写入使用独立语句 `name = expr`、`name += expr`、`name -= expr`，删除使用 `del name`
 - `jump` 是终止语句；其后同级语句不会进入 IR
 
 ## Naming Conventions
 
 - JSON IR 层统一使用 `kind` 作为判别字段
-- JSON IR 当前版本为 3；command 使用字符串 `call`，条件使用字符串 `when`
-- choice 使用 `groups`，无条件组省略 `when`
+- JSON IR 当前版本为 3；command 使用字符串 `call`，赋值/删除使用 `set` / `delete` step，条件使用字符串 `when`
+- choice 使用有序 `blocks`；block 为 `options` 或 `branch { cases, fallback }`，option 可带 `when`
 - battle 的标识字段用 `battleId`
 - AST 目前仍使用 `type` 作为节点区分字段；如果要统一改为 `kind`，请全量同步测试与编译层
 
@@ -115,11 +116,10 @@
 - 推进新语法时，优先解决结构问题，不做补丁式扩充
 - 优先级顺序当前为：
   1. `call / return`
-  2. `set`
-  3. 选项级条件与一次性选项
-  4. 局部变量
-  5. 标签 / 元数据
-  6. 输入语法与历史系统评估
+  2. 选项级条件与一次性选项
+  3. 局部变量
+  4. 标签 / 元数据
+  5. 输入语法与历史系统评估
 
 ## Validation Checklist
 

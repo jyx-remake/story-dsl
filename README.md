@@ -64,7 +64,7 @@ npm run dev:web
 - `Story DSL: Compile All Stories`
 - `Story DSL: Convert XML To Story`
 
-`Convert XML To Story` 输出 v3 canonical 函数调用，并在写入前通过同一套 parser/compiler 验证。输出默认使用 `<原名>.converted.story`；若文件已存在则追加 `-2`、`-3`，不会覆盖现有 `.story`。legacy 条件会转换为普通表达式，非主角的等级、属性和技能查询自动添加 `in_team(id) and ...` 短路保护。XML 中的 `skill` 按 External skill 转换；`maxlevel` 的 once key 仍由 compiler 补充。
+`Convert XML To Story` 输出 v3 canonical 语句，并在写入前通过同一套 parser/compiler 验证。通用 `SET_FLAG / CLEAR_FLAG / SET_VAR / CHANGE_VAR / REMOVE_VAR` 会转换为裸变量赋值或 `del`；`NO_GLOBAL_EVENT` 标记仍转换为世界触发器开关。输出默认使用 `<原名>.converted.story`；若文件已存在则追加 `-2`、`-3`，不会覆盖现有 `.story`。legacy 条件会转换为普通表达式，非主角的等级、属性和技能查询自动添加 `in_team(id) and ...` 短路保护。XML 中的 `skill` 按 External skill 转换；`maxlevel` 的 once key 仍由 compiler 补充。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 
@@ -153,22 +153,30 @@ return
 - 样式 ID 允许中英文、数字、点、下划线和短横线，ID 自身不允许空白
 - 当前不支持选项级样式或其他展示标签
 
-选项可以按条件成组显示：
+选项可以使用尾缀条件，也可以使用互斥的条件分支块：
 
 ```text
 掌柜：客官需要什么？
 - 离开
   jump leave
-when shop_open and silver > 0
+if shop_open and silver > 0
   - 购买
     jump buy
-  - 出售
+  - 出售 if has_var('sell_license')
     jump sell
+elif silver <= 0
+  - 赊账
+else
+  - 询问行情
+
+if has_var('secret_shop')
+  - 查看隐藏商品
 ```
 
-- `when` 与对白及普通选项同级，其组内选项缩进一级
-- 同一条件组可以包含一个或多个选项，进入 choice 时条件只求值一次
-- 条件为假时整组隐藏；无条件组选项始终显示
+- `- 文本 if 表达式` 只控制单个选项，尾缀不进入显示文本
+- 每个 `if` 开始一条独立链；紧随的 `elif / else` 互斥，后续新 `if` 可继续贡献选项
+- 普通选项、单项条件和条件分支块可以按源码顺序混用
+- 分支条件和访问到的单项条件各求值一次；未选中的 case 及其中的单项条件不求值
 - 若运行时没有任何可用选项，剧情执行失败
 
 ### 战斗分支
@@ -201,8 +209,21 @@ else
 - 支持一元 `not / ! / + / -`，算术 `* / % + -`，比较、`in / not in / !in` 以及 `and / or / && / ||`
 - 标识符区分大小写，并限制为小写 ASCII snake_case；动态变量直接写标识符，不再使用 `$`
 - `and/or` 按 v3 语义短路；查询非主角的等级、属性或技能前必须使用 `in_team(id) and ...` 保护
-- branch/choice 的 `when` 以原始表达式字符串进入 JSON IR
+- branch、choice case 与 choice option 的 `when` 以原始表达式字符串进入 JSON IR
 - `if / elif / else` 在 JSON IR 中统一编译为 `branch { cases, fallback }`
+
+### 剧情变量
+
+```text
+quest_stage = 1
+quest_stage += 2
+quest_stage -= 1
+del quest_stage
+```
+
+- 赋值与删除只能作为独立语句，不能出现在条件或函数参数中
+- `=` 写入表达式结果；`+=` / `-=` 编译为读取原值后的数值加减
+- `del` 删除变量；变量的可写范围、类型约束和缺失删除行为由运行时定义
 
 ## JSON IR Shape
 
@@ -219,14 +240,16 @@ else
 
 - `dialogue`: `speaker`, `text`，可选 `style`
 - `command`: `call`
+- `set`: `target`, `value`
+- `delete`: `target`
 - `jump`: `target`
 - `call`: `target`
 - `return`: 无额外字段
-- `choice`: 可选 `style`、`prompt`, `groups`；无条件组省略 `when`，条件组使用 `when`, `options`
+- `choice`: 可选 `style`、`prompt`、`blocks`；block 为 `options` 或带 `cases/fallback` 的 `branch`，单项条件写入 option 的可选 `when`
 - `battle`: `battleId`, `outcomes`
 - `branch`: `cases`, `fallback`
 
-命令和条件以 v3 表达式源字符串输出。`maxlevel` 仍保留一次性奖励 key 的额外编译转换：
+命令、赋值值和条件以 v3 表达式源字符串输出。复合赋值在编译时归一化，例如 `count += 2` 输出 `{ "kind": "set", "target": "count", "value": "count + (2)" }`。`maxlevel` 仍保留一次性奖励 key 的额外编译转换：
 
 ```json
 { "kind": "command", "call": "maxlevel('独孤九剑', 1, '某剧情_独孤九剑')" }
@@ -234,7 +257,7 @@ else
 
 当 DSL 写作 `maxlevel('独孤九剑', 1)` 时，第三个参数由当前剧情段名和技能名拼接得到。若 DSL 已显式提供第三个参数，则保留原值。
 
-例如条件 `in_team('郭襄') and character_level('郭襄') >= 20` 会原样进入 `branch.cases[].when` 或 `choice.groups[].when`。
+例如条件 `in_team('郭襄') and character_level('郭襄') >= 20` 会原样进入 `branch.cases[].when`、`choice.blocks[].cases[].when` 或 `choice` option 的 `when`。
 
 完整示例可见：
 
@@ -282,7 +305,7 @@ TODO.md
 
 - 严格缩进：仅允许空格，2 空格一级，禁止 Tab
 - 字符串外的 `//` 会被当作注释起点；字符串内部的 `//` 保留
-- 不支持 `null`、成员访问、索引、赋值、三元表达式或字符串拼接
+- 不支持 `null`、成员访问、索引、赋值表达式、三元表达式或字符串拼接
 - `choice` 只能出现在对白之后
 - 当前只做静态高亮，不做语义 token 和 LSP
 
@@ -302,10 +325,9 @@ TODO.md
 
 当前只确定方向，不代表已经落地：
 
-1. `set`
-2. 一次性选项
-3. 局部变量
-4. 标签 / 元数据
-5. 输入语法与历史系统评估
+1. 一次性选项
+2. 局部变量
+3. 标签 / 元数据
+4. 输入语法与历史系统评估
 
 详细计划见 `TODO.md`。

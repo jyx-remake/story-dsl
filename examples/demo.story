@@ -1,4 +1,8 @@
 # 游戏开始
+quest_stage = 1
+quest_stage += 2
+quest_stage -= 1
+del quest_stage
 南贤：[#style=opening]游戏开始
 胡斐：[#style=question-cards]少侠来此所谓何事？
 - 无事
@@ -6,7 +10,7 @@
 - 乞讨
   change_silver(100)
   胡斐：给你钱
-when item_count('小刀') >= 1 and money > 10
+if item_count('小刀') >= 1 and money > 10
   - 出示小刀
     胡斐：这把刀从哪里来的？
   - 收起小刀

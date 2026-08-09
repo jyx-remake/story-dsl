@@ -45,7 +45,7 @@
       "patterns": [
         {
           "name": "keyword.control.storydsl",
-          "match": "\\b(if|elif|else|when|battle|jump|call|return|and|or|not|in|win|lose|timeout)\\b|!in|&&|\\|\\||!"
+          "match": "\\b(if|elif|else|battle|jump|call|return|del|and|or|not|in|win|lose|timeout)\\b|!in|&&|\\|\\||!"
         }
       ]
     },
@@ -121,7 +121,7 @@
       "patterns": [{ "name": "constant.language.boolean.storydsl", "match": "\\b(?:true|false)\\b" }]
     },
     "operator": {
-      "patterns": [{ "name": "keyword.operator.storydsl", "match": "!in|not\\s+in|&&|\\|\\||==|!=|>=|<=|[+*/%<>!-]" }]
+      "patterns": [{ "name": "keyword.operator.storydsl", "match": "!in|not\\s+in|&&|\\|\\||\\+=|-=|==|!=|>=|<=|[=+*/%<>!-]" }]
     },
     "number": {
       "patterns": [

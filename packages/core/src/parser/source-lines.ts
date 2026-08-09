@@ -23,12 +23,16 @@ export class LineCursor {
     return this.lines[this.index];
   }
 
-  peekNonBlank(): ParsedLine | undefined {
+  peekNonBlank(ahead = 0): ParsedLine | undefined {
     let cursor = this.index;
+    let remaining = ahead;
     while (cursor < this.lines.length) {
       const line = this.lines[cursor];
       if (!line.blank) {
-        return line;
+        if (remaining === 0) {
+          return line;
+        }
+        remaining -= 1;
       }
       cursor += 1;
     }

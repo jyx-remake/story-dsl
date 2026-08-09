@@ -1,5 +1,5 @@
-import { DiagnosticItem, IfStmtAst, ScriptAst, SourceSpan, StatementAst } from "../ast";
-import { BranchIr, BattleIr, CallIr, ChoiceIr, CommandIr, JumpIr, ReturnIr, ScriptIr, SegmentIr, StepIr } from "./ir";
+import { ChoiceOptionAst, DiagnosticItem, IfStmtAst, ScriptAst, SourceSpan, StatementAst } from "../ast";
+import { BranchIr, BattleIr, CallIr, ChoiceIr, ChoiceOptionIr, CommandIr, DeleteVariableIr, JumpIr, ReturnIr, ScriptIr, SegmentIr, SetVariableIr, StepIr } from "./ir";
 import { transformCommandSource } from "./command-transforms";
 
 export interface CompileResult {
@@ -50,6 +50,17 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
         const call = transformCommandSource(statement, { segmentName, diagnostics });
         return call ? { kind: "command", call } satisfies CommandIr : null;
       }
+    case "assignment": {
+      if (!statement.value || !statement.target) return null;
+      const value = statement.operator === "="
+        ? statement.valueSource
+        : `${statement.target} ${statement.operator[0]} (${statement.valueSource})`;
+      return { kind: "set", target: statement.target, value } satisfies SetVariableIr;
+    }
+    case "delete":
+      return statement.target
+        ? { kind: "delete", target: statement.target } satisfies DeleteVariableIr
+        : null;
     case "jump": return { kind: "jump", target: statement.target } satisfies JumpIr;
     case "call": return { kind: "call", target: statement.target } satisfies CallIr;
     case "return": return { kind: "return" } satisfies ReturnIr;
@@ -58,10 +69,24 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
         kind: "choice",
         ...(statement.style ? { style: statement.style } : {}),
         prompt: { speaker: statement.prompt.speaker, text: statement.prompt.text },
-        groups: statement.groups.map((group) => ({
-          ...(group.condition && group.rawCondition !== null ? { when: group.rawCondition } : {}),
-          options: group.options.map((option) => ({ text: option.text, steps: compileSteps(option.statements, segmentName, diagnostics) })),
-        })),
+        blocks: statement.blocks.map((block) => {
+          if (block.type === "choiceOptionsBlock") {
+            return {
+              kind: "options" as const,
+              options: compileChoiceOptions(block.options, segmentName, diagnostics),
+            };
+          }
+
+          const fallback = block.branches.find((branch) => branch.keyword === "else");
+          return {
+            kind: "branch" as const,
+            cases: block.branches.flatMap((branch) =>
+              branch.keyword !== "else" && branch.condition && branch.rawCondition !== null
+                ? [{ when: branch.rawCondition, options: compileChoiceOptions(branch.options, segmentName, diagnostics) }]
+                : []),
+            fallback: fallback ? compileChoiceOptions(fallback.options, segmentName, diagnostics) : null,
+          };
+        }),
       } satisfies ChoiceIr;
     case "battle": {
       const outcomes: BattleIr["outcomes"] = {};
@@ -70,6 +95,18 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
     }
     case "if": return compileBranch(statement, segmentName, diagnostics);
   }
+}
+
+function compileChoiceOptions(
+  options: ChoiceOptionAst[],
+  segmentName: string,
+  diagnostics: DiagnosticItem[],
+): ChoiceOptionIr[] {
+  return options.map((option) => ({
+    text: option.text,
+    ...(option.condition && option.rawCondition !== null ? { when: option.rawCondition } : {}),
+    steps: compileSteps(option.statements, segmentName, diagnostics),
+  }));
 }
 
 function compileBranch(statement: IfStmtAst, segmentName: string, diagnostics: DiagnosticItem[]): BranchIr {

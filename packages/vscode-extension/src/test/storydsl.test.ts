@@ -12,7 +12,7 @@ change_item('小还丹', 2)
 掌柜：要买什么？
 - 离开
   jump 结束
-when item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']
+if item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']
   - 使用
     remove_item('小还丹')
 if in_team('郭襄') and character_level('郭襄') >= 20
@@ -31,10 +31,118 @@ else
   });
   const choice = compiled.ir.segments[0].steps[1];
   assert.equal(choice.kind, "choice");
-  assert.equal(choice.groups[1].when, "item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']");
+  if (choice.kind === "choice") {
+    assert.equal(choice.blocks[1].kind, "branch");
+    if (choice.blocks[1].kind === "branch") {
+      assert.equal(choice.blocks[1].cases[0].when, "item_count('小还丹') >= 1 and difficulty not in ['hard', 'crazy']");
+    }
+  }
   const branch = compiled.ir.segments[0].steps[2];
   assert.equal(branch.kind, "branch");
   assert.equal(branch.cases[0].when, "in_team('郭襄') and character_level('郭襄') >= 20");
+});
+
+test("compiles mixed choice blocks, branch chains and option tail conditions", () => {
+  const source = `# Start
+主角：请选择
+- 离开
+- 购买 if silver >= 100
+if morality >= 50
+  - 正道
+  - 特殊正道 if rank <= 5
+elif morality < 0
+  - 邪道
+else
+  - 中立
+- 尾部选项
+if has_var('hidden_route')
+  - 隐藏路线
+`;
+  const parsed = parseStory(source);
+  assert.deepEqual(parsed.diagnostics, []);
+  const compiled = compileScript(parsed.ast);
+  assert.deepEqual(compiled.diagnostics, []);
+  const choice = compiled.ir.segments[0].steps[0];
+  assert.equal(choice.kind, "choice");
+  if (choice.kind !== "choice") assert.fail("expected choice");
+  assert.deepEqual(choice.blocks, [
+    {
+      kind: "options",
+      options: [
+        { text: "离开", steps: [] },
+        { text: "购买", when: "silver >= 100", steps: [] },
+      ],
+    },
+    {
+      kind: "branch",
+      cases: [
+        {
+          when: "morality >= 50",
+          options: [
+            { text: "正道", steps: [] },
+            { text: "特殊正道", when: "rank <= 5", steps: [] },
+          ],
+        },
+        { when: "morality < 0", options: [{ text: "邪道", steps: [] }] },
+      ],
+      fallback: [{ text: "中立", steps: [] }],
+    },
+    { kind: "options", options: [{ text: "尾部选项", steps: [] }] },
+    {
+      kind: "branch",
+      cases: [{ when: "has_var('hidden_route')", options: [{ text: "隐藏路线", steps: [] }] }],
+      fallback: null,
+    },
+  ]);
+});
+
+test("does not confuse option BBCode, quoted if text, or an ordinary branch with choice syntax", () => {
+  const source = `# Start
+主角：请选择
+- [color=red]危险[/color]
+- 引号 "what if this"
+主角：对白结束
+if true
+  journal('ordinary branch')
+`;
+  const parsed = parseStory(source);
+  assert.deepEqual(parsed.diagnostics, []);
+  const steps = compileScript(parsed.ast).ir.segments[0].steps;
+  assert.equal(steps[0].kind, "choice");
+  if (steps[0].kind === "choice" && steps[0].blocks[0].kind === "options") {
+    assert.deepEqual(steps[0].blocks[0].options.map((option) => option.text), [
+      "[color=red]危险[/color]",
+      '引号 "what if this"',
+    ]);
+  }
+  assert.equal(steps[1].kind, "dialogue");
+  assert.equal(steps[2].kind, "branch");
+});
+
+test("reports malformed choice chains, tail conditions, and removed when groups", () => {
+  const source = `# Start
+主角：条件错误
+- 缺少条件 if
+if true
+  - 正常
+  journal('分支内不是选项')
+elif false
+else false
+  - 非法 else
+elif true
+  - else 后 elif
+主角：旧语法
+- 普通
+when true
+  - 旧条件
+`;
+  const messages = parseStory(source).diagnostics.map((item) => item.message);
+  assert.ok(messages.some((message) => message.includes("表达式不能为空")));
+  assert.ok(messages.some((message) => message.includes("else 后不能")));
+  assert.ok(messages.some((message) => message.includes("else 必须是 choice")));
+  assert.ok(messages.some((message) => message.includes("只能包含 '- 选项'")));
+  assert.ok(messages.some((message) => message.includes("至少需要一个缩进")));
+  assert.ok(messages.some((message) => message.includes("when 条件组已移除")));
 });
 
 test("parses the complete v3 expression precedence", () => {
@@ -49,14 +157,74 @@ test("parses the complete v3 expression precedence", () => {
 
 test("accepts booleans, exponent numbers, escaped strings, empty lists and nested calls", () => {
   const source = `# Start
-set_var('enabled', true)
-set_var('ratio', -6.02e-3)
-set_var('text', 'it\\'s ok')
-set_var('url', 'https://example.test/path')
-set_var('items', [])
-set_var('nested', contains(['a', 'b'], 'a'))
+enabled = true
+ratio = -6.02e-3
+text = 'it\\'s ok'
+url = 'https://example.test/path'
+items = []
+nested = contains(['a', 'b'], 'a')
 `;
   assert.deepEqual(parseStory(source).diagnostics, []);
+});
+
+test("compiles assignment sugar and variable deletion as v3 state steps", () => {
+  const source = `# Start
+quest_stage = 1
+quest_stage += random(1)
+quest_stage -= 2
+del quest_stage
+`;
+  const parsed = parseStory(source);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).ir.segments[0].steps, [
+    { kind: "set", target: "quest_stage", value: "1" },
+    { kind: "set", target: "quest_stage", value: "quest_stage + (random(1))" },
+    { kind: "set", target: "quest_stage", value: "quest_stage - (2)" },
+    { kind: "delete", target: "quest_stage" },
+  ]);
+});
+
+test("supports state steps in every nested statement container", () => {
+  const source = `# Start
+if true
+  branch_value = 1
+主角：选择
+- 继续
+  choice_value = 1
+battle test
+- win
+  battle_value = 1
+call Shared
+
+# Shared
+called_value = 1
+return
+`;
+  const parsed = parseStory(source);
+  assert.deepEqual(parsed.diagnostics, []);
+  const compiled = compileScript(parsed.ast);
+  assert.deepEqual(compiled.diagnostics, []);
+  const serialized = JSON.stringify(compiled.ir);
+  for (const target of ["branch_value", "choice_value", "battle_value", "called_value"]) {
+    assert.ok(serialized.includes(`\"target\":\"${target}\"`), target);
+  }
+});
+
+test("rejects malformed assignment and deletion statements", () => {
+  const source = `# Start
+missing =
+del
+del first second
+if quest_stage = 1
+  journal('invalid')
+journal(quest_stage = 1)
+`;
+  const messages = parseStory(source).diagnostics.map((item) => item.message);
+  assert.ok(messages.some((message) => message.includes("表达式不能为空")));
+  assert.ok(messages.some((message) => message.includes("del 之后必须提供变量名")));
+  assert.ok(messages.some((message) => message.includes("del 只能删除一个")));
+  assert.ok(messages.some((message) => message.includes("尾随内容")));
+  assert.ok(messages.length >= 5);
 });
 
 test("rejects old command syntax and non-call command roots", () => {
@@ -126,7 +294,9 @@ maxlevel(skill_id, 1)
   });
   const choice = compiled.ir.segments[0].steps[1];
   assert.equal(choice.kind, "choice");
-  assert.deepEqual(choice.groups[0].options[0].steps[0], {
+  assert.equal(choice.blocks[0].kind, "options");
+  if (choice.blocks[0].kind !== "options") assert.fail("expected options block");
+  assert.deepEqual(choice.blocks[0].options[0].steps[0], {
     kind: "command",
     call: "maxlevel('胡家刀法', 2, '某剧情_胡家刀法')",
   });
@@ -177,12 +347,12 @@ return value
 `);
   assert.ok(parsed.diagnostics.some((item) => item.code === "indentation"));
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("只能作为 choice 或 battle")));
-  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 只能作为 choice")));
+  assert.ok(parsed.diagnostics.some((item) => item.message.includes("when 条件组已移除")));
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("重复的剧情段名")));
   assert.ok(parsed.diagnostics.some((item) => item.message.includes("return 后不能跟参数")));
 });
 
-test("converter emits canonical v3 calls and guarded conditions", () => {
+test("converter emits canonical v3 statements and guarded conditions", () => {
   const xml = `<root><story name="测试">
     <action type="DIALOG" value="南贤#你好"/>
     <action type="ITEM" value="小还丹#2"/>
@@ -191,6 +361,11 @@ test("converter emits canonical v3 calls and guarded conditions", () => {
     <action type="HEAD" value="头像.少林弟子"/>
     <action type="SET_FLAG" value="NO_GLOBAL_EVENT"/>
     <action type="CLEAR_FLAG" value="NO_GLOBAL_EVENT"/>
+    <action type="SET_FLAG" value="quest_started"/>
+    <action type="CLEAR_FLAG" value="quest_started"/>
+    <action type="SET_VAR" value="quest_note#ready"/>
+    <action type="CHANGE_VAR" value="quest_stage#2"/>
+    <action type="REMOVE_VAR" value="quest_note"/>
     <action type="LEARN.SKILL" value="主角#伏虎掌#5"/>
     <action type="LEARN.INTERNALSKILL" value="主角#基本内功#5"/>
     <action type="LEARN.SPECIALSKILL" value="主角#凌波微步"/>
@@ -220,6 +395,11 @@ unlock_achievement('初出茅庐')
 set_portrait('主角', '头像.少林弟子')
 world_triggers(false)
 world_triggers(true)
+quest_started = true
+del quest_started
+quest_note = 'ready'
+quest_stage += 2
+del quest_note
 learn_external('主角', '伏虎掌', 5)
 learn_internal('主角', '基本内功', 5)
 learn_special('主角', '凌波微步')
@@ -306,6 +486,10 @@ test("converter rejects legacy values that cannot be migrated safely", () => {
   assert.throws(
     () => convertXmlToStory(`<root><story name="错误"><result type="story" value="结束"><condition type="probability" value="120"/></result></story></root>`),
     /probability/u,
+  );
+  assert.throws(
+    () => convertXmlToStory(`<root><story name="错误"><action type="SET_FLAG" value="非法标记"/></story></root>`),
+    /snake_case/u,
   );
 });
 

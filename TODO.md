@@ -24,16 +24,15 @@
 - `return` 结束当前调用段；无调用栈时结束当前 story flow
 - `jump` 保持强跳转语义，触发后不返回调用点
 
-## Phase 1: State Mutation Model
+## Completed: State Mutation Model
 
 目标：把剧情状态修改从宿主命令里剥离出来，形成 DSL 内建的状态语义。
 
-- 设计 `set $x = expr`
-- 设计 `set $x += expr`
-- 评估是否需要 `-=`
-- 定义赋值表达式支持边界
-- 明确变量读写语义与错误规则
-- 设计对应 AST / IR 形态
+- 已实现独立语句 `x = expr`、`x += expr`、`x -= expr`
+- 已实现 `del x` 删除语句
+- 赋值不会进入表达式语法；AST 保留操作符，IR 统一输出 `set` / `delete` step
+- 动态变量直接使用小写 snake_case 标识符，不使用 `$`
+- 变量可写范围、严格类型与缺失删除规则由消费 IR 的运行时定义
 
 验收标准：
 
@@ -41,11 +40,13 @@
 - `command` 和状态变更职责清晰分离
 - 表达式复用现有紧凑 IR，不再引入第二套表示
 
-## Phase 2: Interaction Semantics
+## Completed: Choice Interaction Semantics
 
 目标：让 `choice` / `battle` 这类交互结构自身具备更强表达力，而不是总靠外围 `if` 包裹。
 
-- 已实现 `when` 条件组选项：同一条件可控制一个或多个选项，并且每组只求值一次
+- 已实现选项尾缀 `if`，直接控制单个选项是否显示
+- 已实现 choice 内 `if / elif / else` 分支块，并支持多个独立条件链与普通选项混用
+- choice IR 已收敛为有序 `options/branch` blocks，条件只在访问到的位置求值一次
 - 设计一次性选项或失效语义
 - 评估 battle outcome 是否需要条件限制
 - 统一“条件附着在交互结构上”的模型
@@ -91,11 +92,10 @@
 
 真正开始实现时，按以下顺序推进：
 
-1. `set`
-2. 一次性选项
-3. 局部变量
-4. 标签 / 元数据
-5. 输入语法与历史系统评估
+1. 一次性选项
+2. 局部变量
+3. 标签 / 元数据
+4. 输入语法与历史系统评估
 
 ## Execution Checklist
 

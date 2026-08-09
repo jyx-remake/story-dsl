@@ -31,16 +31,17 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
   monacoApi.languages.setMonarchTokensProvider(LANGUAGE_ID, {
     defaultToken: "",
     tokenPostfix: ".story",
-    keywords: ["if", "elif", "else", "when", "battle", "jump", "call", "return", "and", "or", "not", "in", "win", "lose", "timeout"],
+    keywords: ["if", "elif", "else", "battle", "jump", "call", "return", "del", "and", "or", "not", "in", "win", "lose", "timeout"],
     operators: ["==", "!=", ">=", "<=", ">", "<", "&&", "||", "!", "!in", "+", "-", "*", "/", "%"],
     tokenizer: {
       root: [
         [/\/\/.*$/, "comment"],
         [/^(#)(.*)$/, ["story.segmentMarker", "story.segmentName"]],
         [/^(\s*)(-)(\s*)(win|lose|timeout)\b/, ["", "story.branchMarker", "", "keyword"]],
+        [/^(\s*)(-)(\s*)(.*?)(\s+)(if)\b/, ["", "story.branchMarker", "", "story.choiceText", "", "keyword"]],
         [/^(\s*)(-)(\s*)(.*)$/, ["", "story.branchMarker", "", "story.choiceText"]],
-        [/^(\s*)(if|elif|else|when)\b/, ["", "keyword"]],
-        [/^(\s*)(battle|jump|call|return)\b/, ["", "keyword"]],
+        [/^(\s*)(if|elif|else)\b/, ["", "keyword"]],
+        [/^(\s*)(battle|jump|call|return|del)\b/, ["", "keyword"]],
         [/^(\s*)([a-z_][a-z0-9_]*)(?=\s*\()/, ["", "story.commandName"]],
         [/^(\s*)([^:：\s][^:：]*)([:：])/, ["", "story.speaker", "delimiter"]],
         [/\[#\s*style\s*=\s*[\p{L}\p{N}_.-]+\s*\]/u, "story.metadata"],

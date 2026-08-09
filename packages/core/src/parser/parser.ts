@@ -1,6 +1,8 @@
 import {
+  AssignmentStmtAst,
   CallStmtAst,
   CommandStmtAst,
+  DeleteStmtAst,
   DiagnosticItem,
   DialogueStmtAst,
   JumpStmtAst,
@@ -26,7 +28,7 @@ import {
   zeroSpan,
 } from "./source-lines";
 import { ParserContext } from "./parser-context";
-import { parseCall } from "./expression";
+import { parseCall, parseExpression } from "./expression";
 
 export interface ParseStoryResult {
   ast: ScriptAst;
@@ -34,7 +36,7 @@ export interface ParseStoryResult {
 }
 
 const RESERVED_COMMAND_NAMES = new Set([
-  "if", "elif", "else", "when", "battle", "jump", "call", "return", "win", "lose", "timeout",
+  "if", "elif", "else", "battle", "jump", "call", "return", "del", "win", "lose", "timeout",
 ]);
 
 export class StoryParser {
@@ -172,7 +174,7 @@ export class StoryParser {
     }
 
     if (isKeywordLine(line, "when")) {
-      this.context.report("when 只能作为 choice 的条件组选项出现", lineSpan(line), "structure");
+      this.context.report("choice 的 when 条件组已移除，请改用 if / elif / else", lineSpan(line), "structure");
       this.context.advance();
       return null;
     }
@@ -199,7 +201,7 @@ export class StoryParser {
       if (
         nextLine &&
         nextLine.indentLevel === expectedIndent &&
-        (isBranchLine(nextLine) || isKeywordLine(nextLine, "when"))
+        (isBranchLine(nextLine) || this.isChoiceIfStart(nextLine, expectedIndent))
       ) {
         return parseChoiceStatement(
           this.context,
@@ -214,6 +216,44 @@ export class StoryParser {
   }
 
   private parseSimpleStatement(line: ParsedLine): StatementAst | null {
+    const deleteMatch = /^del(?:\s+(.*))?$/u.exec(line.trimmed);
+    if (deleteMatch) {
+      const target = deleteMatch[1]?.trim() ?? "";
+      if (!target) {
+        this.context.report("del 之后必须提供变量名", lineSpan(line), "syntax");
+      } else if (!/^[a-z_][a-z0-9_]*$/u.test(target)) {
+        this.context.report("del 只能删除一个小写 snake_case 变量", lineSpan(line), "syntax");
+      }
+      return {
+        type: "delete",
+        target: /^[a-z_][a-z0-9_]*$/u.test(target) ? target : "",
+        raw: line.trimmed,
+        span: lineSpan(line),
+      } satisfies DeleteStmtAst;
+    }
+
+    const assignmentMatch = /^([a-z_][a-z0-9_]*)\s*(\+=|-=|=(?!=))\s*(.*)$/u.exec(line.trimmed);
+    if (assignmentMatch) {
+      const target = assignmentMatch[1];
+      const operator = assignmentMatch[2] as AssignmentStmtAst["operator"];
+      const valueSource = assignmentMatch[3];
+      const valueOffset = line.trimmed.length - valueSource.length;
+      const parsedValue = parseExpression(
+        valueSource,
+        position(line, line.indentSpaces + valueOffset + 1),
+      );
+      this.context.addDiagnostics(parsedValue.diagnostics);
+      return {
+        type: "assignment",
+        target,
+        operator,
+        value: parsedValue.expr,
+        valueSource,
+        raw: line.trimmed,
+        span: lineSpan(line),
+      } satisfies AssignmentStmtAst;
+    }
+
     const dialogueSeparator = findDialogueSeparator(line.trimmed);
     const looksLikeCommandCall = /^[a-z_][a-z0-9_]*\s*\(/u.test(line.trimmed);
     if (dialogueSeparator && !looksLikeCommandCall) {
@@ -294,6 +334,15 @@ export class StoryParser {
       raw: line.trimmed,
       span: lineSpan(line),
     } satisfies CommandStmtAst;
+  }
+
+  private isChoiceIfStart(line: ParsedLine, expectedIndent: number): boolean {
+    if (!isKeywordLine(line, "if")) {
+      return false;
+    }
+
+    const bodyLine = this.context.peekNonBlank(1);
+    return bodyLine?.indentLevel === expectedIndent + 1 && isBranchLine(bodyLine);
   }
 
 }
