@@ -1,3 +1,5 @@
+import { IDENTIFIER_PATTERN } from "../identifier";
+
 type XmlNode = XmlElement | XmlText;
 
 interface XmlElement {
@@ -600,8 +602,8 @@ function formatCall(command: string, args: string[]): string {
 
 function formatVariableName(value: string, context: string): string {
   const name = value.trim();
-  if (!/^[a-z_][a-z0-9_]*$/u.test(name)) {
-    throw new Error(`${context} 变量名必须是小写 snake_case：${value}`);
+  if (!IDENTIFIER_PATTERN.test(name)) {
+    throw new Error(`${context} 变量名不是有效标识符：${value}`);
   }
   return name;
 }

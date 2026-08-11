@@ -99,7 +99,7 @@ else
 - 对白支持 `:` 和 `：`
 - `battle` 当前只支持 `win / lose / timeout`，结果分支可以全部省略
 - command 必须使用 `name(...)` 函数调用语法
-- 字符串优先使用单引号；动态变量直接使用小写 snake_case 标识符
+- 字符串优先使用单引号；动态变量可使用小写 snake_case 或汉字标识符
 - 剧情变量使用 `name = expr`、`name += expr`、`name -= expr` 写入，使用 `del name` 删除
 - `jump` 是终止语句
 

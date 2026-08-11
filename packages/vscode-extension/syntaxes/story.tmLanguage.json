@@ -23,6 +23,7 @@
     { "include": "#string" },
     { "include": "#function" },
     { "include": "#constant" },
+    { "include": "#identifier" },
     { "include": "#operator" },
     {
       "include": "#number"
@@ -119,6 +120,9 @@
     },
     "constant": {
       "patterns": [{ "name": "constant.language.boolean.storydsl", "match": "\\b(?:true|false)\\b" }]
+    },
+    "identifier": {
+      "patterns": [{ "name": "variable.other.storydsl", "match": "(?<![A-Za-z0-9_\\u3007\\u3400-\\u4dbf\\u4e00-\\u9fff\\uf900-\\ufaff])[a-z_\\u3007\\u3400-\\u4dbf\\u4e00-\\u9fff\\uf900-\\ufaff][a-z0-9_\\u3007\\u3400-\\u4dbf\\u4e00-\\u9fff\\uf900-\\ufaff]*" }]
     },
     "operator": {
       "patterns": [{ "name": "keyword.operator.storydsl", "match": "!in|not\\s+in|&&|\\|\\||\\+=|-=|==|!=|>=|<=|[=+*/%<>!-]" }]

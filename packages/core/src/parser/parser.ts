@@ -27,6 +27,7 @@ import {
   position,
   zeroSpan,
 } from "./source-lines";
+import { IDENTIFIER_PART_SOURCE, IDENTIFIER_PATTERN, IDENTIFIER_START_SOURCE } from "../identifier";
 import { ParserContext } from "./parser-context";
 import { parseCall, parseExpression } from "./expression";
 
@@ -38,6 +39,11 @@ export interface ParseStoryResult {
 const RESERVED_COMMAND_NAMES = new Set([
   "if", "elif", "else", "battle", "jump", "call", "return", "del", "win", "lose", "timeout",
 ]);
+
+const ASSIGNMENT_PATTERN = new RegExp(
+  `^(${IDENTIFIER_START_SOURCE}${IDENTIFIER_PART_SOURCE}*)\\s*(\\+=|-=|=(?!=))\\s*(.*)$`,
+  "u",
+);
 
 export class StoryParser {
   private readonly context: ParserContext;
@@ -221,18 +227,18 @@ export class StoryParser {
       const target = deleteMatch[1]?.trim() ?? "";
       if (!target) {
         this.context.report("del 之后必须提供变量名", lineSpan(line), "syntax");
-      } else if (!/^[a-z_][a-z0-9_]*$/u.test(target)) {
-        this.context.report("del 只能删除一个小写 snake_case 变量", lineSpan(line), "syntax");
+      } else if (!IDENTIFIER_PATTERN.test(target)) {
+        this.context.report("del 只能删除一个有效变量标识符", lineSpan(line), "syntax");
       }
       return {
         type: "delete",
-        target: /^[a-z_][a-z0-9_]*$/u.test(target) ? target : "",
+        target: IDENTIFIER_PATTERN.test(target) ? target : "",
         raw: line.trimmed,
         span: lineSpan(line),
       } satisfies DeleteStmtAst;
     }
 
-    const assignmentMatch = /^([a-z_][a-z0-9_]*)\s*(\+=|-=|=(?!=))\s*(.*)$/u.exec(line.trimmed);
+    const assignmentMatch = ASSIGNMENT_PATTERN.exec(line.trimmed);
     if (assignmentMatch) {
       const target = assignmentMatch[1];
       const operator = assignmentMatch[2] as AssignmentStmtAst["operator"];

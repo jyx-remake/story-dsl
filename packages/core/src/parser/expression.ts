@@ -10,6 +10,7 @@ import {
   SourceSpan,
   UnaryExprAst,
 } from "../ast";
+import { isIdentifierPart, isIdentifierStart } from "../identifier";
 
 type TokenType =
   | "identifier"
@@ -75,14 +76,6 @@ function spanFromRange(base: SourcePosition, start: number, end: number): Source
 
 function mergeSpans(left: SourceSpan, right: SourceSpan): SourceSpan {
   return { start: left.start, end: right.end };
-}
-
-function isIdentifierStart(char: string): boolean {
-  return char === "_" || (char >= "a" && char <= "z");
-}
-
-function isIdentifierPart(char: string): boolean {
-  return isIdentifierStart(char) || /\d/u.test(char);
 }
 
 function tokenize(text: string): Token[] {
@@ -199,7 +192,7 @@ function tokenize(text: string): Token[] {
 
     const start = index++;
     while (index < text.length && !/\s/u.test(text[index]) && !"()[],+-*/%!<>=&|".includes(text[index])) index += 1;
-    tokens.push({ type: "invalid", lexeme: text.slice(start, index), start, end: index, error: "标识符只能使用小写 ASCII、数字和下划线，且不能以数字开头" });
+    tokens.push({ type: "invalid", lexeme: text.slice(start, index), start, end: index, error: "标识符只能使用小写 ASCII、汉字、数字和下划线，且不能以数字开头" });
   }
 
   tokens.push({ type: "eof", lexeme: "", start: text.length, end: text.length });

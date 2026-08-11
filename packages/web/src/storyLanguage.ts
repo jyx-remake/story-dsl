@@ -52,7 +52,7 @@ export function registerStoryLanguage(monacoApi: typeof monaco): void {
         [/(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/, "number"],
         [/[:：]/, "delimiter"],
         [
-          /[a-z_][a-z0-9_]*/,
+          /[a-z_\u3007\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff][a-z0-9_\u3007\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]*/,
           {
             cases: {
               "@keywords": "keyword",

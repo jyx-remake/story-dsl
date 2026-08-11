@@ -80,7 +80,7 @@
   - 一元正负号、算术、括号、`in / not in / !in`
   - 比较运算 `== != > >= < <=`
 - command 必须使用 `name(...)` 函数调用语法
-- 动态变量直接使用小写 snake_case 标识符，不使用 `$`
+- 动态变量直接使用小写 snake_case 或汉字标识符，不使用 `$`
 - 变量写入使用独立语句 `name = expr`、`name += expr`、`name -= expr`，删除使用 `del name`
 - `jump` 是终止语句；其后同级语句不会进入 IR
 

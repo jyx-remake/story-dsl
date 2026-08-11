@@ -207,7 +207,7 @@ else
 
 - 支持 Boolean、Number、单/双引号 String、同构 List、标识符和函数调用
 - 支持一元 `not / ! / + / -`，算术 `* / % + -`，比较、`in / not in / !in` 以及 `and / or / && / ||`
-- 标识符区分大小写，并限制为小写 ASCII snake_case；动态变量直接写标识符，不再使用 `$`
+- 标识符区分大小写；内建函数与指令使用小写 ASCII snake_case，动态变量还可使用汉字，例如 `是否拜师`、`门派声望_2`，不再使用 `$`
 - `and/or` 按 v3 语义短路；查询非主角的等级、属性或技能前必须使用 `in_team(id) and ...` 保护
 - branch、choice case 与 choice option 的 `when` 以原始表达式字符串进入 JSON IR
 - `if / elif / else` 在 JSON IR 中统一编译为 `branch { cases, fallback }`

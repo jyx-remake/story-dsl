@@ -184,6 +184,31 @@ del quest_stage
   ]);
 });
 
+test("compiles Chinese variable identifiers in assignments, expressions and deletion", () => {
+  const source = `# 中文变量
+是否拜师 = true
+门派声望_2 = 9
+if 是否拜师 and 门派声望_2 >= 9
+  完成入门任务 = '是'
+del 门派声望_2
+`;
+  const parsed = parseStory(source);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).ir.segments[0].steps, [
+    { kind: "set", target: "是否拜师", value: "true" },
+    { kind: "set", target: "门派声望_2", value: "9" },
+    {
+      kind: "branch",
+      cases: [{
+        when: "是否拜师 and 门派声望_2 >= 9",
+        steps: [{ kind: "set", target: "完成入门任务", value: "'是'" }],
+      }],
+      fallback: null,
+    },
+    { kind: "delete", target: "门派声望_2" },
+  ]);
+});
+
 test("supports state steps in every nested statement container", () => {
   const source = `# Start
 if true
@@ -363,6 +388,8 @@ test("converter emits canonical v3 statements and guarded conditions", () => {
     <action type="CLEAR_FLAG" value="NO_GLOBAL_EVENT"/>
     <action type="SET_FLAG" value="quest_started"/>
     <action type="CLEAR_FLAG" value="quest_started"/>
+    <action type="SET_FLAG" value="是否拜师"/>
+    <action type="CLEAR_FLAG" value="是否拜师"/>
     <action type="SET_VAR" value="quest_note#ready"/>
     <action type="CHANGE_VAR" value="quest_stage#2"/>
     <action type="REMOVE_VAR" value="quest_note"/>
@@ -397,6 +424,8 @@ world_triggers(false)
 world_triggers(true)
 quest_started = true
 del quest_started
+是否拜师 = true
+del 是否拜师
 quest_note = 'ready'
 quest_stage += 2
 del quest_note
@@ -488,8 +517,8 @@ test("converter rejects legacy values that cannot be migrated safely", () => {
     /probability/u,
   );
   assert.throws(
-    () => convertXmlToStory(`<root><story name="错误"><action type="SET_FLAG" value="非法标记"/></story></root>`),
-    /snake_case/u,
+    () => convertXmlToStory(`<root><story name="错误"><action type="SET_FLAG" value="非法标记!"/></story></root>`),
+    /有效标识符/u,
   );
 });
 
