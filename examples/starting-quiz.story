@@ -133,9 +133,8 @@ change_silver(100)
 - 半瓶神仙醋
   change_item('天王保命丹', 6)
 ：[#style=bold]选择你的游戏难度
-if round == 1
-  - 简单
-    set_difficulty('normal')
+- 简单 if round == 1
+  set_difficulty('normal')
 - [color=yellow]进阶[/color]
   set_difficulty('hard')
 - [color=red]炼狱[/color]
