@@ -19,13 +19,5 @@ packages/web/dist/
 packages/web/*.tsbuildinfo
 packages/web/tsconfig.tsbuildinfo
 
-# C# build outputs
-packages/runtime-csharp/**/bin/
-packages/runtime-csharp/**/obj/
-
-# Test and coverage artifacts
-packages/runtime-csharp/**/TestResults/
-packages/runtime-csharp/**/coverage/
-
 # Generated Story DSL JSON IR
 *.story.json

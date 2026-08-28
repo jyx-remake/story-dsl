@@ -10,5 +10,4 @@ node_modules/**
 AGENTS.md
 TODO.md
 README.md
-runtime-csharp/**
 examples/**

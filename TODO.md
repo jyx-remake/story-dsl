@@ -4,9 +4,10 @@
 
 ## Repository Layout
 
+- TypeScript 核心库位于 `packages/core/`
 - VSCode 插件位于 `packages/vscode-extension/`
-- C# 执行器位于 `packages/runtime-csharp/`，已弃用，仅保留历史参考
-- `examples/` 作为两边共享的 DSL / JSON IR 示例目录，保持在仓库根级
+- Web 前端位于 `packages/web/`
+- `examples/` 作为共享的 DSL / JSON IR 示例目录，保持在仓库根级
 
 ## Guiding Principles
 

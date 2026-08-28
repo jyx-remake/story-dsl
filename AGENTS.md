@@ -4,16 +4,14 @@
 
 ## Project Goal
 
-这是一个剧情脚本 DSL 工具链仓库，当前包含 TypeScript 核心库、VSCode 插件、Web 版与 C# 运行时：
+这是一个剧情脚本 DSL 工具链仓库，当前包含 TypeScript 核心库、VSCode 插件与 Web 版：
 
 - 编辑 `.story` 文件
 - 解析 DSL 为 AST
 - 编译为引擎友好的 JSON IR
 - 在 VSCode 中提供高亮、诊断、编译命令
 - 在 Web 中提供独立编辑、诊断与 JSON IR 预览
-- 提供独立的 C# JSON IR 执行器原型
 
-仓库包含独立的 C# 执行器目录 `packages/runtime-csharp/`，用于消费 JSON IR。
 后续语法与架构演进计划记录在 `TODO.md`。
 
 ## Source Of Truth
@@ -24,7 +22,6 @@
 - TextMate 高亮在 `packages/vscode-extension/syntaxes/story.tmLanguage.json`
 - `packages/core/dist/`、`packages/web/dist/`、`packages/vscode-extension/dist/` 是构建产物，不应手写修改
 - 示例输入输出在 `examples/`
-- C# 执行器在 `packages/runtime-csharp/`
 - 路线图与设计待办在 `TODO.md`
 - 根目录 `README.md` 是仓库总说明
 - `packages/vscode-extension/README.vscode.md` 是插件打包页说明
@@ -50,8 +47,6 @@
   - VSCode 命令、诊断、保存时编译
 - `packages/web/src/`
   - Web 编辑器、大纲、诊断与 JSON IR 预览
-- `packages/runtime-csharp/`
-  - C# 运行时、CLI 与测试
 - `TODO.md`
   - 未来语法与架构演进计划
 - `packages/vscode-extension/README.vscode.md`
