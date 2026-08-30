@@ -62,6 +62,7 @@ const VALUELESS_COMMANDS = new Set([
 
 const COMMAND_NAMES: Record<string, string> = {
   animation: "set_model",
+  cost_hour: "advance_time_slots",
   cost_day: "advance_days",
   cost_item: "remove_item",
   daode: "change_morality",
@@ -99,6 +100,7 @@ const COMMAND_NAMES: Record<string, string> = {
 
 const NUMERIC_ARGUMENTS: Record<string, Set<number>> = {
   advance_days: new Set([0]),
+  advance_time_slots: new Set([0]),
   arena: new Set(),
   change_favorability: new Set([1]),
   change_item: new Set([1]),
@@ -134,7 +136,7 @@ const NUMERIC_ARGUMENTS: Record<string, Set<number>> = {
 };
 
 const CHARACTER_STATS = new Set([
-  "拳掌", "剑法", "刀法", "奇门", "臂力", "身法", "悟性", "福缘", "根骨", "定力", "武学点",
+  "拳掌", "剑法", "刀法", "奇门", "臂力", "身法", "悟性", "福缘", "福源", "根骨", "定力", "武学点",
   "quanzhang", "jianfa", "daofa", "qimen", "bili", "shenfa", "wuxing", "fuyuan", "gengu", "dingli", "wuxue",
   "maxhp", "max_hp", "maxmp", "max_mp", "attack", "defence", "evasion", "accuracy", "crit_chance",
   "crit_mult", "anti_crit_chance", "lifesteal", "anti_debuff", "speed", "movement",
@@ -143,12 +145,16 @@ const CHARACTER_STATS = new Set([
 export function convertXmlToStory(xmlText: string): string {
   const stories = parseStoryXml(xmlText);
   const lines: string[] = [];
+  const emittedNames = new Map<string, number>();
 
   stories.forEach((story, index) => {
     if (index > 0) {
       lines.push("");
     }
-    lines.push(`# ${story.name}`);
+    const occurrence = (emittedNames.get(story.name) ?? 0) + 1;
+    emittedNames.set(story.name, occurrence);
+    const emittedName = occurrence === 1 ? story.name : `${story.name}（重复${occurrence}）`;
+    lines.push(`# ${emittedName}`);
     lines.push(...emitStoryEntries(story.entries));
   });
 
@@ -279,7 +285,15 @@ function emitSelect(value: string, results: ResultEntry[]): string[] {
 }
 
 function emitBattle(value: string, results: ResultEntry[]): string[] {
-  const lines = [`battle ${value.trim()}`];
+  // Legacy BATTLE values pack optional runtime parameters after the battle
+  // definition id (for example `侠说权利帮1#1#3`).  The target battle
+  // catalog is keyed by the first token.  Emit the canonical id plus the
+  // legacy options; the parser stores those options separately so the suffix
+  // is never used as a catalog lookup key.
+  const packed = value.trim().split("#").map((part) => part.trim());
+  const battleId = packed.shift() ?? "";
+  const suffix = packed.length > 0 ? `#${packed.join("#")}` : "";
+  const lines = [`battle ${battleId}${suffix}`];
   const resultsByOutcome = groupBy(results, (result) => battleOutcomeForRet(result.ret) ?? result.ret);
 
   for (const outcome of ["win", "lose", "timeout"]) {
@@ -349,7 +363,20 @@ function battleOutcomeForRet(ret: string): string | null {
 
 function emitResult(result: ResultEntry, options: EmitResultOptions): string[] {
   const statement = resultToStatement(result);
-  const condition = result.conditions.map(conditionToExpression).join(" and ");
+  if (!statement) {
+    return [];
+  }
+  const conditionExpressions = result.conditions.map(conditionToExpression);
+  // A legacy result ANDs its condition entries.  A single entry may itself
+  // contain an OR group (the ``TYPE|TYPE`` convention), so preserve that
+  // group's boundary before combining it with sibling conditions.  Without
+  // this wrapper, ``A|B`` plus ``C`` became ``A or B and C`` and silently
+  // changed the branch semantics through operator precedence.
+  const condition = conditionExpressions
+    .map((expression) => conditionExpressions.length > 1 && expression.includes(" or ")
+      ? `(${expression})`
+      : expression)
+    .join(" and ");
   const indent = "  ".repeat(options.indentLevel);
 
   if (!condition) {
@@ -373,9 +400,13 @@ function emitCommentedResult(result: ResultEntry, options: EmitResultOptions): s
   });
 }
 
-function resultToStatement(result: ResultEntry): string {
+function resultToStatement(result: ResultEntry): string | null {
   if (result.type === "story") {
-    return `jump ${result.value.trim()}`;
+    // Legacy result values occasionally contain a pipe/newline-separated
+    // list. The v3 IR has one jump target, so retain the first deterministic
+    // target and avoid emitting the remaining raw lines as invalid statements.
+    const target = result.value.split(/[|\r\n]+/u).map((part) => part.trim()).find(Boolean) ?? "";
+    return target ? `jump ${target}` : null;
   }
 
   return actionToStatement(result.type, result.value) ?? "";
@@ -383,6 +414,17 @@ function resultToStatement(result: ResultEntry): string {
 
 function conditionToExpression(condition: ConditionEntry): string {
   const type = actionTypeToCommand(condition.type);
+  if (type.startsWith("!")) {
+    return `not (${conditionToExpression({ type: type.slice(1), value: condition.value })})`;
+  }
+  if (type.includes("|")) {
+    const types = type.split("|");
+    const values = condition.value.split("|");
+    if (types.length !== values.length || types.some((part) => part.length === 0) || values.some((part) => part.length === 0)) {
+      throw new Error(`复合条件的类型和值分支数量不一致：${condition.type} / ${condition.value}`);
+    }
+    return types.map((branchType, index) => conditionToExpression({ type: branchType, value: values[index] })).map((branch) => `(${branch})`).join(" or ");
+  }
   const args = splitHashArgs(condition.value);
   const stringAt = (index: number): string => quoteString(requiredLegacyArg(type, args, index));
   const numberAt = (index: number): string => formatNumber(requiredLegacyArg(type, args, index), type);
@@ -403,7 +445,23 @@ function conditionToExpression(condition: ConditionEntry): string {
     case "has_item":
       return `item_count(${stringAt(0)}) >= ${args[1] ? numberAt(1) : "1"}`;
     case "not_have_item":
-      return `item_count(${stringAt(0)}) == 0`;
+      return `item_count(${stringAt(0)}) < ${args[1] ? numberAt(1) : "1"}`;
+    case "have_nick":
+      return `has_achievement(${stringAt(0)})`;
+    case "have_talent":
+    case "talent":
+      return args.length === 1
+        ? `has_talent('主角', ${stringAt(0)})`
+        : `has_talent(${stringAt(0)}, ${stringAt(1)})`;
+    case "not_have_talent":
+      return args.length === 1
+        ? `not has_talent('主角', ${stringAt(0)})`
+        : `not has_talent(${stringAt(0)}, ${stringAt(1)})`;
+    case "have_title":
+    case "title":
+      return args.length === 1
+        ? `has_title('主角', ${stringAt(0)})`
+        : `has_title(${stringAt(0)}, ${stringAt(1)})`;
     case "have_money":
       return `silver >= ${numberAt(0)}`;
     case "have_yuanbao":
@@ -414,6 +472,33 @@ function conditionToExpression(condition: ConditionEntry): string {
       return `difficulty == ${stringAt(0)}`;
     case "exceed_day":
       return `elapsed_days > ${numberAt(0)}`;
+    case "story_exceed_day":
+      return `story_completed(${stringAt(0)}) and story_elapsed_days(${stringAt(0)}) > ${numberAt(1)}`;
+    case "should_finish_more_than":
+      return `story_completion_count(${stringAt(0)}) >= ${numberAt(1)}`;
+    case "in_menpai":
+      return `sect == ${stringAt(0)}`;
+    case "not_in_menpai":
+      return `sect != ${stringAt(0)}`;
+    case "in_map":
+      return `current_map == ${stringAt(0)}`;
+    case "in_time":
+      return args.map((_, index) => `current_time_slot == ${stringAt(index)}`).join(" or ");
+    case "not_in_time":
+      return `not (${args.map((_, index) => `current_time_slot == ${stringAt(index)}`).join(" or ")})`;
+    case "in_day":
+      return `system_date == ${numberAt(0)}`;
+    case "friendcount":
+      // Explicit XMJH migration policy: the lone legacy friend-count gate is
+      // intentionally ignored for the MVP.  Its exact source location remains
+      // listed in the migration report for later manual review.
+      return "true";
+    case "date_less_than":
+      return `current_date < ${numberAt(0)}`;
+    case "date_greater_than":
+      return `current_date >= ${numberAt(0)}`;
+    case "is_version":
+      return "true";
     case "probability":
       return `chance(${formatProbability(requiredLegacyArg(type, args, 0))})`;
     case "in_team":
@@ -425,13 +510,32 @@ function conditionToExpression(condition: ConditionEntry): string {
     case "not_has_time_key":
       return `not has_time_key(${stringAt(0)})`;
     case "level_greater_than": {
-      const characterId = requiredLegacyArg(type, args, 0);
-      return guardedCharacterQuery(`character_level(${quoteString(characterId)}) >= ${numberAt(1)}`);
+      const characterId = args.length === 1 ? "主角" : requiredLegacyArg(type, args, 0);
+      const levelIndex = args.length === 1 ? 0 : 1;
+      const guard = characterId === "主角" ? "" : `in_team(${quoteString(characterId)}) and `;
+      return `${guard}character_level(${quoteString(characterId)}) >= ${numberAt(levelIndex)}`;
     }
+    case "level_less_than": {
+      const characterId = args.length === 1 ? "主角" : requiredLegacyArg(type, args, 0);
+      const levelIndex = args.length === 1 ? 0 : 1;
+      const guard = characterId === "主角" ? "" : `in_team(${quoteString(characterId)}) and `;
+      return `${guard}character_level(${quoteString(characterId)}) < ${numberAt(levelIndex)}`;
+    }
+    case "skill_more_than":
     case "skill_less_than": {
-      const characterId = requiredLegacyArg(type, args, 0);
-      return guardedCharacterQuery(`skill_level(${quoteString(characterId)}, ${stringAt(1)}) < ${numberAt(2)}`);
+      const characterId = args.length === 2 ? "主角" : requiredLegacyArg(type, args, 0);
+      const skillIndex = args.length === 2 ? 0 : 1;
+      const levelIndex = args.length === 2 ? 1 : 2;
+      const guard = characterId === "主角" ? "" : `in_team(${quoteString(characterId)}) and `;
+      const operator = type === "skill_more_than" ? ">=" : "<";
+      return `${guard}skill_level(${quoteString(characterId)}, ${stringAt(skillIndex)}) ${operator} ${numberAt(levelIndex)}`;
     }
+    case "maxhp_greater_than":
+      return guardedCharacterQuery(`character_stat(${stringAt(0)}, 'maxhp') >= ${numberAt(1)}`);
+    case "maxmp_greater_than":
+      return guardedCharacterQuery(`character_stat(${stringAt(0)}, 'maxmp') >= ${numberAt(1)}`);
+    case "key_is_female":
+      return `character_gender(${stringAt(0)}) == ${quoteString(formatLegacyGender(requiredLegacyArg(type, args, 1)))}`;
     case "daode_more_than":
       return `morality >= ${numberAt(0)}`;
     case "daode_less_than":
@@ -444,6 +548,20 @@ function conditionToExpression(condition: ConditionEntry): string {
       return args.length === 1
         ? `favorability('女主') < ${numberAt(0)}`
         : `favorability(${stringAt(0)}) < ${numberAt(1)}`;
+    case "haogan_equals_than":
+      return args.length === 1
+        ? `favorability('女主') == ${numberAt(0)}`
+        : `favorability(${stringAt(0)}) == ${numberAt(1)}`;
+    case "haogan_equals_than2":
+      return `favorability(${stringAt(0)}) == favorability(${stringAt(1)})`;
+    case "caiyao":
+      return `favorability('采药') == ${numberAt(0)}`;
+    case "lsjz":
+      return `favorability('卷宗') == ${numberAt(0)}`;
+    case "nick_more_than":
+      return `achievement_count >= ${numberAt(0)}`;
+    case "jisha_more_than":
+      return `kill_count >= ${numberAt(0)}`;
     case "rank":
       return `rank != -1 and rank <= ${numberAt(0)}`;
     default:
@@ -452,8 +570,17 @@ function conditionToExpression(condition: ConditionEntry): string {
 }
 
 function actionToStatement(type: string, value: string): string | null {
+  // Some legacy XML samples contain formatting-only pseudo-actions such as
+  // `[[size=18]][[/size]]`. They carry no executable semantics and would
+  // otherwise be emitted as an invalid command name (e.g. `[[size...]]()`).
+  // Keep them as no-ops while preserving real legacy commands unchanged.
+  const trimmedType = type.trim();
+  if (/^\[\[[\s\S]*\]\]$/u.test(trimmedType)) {
+    return null;
+  }
   const typeParts = type.split(/[.…]+/u).map(actionTypeToCommand).filter(Boolean);
   const legacyName = typeParts[0] ?? actionTypeToCommand(type);
+  if (!legacyName) return null;
   if (REMOVED_LEGACY_COMMANDS.has(legacyName)) return null;
 
   const values = splitHashArgs(value);
@@ -489,8 +616,37 @@ function actionToStatement(type: string, value: string): string | null {
         ? [quoteString(first), quoteString(second)]
         : [quoteString("主角"), quoteString(requiredLegacyArg(legacyName, values, 0))]);
     }
+    case "head_v2": {
+      const [first, second] = values;
+      return formatCall("set_portrait", second
+        ? [quoteString(first), quoteString(second)]
+        : [quoteString("主角"), quoteString(requiredLegacyArg(legacyName, values, 0))]);
+    }
+    case "change_role_name":
+      // The second legacy field only requested a success/failure notification;
+      // it was never a default name. The v3 input panel owns that presentation.
+      return formatCall("input_name", [quoteString(requiredLegacyArg(legacyName, values, 0))]);
     case "change_female_name":
       return formatCall("input_name", [quoteString("女主"), quoteString(requiredLegacyArg(legacyName, values, 0))]);
+    case "specified_role_name":
+      return formatCall("set_character_name", [
+        quoteString(requiredLegacyArg(legacyName, values, 0)),
+        quoteString(formatLegacySpecifiedName(requiredLegacyArg(legacyName, values, 1))),
+      ]);
+    case "female": {
+      const characterId = values.length === 1 ? "主角" : requiredLegacyArg(legacyName, values, 0);
+      const legacyGender = requiredLegacyArg(legacyName, values, values.length === 1 ? 0 : 1);
+      return formatCall("set_gender", [quoteString(characterId), quoteString(formatLegacyGender(legacyGender))]);
+    }
+    case "fadeout":
+      return formatCall("fade", [
+        quoteString("out"),
+        formatLegacyNumberWithComment(values[0] || "0.2", legacyName),
+      ]);
+    case "show_cloud":
+      return formatCall("show_cloud", [formatLegacyBoolean(requiredLegacyArg(legacyName, values, 0), legacyName)]);
+    case "to_chinesetime":
+      return formatCall("advance_to_time_slot", [quoteString(requiredLegacyArg(legacyName, values, 0))]);
     case "select_head":
       return formatCall("select_portrait", [quoteString(values[0] || "主角")]);
     case "world_trigger":
@@ -503,6 +659,8 @@ function actionToStatement(type: string, value: string): string | null {
       const args = values[1] ? [items, formatNumber(values[1], legacyName)] : [items];
       return formatCall("add_random_item", args);
     }
+    case "randomitem":
+      return randomItemToCall(values);
     case "random_join":
       return formatCall("join_random", [formatLegacyList(requiredLegacyArg(legacyName, values, 0))]);
     case "learn":
@@ -515,18 +673,102 @@ function actionToStatement(type: string, value: string): string | null {
   }
 }
 
+function randomItemToCall(values: string[]): string {
+  if (values.length === 0) {
+    throw new Error("randomitem 缺少候选物品");
+  }
+
+  if (values.length === 2 && values[0].includes("|") && isFiniteNumber(values[1])) {
+    const candidates = values[0].split("|").map((value) => value.trim()).filter(Boolean);
+    if (candidates.length === 0) throw new Error("randomitem 候选物品不能为空");
+    return formatCall("add_random_item", [
+      `[${candidates.map(quoteString).join(", ")}]`,
+      formatLegacyRandomQuantity(values[1]),
+    ]);
+  }
+
+  const expanded = values.flatMap((value) => value
+    .split("|")
+    .map((part) => part.trim())
+    .filter(Boolean));
+  const isPaired = expanded.length >= 2 && expanded.length % 2 === 0 &&
+    expanded.every((value, index) => index % 2 === 0 || isFiniteNumber(value));
+
+  if (!isPaired) {
+    return formatCall("add_random_item", [`[${expanded.map(quoteString).join(", ")}]`]);
+  }
+
+  const candidates: Array<{ itemId: string; quantity: string }> = [];
+  for (let index = 0; index < expanded.length; index += 2) {
+    candidates.push({
+      itemId: expanded[index],
+      quantity: formatLegacyRandomQuantity(expanded[index + 1]),
+    });
+  }
+
+  const quantities = new Set(candidates.map((candidate) => candidate.quantity));
+  if (quantities.size === 1) {
+    return formatCall("add_random_item", [
+      `[${candidates.map((candidate) => quoteString(candidate.itemId)).join(", ")}]`,
+      candidates[0].quantity,
+    ]);
+  }
+
+  return formatCall("add_random_item_options", [
+    `[${candidates.map((candidate) => quoteString(`${candidate.itemId}#${candidate.quantity}`)).join(", ")}]`,
+  ]);
+}
+
+function formatLegacySpecifiedName(value: string): string {
+  const sanitized = value.replace(/[ ,#|]/gu, "");
+  return Array.from(sanitized).slice(0, 7).join("");
+}
+
+function formatLegacyRandomQuantity(value: string): string {
+  const quantity = Number(value.trim());
+  if (!Number.isFinite(quantity)) throw new Error(`randomitem 数量不是有效数字：${value}`);
+  return String(Math.max(1, Math.trunc(quantity)));
+}
+
+function formatLegacyGender(value: string): "male" | "female" | "animal" | "eunuch" {
+  switch (value.trim()) {
+    case "-1":
+      return "animal";
+    case "0":
+      return "male";
+    case "1":
+      return "female";
+    case "2":
+      return "eunuch";
+    default:
+      throw new Error(`female 参数不是已知旧版性别：${value}`);
+  }
+}
+
+function formatLegacyNumberWithComment(value: string, context: string): string {
+  return formatNumber(value.replace(/\s+--.*$/u, "").trim(), context);
+}
+
+function isFiniteNumber(value: string): boolean {
+  return value.trim().length > 0 && Number.isFinite(Number(value.trim()));
+}
+
 function skillMutationToCall(
   operation: "learn" | "remove",
   typeSuffix: string[],
   values: string[],
-): string {
+): string | null {
+  if (values.length === 0) return null;
   const hasSuffix = typeSuffix.length > 0;
-  const category = normalizeSkillCategory(hasSuffix
-    ? typeSuffix.join("_")
-    : requiredLegacyArg(operation, values, 0));
   const offset = hasSuffix ? 0 : 1;
   const characterId = requiredLegacyArg(operation, values, offset);
   const targetId = requiredLegacyArg(operation, values, offset + 1);
+  if (hasSuffix && actionTypeToCommand(typeSuffix.join("_")) === "title") {
+    return formatCall(`${operation}_title`, [quoteString(characterId), quoteString(targetId)]);
+  }
+  const category = normalizeSkillCategory(hasSuffix
+    ? typeSuffix.join("_")
+    : requiredLegacyArg(operation, values, 0));
   const command = `${operation}_${category}`;
   const args = [quoteString(characterId), quoteString(targetId)];
   if (operation === "learn" && (category === "external" || category === "internal") && values[offset + 2]) {
@@ -545,10 +787,20 @@ function upgradeToCall(typeSuffix: string[], values: string[]): string {
 
   if (CHARACTER_STATS.has(targetType)) {
     const delta = requiredLegacyArg("upgrade", values, offset + 1);
-    return formatCall("change_stat", [quoteString(characterId), quoteString(targetType), formatNumber(delta, "upgrade")]);
+    const canonicalTargetType = targetType === "福缘" || targetType === "福源" ? "fuyuan" : targetType;
+    return formatCall("change_stat", [quoteString(characterId), quoteString(canonicalTargetType), formatNumber(delta, "upgrade")]);
   }
 
-  const category = normalizeSkillCategory(targetType);
+  let category: "external" | "internal" | "special" | "talent";
+  try {
+    category = normalizeSkillCategory(targetType);
+  } catch {
+    // Preserve authoring-specific upgrade actions as an explicit deferred
+    // command instead of aborting an otherwise convertible story file.
+    const targetId = requiredLegacyArg("upgrade", values, offset + 1);
+    const levels = values[offset + 2] ?? "1";
+    return formatCall("legacy_upgrade", [quoteString(targetType), quoteString(characterId), quoteString(targetId), formatNumber(levels, "upgrade")]);
+  }
   if (category !== "external" && category !== "internal") {
     throw new Error(`upgrade 不支持 ${targetType} 分类，请改用对应的 v3 指令`);
   }
@@ -581,11 +833,12 @@ function normalizeSkillCategory(value: string): "external" | "internal" | "speci
 }
 
 function statConditionToExpression(type: string, args: string[]): string | null {
-  const match = /^(quanzhang|jianfa|daofa|qimen|bili|shenfa|wuxing|fuyuan|gengu|dingli)_(greater|more|less)_than$/u.exec(type);
+  const match = /^(quanzhang|jianfa|daofa|qimen|bili|shenfa|wuxing|fuyuan|fuyuan|gengu|dingli)_(greater|more|less)_than$/u.exec(type);
   if (!match) return null;
-  const characterId = requiredLegacyArg(type, args, 0);
+  const characterId = args.length === 1 ? "主角" : requiredLegacyArg(type, args, 0);
+  const thresholdIndex = args.length === 1 ? 0 : 1;
   const operator = match[2] === "less" ? "<" : ">=";
-  const query = `character_stat(${quoteString(characterId)}, ${quoteString(match[1])}) ${operator} ${formatNumber(requiredLegacyArg(type, args, 1), type)}`;
+  const query = `character_stat(${quoteString(characterId)}, ${quoteString(match[1])}) ${operator} ${formatNumber(requiredLegacyArg(type, args, thresholdIndex), type)}`;
   return characterId === "主角" ? query : `in_team(${quoteString(characterId)}) and ${query}`;
 }
 

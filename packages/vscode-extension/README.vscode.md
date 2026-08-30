@@ -18,7 +18,7 @@ Story DSL 是一个 VSCode 扩展，用于编辑剧情脚本 `.story` 文件并�
 - `Story DSL: Compile All Stories`
 - `Story DSL: Convert XML To Story`
 
-`Convert XML To Story` 输出 v3 canonical 语句并在写入前执行 parser/compiler 验证。通用变量动作会转换为裸赋值或 `del`，`NO_GLOBAL_EVENT` 特例仍转换为世界触发器开关。结果保存为不冲突的 `<原名>.converted.story`、`<原名>.converted-2.story` 等，不覆盖现有 `.story`。非主角角色查询自动添加 `in_team(id) and ...` 短路保护；XML 中的 `skill` 按 External skill 转换。
+`Convert XML To Story` 输出 v3 canonical 语句并在写入前执行 parser/compiler 验证。通用变量动作会转换为裸赋值或 `del`，`NO_GLOBAL_EVENT` 特例仍转换为世界触发器开关。未指定输出时保存为不冲突的 `<原名>.converted.story`、`<原名>.converted-2.story` 等；显式指定输出路径时会覆盖已有生成文件，避免旧产物掩盖转换器修复。非主角角色查询自动添加 `in_team(id) and ...` 短路保护；XML 中的 `skill` 按 External skill 转换。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 

@@ -475,6 +475,21 @@ battle 测试战斗
   assert.deepEqual(compileScript(parsed.ast).diagnostics, []);
 });
 
+test("converter canonicalizes legacy packed battle references", () => {
+  const xml = `<root><story name="旧式战斗"><action type="BATTLE" value="测试战斗#1#3" /></story></root>`;
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 旧式战斗\nbattle 测试战斗#1#3\n`);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  const compiled = compileScript(parsed.ast);
+  assert.deepEqual(compiled.diagnostics, []);
+  const step = compiled.ir.segments[0].steps[0];
+  assert.equal(step.kind, "battle");
+  assert.equal(step.battleId, "测试战斗");
+  assert.equal(step.totalBattles, 1);
+  assert.equal(step.battleLevel, 3);
+});
+
 test("converter preserves known XML quirks and legacy defaults", () => {
   const xml = `<root><story name="兼容数据">
     <action type="DIALOg" value="主角#大小写异常仍是对白"/>
@@ -505,6 +520,104 @@ if rank != -1 and rank <= 10
     kind: "command",
     call: "maxlevel('火焰刀法', 2, '兼容数据_火焰刀法')",
   });
+});
+
+test("converter adapts XMJH character, clock, cloud and random-item actions", () => {
+  const xml = `<root><story name="侠说动作">
+    <action type="CHANGE_ROLE_NAME" value="孩子#大地图家"/>
+    <action type="SPECIFIED_ROLE_NAME" value="主角# 郭靖|二代过长名字 "/>
+    <action type="FEMALE" value="孩子#1"/>
+    <action type="FEMALE" value="2"/>
+    <action type="HEAD_V2" value="孩子#头像.女孩"/>
+    <action type="COST_HOUR" value="2"/>
+    <action type="TO_CHINESETIME" value="子"/>
+    <action type="SHOW_CLOUD" value="0"/>
+    <action type="SHOW_CLOUD" value="1"/>
+    <action type="FADEOUT" value="1 --淡出背景"/>
+    <action type="RANDOMITEM" value="龙泉剑#1#精钢拳套#1"/>
+    <action type="RANDOMITEM" value="药丸甲|药丸乙#2"/>
+    <action type="RANDOMITEM" value="甲#1#乙#2"/>
+  </story></root>`;
+
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 侠说动作
+input_name('孩子')
+set_character_name('主角', '郭靖二代过长名')
+set_gender('孩子', 'female')
+set_gender('主角', 'eunuch')
+set_portrait('孩子', '头像.女孩')
+advance_time_slots(2)
+advance_to_time_slot('子')
+show_cloud(false)
+show_cloud(true)
+fade('out', 1)
+add_random_item(['龙泉剑', '精钢拳套'], 1)
+add_random_item(['药丸甲', '药丸乙'], 2)
+add_random_item_options(['甲#1', '乙#2'])
+`);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).diagnostics, []);
+});
+
+test("converter adapts XMJH calendar, completion and character conditions", () => {
+  const xml = `<root><story name="侠说条件">
+    <result type="story" value="甲"><condition type="SHOULD_FINISH_MORE_THAN" value="循环剧情#3"/></result>
+    <result type="story" value="乙"><condition type="STORY_EXCEED_DAY" value="旧事#7"/></result>
+    <result type="story" value="丙"><condition type="IN_MENPAI" value="武当派"/></result>
+    <result type="story" value="丁"><condition type="!IN_TIME" value="子#丑"/></result>
+    <result type="story" value="戊"><condition type="IN_DAY|IN_DAY" value="20220909|20221001"/><condition type="SHOULD_NOT_FINISH" value="节日已领"/></result>
+    <result type="story" value="己"><condition type="DATE_LESS_THAN" value="00010401"/></result>
+    <result type="story" value="庚"><condition type="IS_VERSION" value="侠说"/></result>
+    <result type="story" value="辛"><condition type="LEVEL_GREATER_THAN" value="20"/></result>
+    <result type="story" value="壬"><condition type="SKILL_MORE_THAN" value="太极拳#10"/></result>
+    <result type="story" value="癸"><condition type="MAXHP_GREATER_THAN" value="主角#1000"/></result>
+    <result type="story" value="子"><condition type="KEY_IS_FEMALE" value="孩子#1"/></result>
+    <result type="story" value="丑"><condition type="HAOGAN_EQUALS_THAN2" value="黄蓉#郭襄"/></result>
+    <result type="story" value="寅"><condition type="CAIYAO" value="3"/></result>
+    <result type="story" value="卯"><condition type="LSJZ" value="4"/></result>
+    <result type="story" value="辰"><condition type="NICK_MORE_THAN" value="10"/></result>
+    <result type="story" value="巳"><condition type="JISHA_MORE_THAN" value="100"/></result>
+  </story></root>`;
+
+  const story = convertXmlToStory(xml);
+  assert.equal(story, `# 侠说条件
+if story_completion_count('循环剧情') >= 3
+  jump 甲
+if story_completed('旧事') and story_elapsed_days('旧事') > 7
+  jump 乙
+if sect == '武当派'
+  jump 丙
+if not (current_time_slot == '子' or current_time_slot == '丑')
+  jump 丁
+if ((system_date == 20220909) or (system_date == 20221001)) and not story_completed('节日已领')
+  jump 戊
+if current_date < 10401
+  jump 己
+if true
+  jump 庚
+if character_level('主角') >= 20
+  jump 辛
+if skill_level('主角', '太极拳') >= 10
+  jump 壬
+if character_stat('主角', 'maxhp') >= 1000
+  jump 癸
+if character_gender('孩子') == 'female'
+  jump 子
+if favorability('黄蓉') == favorability('郭襄')
+  jump 丑
+if favorability('采药') == 3
+  jump 寅
+if favorability('卷宗') == 4
+  jump 卯
+if achievement_count >= 10
+  jump 辰
+if kill_count >= 100
+  jump 巳
+`);
+  const parsed = parseStory(story);
+  assert.deepEqual(parsed.diagnostics, []);
+  assert.deepEqual(compileScript(parsed.ast).diagnostics, []);
 });
 
 test("converter rejects legacy values that cannot be migrated safely", () => {

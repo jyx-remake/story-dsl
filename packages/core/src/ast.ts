@@ -150,6 +150,10 @@ export interface BattleStmtAst {
   type: "battle";
   span: SourceSpan;
   battleId: string;
+  /** Legacy BATTLE's optional repeat count (`#count`). */
+  totalBattles?: number;
+  /** Legacy BATTLE's optional NPC power level (`#level`). */
+  battleLevel?: number;
   outcomes: BattleOutcomeAst[];
   raw: string;
 }

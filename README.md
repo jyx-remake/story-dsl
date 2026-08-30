@@ -63,7 +63,7 @@ npm run dev:web
 - `Story DSL: Compile All Stories`
 - `Story DSL: Convert XML To Story`
 
-`Convert XML To Story` 输出 v3 canonical 语句，并在写入前通过同一套 parser/compiler 验证。通用 `SET_FLAG / CLEAR_FLAG / SET_VAR / CHANGE_VAR / REMOVE_VAR` 会转换为裸变量赋值或 `del`；`NO_GLOBAL_EVENT` 标记仍转换为世界触发器开关。输出默认使用 `<原名>.converted.story`；若文件已存在则追加 `-2`、`-3`，不会覆盖现有 `.story`。legacy 条件会转换为普通表达式，非主角的等级、属性和技能查询自动添加 `in_team(id) and ...` 短路保护。XML 中的 `skill` 按 External skill 转换；`maxlevel` 的 once key 仍由 compiler 补充。
+`Convert XML To Story` 输出 v3 canonical 语句，并在写入前通过同一套 parser/compiler 验证。通用 `SET_FLAG / CLEAR_FLAG / SET_VAR / CHANGE_VAR / REMOVE_VAR` 会转换为裸变量赋值或 `del`；`NO_GLOBAL_EVENT` 标记仍转换为世界触发器开关。未指定输出时使用 `<原名>.converted.story`，如已存在则追加 `-2`、`-3`；显式指定输出路径时会覆盖该生成文件，确保修复转换器或更新 XML 后不会继续使用旧产物。legacy 条件会转换为普通表达式，非主角的等级、属性和技能查询自动添加 `in_team(id) and ...` 短路保护。XML 中的 `skill` 按 External skill 转换；`maxlevel` 的 once key 仍由 compiler 补充。
 旧 XML 对话与选项文本里的 `[[red:文本]]` 这类颜色标记会在转换时统一改写为 BBCode，例如 `[color=red]文本[/color]`。
 当旧 XML 的多个 result 无法无歧义落到当前 DSL 的单一跳转语义时，转换器会保留可编译的主路径，并把冲突结果输出为注释。
 
@@ -74,7 +74,7 @@ npm run convert:xml -- path\to\storys.xml
 npm run convert:xml -- path\to\storys.xml path\to\draft.story
 ```
 
-未指定输出路径时自动选择不冲突的 `.converted.story` 文件；显式输出路径已经存在时会拒绝写入。
+未指定输出路径时自动选择不冲突的 `.converted.story` 文件；显式输出路径用于可重复构建，会覆盖已有的生成文件。
 
 ## DSL Snapshot
 
@@ -190,8 +190,11 @@ battle 新手战
 ```
 
 - 当前只支持 `win / lose / timeout`
+- 为兼容旧版 XML，战斗名后可保留 `#次数#强化等级`（例如
+  `battle 新手战#2#5`）；编译到 IR 后分别写入 `totalBattles` 和
+  `battleLevel`，不会把带后缀的字符串当作战斗定义 ID。
 - 结果分支可以全部省略；无分支时 IR 的 `outcomes` 为 `{}`
-- IR 中使用 `battleId`
+- IR 中使用 `battleId`，可选 `totalBattles`、`battleLevel`
 
 ### 条件分支
 
@@ -245,7 +248,7 @@ del quest_stage
 - `call`: `target`
 - `return`: 无额外字段
 - `choice`: 可选 `style`、`prompt`、`blocks`；block 为 `options` 或带 `cases/fallback` 的 `branch`，单项条件写入 option 的可选 `when`
-- `battle`: `battleId`, `outcomes`
+- `battle`: `battleId`, 可选 `totalBattles`、`battleLevel`、`outcomes`
 - `branch`: `cases`, `fallback`
 
 命令、赋值值和条件以 v3 表达式源字符串输出。复合赋值在编译时归一化，例如 `count += 2` 输出 `{ "kind": "set", "target": "count", "value": "count + (2)" }`。`maxlevel` 仍保留一次性奖励 key 的额外编译转换：

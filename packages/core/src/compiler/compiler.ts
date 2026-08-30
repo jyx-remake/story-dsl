@@ -91,7 +91,13 @@ function compileStatement(statement: StatementAst, segmentName: string, diagnost
     case "battle": {
       const outcomes: BattleIr["outcomes"] = {};
       for (const outcome of statement.outcomes) outcomes[outcome.outcome] = compileSteps(outcome.statements, segmentName, diagnostics);
-      return { kind: "battle", battleId: statement.battleId, outcomes };
+      return {
+        kind: "battle",
+        battleId: statement.battleId,
+        ...(statement.totalBattles === undefined ? {} : { totalBattles: statement.totalBattles }),
+        ...(statement.battleLevel === undefined ? {} : { battleLevel: statement.battleLevel }),
+        outcomes,
+      };
     }
     case "if": return compileBranch(statement, segmentName, diagnostics);
   }

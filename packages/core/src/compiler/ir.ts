@@ -66,6 +66,8 @@ export interface ChoiceOptionIr {
 export interface BattleIr {
   kind: "battle";
   battleId: string;
+  totalBattles?: number;
+  battleLevel?: number;
   outcomes: Partial<Record<"win" | "lose" | "timeout", StepIr[]>>;
 }
 
